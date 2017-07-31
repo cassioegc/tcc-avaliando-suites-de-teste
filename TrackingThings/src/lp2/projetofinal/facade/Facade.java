@@ -1,23 +1,31 @@
 package lp2.projetofinal.facade;
 
+import lp2.projetofinal.controllers.ControllerUsuario;
+
 public class Facade {
+	private ControllerUsuario controllerUsuario;
+	
+	public Facade() {
+		controllerUsuario = new ControllerUsuario();
+	}
 	
 	// METODOS DO US1.
 	
 	public void cadastrarUsuario(String nome, String telefone, String email){
-		// CONTROLLERPRINCIPAL.cadastrarUsuario(nome, telefone, email);
+		controllerUsuario.cadastrarUsuario(nome, telefone, email);
 	}
 	
 	public String getInfoUsuario(String nome, String telefone, String atributo){
-		return "MUDAR"; //CONTROLLERPRINCIPAL.( nome, telefone, atributo);
+		
+		return controllerUsuario.getInfoUsuario(nome, telefone, atributo);
 	}
 	
 	public void removerUsuario(String nome, String telefone){
-		//CONTROLLERPRINCIPAL.removerUsuario(nome, telefone);
+		controllerUsuario.removerUsuario(nome, telefone);
 	}
 	
 	public void atualizarUsuario(String nome, String telefone, String atributo, String valor){
-		//CONTROLLERPRINCIPAL.atualizarUsuario(nome, telefone, atributo, valor);
+		controllerUsuario.atualizarUsuario(nome, telefone, atributo, valor);
 	}
 	
 	// METODOS DO US2.
