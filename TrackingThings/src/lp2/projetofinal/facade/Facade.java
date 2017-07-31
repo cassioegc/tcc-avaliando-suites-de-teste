@@ -2,7 +2,8 @@ package lp2.projetofinal.facade;
 
 public class Facade {
 	
-	// METODOS DO US1.
+	//MENSAGEM ESCRITA A CADA ARQUIVO DO EASYACCEPT: Implemente a parte da classe de fachada e o(s) controlador(es) necessários para lidar com as classes/funcionalidades criadas neste caso de uso.
+	// METODOS DO US1. 
 	
 	public void cadastrarUsuario(String nome, String telefone, String email){
 		// CONTROLLERPRINCIPAL.cadastrarUsuario(nome, telefone, email);
@@ -56,14 +57,26 @@ public class Facade {
 	}
 	
 	public void removerItem(String nome, String telefone, String nomeItem){
-		//CONTROLLERPRINCIPAL.removerItem(nome, telefone, nomeItem);
+		//CONTROLLERPRINCIPAL.removerItem(nome, telefone, nomeItem); //CONTROLLERITENS.removerItem(nome, telefone, nomeItem);
 	}
 	
 	public void atualizarItem(String nome, String telefone, String nomeItem, String atributo, String valor){
-		//CONTROLLERPRINCIPAL.atualizarItem(nome, telefone, nomeItem, atributo, valor);
+		//CONTROLLERPRINCIPAL.atualizarItem(nome, telefone, nomeItem, atributo, valor); //CONTROLLERITENS.atualizarItem(nome, telefone, nomeItem, atributo, valor);//
 	}
 	
+	// METODOS DO US3.
 	
+	public String listarItensOrdenadosPorNome(){
+		return "MUDAR";//CONTROLLERPRINCIPAL.listarItensOrdenadosPorNome();//CONTROLLERITENS.listarItensOrdenadosPorNome();
+	}
+	
+	public String listarItensOrdenadosPorValor(){
+		return "";//CONTROLLERPRINCIPAL.listarItensOrdenadosPorValor();//CONTROLLERITENS.listarItensOrdenadosPorValor();
+	}
+	
+	public String pesquisarDetalhesItem(String nome, String telefone, String nomeItem){
+		return "MUDAR --- toStringDOitem";//CONTROLLERPRINCIPAL.pesquisarDetalhesItem(nome, telefone, nomeItem); //CONTROLLERITENS.pesquisarDetalhesItem(nome, telefone, nomeItem);
+	}
 	
 
 }
