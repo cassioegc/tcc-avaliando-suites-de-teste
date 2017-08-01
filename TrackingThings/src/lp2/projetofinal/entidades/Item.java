@@ -11,6 +11,7 @@ public class Item {
 	public Item(String nome, double preco){
 		this.nome = nome;
 		this.preco = preco;
+		this.estado = "Nao emprestado";
 	}
 
 	public double getPreco() {
