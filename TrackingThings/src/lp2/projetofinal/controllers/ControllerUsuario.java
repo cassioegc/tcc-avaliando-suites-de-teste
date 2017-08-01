@@ -5,6 +5,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 import lp2.projetofinal.entidades.Usuario;
+import lp2.projetofinal.util.Exceptions;
 
 public class ControllerUsuario {
 
@@ -18,17 +19,17 @@ public class ControllerUsuario {
 
 		Usuario usuario = new Usuario(nome, email, telefone);
 
-		if (usuarios.contains(usuario)) {
-			throw new IllegalArgumentException("Usuario ja cadastrado");
-		}
+		if (usuarios.contains(usuario))
+			Exceptions.lancaIllegalArgumentException();
 
 		usuarios.add(usuario);
 	}
 
 	public String getInfoUsuario(String nome, String telefone, String atributo) {
+
+		if(atributo.equals("Email")){
 		
 		String email = "";
-		// foi o mecanismo de busca q consegui encaixar, sujeito a alteracao
 		for (Usuario usuario : usuarios) {
 			if (usuario.getNome().equals(nome)) {
 				if (usuario.getTelefone().equals(telefone)) {
@@ -36,12 +37,14 @@ public class ControllerUsuario {
 					break;
 				}
 			}
-
 		}
 		if (email.equals("")) {
 			return "Usuario invalido";
 		}
 		return email;
+	}
+		
+	return null;
 	}
 
 	public void removerUsuario(String nome, String telefone) {
