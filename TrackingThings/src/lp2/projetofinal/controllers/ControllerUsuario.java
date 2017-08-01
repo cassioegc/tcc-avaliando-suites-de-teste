@@ -69,10 +69,6 @@ public class ControllerUsuario {
 				break;
 			}
 		}
-		// nao tem usuario cadastrado
-		if (usuarioAtualizado == null) {
-			throw new IllegalArgumentException("Usuario invalido");
-		}
 
 		switch (atributo) {
 		case ("Email"):
