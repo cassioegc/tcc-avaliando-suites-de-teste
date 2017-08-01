@@ -9,7 +9,7 @@ public class Facade {
 		controllerUsuario = new ControllerUsuario();
 	}
 	
-	//MENSAGEM ESCRITA A CADA ARQUIVO DO EASYACCEPT: Implemente a parte da classe de fachada e o(s) controlador(es) necessários para lidar com as classes/funcionalidades criadas neste caso de uso.
+	//MENSAGEM ESCRITA A CADA ARQUIVO DO EASYACCEPT: Implemente a parte da classe de fachada e o(s) controlador(es) necessï¿½rios para lidar com as classes/funcionalidades criadas neste caso de uso.
 	// METODOS DO US1. 
 	
 	public void cadastrarUsuario(String nome, String telefone, String email){
@@ -38,7 +38,7 @@ public class Facade {
 	public String getInfoItem(String nome, String telefone, String nomeItem, String atributo){
 		return "MUDAR"; //CONTROLEPRINCIPAL.getInfoItem(nome, telefone, nomeItem, atributo);
 	}
-	// OBS: Nesse metodo, pedindo o PRECO, se as casas decimais forem zero, retornar só com uma casa, se nao for, retornar com duas. Pedindo o NOME, retorna o nome (estranho porq ele ja passa o nome como parametro);
+	// OBS: Nesse metodo, pedindo o PRECO, se as casas decimais forem zero, retornar sï¿½ com uma casa, se nao for, retornar com duas. Pedindo o NOME, retorna o nome (estranho porq ele ja passa o nome como parametro);
 	
 	public void cadastrarJogoTabuleiro(String nome, String telefone, String nomeItem, double preco){
 		//CONTROLLERPRINCIPAL.cadastrarJogoTabuleiro(nome, telefone, nomeItem, preco);
@@ -65,25 +65,25 @@ public class Facade {
 	}
 	
 	public void removerItem(String nome, String telefone, String nomeItem){
-		//CONTROLLERPRINCIPAL.removerItem(nome, telefone, nomeItem); //CONTROLLERITENS.removerItem(nome, telefone, nomeItem);
+		//CONTROLLERPRINCIPAL.removerItem(nome, telefone, nomeItem); 
 	}
 	
 	public void atualizarItem(String nome, String telefone, String nomeItem, String atributo, String valor){
-		//CONTROLLERPRINCIPAL.atualizarItem(nome, telefone, nomeItem, atributo, valor); //CONTROLLERITENS.atualizarItem(nome, telefone, nomeItem, atributo, valor);//
+		//CONTROLLERPRINCIPAL.atualizarItem(nome, telefone, nomeItem, atributo, valor); 
 	}
 	
 	// METODOS DO US3.
 	
 	public String listarItensOrdenadosPorNome(){
-		return "MUDAR";//CONTROLLERPRINCIPAL.listarItensOrdenadosPorNome();//CONTROLLERITENS.listarItensOrdenadosPorNome();
+		return "MUDAR";//CONTROLLERPRINCIPAL.listarItensOrdenadosPorNome();
 	}
 	
 	public String listarItensOrdenadosPorValor(){
-		return "";//CONTROLLERPRINCIPAL.listarItensOrdenadosPorValor();//CONTROLLERITENS.listarItensOrdenadosPorValor();
+		return "";//CONTROLLERPRINCIPAL.listarItensOrdenadosPorValor();
 	}
 	
 	public String pesquisarDetalhesItem(String nome, String telefone, String nomeItem){
-		return "MUDAR --- toStringDOitem";//CONTROLLERPRINCIPAL.pesquisarDetalhesItem(nome, telefone, nomeItem); //CONTROLLERITENS.pesquisarDetalhesItem(nome, telefone, nomeItem);
+		return "MUDAR --- toStringDOitem";//CONTROLLERPRINCIPAL.pesquisarDetalhesItem(nome, telefone, nomeItem);
 	}
 	
 
