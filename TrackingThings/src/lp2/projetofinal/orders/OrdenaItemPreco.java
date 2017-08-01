@@ -14,7 +14,7 @@ import java.util.Comparator;
 
 import lp2.projetofinal.entidades.Item;
 
-public class OrdenaCenarioApostas implements Comparator<Item> {
+public class OrdenaItemPreco implements Comparator<Item> {
 
 	@Override
 	public int compare(Item itemUm, Item itemDois) {
