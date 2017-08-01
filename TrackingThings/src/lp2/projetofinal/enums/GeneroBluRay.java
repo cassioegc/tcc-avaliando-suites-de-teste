@@ -4,7 +4,7 @@
 * @author ................
 */
 
-package lp2.projetofinal.entidades;
+package lp2.projetofinal.enums;
 
 public enum GeneroBluRay {
 	 ACAO("ACAO"), ANIMACAO("ANIMACAO"), AVENTURA("AVENTURA"), COMEDIA("COMEDIA"), DOCUMENTARIO("DOCUMENTARIO"), DRAMA("DRAMA"),

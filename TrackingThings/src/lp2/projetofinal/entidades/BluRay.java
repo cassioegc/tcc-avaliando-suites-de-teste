@@ -1,5 +1,9 @@
 package lp2.projetofinal.entidades;
 
+import java.util.Set;
+
+import lp2.projetofinal.enums.ClassificacaoBluRay;
+
 public class BluRay extends Item { // decidir se pode ser abstrata;
 	private int duracao;
 	private ClassificacaoBluRay classificacao = ClassificacaoBluRay.LIVRE;
