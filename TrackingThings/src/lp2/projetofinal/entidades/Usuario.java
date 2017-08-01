@@ -1,15 +1,15 @@
 package lp2.projetofinal.entidades;
 
 public class Usuario {
-	
+
 	private String nome;
-	
+
 	private String email;
-	
+
 	private String telefone;
-	
-	public Usuario(String nome, String email, String telefone){
-		
+
+	public Usuario(String nome, String email, String telefone) {
+
 		this.nome = nome;
 		this.email = email;
 		this.telefone = telefone;
@@ -41,7 +41,7 @@ public class Usuario {
 
 	@Override
 	public String toString() {
-		return this.nome + ", "+this.email+ ", " + this.telefone;
+		return this.nome + ", " + this.email + ", " + this.telefone;
 	}
 
 	@Override
@@ -61,21 +61,14 @@ public class Usuario {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Usuario other = (Usuario) obj;
-		if (nome == null) {
-			if (other.nome != null)
-				return false;
-		} else if (!nome.equals(other.nome))
+		Usuario ref = (Usuario) obj;
+
+		if (!ref.getNome().equals(this.nome))
 			return false;
-		if (telefone == null) {
-			if (other.telefone != null)
-				return false;
-		} else if (!telefone.equals(other.telefone))
+		if (!ref.getTelefone().equals(this.telefone))
 			return false;
+
 		return true;
 	}
-	
-	
-	
 
 }
