@@ -6,6 +6,8 @@ public class Item {
 	
 	private double preco;
 	
+	private String estado;
+	
 	public Item(String nome, double preco){
 		this.nome = nome;
 		this.preco = preco;
@@ -25,6 +27,14 @@ public class Item {
 
 	public void setNome(String nome) {
 		this.nome = nome;
+	}
+	
+	public String getEstado(){
+		return estado;
+	}
+	
+	public void setEstado(String estado){
+		this.estado = estado;
 	}
 	
 	
