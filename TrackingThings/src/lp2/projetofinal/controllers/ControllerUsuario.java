@@ -1,10 +1,10 @@
 package lp2.projetofinal.controllers;
 
 import java.util.HashSet;
-
 import java.util.Set;
 
 import lp2.projetofinal.entidades.Usuario;
+import lp2.projetofinal.util.Checks;
 import lp2.projetofinal.util.Exceptions;
 
 public class ControllerUsuario {
@@ -16,7 +16,11 @@ public class ControllerUsuario {
 	}
 
 	public void cadastrarUsuario(String nome, String telefone, String email) {
-
+		
+		Checks.verificaNomeVazioNulo(nome);
+		Checks.verificaTelefoneVazioNulo(telefone);
+		Checks.verificaEmailVazioNulo(email);
+		
 		Usuario usuario = new Usuario(nome, email, telefone);
 
 		if (usuarios.contains(usuario))
@@ -27,6 +31,10 @@ public class ControllerUsuario {
 
 	public String getInfoUsuario(String nome, String telefone, String atributo) {
 
+		Checks.verificaNomeVazioNulo(nome);
+		Checks.verificaTelefoneVazioNulo(telefone);
+		Checks.verificaAtributolVazioNulo(atributo);
+		
 		if(atributo.equals("Email")){
 		
 		String email = "";
@@ -48,6 +56,10 @@ public class ControllerUsuario {
 	}
 
 	public void removerUsuario(String nome, String telefone) {
+		
+		Checks.verificaNomeVazioNulo(nome);
+		Checks.verificaTelefoneVazioNulo(telefone);
+		
 		boolean temUsuario = false;
 		for (Usuario usuario : usuarios) {
 			if (usuario.getNome().equals(nome) && usuario.getTelefone().equals(telefone)) {
@@ -64,6 +76,11 @@ public class ControllerUsuario {
 
 	public void atualizarUsuario(String nome, String telefone, String atributo, String valor) {
 
+		Checks.verificaNomeVazioNulo(nome);
+		Checks.verificaTelefoneVazioNulo(telefone);
+		Checks.verificaAtributolVazioNulo(atributo);
+		Checks.verificaValorVazioNulo(valor);
+		
 		Usuario usuarioAtualizado = null;
 		for (Usuario usuario : usuarios) {
 			if (usuario.getNome().equals(nome) && usuario.getTelefone().equals(telefone)) {

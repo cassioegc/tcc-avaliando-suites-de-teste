@@ -18,6 +18,7 @@ public class OrdenaItemPreco implements Comparator<Item> {
 
 	@Override
 	public int compare(Item itemUm, Item itemDois) {
+
 		return (int) (itemUm.getPreco() - itemDois.getPreco());
 	}
 

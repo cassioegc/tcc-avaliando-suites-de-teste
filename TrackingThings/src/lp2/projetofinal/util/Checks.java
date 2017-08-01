@@ -13,8 +13,8 @@ package lp2.projetofinal.util;
 
 public class Checks {
 	
-	public static void verificaNomeVazioNulo(String usuario){
-		if(usuario.trim().isEmpty()){
+	public static void verificaNomeVazioNulo(String nome){
+		if(nome.trim().isEmpty()){
 			throw new IllegalArgumentException("Nome usuario nao pode ser vazio ou nulo");
 		}
 	}
