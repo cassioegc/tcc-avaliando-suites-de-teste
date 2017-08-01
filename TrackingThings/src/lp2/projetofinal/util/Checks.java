@@ -13,28 +13,34 @@ package lp2.projetofinal.util;
 
 public class Checks {
 	
-	public static void verificaNomeVazioOuNulo(String usuario){
+	public static void verificaNomeVazioNulo(String usuario){
 		if(usuario.trim().isEmpty()){
 			throw new IllegalArgumentException("Nome usuario nao pode ser vazio ou nulo");
 		}
 	}
 
-	public static void verificaTelefoneVazioOuNulo(String telefone){
+	public static void verificaTelefoneVazioNulo(String telefone){
 		if(telefone.trim().isEmpty()){
 			throw new IllegalArgumentException("Telefone nao pode ser vazio ou nulo");
 		}
 	}
 	
-	public static void verificaEmailVazioOuNulo(String email){
+	public static void verificaEmailVazioNulo(String email){
 		if(email.trim().isEmpty()){
 			throw new IllegalArgumentException("Email nao pode ser vazio ou nulo");
 		}
 	}
 		
-	public static void verificaAtributolVazioOuNulo(String atributo){
+	public static void verificaAtributolVazioNulo(String atributo){
 		if(atributo.trim().isEmpty()){
 			throw new IllegalArgumentException("Atributo nao pode ser vazio ou nulo");
 			// SE A STRING ATRIBUTO == "Email"????;
+		}
+	}
+	
+	public static void verificaValorVazioNulo(String valor){
+		if (valor.trim().isEmpty()) {
+			throw new IllegalArgumentException("Valor nao pode ser vazio ou nulo");
 		}
 	}
 	
