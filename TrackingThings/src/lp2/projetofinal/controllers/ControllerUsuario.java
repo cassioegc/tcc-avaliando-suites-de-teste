@@ -5,7 +5,6 @@ import java.util.Map;
 
 import lp2.projetofinal.entidades.ChaveNomeTelefone;
 import lp2.projetofinal.entidades.Usuario;
-import lp2.projetofinal.util.Checks;
 import lp2.projetofinal.util.Exceptions;
 
 public class ControllerUsuario {
@@ -17,10 +16,6 @@ public class ControllerUsuario {
 	}
 
 	public void cadastrarUsuario(String nome, String telefone, String email) {
-
-		Checks.verificaNomeVazioNulo(nome);
-		Checks.verificaTelefoneVazioNulo(telefone);
-		Checks.verificaEmailVazioNulo(email);
 
 		ChaveNomeTelefone chave = new ChaveNomeTelefone(nome, telefone);
 
@@ -34,14 +29,9 @@ public class ControllerUsuario {
 
 	public String getInfoUsuario(String nome, String telefone, String atributo) {
 
-		Checks.verificaNomeVazioNulo(nome);
-		Checks.verificaTelefoneVazioNulo(telefone);
-		Checks.verificaAtributolVazioNulo(atributo);
-
 		ChaveNomeTelefone chave = new ChaveNomeTelefone(nome, telefone);
 
-		if (!usuarios.containsKey(chave))
-			Exceptions.usuarioInvalidoException();
+		verificaExistenciaChaveMapa(chave);
 
 		Usuario usuario = usuarios.get(chave);
 
@@ -53,20 +43,22 @@ public class ControllerUsuario {
 			return usuario.getTelefone();
 		else
 			Exceptions.atributoInvalidoException();
-		;
-		return atributo;
+		
+		return null;
 
+	}
+
+	private void verificaExistenciaChaveMapa(ChaveNomeTelefone chave) {
+		
+		if (!usuarios.containsKey(chave))
+			Exceptions.usuarioInvalidoException();
 	}
 
 	public void removerUsuario(String nome, String telefone) {
 
-		Checks.verificaNomeVazioNulo(nome);
-		Checks.verificaTelefoneVazioNulo(telefone);
-
 		ChaveNomeTelefone chave = new ChaveNomeTelefone(nome, telefone);
 
-		if (!usuarios.containsKey(chave))
-			Exceptions.usuarioInvalidoException();
+		verificaExistenciaChaveMapa(chave);
 
 		usuarios.remove(chave);
 
@@ -74,15 +66,9 @@ public class ControllerUsuario {
 
 	public void atualizarUsuario(String nome, String telefone, String atributo, String valor) {
 
-		Checks.verificaNomeVazioNulo(nome);
-		Checks.verificaTelefoneVazioNulo(telefone);
-		Checks.verificaAtributolVazioNulo(atributo);
-		Checks.verificaValorVazioNulo(valor);
-
 		ChaveNomeTelefone chave = new ChaveNomeTelefone(nome, telefone);
 
-		if (!usuarios.containsKey(chave))
-			Exceptions.usuarioInvalidoException();
+		verificaExistenciaChaveMapa(chave);
 
 		Usuario usuario = usuarios.get(chave);
 

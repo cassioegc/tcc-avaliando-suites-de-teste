@@ -2,7 +2,7 @@ package lp2.projetofinal.entidades;
 
 import lp2.projetofinal.enums.ClassificacaoBluRay;
 
-public class BluRay extends Item { // decidir se pode ser abstrata;
+public abstract class BluRay extends Item {
 	private int duracao;
 	private ClassificacaoBluRay classificacao;
 
@@ -11,9 +11,5 @@ public class BluRay extends Item { // decidir se pode ser abstrata;
 		this.duracao = duracao;
 		this.classificacao = ClassificacaoBluRay.LIVRE;
 	}
-
-	// colecaoDeBluRays
-	// duracaoDaTemporada
-	// classificacaoEnum
 
 }
