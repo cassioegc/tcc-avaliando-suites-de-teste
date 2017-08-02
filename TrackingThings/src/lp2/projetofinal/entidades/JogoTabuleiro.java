@@ -17,7 +17,7 @@ public class JogoTabuleiro extends Item {
 		this.pecasPerdidas.add(peca);
 	}
 	
-	public Set getPecasPerdidas(){
+	public Set<String> getPecasPerdidas(){
 		return this.pecasPerdidas;
 	}
 	
