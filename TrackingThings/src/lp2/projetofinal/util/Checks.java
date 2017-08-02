@@ -1,10 +1,10 @@
 package lp2.projetofinal.util;
 
 /**
- * Classe responsável por encapsular os métodos relacionados a validações no
+ * Classe responsavel por encapsular os metodos relacionados a validacoes no
  * projeto.
  * 
- * Laboratório de Programação 2 - Projeto Final Parte 01
+ * Laboratorio de Programacao 2 - Projeto Final Parte 01
  * 
  * @author Thiago Santos de Moura - 116210967
  * @author Gabriel Almeida Azevedo - 116210009
@@ -34,7 +34,6 @@ public class Checks {
 	public static void verificaAtributolVazioNulo(String atributo){
 		if(atributo.trim().isEmpty()){
 			throw new IllegalArgumentException("Atributo nao pode ser vazio ou nulo");
-			// SE A STRING ATRIBUTO == "Email"????;
 		}
 	}
 	

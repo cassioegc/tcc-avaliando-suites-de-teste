@@ -1,32 +1,34 @@
 package lp2.projetofinal.facade;
 
-import lp2.projetofinal.controllers.ControllerUsuario;
+import lp2.projetofinal.controllers.Sistema;
 
 public class Facade {
-	private ControllerUsuario controllerUsuario;
 	
-	public Facade() {
-		controllerUsuario = new ControllerUsuario();
+	private Sistema sistema;
+	
+	public void iniciarSistema(){
+		sistema = new Sistema();
 	}
 	
-	//MENSAGEM ESCRITA A CADA ARQUIVO DO EASYACCEPT: Implemente a parte da classe de fachada e o(s) controlador(es) necess�rios para lidar com as classes/funcionalidades criadas neste caso de uso.
-	// METODOS DO US1. 
-	
 	public void cadastrarUsuario(String nome, String telefone, String email){
-		controllerUsuario.cadastrarUsuario(nome, telefone, email);
+		sistema.cadastrarUsuario(nome, telefone, email);
 	}
 	
 	public String getInfoUsuario(String nome, String telefone, String atributo){
 		
-		return controllerUsuario.getInfoUsuario(nome, telefone, atributo);
+		return sistema.getInfoUsuario(nome, telefone, atributo);
 	}
 	
 	public void removerUsuario(String nome, String telefone){
-		controllerUsuario.removerUsuario(nome, telefone);
+		sistema.removerUsuario(nome, telefone);
 	}
 	
 	public void atualizarUsuario(String nome, String telefone, String atributo, String valor){
-		controllerUsuario.atualizarUsuario(nome, telefone, atributo, valor);
+		sistema.atualizarUsuario(nome, telefone, atributo, valor);
+	}
+	
+	public void fecharSistema(){
+		sistema.finalizar();
 	}
 	
 	// METODOS DO US2.

@@ -1,106 +1,95 @@
 package lp2.projetofinal.controllers;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
 
+import lp2.projetofinal.entidades.ChaveNomeTelefone;
 import lp2.projetofinal.entidades.Usuario;
-import lp2.projetofinal.util.Checks;
 import lp2.projetofinal.util.Exceptions;
 
 public class ControllerUsuario {
 
-	private Set<Usuario> usuarios;
+	private Map<ChaveNomeTelefone, Usuario> usuarios;
 
 	public ControllerUsuario() {
-		usuarios = new HashSet<Usuario>();
+		usuarios = new HashMap<ChaveNomeTelefone, Usuario>();
 	}
 
 	public void cadastrarUsuario(String nome, String telefone, String email) {
-		
-		Checks.verificaNomeVazioNulo(nome);
-		Checks.verificaTelefoneVazioNulo(telefone);
-		Checks.verificaEmailVazioNulo(email);
-		
+
+		ChaveNomeTelefone chave = new ChaveNomeTelefone(nome, telefone);
+
+		if (usuarios.containsKey(chave))
+			Exceptions.usuarioJaCadastradoException();
+
 		Usuario usuario = new Usuario(nome, email, telefone);
 
-		if (usuarios.contains(usuario))
-			Exceptions.lancaIllegalArgumentException();
-
-		usuarios.add(usuario);
+		this.usuarios.put(chave, usuario);
 	}
 
 	public String getInfoUsuario(String nome, String telefone, String atributo) {
 
-		Checks.verificaNomeVazioNulo(nome);
-		Checks.verificaTelefoneVazioNulo(telefone);
-		Checks.verificaAtributolVazioNulo(atributo);
-		
-		if(atributo.equals("Email")){
-		
-		String email = "";
-		for (Usuario usuario : usuarios) {
-			if (usuario.getNome().equals(nome)) {
-				if (usuario.getTelefone().equals(telefone)) {
-					email = usuario.getEmail();
-					break;
-				}
-			}
-		}
-		if (email.equals("")) {
-			return "Usuario invalido";
-		}
-		return email;
+		ChaveNomeTelefone chave = new ChaveNomeTelefone(nome, telefone);
+
+		verificaExistenciaChaveMapa(chave);
+
+		Usuario usuario = this.usuarios.get(chave);
+
+		if (atributo.equals("Email"))
+			return usuario.getEmail();
+		else if (atributo.equals("Nome"))
+			return usuario.getNome();
+		else if (atributo.equals("Telefone"))
+			return usuario.getTelefone();
+		else
+			Exceptions.atributoInvalidoException();
+
+		return null;
+
 	}
-		
-	return null;
+
+	private void verificaExistenciaChaveMapa(ChaveNomeTelefone chave) {
+
+		if (!this.usuarios.containsKey(chave))
+			Exceptions.usuarioInvalidoException();
 	}
 
 	public void removerUsuario(String nome, String telefone) {
-		
-		Checks.verificaNomeVazioNulo(nome);
-		Checks.verificaTelefoneVazioNulo(telefone);
-		
-		boolean temUsuario = false;
-		for (Usuario usuario : usuarios) {
-			if (usuario.getNome().equals(nome) && usuario.getTelefone().equals(telefone)) {
-				temUsuario = true;
-				usuarios.remove(usuario);
-				break;
-			}
-		}
-		// nao tem usuario cadastrado
-		if (!temUsuario) {
-			throw new IllegalArgumentException("Usuario invalido");
-		}
+
+		ChaveNomeTelefone chave = new ChaveNomeTelefone(nome, telefone);
+
+		verificaExistenciaChaveMapa(chave);
+
+		this.usuarios.remove(chave);
+
 	}
 
 	public void atualizarUsuario(String nome, String telefone, String atributo, String valor) {
 
-		Checks.verificaNomeVazioNulo(nome);
-		Checks.verificaTelefoneVazioNulo(telefone);
-		Checks.verificaAtributolVazioNulo(atributo);
-		Checks.verificaValorVazioNulo(valor);
-		
-		Usuario usuarioAtualizado = null;
-		for (Usuario usuario : usuarios) {
-			if (usuario.getNome().equals(nome) && usuario.getTelefone().equals(telefone)) {
+		ChaveNomeTelefone chave = new ChaveNomeTelefone(nome, telefone);
 
-				usuarioAtualizado = usuario;
-				break;
-			}
-		}
+		verificaExistenciaChaveMapa(chave);
 
-		switch (atributo) {
-		case ("Email"):
-			usuarioAtualizado.setEmail(valor);
-			break;
-		case ("Telefone"):
-			usuarioAtualizado.setTelefone(valor);
-			break;
-		case ("Nome"):
-			usuarioAtualizado.setNome(valor);
-			break;
-		}
+		Usuario usuario = usuarios.get(chave);
+
+		if (atributo.equals("Email"))
+			usuario.setEmail(valor);
+
+		else if (atributo.equals("Telefone")) {
+			usuario.setTelefone(valor);
+			ChaveNomeTelefone newChave = new ChaveNomeTelefone(nome, valor);
+			this.usuarios.put(newChave, usuario);
+			this.usuarios.remove(chave);
+
+		} else if (atributo.equals("Nome")) {
+			usuario.setNome(valor);
+			ChaveNomeTelefone newChave = new ChaveNomeTelefone(valor, telefone);
+			this.usuarios.put(newChave, usuario);
+			this.usuarios.remove(chave);
+
+		} else
+			Exceptions.atributoInvalidoException();
+
 	}
 
 }
