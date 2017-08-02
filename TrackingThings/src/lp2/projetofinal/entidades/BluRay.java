@@ -12,4 +12,12 @@ public abstract class BluRay extends Item {
 		this.classificacao = ClassificacaoBluRay.LIVRE;
 	}
 
+	public int getDuracao() {
+		return duracao;
+	}
+
+	public String getClassificacao() {
+		return classificacao.getClassificacao();
+	}
+
 }
