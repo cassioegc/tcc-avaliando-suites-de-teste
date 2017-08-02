@@ -1,32 +1,35 @@
 package lp2.projetofinal.controllers;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
 
+import lp2.projetofinal.entidades.ChaveNomeTelefone;
 import lp2.projetofinal.entidades.Usuario;
 import lp2.projetofinal.util.Checks;
 import lp2.projetofinal.util.Exceptions;
 
 public class ControllerUsuario {
 
-	private Set<Usuario> usuarios;
+	private Map<ChaveNomeTelefone, Usuario> usuarios;
 
 	public ControllerUsuario() {
-		usuarios = new HashSet<Usuario>();
+		usuarios = new HashMap<ChaveNomeTelefone, Usuario>();
 	}
 
 	public void cadastrarUsuario(String nome, String telefone, String email) {
-		
+
 		Checks.verificaNomeVazioNulo(nome);
 		Checks.verificaTelefoneVazioNulo(telefone);
 		Checks.verificaEmailVazioNulo(email);
-		
+
+		ChaveNomeTelefone chave = new ChaveNomeTelefone(nome, telefone);
+
+		if (usuarios.containsKey(chave))
+			Exceptions.usuarioJaCadastradoException();
+
 		Usuario usuario = new Usuario(nome, email, telefone);
 
-		if (usuarios.contains(usuario))
-			Exceptions.lancaIllegalArgumentException();
-
-		usuarios.add(usuario);
+		usuarios.put(chave, usuario);
 	}
 
 	public String getInfoUsuario(String nome, String telefone, String atributo) {
@@ -34,44 +37,39 @@ public class ControllerUsuario {
 		Checks.verificaNomeVazioNulo(nome);
 		Checks.verificaTelefoneVazioNulo(telefone);
 		Checks.verificaAtributolVazioNulo(atributo);
-		
-		if(atributo.equals("Email")){
-		
-		String email = "";
-		for (Usuario usuario : usuarios) {
-			if (usuario.getNome().equals(nome)) {
-				if (usuario.getTelefone().equals(telefone)) {
-					email = usuario.getEmail();
-					break;
-				}
-			}
-		}
-		if (email.equals("")) {
-			return "Usuario invalido";
-		}
-		return email;
-	}
-		
-	return null;
+
+		ChaveNomeTelefone chave = new ChaveNomeTelefone(nome, telefone);
+
+		if (!usuarios.containsKey(chave))
+			Exceptions.usuarioInvalidoException();
+
+		Usuario usuario = usuarios.get(chave);
+
+		if (atributo.equals("Email"))
+			return usuario.getEmail();
+		else if (atributo.equals("Nome"))
+			return usuario.getNome();
+		else if (atributo.equals("Telefone"))
+			return usuario.getTelefone();
+		else
+			Exceptions.atributoInvalidoException();
+		;
+		return atributo;
+
 	}
 
 	public void removerUsuario(String nome, String telefone) {
-		
+
 		Checks.verificaNomeVazioNulo(nome);
 		Checks.verificaTelefoneVazioNulo(telefone);
-		
-		boolean temUsuario = false;
-		for (Usuario usuario : usuarios) {
-			if (usuario.getNome().equals(nome) && usuario.getTelefone().equals(telefone)) {
-				temUsuario = true;
-				usuarios.remove(usuario);
-				break;
-			}
-		}
-		// nao tem usuario cadastrado
-		if (!temUsuario) {
-			throw new IllegalArgumentException("Usuario invalido");
-		}
+
+		ChaveNomeTelefone chave = new ChaveNomeTelefone(nome, telefone);
+
+		if (!usuarios.containsKey(chave))
+			Exceptions.usuarioInvalidoException();
+
+		usuarios.remove(chave);
+
 	}
 
 	public void atualizarUsuario(String nome, String telefone, String atributo, String valor) {
@@ -80,25 +78,23 @@ public class ControllerUsuario {
 		Checks.verificaTelefoneVazioNulo(telefone);
 		Checks.verificaAtributolVazioNulo(atributo);
 		Checks.verificaValorVazioNulo(valor);
-		
-		Usuario usuarioAtualizado = null;
-		for (Usuario usuario : usuarios) {
-			if (usuario.getNome().equals(nome) && usuario.getTelefone().equals(telefone)) {
 
-				usuarioAtualizado = usuario;
-				break;
-			}
-		}
+		ChaveNomeTelefone chave = new ChaveNomeTelefone(nome, telefone);
+
+		if (!usuarios.containsKey(chave))
+			Exceptions.usuarioInvalidoException();
+
+		Usuario usuario = usuarios.get(chave);
 
 		switch (atributo) {
 		case ("Email"):
-			usuarioAtualizado.setEmail(valor);
+			usuario.setEmail(valor);
 			break;
 		case ("Telefone"):
-			usuarioAtualizado.setTelefone(valor);
+			usuario.setTelefone(valor);
 			break;
 		case ("Nome"):
-			usuarioAtualizado.setNome(valor);
+			usuario.setNome(valor);
 			break;
 		}
 	}

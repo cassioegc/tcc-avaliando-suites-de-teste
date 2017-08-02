@@ -34,7 +34,6 @@ public class Checks {
 	public static void verificaAtributolVazioNulo(String atributo){
 		if(atributo.trim().isEmpty()){
 			throw new IllegalArgumentException("Atributo nao pode ser vazio ou nulo");
-			// SE A STRING ATRIBUTO == "Email"????;
 		}
 	}
 	
