@@ -24,7 +24,7 @@ public class ControllerUsuario {
 
 		Usuario usuario = new Usuario(nome, email, telefone);
 
-		usuarios.put(chave, usuario);
+		this.usuarios.put(chave, usuario);
 	}
 
 	public String getInfoUsuario(String nome, String telefone, String atributo) {
@@ -33,7 +33,7 @@ public class ControllerUsuario {
 
 		verificaExistenciaChaveMapa(chave);
 
-		Usuario usuario = usuarios.get(chave);
+		Usuario usuario = this.usuarios.get(chave);
 
 		if (atributo.equals("Email"))
 			return usuario.getEmail();
@@ -43,14 +43,14 @@ public class ControllerUsuario {
 			return usuario.getTelefone();
 		else
 			Exceptions.atributoInvalidoException();
-		
+
 		return null;
 
 	}
 
 	private void verificaExistenciaChaveMapa(ChaveNomeTelefone chave) {
-		
-		if (!usuarios.containsKey(chave))
+
+		if (!this.usuarios.containsKey(chave))
 			Exceptions.usuarioInvalidoException();
 	}
 
@@ -60,7 +60,7 @@ public class ControllerUsuario {
 
 		verificaExistenciaChaveMapa(chave);
 
-		usuarios.remove(chave);
+		this.usuarios.remove(chave);
 
 	}
 
@@ -72,17 +72,24 @@ public class ControllerUsuario {
 
 		Usuario usuario = usuarios.get(chave);
 
-		switch (atributo) {
-		case ("Email"):
+		if (atributo.equals("Email"))
 			usuario.setEmail(valor);
-			break;
-		case ("Telefone"):
+
+		else if (atributo.equals("Telefone")) {
 			usuario.setTelefone(valor);
-			break;
-		case ("Nome"):
+			ChaveNomeTelefone newChave = new ChaveNomeTelefone(nome, valor);
+			this.usuarios.put(newChave, usuario);
+			this.usuarios.remove(chave);
+
+		} else if (atributo.equals("Nome")) {
 			usuario.setNome(valor);
-			break;
-		}
+			ChaveNomeTelefone newChave = new ChaveNomeTelefone(valor, telefone);
+			this.usuarios.put(newChave, usuario);
+			this.usuarios.remove(chave);
+
+		} else
+			Exceptions.atributoInvalidoException();
+
 	}
 
 }

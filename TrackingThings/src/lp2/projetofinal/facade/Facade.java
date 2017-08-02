@@ -27,6 +27,10 @@ public class Facade {
 		sistema.atualizarUsuario(nome, telefone, atributo, valor);
 	}
 	
+	public void fecharSistema(){
+		sistema.finalizar();
+	}
+	
 	// METODOS DO US2.
 	
 	public void cadastrarEletronico(String nome, String telefone, String nomeItem, double preco, String plataforma){

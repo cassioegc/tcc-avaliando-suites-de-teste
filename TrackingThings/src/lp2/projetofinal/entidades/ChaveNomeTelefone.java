@@ -38,9 +38,9 @@ public class ChaveNomeTelefone {
 
 		ChaveNomeTelefone ref = (ChaveNomeTelefone) obj;
 
-		if (ref.getNome().equals(this.nome))
+		if (!ref.getNome().equals(this.nome))
 			return false;
-		if (ref.getTelefone().equals(this.telefone))
+		if (!ref.getTelefone().equals(this.telefone))
 			return false;
 
 		return true;
