@@ -7,7 +7,6 @@ import lp2.projetofinal.enums.GeneroBluRay;;
 
 public class BluRayFilme extends BluRay {
 	private int anoLancamento;
-	private GeneroBluRay genero = GeneroBluRay.OUTRO;
 	
 	private GeneroBluRay genero;
 	
