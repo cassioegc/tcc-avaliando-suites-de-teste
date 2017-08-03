@@ -19,23 +19,18 @@ public class JogoEletronico extends Item{
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((this.getNome() == null) ? 0 : this.getNome().hashCode());
+		result = super.hashCode();
 		result = prime * result + ((plataforma == null) ? 0 : plataforma.hashCode());
 		return result;
 	}
 
 	@Override
 	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
+		
+		if(!super.equals(obj))
 			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		JogoEletronico ref = (JogoEletronico) obj;
 
-		if (!ref.getNome().equals(this.getNome()))
-			return false;
+		JogoEletronico ref = (JogoEletronico) obj;
 		if (!ref.getPlataforma().equals(this.plataforma))
 			return false;
 

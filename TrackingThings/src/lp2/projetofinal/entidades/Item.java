@@ -54,13 +54,14 @@ public class Item {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Item other = (Item) obj;
-		if (nome == null) {
-			if (other.nome != null)
-				return false;
-		} else if (!nome.equals(other.nome))
+		Item ref = (Item) obj;
+		
+		if(!ref.getNome().equals(this.nome))
 			return false;
+		
 		return true;
+		
+
 	}
 	
 	
