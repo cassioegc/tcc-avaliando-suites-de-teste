@@ -1,4 +1,4 @@
-package lp2.projetofinal.entidades;
+package lp2.projetofinal.controllers;
 
 public class Usuario {
 
