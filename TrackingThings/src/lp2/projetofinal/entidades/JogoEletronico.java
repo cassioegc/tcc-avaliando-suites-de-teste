@@ -1,17 +1,19 @@
 package lp2.projetofinal.entidades;
 
+import lp2.projetofinal.enums.PlataformaJogoEletronico;
+
 public class JogoEletronico extends Item{
 
-	private String plataforma;
+	private PlataformaJogoEletronico plataforma;
 	
 	public JogoEletronico(String nome, double preco, String plataforma) {
 		super(nome, preco);
 		
-		this.plataforma = plataforma;
+		this.plataforma = PlataformaJogoEletronico.indentificaPlataforma(plataforma);
 	}
 
 	public String getPlataforma(){
-		return plataforma;
+		return plataforma.getPlataforma();
 	}
 	
 	@Override
