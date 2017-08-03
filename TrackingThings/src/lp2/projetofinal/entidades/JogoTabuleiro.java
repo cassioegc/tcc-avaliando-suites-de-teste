@@ -5,26 +5,25 @@ import java.util.Set;
 
 public class JogoTabuleiro extends Item {
 
-	private Set<String> pecasPerdidas; // DECLARO COMO SET MESMO? Notar que o
-										// getPecasPerdidas retorna um Set e nao
-										// um HashSet.
+	private Set<String> pecasPerdidas; 
 
 	public JogoTabuleiro(String nome, double preco) {
 		super(nome, preco);
 
-		this.pecasPerdidas = new HashSet<>(); // Mudar para list?
+		this.pecasPerdidas = new HashSet<>(); 
 	}
 
 	public void adicionarPecaPerdida(String peca) {
 		this.pecasPerdidas.add(peca);
 	}
 
-	public Set<String> getPecasPerdidas() {
-		return this.pecasPerdidas;
+	public String contemPecasPerdidas() {
+		if(pecasPerdidas.isEmpty())
+			return "COMPLETO";
+		else
+			return "COM PECAS PERDIDAS";
 	}
-
-	// Esse equals ta correto? EH PARA Gerar um equals com NOME e COLECAO DE
-	// pecasPerdidas.
+	
 
 	@Override
 	public int hashCode() {
@@ -42,7 +41,7 @@ public class JogoTabuleiro extends Item {
 			return false;
 
 		JogoTabuleiro ref = (JogoTabuleiro) obj;
-		if (!ref.getPecasPerdidas().equals(this.pecasPerdidas))
+		if (!ref.pecasPerdidas.equals(this.pecasPerdidas))
 			return false;
 
 		return true;

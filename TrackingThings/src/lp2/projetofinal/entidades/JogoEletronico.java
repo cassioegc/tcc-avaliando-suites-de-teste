@@ -14,7 +14,6 @@ public class JogoEletronico extends Item{
 		return plataforma;
 	}
 	
-	//Esse equals ta certo? Eh para gerar com NOME e PLATAFORMA.
 	@Override
 	public int hashCode() {
 		final int prime = 31;
