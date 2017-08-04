@@ -9,7 +9,7 @@ public abstract class BluRay extends Item {
 	public BluRay(String nome, double preco, int duracao, String classificacao) {
 		super(nome, preco);
 		this.duracao = duracao;
-		this.classificacao = ClassificacaoBluRay.LIVRE;
+		this.classificacao = ClassificacaoBluRay.indentificaClassificacao(classificacao);
 	}
 
 	public int getDuracao() {

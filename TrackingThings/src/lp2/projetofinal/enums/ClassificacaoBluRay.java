@@ -30,5 +30,27 @@ public enum ClassificacaoBluRay {
 			return this.classificacao;
 		}
 
+	public static ClassificacaoBluRay indentificaClassificacao(String classificacao) {
+			
+			switch(classificacao){
+				
+				case "LIVRE":
+					return ClassificacaoBluRay.LIVRE;
+					// NAO PRECISA DO BREAK NE?
+				case "DEZ_ANOS":
+					return ClassificacaoBluRay.DEZ_ANOS;	
+				case "DOZE_ANOS":
+					return ClassificacaoBluRay.DOZE_ANOS;
+				case "QUATORZE_ANOS":
+					return ClassificacaoBluRay.QUATORZE_ANOS;
+				case "DEZESSEIS_ANOS":
+					return ClassificacaoBluRay.DEZESSEIS_ANOS;
+				case "DEZOITO_ANOS":
+					return ClassificacaoBluRay.DEZOITO_ANOS;
+	
+				}
+			/// RETORNA OQ SE TUDO DER ERRADO?
+			return null;
+		}
 	
 }
