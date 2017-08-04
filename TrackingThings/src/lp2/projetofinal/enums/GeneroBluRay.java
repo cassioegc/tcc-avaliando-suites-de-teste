@@ -32,5 +32,45 @@ public enum GeneroBluRay {
 	public String getGenero() {
 		return this.genero;
 	}
+	
+public static GeneroBluRay indentificaGenero(String genero) {
+		
+		switch(genero){
+			
+			case "ACAO":
+				return GeneroBluRay.ACAO;
+				// NAO PRECISA DO BREAK NE?
+			case "ANIMACAO":
+				return GeneroBluRay.ANIMACAO;	
+			case "AVENTURA":
+				return GeneroBluRay.AVENTURA;
+			case "COMEDIA":
+				return GeneroBluRay.COMEDIA;
+			case "DOCUMENTARIO":
+				return GeneroBluRay.DOCUMENTARIO;
+			case "DRAMA":
+				return GeneroBluRay.DRAMA;
+			case "EROTICO":
+				return GeneroBluRay.EROTICO;
+			case "FAROESTE":
+				return GeneroBluRay.FAROESTE;
+			case "FICCAO":
+				return GeneroBluRay.FICCAO;
+			case "MUSICAL":
+				return GeneroBluRay.MUSICAL;
+			case "POLICIAL":
+				return GeneroBluRay.POLICIAL;
+			case "ROMANCE":
+				return GeneroBluRay.ROMANCE;
+			case "SUSPENSE":
+				return GeneroBluRay.SUSPENSE;
+			case "TERROR":
+				return GeneroBluRay.TERROR;
+			case "OUTRO":
+				return GeneroBluRay.OUTRO;
+				
+			}
+		return GeneroBluRay.OUTRO; /// RETORNA OQ SE TUDO DER ERRADO?
+	}
 
 }
