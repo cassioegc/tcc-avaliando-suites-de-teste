@@ -37,5 +37,12 @@ public class JogoEletronico extends Item{
 
 		return true;
 	}
+
+	@Override
+	public String toString() {
+		return "JOGO ELETRONICO: " + super.toString() + ", " + this.getPlataforma() + "|";
+	}
+	
+	
 	
 }

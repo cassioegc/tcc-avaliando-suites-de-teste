@@ -47,4 +47,11 @@ public class JogoTabuleiro extends Item {
 		return true;
 	}
 
+	@Override
+	public String toString() {
+		return "JOGO DE TABULEIRO: " + super.toString() + ", " + this.contemPecasPerdidas() + "|";
+	}
+	
+	
+
 }
