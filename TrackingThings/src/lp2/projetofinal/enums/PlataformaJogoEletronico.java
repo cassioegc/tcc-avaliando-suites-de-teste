@@ -14,7 +14,7 @@ public enum PlataformaJogoEletronico {
 	private PlataformaJogoEletronico(String plataforma) {
 		this.plataforma = plataforma;
 	}
-    // Pq static? - marcelo
+    // Pq static? - marcelo - PRA PODER CHAMAR SEM CRIAR UMA PLATAFORMA OBJETO.
 	public static PlataformaJogoEletronico indentificaPlataforma(String plataforma) {
 		
 		switch(plataforma){
