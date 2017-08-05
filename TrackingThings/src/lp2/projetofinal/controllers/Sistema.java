@@ -78,16 +78,26 @@ public class Sistema {
 		controllerUsuario.adicionarBluRayEpisodio(nome, telefone, BlurayTemporada, duracao);
 	}
 
+	public void adicionarPecaPerdida(String nome, String telefone, String nomeItem, String nomePeca) {
+		controllerUsuario.cadastrarPecaPerdida(nome, telefone, nomeItem, nomePeca);
+	}
+
 	public void removerItem(String nome, String telefone, String nomeItem) {
 		controllerUsuario.removerItem(nome, telefone, nomeItem);
 	}
 
-	public void finalizar() {
+	public void atualizarItem(String nome, String telefone, String nomeItem, String atributo, String valor) {
+		controllerUsuario.atualizarItem(nome, telefone, nomeItem, atributo, valor);
 
 	}
 
 	public String getInfoItem(String nome, String telefone, String nomeItem, String atributo) {
-		
-		return "Mudar"; //controllerUsuario.getInfoItem(nome, telefone, nomeItem, atributo);
+
+		return "Mudar"; // controllerUsuario.getInfoItem(nome, telefone,
+						// nomeItem, atributo);
+	}
+
+	public void finalizar() {
+
 	}
 }

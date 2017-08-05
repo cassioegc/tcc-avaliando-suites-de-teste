@@ -100,6 +100,22 @@ public class Usuario {
 
 		bluraySerie.adicionarBluRay(duracao);
 	}
+	
+	public void cadastrarPecaPerdidaNoTabuleiro(String nomeItem, String nomePeca) {
+		
+		JogoTabuleiro jogoTabuleiro = (JogoTabuleiro) itens.get(nomeItem);
+		
+		jogoTabuleiro.adicionarPecaPerdida(nomePeca);
+		
+	}
+	
+	public void atualizarItem(String nomeItem, String atributo, String valor) {
+		
+		// Item item = itens.get(nomeItem);
+		// Falta implementar, vai dar dor de cabeça;
+		
+
+	}
 
 	public void removerItem(String nomeItem) {
 
@@ -137,5 +153,6 @@ public class Usuario {
 
 		return true;
 	}
+
 
 }

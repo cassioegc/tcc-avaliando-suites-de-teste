@@ -90,9 +90,9 @@ public class ControllerUsuario {
 			Exceptions.atributoInvalidoException();
 
 	}
-	
-	public Usuario identificaUsuario(String nome, String telefone){
-		
+
+	public Usuario identificaUsuario(String nome, String telefone) {
+
 		ChaveNomeTelefone chave = new ChaveNomeTelefone(nome, telefone);
 
 		verificaExistenciaChaveMapa(chave);
@@ -159,15 +159,38 @@ public class ControllerUsuario {
 		usuario.adicionaItem(nomeItem, preco, descricao, duracao, classificacao, genero, temporada);
 	}
 
-	public void adicionarBluRayEpisodio(String nome, String telefone, String BlurayTemporada, int duracao) {
-		
+	public void adicionarBluRayEpisodio(String nome, String telefone, String blurayTemporada, int duracao) {
+
 		ChaveNomeTelefone chave = new ChaveNomeTelefone(nome, telefone);
 
 		verificaExistenciaChaveMapa(chave);
 
 		Usuario usuario = usuarios.get(chave);
-		
-		usuario.adicionarBluRayEpisodio(BlurayTemporada, duracao);
+
+		usuario.adicionarBluRayEpisodio(blurayTemporada, duracao);
+
+	}
+
+	public void cadastrarPecaPerdida(String nome, String telefone, String nomeItem, String nomePeca) {
+
+		ChaveNomeTelefone chave = new ChaveNomeTelefone(nome, telefone);
+
+		verificaExistenciaChaveMapa(chave);
+
+		Usuario usuario = usuarios.get(chave);
+
+		usuario.cadastrarPecaPerdidaNoTabuleiro(nomeItem, nomePeca);
+
+	}
+
+	public void atualizarItem(String nome, String telefone, String nomeItem, String atributo, String valor) {
+		ChaveNomeTelefone chave = new ChaveNomeTelefone(nome, telefone);
+
+		verificaExistenciaChaveMapa(chave);
+
+		Usuario usuario = usuarios.get(chave);
+
+		usuario.atualizarItem(nomeItem, atributo, valor);
 
 	}
 
@@ -177,7 +200,7 @@ public class ControllerUsuario {
 		verificaExistenciaChaveMapa(chave);
 
 		Usuario usuario = usuarios.get(chave);
-		
+
 		usuario.removerItem(nomeItem);
 
 	}
