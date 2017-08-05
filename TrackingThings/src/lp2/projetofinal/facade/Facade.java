@@ -34,18 +34,18 @@ public class Facade {
 	// METODOS DO US2.
 	
 	public void cadastrarEletronico(String nome, String telefone, String nomeItem, double preco, String plataforma){
-		//CONTROLLERPRINCIPAL.cadastrarEletronico(nome, telefone, nomeItem, preco, plataforma);
+		sistema.cadastrarEletronico(nome, telefone, nomeItem, preco, plataforma);
 	}
-	
+	// FALTA ESSA
 	public String getInfoItem(String nome, String telefone, String nomeItem, String atributo){
 		return "MUDAR"; //CONTROLEPRINCIPAL.getInfoItem(nome, telefone, nomeItem, atributo);
 	}
 	// OBS: Nesse metodo, pedindo o PRECO, se as casas decimais forem zero, retornar s� com uma casa, se nao for, retornar com duas. Pedindo o NOME, retorna o nome (estranho porq ele ja passa o nome como parametro);
 	
 	public void cadastrarJogoTabuleiro(String nome, String telefone, String nomeItem, double preco){
-		//CONTROLLERPRINCIPAL.cadastrarJogoTabuleiro(nome, telefone, nomeItem, preco);
+		sistema.cadastrarJogoTabuleiro(nome, telefone, nomeItem, preco);
 	}
-	
+	// FALTA ESSA
 	public void adicionarPecaPerdida(String nome, String telefone, String nomeItem, String nomePeca){
 		//CONTROLLERPRINCIPAL.adicionarPecaPerdida(nome,  telefone, nomeItem, nomePeca);
 	}
@@ -61,15 +61,15 @@ public class Facade {
 	public void cadastrarBluRaySerie(String nome, String telefone, String nomeItem, double preco, String descricao, int duracao, String classificacao, String genero, int temporada){
 		//CONTROLLERPRINCIPAL.cadastrarBluRaySerie(nome, telefone, nomeItem, preco, descricao, duracao, classificacao,  genero, temporada);
 	}
-	
+	// FALTA ESSA
 	public void adicionarBluRay(String nome, String telefone, String BlurayTemporada, int duracao){
 		//CONTROLLERPRINCIPAL.adicionarBluRay(nome, telefone, BlurayTemporada, duracao);
 	}
-	
+	// FALTA ESSA
 	public void removerItem(String nome, String telefone, String nomeItem){
 		//CONTROLLERPRINCIPAL.removerItem(nome, telefone, nomeItem); 
 	}
-	
+	// FALTA ESSA
 	public void atualizarItem(String nome, String telefone, String nomeItem, String atributo, String valor){
 		//CONTROLLERPRINCIPAL.atualizarItem(nome, telefone, nomeItem, atributo, valor); 
 	}

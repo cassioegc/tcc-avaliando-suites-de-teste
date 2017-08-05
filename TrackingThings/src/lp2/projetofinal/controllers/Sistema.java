@@ -47,6 +47,36 @@ public class Sistema {
 		controllerUsuario.atualizarUsuario(nome, telefone, atributo, valor);
 
 	}
+	
+	// Metodos US2
+	
+	public void cadastrarEletronico(String nome, String telefone, String nomeItem, double preco, String plataforma){
+		controllerUsuario.cadastrarEletronico(nome, telefone, nomeItem, preco, plataforma);
+	}
+	
+	public void cadastrarJogoTabuleiro(String nome, String telefone, String nomeItem, double preco){
+		controllerUsuario.cadastrarJogoTabuleiro(nome, telefone, nomeItem, preco);
+	}
+	
+	public void cadastrarBluRayFilme(String nome, String telefone, String nomeItem, double preco, int duracao, String genero, String classificacao, int anoLancamento){
+		controllerUsuario.cadastrarBluRayFilme(nome, telefone, nomeItem, preco, duracao, genero, classificacao, anoLancamento);
+	}
+	
+	public void cadastrarBluRayShow(String nome, String telefone, String nomeItem, double preco, int duracao, int numeroFaixas, String artista, String classificacao){
+		controllerUsuario.cadastrarBluRayShow(nome, telefone, nomeItem, preco, duracao, numeroFaixas, artista, classificacao);
+	}
+	
+	public void cadastrarBluRaySerie(String nome, String telefone, String nomeItem, double preco, String descricao, int duracao, String classificacao, String genero, int temporada){
+		controllerUsuario.cadastrarBluRaySerie(nome, telefone, nomeItem, preco, descricao, duracao, classificacao,  genero, temporada);
+	}
+	
+	public void adicionarBluRay(String nome, String telefone, String BlurayTemporada, int duracao){
+		//CONTROLLERPRINCIPAL.adicionarBluRay(nome, telefone, BlurayTemporada, duracao);
+	}
+	public void removerItem(String nome, String telefone, String nomeItem){
+		//CONTROLLERPRINCIPAL.removerItem(nome, telefone, nomeItem); 
+	}
+	
 
 	public void finalizar() {
 

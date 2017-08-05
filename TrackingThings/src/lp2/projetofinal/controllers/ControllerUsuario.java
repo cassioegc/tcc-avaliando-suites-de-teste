@@ -3,7 +3,11 @@ package lp2.projetofinal.controllers;
 import java.util.HashMap;
 import java.util.Map;
 
+import lp2.projetofinal.entidades.BluRayFilme;
+import lp2.projetofinal.entidades.BluRayShow;
 import lp2.projetofinal.entidades.ChaveNomeTelefone;
+import lp2.projetofinal.entidades.JogoEletronico;
+import lp2.projetofinal.entidades.JogoTabuleiro;
 import lp2.projetofinal.util.Exceptions;
 
 public class ControllerUsuario {
@@ -90,5 +94,87 @@ public class ControllerUsuario {
 			Exceptions.atributoInvalidoException();
 
 	}
+	
+	public void cadastrarEletronico(String nome, String telefone, String nomeItem, double preco, String plataforma) {
+		
+		ChaveNomeTelefone chave = new ChaveNomeTelefone(nome, telefone);
+		
+		verificaExistenciaChaveMapa(chave);
+
+		Usuario usuario = usuarios.get(chave);
+		
+		JogoEletronico jogoEletronico = new JogoEletronico(nomeItem,preco,plataforma);
+				
+		usuario.adicionaItem(jogoEletronico);
+		
+	}
+	
+	public void cadastrarJogoTabuleiro(String nome, String telefone, String nomeItem, double preco){
+		
+		ChaveNomeTelefone chave = new ChaveNomeTelefone(nome, telefone);
+		
+		verificaExistenciaChaveMapa(chave);
+
+		Usuario usuario = usuarios.get(chave);
+		
+		JogoTabuleiro jogoTabuleiro = new JogoTabuleiro(nomeItem,preco);
+				
+		usuario.adicionaItem(jogoTabuleiro);
+	}
+	
+	public void cadastrarBluRayFilme(String nome, String telefone, String nomeItem, double preco, int duracao, String genero, String classificacao, int anoLancamento){
+
+		ChaveNomeTelefone chave = new ChaveNomeTelefone(nome, telefone);
+		
+		verificaExistenciaChaveMapa(chave);
+
+		Usuario usuario = usuarios.get(chave);
+		
+		BluRayFilme bluRayFilme = new BluRayFilme(nomeItem, preco, duracao, genero, classificacao, anoLancamento);
+				
+		usuario.adicionaItem(bluRayFilme);
+	}
+	
+	public void cadastrarBluRayShow(String nome, String telefone, String nomeItem, double preco, int duracao, int numeroFaixas, String artista, String classificacao){
+		
+		ChaveNomeTelefone chave = new ChaveNomeTelefone(nome, telefone);
+		
+		verificaExistenciaChaveMapa(chave);
+
+		Usuario usuario = usuarios.get(chave);
+		
+		BluRayShow bluRayShow = new BluRayShow(nomeItem, preco, duracao, classificacao, artista, numeroFaixas);
+				
+		usuario.adicionaItem(bluRayShow);
+	}
+	
+	public void cadastrarBluRaySerie(String nome, String telefone, String nomeItem, double preco, String descricao, int duracao, String classificacao, String genero, int temporada){
+		
+		ChaveNomeTelefone chave = new ChaveNomeTelefone(nome, telefone);
+		
+		verificaExistenciaChaveMapa(chave);
+
+		Usuario usuario = usuarios.get(chave);
+		
+		BluRaySerie bluRaySerie = new BluRaySerie(nomeItem, preco, descricao, duracao, classificacao, genero, temporada);
+				
+		usuario.adicionaItem(bluRaySerie); // adicionaItem RECEBE TIPO ITEM
+	}
+	
+	public void adicionarBluRay(String nome, String telefone, String BlurayTemporada, int duracao){
+		
+		
+	}
+	
+	public void removerItem(String nome, String telefone, String nomeItem){
+		ChaveNomeTelefone chave = new ChaveNomeTelefone(nome, telefone);
+		
+		verificaExistenciaChaveMapa(chave);
+
+		Usuario usuario = usuarios.get(chave);
+		
+		
+	}
+	
 
 }

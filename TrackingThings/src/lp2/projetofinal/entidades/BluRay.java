@@ -18,5 +18,14 @@ public abstract class BluRay extends Item {
 
 	public String getClassificacao() {
 		return classificacao.getClassificacao();
-	}	
+	}
+
+	@Override
+	public abstract String toString();
+	// "Todos os itens devem poder ser apresentados através de uma string"(mas n tem exemplos)
+	
+
+	
+	
+	// " Dois blu rays são iguais se tiverem o mesmo nome" o equals de item substitui a necessidade ou n?
 }

@@ -1,5 +1,10 @@
 package lp2.projetofinal.controllers;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import lp2.projetofinal.entidades.Item;
+
 public class Usuario {
 
 	private String nome;
@@ -7,12 +12,15 @@ public class Usuario {
 	private String email;
 
 	private String telefone;
+	
+	private List<Item> itens;
 
 	public Usuario(String nome, String email, String telefone) {
 
 		this.nome = nome;
 		this.email = email;
 		this.telefone = telefone;
+		itens = new ArrayList<Item>();
 	}
 
 	public String getNome() {
@@ -38,7 +46,24 @@ public class Usuario {
 	public void setTelefone(String telefone) {
 		this.telefone = telefone;
 	}
+	
+	public void adicionaItem(Item item) {
+		itens.add(item);
+	}
+	/////////////////// fazer
+	public void adicionarBluRay(String BlurayTemporada, int duracao){
+		
+		
+		for (Item item : itens) {
+			if (item.getNome().equals(BlurayTemporada)) {
+			
+			}
+		}
+	}
+	
 
+	
+	
 	@Override
 	public String toString() {
 		return this.nome + ", " + this.email + ", " + this.telefone;

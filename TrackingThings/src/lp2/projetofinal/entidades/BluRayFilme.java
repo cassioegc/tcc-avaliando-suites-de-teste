@@ -21,4 +21,12 @@ public class BluRayFilme extends BluRay {
 	public GeneroBluRay getGenero() {
 		return genero;
 	}
+
+	@Override
+	public String toString() {
+		return "BluRayFilme [anoLancamento=" + anoLancamento + ", genero=" + genero + "]";
+		//Falta pegar atributos das classes mae
+	}
+	
+	
 }

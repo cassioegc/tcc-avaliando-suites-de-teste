@@ -10,20 +10,22 @@ import lp2.projetofinal.enums.GeneroBluRay;
 
 
 public class BluRaySerie extends BluRay {
-	private GeneroBluRay generoBluRay;
+	private GeneroBluRay genero;
 	private int numeroTemporada;
 	private Set<EpisodioSerie> episodios;
+	private String descricao;
 	
 	
 	public BluRaySerie(String nomeItem, double preco,String descricao,int duracao,String classificacao,String genero, int temporada) {
 		super(nomeItem,preco, duracao, classificacao);
 		
 		this.numeroTemporada = temporada;
-		this.generoBluRay = GeneroBluRay.OUTRO; // mudar
+		this.genero = GeneroBluRay.indentificaGenero(genero); 
 		this.episodios = new HashSet<>();
+		this.descricao = descricao;
 	}
 	
-	public void adicionarBluRay(String BlurayTemporada, int duracao){ // fazer no controller dessa classe
+	public void adicionarBluRay(int duracao) { 
 		
 		EpisodioSerie episodioSerie = new EpisodioSerie(duracao);
 		
@@ -40,6 +42,25 @@ public class BluRaySerie extends BluRay {
 		return duracaoTotal;
 	}
 	
+	public GeneroBluRay getGenero() {
+		return genero;
+	}
+
+	public int getNumeroTemporada() {
+		return numeroTemporada;
+	}
+
+	public String getDescricao() {
+		return descricao;
+	}
+
+	
+	
+	@Override
+	public String toString() {
+		return "BluRaySerie [genero=" + genero + ", numeroTemporada=" + numeroTemporada + ", descricao=" + descricao
+				+ "]";
+	}
 
 	@Override
 	public int hashCode() {

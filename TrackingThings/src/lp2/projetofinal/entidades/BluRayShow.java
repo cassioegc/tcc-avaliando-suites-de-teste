@@ -20,5 +20,10 @@ public class BluRayShow extends BluRay{
 		return numFaixas;
 	}
 
+	@Override
+	public String toString() {
+		return "BluRayShow [nomeArtista=" + nomeArtista + ", numFaixas=" + numFaixas + "]";
+	}
 
+	
 }
