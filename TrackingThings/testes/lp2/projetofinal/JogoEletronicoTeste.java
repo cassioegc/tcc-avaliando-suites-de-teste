@@ -35,7 +35,7 @@ public class JogoEletronicoTeste {
 
 	@Test
 	public void testToString() {
-		assertEquals("JOGO ELETRONICO: Fifa 2017, R$ 150.0, Nao emprestado, PS4", jogo1.toString());
+		assertEquals("JOGO ELETRONICO: Fifa 2017, R$ 150.0, Nao emprestado, PS4|", jogo1.toString());
 	}
 
 	@Test
