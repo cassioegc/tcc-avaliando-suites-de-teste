@@ -32,7 +32,7 @@ public class JogoEletronico extends Item{
 			return false;
 
 		JogoEletronico ref = (JogoEletronico) obj;
-		if (!ref.getPlataforma().equals(this.plataforma))
+		if (!ref.getPlataforma().equals(this.plataforma.getPlataforma()))
 			return false;
 
 		return true;

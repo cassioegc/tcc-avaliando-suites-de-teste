@@ -46,7 +46,7 @@ public class Item {
 	
 	public String toString(){
 			
-		return this.nome +  ", R$ " + this.preco + ", " + this.estado + ", ";
+		return this.nome +  ", R$ " + this.preco + ", " + this.estado.getEstado() + ", ";
 	}
 
 	@Override
