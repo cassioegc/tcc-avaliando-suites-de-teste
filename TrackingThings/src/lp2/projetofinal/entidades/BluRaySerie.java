@@ -1,11 +1,9 @@
-package lp2.projetofinal.controllers;
+package lp2.projetofinal.entidades;
 
 
 import java.util.HashSet;
 import java.util.Set;
 
-import lp2.projetofinal.entidades.BluRay;
-import lp2.projetofinal.entidades.EpisodioSerie;
 import lp2.projetofinal.enums.GeneroBluRay;
 
 
@@ -42,8 +40,8 @@ public class BluRaySerie extends BluRay {
 		return duracaoTotal;
 	}
 	
-	public GeneroBluRay getGenero() {
-		return genero;
+	public String getGenero() {
+		return this.genero.getGenero();
 	}
 
 	public int getNumeroTemporada() {
@@ -58,8 +56,7 @@ public class BluRaySerie extends BluRay {
 	
 	@Override
 	public String toString() {
-		return "BluRaySerie [genero=" + genero + ", numeroTemporada=" + numeroTemporada + ", descricao=" + descricao
-				+ "]";
+		return " SERIE: " + super.toString() + ", " + this.getGenero() + ", Temporada " + this.numeroTemporada + "|";
 	}
 
 	@Override

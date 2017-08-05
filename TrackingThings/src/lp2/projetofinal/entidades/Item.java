@@ -1,21 +1,23 @@
 package lp2.projetofinal.entidades;
 
+import lp2.projetofinal.enums.EstadoItem;
+
 public class Item {
 
 	private String nome;
 	
 	private double preco;
 	
-	private String estado;
+	private EstadoItem estado;
 	
 	public Item(String nome, double preco){
 		this.nome = nome;
 		this.preco = preco;
-		this.estado = "Nao emprestado";
+		this.estado = EstadoItem.NAO_EMPRESTADO;
 	}
 
 	public double getPreco() {
-		return preco;
+		return this.preco;
 	}
 
 	public void setPreco(double preco) {
@@ -23,7 +25,7 @@ public class Item {
 	}
 
 	public String getNome() {
-		return nome;
+		return this.nome;
 	}
 
 	public void setNome(String nome) {
@@ -31,11 +33,20 @@ public class Item {
 	}
 	
 	public String getEstado(){
-		return estado;
+		return this.estado.getEstado();
 	}
 	
-	public void setEstado(String estado){
-		this.estado = estado;
+	public void itemEmprestado(){
+		this.estado = EstadoItem.EMPRESTADO;
+	}
+	
+	public void itemDevolvido(){
+		this.estado = EstadoItem.NAO_EMPRESTADO;
+	}
+	
+	public String toString(){
+			
+		return this.nome +  ", R$ " + this.preco + ", " + this.estado + ", ";
 	}
 
 	@Override
@@ -59,12 +70,7 @@ public class Item {
 		if(!ref.getNome().equals(this.nome))
 			return false;
 		
-		return true;
-		
-
+		return true;	
 	}
-	
-	
-	
-	
+
 }

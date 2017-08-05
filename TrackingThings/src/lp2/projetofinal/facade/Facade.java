@@ -31,14 +31,12 @@ public class Facade {
 		sistema.finalizar();
 	}
 	
-	// METODOS DO US2.
-	
 	public void cadastrarEletronico(String nome, String telefone, String nomeItem, double preco, String plataforma){
 		sistema.cadastrarEletronico(nome, telefone, nomeItem, preco, plataforma);
 	}
-	// FALTA ESSA
+	
 	public String getInfoItem(String nome, String telefone, String nomeItem, String atributo){
-		return "MUDAR"; //CONTROLEPRINCIPAL.getInfoItem(nome, telefone, nomeItem, atributo);
+		return sistema.getInfoItem(nome, telefone, nomeItem, atributo);
 	}
 	// OBS: Nesse metodo, pedindo o PRECO, se as casas decimais forem zero, retornar s� com uma casa, se nao for, retornar com duas. Pedindo o NOME, retorna o nome (estranho porq ele ja passa o nome como parametro);
 	
