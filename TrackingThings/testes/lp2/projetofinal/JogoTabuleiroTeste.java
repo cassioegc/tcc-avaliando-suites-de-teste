@@ -40,10 +40,10 @@ public class JogoTabuleiroTeste {
 		jogo1.adicionarPecaPerdida("Torre");
 		jogo3.adicionarPecaPerdida("Torre");
 		
-		assertEquals(true, jogo1.equals(jogo3));
-		assertEquals(false, jogo1.equals(jogo2));
+		assertTrue(jogo1.equals(jogo3));
+		assertFalse(jogo1.equals(jogo2));
 		jogo3.adicionarPecaPerdida("Peao");
-		assertEquals(false, jogo1.equals(jogo3));
+		assertFalse(jogo1.equals(jogo3));
 	}
 
 	@Test

@@ -35,8 +35,8 @@ public class JogoEletronicoTeste {
 
 	@Test
 	public void testEqualsObject() {
-		assertEquals(true, jogo1.equals(jogo3));
-		assertEquals(false, jogo1.equals(jogo2));
+		assertTrue(jogo1.equals(jogo3));
+		assertFalse(jogo1.equals(jogo2));
 	}
 
 	@Test

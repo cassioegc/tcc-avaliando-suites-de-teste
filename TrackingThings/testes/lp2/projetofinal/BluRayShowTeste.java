@@ -33,8 +33,9 @@ public class BluRayShowTeste {
 	@Test
 	public void testEqualsObject(){
 		BluRayShow bluray3 = new BluRayShow("Os Anjos Cantam", 32.99, 115, "LIVRE", "Wesley Safadao", 10);
-		assertEquals(true, bluray1.equals(bluray3));
-		assertEquals(false, bluray2.equals(bluray1));
+		
+		assertTrue(bluray1.equals(bluray3));
+		assertFalse(bluray2.equals(bluray1));
 	}
 	
 	@Test
