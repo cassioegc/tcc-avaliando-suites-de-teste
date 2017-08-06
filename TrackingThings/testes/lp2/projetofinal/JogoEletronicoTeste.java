@@ -27,11 +27,6 @@ public class JogoEletronicoTeste {
 		assertEquals("Nao emprestado", jogo1.getEstado());
 		assertEquals("PS4", jogo1.getPlataforma());
 	}
-	
-	@Test
-	public void testHashCode() {
-		fail("Not yet implemented");
-	}
 
 	@Test
 	public void testToString() {
