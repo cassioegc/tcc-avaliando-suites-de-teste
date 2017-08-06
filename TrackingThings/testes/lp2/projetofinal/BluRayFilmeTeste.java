@@ -6,6 +6,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import lp2.projetofinal.entidades.BluRayFilme;
+import lp2.projetofinal.entidades.BluRayShow;
 
 public class BluRayFilmeTeste {
 
@@ -38,6 +39,13 @@ public class BluRayFilmeTeste {
 	public void testGetGenero() {
 		assertEquals("ANIMACAO", bluray1.getGenero());
 		assertEquals("ACAO", bluray2.getGenero());
+	}
+	
+	@Test
+	public void testEqualsObject(){
+		BluRayFilme bluray3 = new BluRayFilme("Velozes e Furiosos 7", 32.99, 180, "ACAO", "DEZOITO_ANOS", 2017);
+		assertEquals(false, bluray1.equals(bluray2));
+		assertEquals(true, bluray2.equals(bluray3));
 	}
 	
 	@Test
