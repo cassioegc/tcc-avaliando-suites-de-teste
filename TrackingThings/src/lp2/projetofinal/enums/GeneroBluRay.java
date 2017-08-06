@@ -39,7 +39,6 @@ public enum GeneroBluRay {
 				
 				case "ACAO":
 					return GeneroBluRay.ACAO;
-					// NAO PRECISA DO BREAK NE?
 				case "ANIMACAO":
 					return GeneroBluRay.ANIMACAO;	
 				case "AVENTURA":

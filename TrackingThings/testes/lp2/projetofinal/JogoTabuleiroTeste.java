@@ -21,16 +21,15 @@ public class JogoTabuleiroTeste {
 	}
 	
 	@Test
-	public void testJogoTabuleiro() {
+	public void testConstrutorJogoTabuleiro() {
 		assertEquals("Xadrez", jogo1.getNome());
 		assertEquals(89.90, jogo1.getPreco(), 0.01);
-		assertEquals("Nao emprestado", jogo1.getEstado());// Preciso testar esse? JA QUE É UM ATRIBUTO DE ITEM????
+		assertEquals("Nao emprestado", jogo1.getEstado());
 		assertEquals("COMPLETO", jogo1.contemPecasPerdidas());
 	}
 	
 	@Test
-	public void testAdicionarPecaPerdida() {
-		//E AQUI????? SE EU N TIVER O GPECASPERDIDAS voh ter q usar o contem ai eu junto os testes.
+	public void testAdicionarPecaPerdidaEcontemPecasPerdidas() {
 		assertEquals("COMPLETO", jogo1.contemPecasPerdidas());
 		jogo1.adicionarPecaPerdida("Bispo");
 		assertEquals("COM PECAS PERDIDAS", jogo1.contemPecasPerdidas());
@@ -53,13 +52,5 @@ public class JogoTabuleiroTeste {
 		assertEquals("JOGO DE TABULEIRO: Xadrez, R$ 89.9, Nao emprestado, COM PECAS PERDIDAS|", jogo1.toString());
 		assertEquals("JOGO DE TABULEIRO: Dama, R$ 50.0, Nao emprestado, COMPLETO|", jogo2.toString());
 	}	
-
-	@Test
-	public void testContemPecasPerdidas() {
-		
-		assertEquals("COMPLETO", jogo1.contemPecasPerdidas());
-		jogo1.adicionarPecaPerdida("Bispo");
-		assertEquals("COM PECAS PERDIDAS", jogo1.contemPecasPerdidas());
-	}
 
 }
