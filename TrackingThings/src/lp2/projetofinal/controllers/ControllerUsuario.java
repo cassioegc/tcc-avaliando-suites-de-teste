@@ -18,7 +18,7 @@ public class ControllerUsuario {
 
 		ChaveNomeTelefone chave = new ChaveNomeTelefone(nome, telefone);
 
-		if (usuarios.containsKey(chave))
+		if (usuarios.containsKey(chave)) 
 			Exceptions.usuarioJaCadastradoException();
 
 		Usuario usuario = new Usuario(nome, email, telefone);
@@ -67,7 +67,7 @@ public class ControllerUsuario {
 
 		ChaveNomeTelefone chave = new ChaveNomeTelefone(nome, telefone);
 
-		verificaExistenciaChaveMapa(chave);
+		verificaExistenciaChaveMapa(chave); 
 
 		Usuario usuario = identificaUsuario(nome, telefone);
 
@@ -102,11 +102,7 @@ public class ControllerUsuario {
 
 	public void cadastrarEletronico(String nome, String telefone, String nomeItem, double preco, String plataforma) {
 
-		ChaveNomeTelefone chave = new ChaveNomeTelefone(nome, telefone);
-
-		verificaExistenciaChaveMapa(chave);
-
-		Usuario usuario = usuarios.get(chave);
+		Usuario usuario = identificaUsuario(nome, telefone);
 
 		usuario.adicionaItem(nomeItem, preco, plataforma);
 
@@ -114,11 +110,7 @@ public class ControllerUsuario {
 
 	public void cadastrarJogoTabuleiro(String nome, String telefone, String nomeItem, double preco) {
 
-		ChaveNomeTelefone chave = new ChaveNomeTelefone(nome, telefone);
-
-		verificaExistenciaChaveMapa(chave);
-
-		Usuario usuario = usuarios.get(chave);
+		Usuario usuario = identificaUsuario(nome, telefone);
 
 		usuario.adicionaItem(nomeItem, preco);
 	}
@@ -126,11 +118,7 @@ public class ControllerUsuario {
 	public void cadastrarBluRayFilme(String nome, String telefone, String nomeItem, double preco, int duracao,
 			String genero, String classificacao, int anoLancamento) {
 
-		ChaveNomeTelefone chave = new ChaveNomeTelefone(nome, telefone);
-
-		verificaExistenciaChaveMapa(chave);
-
-		Usuario usuario = usuarios.get(chave);
+		Usuario usuario = identificaUsuario(nome, telefone);
 
 		usuario.adicionaItem(nomeItem, preco, duracao, genero, classificacao, anoLancamento);
 	}
@@ -138,11 +126,7 @@ public class ControllerUsuario {
 	public void cadastrarBluRayShow(String nome, String telefone, String nomeItem, double preco, int duracao,
 			int numeroFaixas, String artista, String classificacao) {
 
-		ChaveNomeTelefone chave = new ChaveNomeTelefone(nome, telefone);
-
-		verificaExistenciaChaveMapa(chave);
-
-		Usuario usuario = usuarios.get(chave);
+		Usuario usuario = identificaUsuario(nome, telefone);
 
 		usuario.adicionaItem(nomeItem, preco, duracao, classificacao, artista, numeroFaixas);
 	}
@@ -150,22 +134,14 @@ public class ControllerUsuario {
 	public void cadastrarBluRaySerie(String nome, String telefone, String nomeItem, double preco, String descricao,
 			int duracao, String classificacao, String genero, int temporada) {
 
-		ChaveNomeTelefone chave = new ChaveNomeTelefone(nome, telefone);
-
-		verificaExistenciaChaveMapa(chave);
-
-		Usuario usuario = usuarios.get(chave);
+		Usuario usuario = identificaUsuario(nome, telefone);
 
 		usuario.adicionaItem(nomeItem, preco, descricao, duracao, classificacao, genero, temporada);
 	}
 
 	public void adicionarBluRayEpisodio(String nome, String telefone, String blurayTemporada, int duracao) {
 
-		ChaveNomeTelefone chave = new ChaveNomeTelefone(nome, telefone);
-
-		verificaExistenciaChaveMapa(chave);
-
-		Usuario usuario = usuarios.get(chave);
+		Usuario usuario = identificaUsuario(nome, telefone);
 
 		usuario.adicionarBluRayEpisodio(blurayTemporada, duracao);
 
@@ -173,33 +149,21 @@ public class ControllerUsuario {
 
 	public void cadastrarPecaPerdida(String nome, String telefone, String nomeItem, String nomePeca) {
 
-		ChaveNomeTelefone chave = new ChaveNomeTelefone(nome, telefone);
-
-		verificaExistenciaChaveMapa(chave);
-
-		Usuario usuario = usuarios.get(chave);
+		Usuario usuario = identificaUsuario(nome, telefone);
 
 		usuario.cadastrarPecaPerdidaNoTabuleiro(nomeItem, nomePeca);
 
 	}
 
 	public void atualizarItem(String nome, String telefone, String nomeItem, String atributo, String valor) {
-		ChaveNomeTelefone chave = new ChaveNomeTelefone(nome, telefone);
-
-		verificaExistenciaChaveMapa(chave);
-
-		Usuario usuario = usuarios.get(chave);
+		Usuario usuario = identificaUsuario(nome, telefone);
 
 		usuario.atualizarItem(nomeItem, atributo, valor);
 
 	}
 
 	public void removerItem(String nome, String telefone, String nomeItem) {
-		ChaveNomeTelefone chave = new ChaveNomeTelefone(nome, telefone);
-
-		verificaExistenciaChaveMapa(chave);
-
-		Usuario usuario = usuarios.get(chave);
+		Usuario usuario = identificaUsuario(nome, telefone);
 
 		usuario.removerItem(nomeItem);
 
