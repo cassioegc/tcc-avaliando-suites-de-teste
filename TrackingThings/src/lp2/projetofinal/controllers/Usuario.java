@@ -9,6 +9,7 @@ import lp2.projetofinal.entidades.BluRayShow;
 import lp2.projetofinal.entidades.Item;
 import lp2.projetofinal.entidades.JogoEletronico;
 import lp2.projetofinal.entidades.JogoTabuleiro;
+import lp2.projetofinal.util.Exceptions;
 
 public class Usuario {
 
@@ -56,6 +57,12 @@ public class Usuario {
 	public String toString() {
 		return this.nome + ", " + this.email + ", " + this.telefone;
 	}
+	
+	private void verificaExistenciaItem(String chave) {
+
+		if (!this.itens.containsKey(chave))
+			Exceptions.itemNaoEncontradoException();
+	}
 
 	public void adicionaItem(String nomeItem, double preco, String plataforma) {
 
@@ -96,26 +103,38 @@ public class Usuario {
 
 	public void adicionarBluRayEpisodio(String BlurayTemporada, int duracao) {
 
+		verificaExistenciaItem(BlurayTemporada);
+		
 		BluRaySerie bluraySerie = (BluRaySerie) itens.get(BlurayTemporada);
 		bluraySerie.adicionarBluRay(duracao);
 	}
 
 	public void cadastrarPecaPerdidaNoTabuleiro(String nomeItem, String nomePeca) {
 
+		verificaExistenciaItem(nomeItem);
+		
 		JogoTabuleiro jogoTabuleiro = (JogoTabuleiro) itens.get(nomeItem);
 		jogoTabuleiro.adicionarPecaPerdida(nomePeca);
 
 	}
 
 	public void atualizarItem(String nomeItem, String atributo, String valor) {
+		
+		verificaExistenciaItem(nomeItem);
 
 		Item item = itens.get(nomeItem);
 		item.atualizar(atributo, valor);
-
+		
+		if(atributo.equals("Nome")){
+			itens.put(valor, item);
+			itens.remove(nomeItem);
+		}
 	}
 
 	public String getInfoItem(String nomeItem, String atributo) {
-
+		
+		verificaExistenciaItem(nomeItem);
+		
 		Item item = itens.get(nomeItem);
 		return item.getInfo(atributo);
 
@@ -123,6 +142,8 @@ public class Usuario {
 
 	public void removerItem(String nomeItem) {
 
+		verificaExistenciaItem(nomeItem);
+		
 		itens.remove(nomeItem);
 	}
 

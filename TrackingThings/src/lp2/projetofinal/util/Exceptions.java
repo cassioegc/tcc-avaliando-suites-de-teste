@@ -6,6 +6,10 @@ public class Exceptions {
 		throw new IllegalArgumentException("Usuario ja cadastrado");
 	}
 	
+	public static void itemNaoEncontradoException(){
+		throw new IllegalArgumentException("Item nao encontrado");
+	}
+	
 	public static void usuarioInvalidoException(){
 		throw new IllegalArgumentException("Usuario invalido");
 	}

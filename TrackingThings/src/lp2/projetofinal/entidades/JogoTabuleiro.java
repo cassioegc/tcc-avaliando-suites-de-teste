@@ -1,16 +1,16 @@
 package lp2.projetofinal.entidades;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 
 public class JogoTabuleiro extends Item {
 
-	private Set<String> pecasPerdidas; 
+	private List<String> pecasPerdidas;
 
 	public JogoTabuleiro(String nome, double preco) {
 		super(nome, preco);
 
-		this.pecasPerdidas = new HashSet<>(); 
+		this.pecasPerdidas = new ArrayList<>();
 	}
 
 	public void adicionarPecaPerdida(String peca) {
@@ -18,12 +18,11 @@ public class JogoTabuleiro extends Item {
 	}
 
 	public String contemPecasPerdidas() {
-		if(pecasPerdidas.isEmpty())
+		if (pecasPerdidas.isEmpty())
 			return "COMPLETO";
 		else
 			return "COM PECAS PERDIDAS";
 	}
-	
 
 	@Override
 	public int hashCode() {
@@ -51,7 +50,5 @@ public class JogoTabuleiro extends Item {
 	public String toString() {
 		return "JOGO DE TABULEIRO: " + super.toString() + this.contemPecasPerdidas() + "|";
 	}
-	
-	
 
 }

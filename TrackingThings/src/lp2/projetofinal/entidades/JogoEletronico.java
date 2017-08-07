@@ -2,20 +2,20 @@ package lp2.projetofinal.entidades;
 
 import lp2.projetofinal.enums.PlataformaJogoEletronico;
 
-public class JogoEletronico extends Item{
+public class JogoEletronico extends Item {
 
 	private PlataformaJogoEletronico plataforma;
-	
+
 	public JogoEletronico(String nome, double preco, String plataforma) {
 		super(nome, preco);
-		
+
 		this.plataforma = PlataformaJogoEletronico.indentificaPlataforma(plataforma);
 	}
 
-	public String getPlataforma(){
+	public String getPlataforma() {
 		return plataforma.getPlataforma();
 	}
-	
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -27,8 +27,8 @@ public class JogoEletronico extends Item{
 
 	@Override
 	public boolean equals(Object obj) {
-		
-		if(!super.equals(obj))
+
+		if (!super.equals(obj))
 			return false;
 
 		JogoEletronico ref = (JogoEletronico) obj;
@@ -42,7 +42,5 @@ public class JogoEletronico extends Item{
 	public String toString() {
 		return "JOGO ELETRONICO: " + super.toString() + this.getPlataforma() + "|";
 	}
-	
-	
-	
+
 }

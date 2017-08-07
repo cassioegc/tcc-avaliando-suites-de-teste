@@ -2,15 +2,15 @@ package lp2.projetofinal.entidades;
 
 import lp2.projetofinal.enums.EstadoItem;
 
-public class Item {
+public abstract class Item {
 
 	private String nome;
-	
+
 	private double preco;
-	
+
 	private EstadoItem estado;
-	
-	public Item(String nome, double preco){
+
+	public Item(String nome, double preco) {
 		this.nome = nome;
 		this.preco = preco;
 		this.estado = EstadoItem.NAO_EMPRESTADO;
@@ -31,22 +31,22 @@ public class Item {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	
-	public String getEstado(){
+
+	public String getEstado() {
 		return this.estado.getEstado();
 	}
-	
-	public void itemEmprestado(){
+
+	public void itemEmprestado() {
 		this.estado = EstadoItem.EMPRESTADO;
 	}
-	
-	public void itemDevolvido(){
+
+	public void itemDevolvido() {
 		this.estado = EstadoItem.NAO_EMPRESTADO;
 	}
-	
-	public String toString(){
-			
-		return this.nome +  ", R$ " + this.preco + ", " + this.estado.getEstado() + ", ";
+
+	public String toString() {
+
+		return this.nome + ", R$ " + this.preco + ", " + this.estado.getEstado() + ", ";
 	}
 
 	@Override
@@ -66,20 +66,35 @@ public class Item {
 		if (getClass() != obj.getClass())
 			return false;
 		Item ref = (Item) obj;
-		
-		if(!ref.getNome().equals(this.nome))
+
+		if (!ref.getNome().equals(this.nome))
 			return false;
-		
-		return true;	
+
+		return true;
 	}
 
 	public void atualizar(String atributo, String valor) {
-		
+
+		switch (atributo) {
+		case "Nome":
+			this.nome = valor;
+			break;
+		case "Preco":
+			this.preco = Double.parseDouble(valor);
+			break;
+		}
 	}
 
-	public String getInfo(String atributo) {
-		return "";
-		
+	public String getInfo(String atributo){
+			
+		switch (atributo) {
+		case "Nome":
+			return this.nome;
+		case "Preco":
+			return "" + this.preco;	
+		default:
+			return "";
+		}
 	}
 
 }

@@ -4,10 +4,10 @@ import lp2.projetofinal.controllers.Sistema;
 
 public class Facade {
 
-	private Sistema sistema;
+	private Sistema sistema = new Sistema();
 
 	public void iniciarSistema() {
-		sistema = new Sistema();
+		
 	}
 
 	public void cadastrarUsuario(String nome, String telefone, String email) {

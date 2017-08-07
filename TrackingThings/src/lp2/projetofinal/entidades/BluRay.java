@@ -25,4 +25,37 @@ public abstract class BluRay extends Item {
 		return super.toString() + this.duracao + ", " + this.getClassificacao() + ", ";
 	}
 	
+	@Override
+	public void atualizar(String atributo, String valor) {
+		super.atualizar(atributo, valor);
+		
+		switch (atributo) {
+		case "Duracao":
+			this.duracao = Integer.parseInt(valor);
+			break;
+		case "Classificacao":
+			this.classificacao = ClassificacaoBluRay.indentificaClassificacao(valor);
+			break;
+		}
+	}
+	
+	
+	@Override
+	public String getInfo(String atributo) {
+		
+		if(!super.getInfo(atributo).isEmpty())
+			return super.getInfo(atributo);
+		else{
+			switch (atributo) {
+			case "Duracao":
+				return String.format("%d", this.duracao);
+			case "Classificacao":
+				return this.getClassificacao();	
+			default:
+				return "";
+			}
+		}
+			
+	}
+	
 }
