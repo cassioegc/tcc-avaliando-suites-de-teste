@@ -73,4 +73,13 @@ public class Item {
 		return true;	
 	}
 
+	public void atualizar(String atributo, String valor) {
+		
+	}
+
+	public String getInfo(String atributo) {
+		return "";
+		
+	}
+
 }

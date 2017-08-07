@@ -52,10 +52,14 @@ public class Usuario {
 		this.telefone = telefone;
 	}
 
+	@Override
+	public String toString() {
+		return this.nome + ", " + this.email + ", " + this.telefone;
+	}
+
 	public void adicionaItem(String nomeItem, double preco, String plataforma) {
 
 		JogoEletronico jogoEletronico = new JogoEletronico(nomeItem, preco, plataforma);
-
 		itens.put(nomeItem, jogoEletronico);
 
 	}
@@ -63,7 +67,6 @@ public class Usuario {
 	public void adicionaItem(String nomeItem, double preco) {
 
 		JogoTabuleiro jogoTabuleiro = new JogoTabuleiro(nomeItem, preco);
-
 		itens.put(nomeItem, jogoTabuleiro);
 
 	}
@@ -72,7 +75,6 @@ public class Usuario {
 			int anoLancamento) {
 
 		BluRayFilme bluRayFilme = new BluRayFilme(nomeItem, preco, duracao, genero, classificacao, anoLancamento);
-
 		itens.put(nomeItem, bluRayFilme);
 	}
 
@@ -80,7 +82,6 @@ public class Usuario {
 			String classificacao) {
 
 		BluRayShow bluRayShow = new BluRayShow(nomeItem, preco, duracao, classificacao, artista, numeroFaixas);
-
 		itens.put(nomeItem, bluRayShow);
 
 	}
@@ -90,41 +91,39 @@ public class Usuario {
 
 		BluRaySerie bluRaySerie = new BluRaySerie(nomeItem, preco, descricao, duracao, classificacao, genero,
 				temporada);
-
 		itens.put(nomeItem, bluRaySerie);
 	}
 
 	public void adicionarBluRayEpisodio(String BlurayTemporada, int duracao) {
 
 		BluRaySerie bluraySerie = (BluRaySerie) itens.get(BlurayTemporada);
-
 		bluraySerie.adicionarBluRay(duracao);
 	}
-	
+
 	public void cadastrarPecaPerdidaNoTabuleiro(String nomeItem, String nomePeca) {
-		
+
 		JogoTabuleiro jogoTabuleiro = (JogoTabuleiro) itens.get(nomeItem);
-		
 		jogoTabuleiro.adicionarPecaPerdida(nomePeca);
-		
+
 	}
-	
+
 	public void atualizarItem(String nomeItem, String atributo, String valor) {
-		
-		// Item item = itens.get(nomeItem);
-		// Falta implementar, vai dar dor de cabeça;
-		
+
+		Item item = itens.get(nomeItem);
+		item.atualizar(atributo, valor);
+
+	}
+
+	public String getInfoItem(String nomeItem, String atributo) {
+
+		Item item = itens.get(nomeItem);
+		return item.getInfo(atributo);
 
 	}
 
 	public void removerItem(String nomeItem) {
 
 		itens.remove(nomeItem);
-	}
-
-	@Override
-	public String toString() {
-		return this.nome + ", " + this.email + ", " + this.telefone;
 	}
 
 	@Override
@@ -153,6 +152,5 @@ public class Usuario {
 
 		return true;
 	}
-
 
 }
