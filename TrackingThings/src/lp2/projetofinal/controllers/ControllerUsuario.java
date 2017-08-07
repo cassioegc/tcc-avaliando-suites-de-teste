@@ -1,5 +1,15 @@
 package lp2.projetofinal.controllers;
 
+/**
+ * Classe responsavel por controlar todos os objetos Usuario cadastrados no sistema.
+ * 
+ * Laboratorio de Programacao 2 - Projeto Final Parte 01
+ * 
+ * @author Thiago Santos de Moura - 116210967
+ * @author Gabriel Almeida Azevedo - 116210009
+ * @author Marcelo Gabriel dos Santos Queiroz Vitorino - 116211290
+ */
+
 import java.util.HashMap;
 import java.util.Map;
 

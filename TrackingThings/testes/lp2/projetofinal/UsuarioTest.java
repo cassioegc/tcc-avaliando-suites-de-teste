@@ -1,5 +1,15 @@
 package lp2.projetofinal;
 
+/**
+ * Classe responsavel por conter testes para metodos de um objeto do tipo Usuario.
+ * 
+ * Laboratorio de Programacao 2 - Projeto Final Parte 01
+ * 
+ * @author Thiago Santos de Moura - 116210967
+ * @author Gabriel Almeida Azevedo - 116210009
+ * @author Marcelo Gabriel dos Santos Queiroz Vitorino - 116211290
+ */
+
 import static org.junit.Assert.*;
 
 import org.junit.Before;
@@ -19,7 +29,6 @@ public class UsuarioTest {
 		usuarioUm = new Usuario("Raquel Vigolvino Lopes", "raquel@computacao.ufcg.edu.br", "(83) 9999-0000");
 	}
 
-
 	@Test
 	public void testGetNome() {
 		assertEquals(mensagemErroDois,"Raquel Vigolvino Lopes", usuarioUm.getNome());
@@ -28,9 +37,7 @@ public class UsuarioTest {
 	@Test
 	public void testSetNome() {
 		assertEquals(mensagemErroDois,"Raquel Vigolvino Lopes", usuarioUm.getNome());
-		
 		usuarioUm.setNome("Livia Maria Pereira");
-		
 		assertEquals(mensagemErroDois,"Livia Maria Pereira", usuarioUm.getNome());
 	}
 
@@ -42,9 +49,7 @@ public class UsuarioTest {
 	@Test
 	public void testSetEmail() {
 		assertEquals(mensagemErroDois,"raquel@computacao.ufcg.edu.br", usuarioUm.getEmail());
-		
 		usuarioUm.setEmail("raquel@gmail.com");
-		
 		assertEquals(mensagemErroDois,"raquel@gmail.com", usuarioUm.getEmail());
 	}
 
@@ -56,9 +61,7 @@ public class UsuarioTest {
 	@Test
 	public void testSetTelefone() {
 		assertEquals(mensagemErroDois,"(83) 9999-0000", usuarioUm.getTelefone());
-		
 		usuarioUm.setTelefone("(83) 9 9999-0000");
-		
 		assertEquals(mensagemErroDois,"(83) 9 9999-0000", usuarioUm.getTelefone());
 	}
 

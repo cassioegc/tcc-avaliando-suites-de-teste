@@ -1,5 +1,15 @@
 package lp2.projetofinal.controllers;
 
+/**
+ * Classe responsavel por ser o ControllerPrincipal, delega responsabilidades para ControllerUsuario e chama a classe Checks para validar os parametros passados em cada metodo.
+ * 
+ * Laboratorio de Programacao 2 - Projeto Final Parte 01
+ * 
+ * @author Thiago Santos de Moura - 116210967
+ * @author Gabriel Almeida Azevedo - 116210009
+ * @author Marcelo Gabriel dos Santos Queiroz Vitorino - 116211290
+ */
+
 import lp2.projetofinal.util.Checks;
 
 public class Sistema {
