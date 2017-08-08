@@ -62,7 +62,7 @@ public class BluRayFilmeTeste {
 	
 	@Test
 	public void testToString() {
-		assertEquals("FILME: Moana, R$ 45.99, Nao emprestado, 140, LIVRE, ANIMACAO, 2017|", bluray1.toString());
+		assertEquals("FILME: Moana, R$ 45.99, Nao emprestado, 140 min, LIVRE, ANIMACAO, 2017", bluray1.toString());
 	}
 
 }

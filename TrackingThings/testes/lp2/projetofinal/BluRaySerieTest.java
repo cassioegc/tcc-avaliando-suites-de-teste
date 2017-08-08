@@ -34,15 +34,15 @@ public class BluRaySerieTest {
 		assertEquals("Big Time Rush", bluray1.getNome());
 		assertEquals(30.00, bluray1.getPreco(), 0.01);
 		assertEquals(60, bluray1.getDuracao());
-		assertEquals("16 ANOS", bluray1.getClassificacao());
+		assertEquals("DEZESSEIS_ANOS", bluray1.getClassificacao());
 		assertEquals("SUSPENSE", bluray1.getGenero());
 		assertEquals(1, bluray1.getNumeroTemporada());
 	}
 	
 	@Test
 	public void testToString() {
-		assertEquals(" SERIE: Big Time Rush, R$ 30.0, Nao emprestado, 60, 16 ANOS, SUSPENSE, Temporada 1|",bluray1.toString());
-		assertEquals(" SERIE: Big Time Rush, R$ 35.0, Nao emprestado, 120, 16 ANOS, SUSPENSE, Temporada 2|",bluray2.toString());
+		assertEquals("SERIE: Big Time Rush, R$ 30.0, Nao emprestado, 60 min, DEZESSEIS_ANOS, SUSPENSE, Temporada 1",bluray1.toString());
+		assertEquals("SERIE: Big Time Rush, R$ 35.0, Nao emprestado, 120 min, DEZESSEIS_ANOS, SUSPENSE, Temporada 2",bluray2.toString());
 	}
 
 	@Test

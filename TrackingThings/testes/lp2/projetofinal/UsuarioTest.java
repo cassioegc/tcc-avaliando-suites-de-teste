@@ -18,7 +18,9 @@ import org.junit.Test;
 import lp2.projetofinal.entidades.Usuario;
 
 public class UsuarioTest {
+	
 	private Usuario usuarioUm;
+	
 
 	final String mensagemErroUm = "Valor invalido";
 	final String mensagemErroDois = "Exibicao invalida";
@@ -66,23 +68,17 @@ public class UsuarioTest {
 	}
 
 	@Test
-	public void testAdicionaItem() {
-		///////////////////////////// falta ajeitar o adicionamento
-	}
-
-	@Test
-	public void testAdicionarBluRay() {
-		///////////////////////////// falta ajeitar o adicionamento
-	}
-
-	@Test
 	public void testToString() {
 		assertEquals(mensagemErroDois,"Raquel Vigolvino Lopes, raquel@computacao.ufcg.edu.br, (83) 9999-0000", usuarioUm.toString());
 	}
 
 	@Test
 	public void testEqualsObject() {
+		Usuario usuarioDois = new Usuario("Livia Maria", "livia@computacao.ufcg.edu.br", "(83) 9999-8888");
+		Usuario usuarioTres = new Usuario("Raquel Vigolvino Lopes", "raquelVigolvino@computacao.ufcg.edu.br", "(83) 9999-0000");
 		
+		assertFalse(usuarioUm.equals(usuarioDois));
+		assertTrue(usuarioUm.equals(usuarioTres));
 	}
 
 }

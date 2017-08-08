@@ -50,8 +50,8 @@ public class BluRayShowTeste {
 	
 	@Test
 	public void testToString() {
-		assertEquals("SHOW: Os Anjos Cantam, R$ 25.9, Nao emprestado, 110, LIVRE, Jorge e Matheus, 12 faixas|", bluray1.toString());
-		assertEquals("SHOW: Ivete 2017, R$ 30.0, Nao emprestado, 135, LIVRE, Ivete Sangalo, 11 faixas|", bluray2.toString());
+		assertEquals("SHOW: Os Anjos Cantam, R$ 25.9, Nao emprestado, 110 min, LIVRE, Jorge e Matheus, 12 faixas", bluray1.toString());
+		assertEquals("SHOW: Ivete 2017, R$ 30.0, Nao emprestado, 135 min, LIVRE, Ivete Sangalo, 11 faixas", bluray2.toString());
 	}
 
 	@Test

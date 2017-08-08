@@ -3,9 +3,7 @@ package lp2.projetofinal.entidades;
 public class Usuario {
 
 	private String nome;
-
 	private String email;
-
 	private String telefone;
 
 	public Usuario(String nome, String email, String telefone) {
