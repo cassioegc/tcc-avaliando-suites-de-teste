@@ -32,7 +32,7 @@ public abstract class BluRay extends Item {
 
 	@Override
 	public String toString(){
-		return super.toString() + this.duracao + ", " + this.getClassificacao() + ", ";
+		return super.toString() + this.duracao + " min, " + this.getClassificacao() + ", ";
 	}
 	
 	@Override
