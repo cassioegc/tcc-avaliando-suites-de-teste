@@ -1,6 +1,7 @@
 package lp2.projetofinal.entidades;
 
 public class Emprestimo {
+	
 	private Usuario donoDoItem;
 
 	private Usuario usuarioRequerente;
@@ -24,7 +25,9 @@ public class Emprestimo {
 
 	}
 	
-	
+	public void setDataDevolucao(String dataDevolucao) {
+		this.dataDevolucao = dataDevolucao;
+	}
 	
 	@Override
 	public String toString() {
@@ -33,6 +36,39 @@ public class Emprestimo {
 				+ this.item.getNome() + ", " + this.dataEmprestimo + ", " + this.numeroDias + " dias, ENTREGA: "
 				+ this.dataDevolucao;
 	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((dataEmprestimo == null) ? 0 : dataEmprestimo.hashCode());
+		result = prime * result + ((donoDoItem == null) ? 0 : donoDoItem.hashCode());
+		result = prime * result + ((usuarioRequerente == null) ? 0 : usuarioRequerente.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		
+		Emprestimo ref = (Emprestimo) obj;
+		
+		if(!this.donoDoItem.equals(ref.donoDoItem))
+			return false;
+		if(!this.usuarioRequerente.equals(ref.usuarioRequerente))
+			return false;
+		if(!this.dataEmprestimo.equals(ref.dataEmprestimo))
+			return false;
+		
+		return true;
+	}
+	
+	
 	
 	
 }

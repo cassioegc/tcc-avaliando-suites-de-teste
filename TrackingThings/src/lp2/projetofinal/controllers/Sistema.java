@@ -198,7 +198,7 @@ public class Sistema {
 		Checks.verificaDataEmprestimoVaziaNula(dataEmprestimo);
 		Checks.verificaPeriodoZeradoOuNegativo(periodo);
 		
-		controllerEmprestimos.registrarEmprestimo(nomeDono, telefoneDono, nomeRequerente, telefoneRequerente, nomeItem, dataEmprestimo, periodo);;
+		controllerEmprestimos.registrarEmprestimo(controllerUsuario.identificaUsuario(nomeDono, telefoneDono), controllerUsuario.identificaUsuario( nomeRequerente, telefoneRequerente),  nomeItem, dataEmprestimo, periodo);;
 		
 			
 	}
