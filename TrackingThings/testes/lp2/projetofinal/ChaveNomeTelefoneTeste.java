@@ -25,7 +25,7 @@ public class ChaveNomeTelefoneTeste {
 	@Before
 	public void criaChaveNomeTelefone(){
 		chave1 = new ChaveNomeTelefone("Gabriel", "(83) 8888-9999");
-		chave2 = new ChaveNomeTelefone("Marcello", "(83) 9999-7777");
+		chave2 = new ChaveNomeTelefone("Marcelo", "(83) 9999-7777");
 	}
 	
 	@Test
@@ -43,7 +43,7 @@ public class ChaveNomeTelefoneTeste {
 	@Test
 	public void testGetNome() {
 		assertEquals("Gabriel", chave1.getNome());
-		assertEquals("Marcello", chave2.getNome());
+		assertEquals("Marcelo", chave2.getNome());
 	}
 
 	@Test
