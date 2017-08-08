@@ -1,7 +1,7 @@
 package lp2.projetofinal.util;
 
 /**
- * Classe que contem metodos estaticos responsaveis por lancar excessoes.
+ * Classe que contem metodos estaticos responsaveis por lancar excessoes chacadas dentro do metodo.
  * 
  * Laboratorio de Programacao 2 - Projeto Final Parte 01
  * 

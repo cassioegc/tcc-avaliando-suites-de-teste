@@ -96,5 +96,18 @@ public class Facade {
 	public String pesquisarDetalhesItem(String nome, String telefone, String nomeItem) {
 		return sistema.pesquisarDetalhesItem(nome, telefone, nomeItem);
 	}
-
+	
+	public void registrarEmprestimo(String nomeDono, String telefoneDono, String nomeRequerente, String telefoneRequerente,
+			String nomeItem, String dataEmprestimo, int periodo){
+		
+		sistema.registrarEmprestimo(nomeDono, telefoneDono, nomeRequerente, telefoneRequerente, nomeItem, dataEmprestimo, periodo);
+		
+	}
+	
+	public void devolverItem(String nomeDono, String telefoneDono, String nomeRequerente, String telefoneRequerente,
+			String nomeItem, String dataEmprestimo, String dataDevolucao){
+			
+		sistema.devolverItem(nomeDono, telefoneDono, nomeRequerente, telefoneRequerente, nomeItem, dataEmprestimo, dataDevolucao);
+	}
+		
 }

@@ -12,6 +12,7 @@ import lp2.projetofinal.entidades.BluRayShow;
 import lp2.projetofinal.entidades.Item;
 import lp2.projetofinal.entidades.JogoEletronico;
 import lp2.projetofinal.entidades.JogoTabuleiro;
+import lp2.projetofinal.entidades.Usuario;
 import lp2.projetofinal.orders.OrdenaItemAlfabetico;
 import lp2.projetofinal.orders.OrdenaItemPreco;
 import lp2.projetofinal.util.Exceptions;

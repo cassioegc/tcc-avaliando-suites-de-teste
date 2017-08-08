@@ -15,7 +15,7 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
-import lp2.projetofinal.controllers.Usuario;
+import lp2.projetofinal.entidades.Usuario;
 
 public class UsuarioTest {
 	private Usuario usuarioUm;

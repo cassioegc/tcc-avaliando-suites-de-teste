@@ -14,6 +14,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import lp2.projetofinal.entidades.ChaveNomeTelefone;
+import lp2.projetofinal.entidades.Usuario;
 import lp2.projetofinal.util.Exceptions;
 
 public class ControllerUsuario {

@@ -16,10 +16,12 @@ public class Sistema {
 
 	private ControllerUsuario controllerUsuario;
 	private ControllerItens controllerItens;
+	private ControllerEmprestimos controllerEmprestimos;
 
 	public Sistema() {
 		controllerUsuario = new ControllerUsuario();
 		controllerItens = new ControllerItens();
+		controllerEmprestimos = new ControllerEmprestimos();
 	}
 
 	public void cadastrarUsuario(String nome, String telefone, String email) {
@@ -185,6 +187,33 @@ public class Sistema {
 	}
 	public String listarItensOrdenadosPorValor() {
 		return controllerItens.listarItensOrdenadosPorValor();
+	}
+	
+	public void registrarEmprestimo(String nomeDono, String telefoneDono, String nomeRequerente,
+			String telefoneRequerente, String nomeItem, String dataEmprestimo, int periodo) {
+		
+		verificacaoPadraoUsuario(nomeDono, telefoneDono);
+		verificacaoPadraoUsuario(nomeRequerente, telefoneRequerente);
+		
+		Checks.verificaDataEmprestimoVaziaNula(dataEmprestimo);
+		Checks.verificaPeriodoZeradoOuNegativo(periodo);
+		
+		controllerEmprestimos.registrarEmprestimo(nomeDono, telefoneDono, nomeRequerente, telefoneRequerente, nomeItem, dataEmprestimo, periodo);;
+		
+			
+	}
+
+	public void devolverItem(String nomeDono, String telefoneDono, String nomeRequerente, String telefoneRequerente,
+			String nomeItem, String dataEmprestimo, String dataDevolucao) {
+		
+		verificacaoPadraoUsuario(nomeDono, telefoneDono);
+		verificacaoPadraoUsuario(nomeRequerente, telefoneRequerente);
+		
+		Checks.verificaDataEmprestimoVaziaNula(dataEmprestimo);
+		Checks.verificaDataDevolucaoVaziaNula(dataDevolucao);
+		
+		controllerEmprestimos.devolverItem(nomeDono, telefoneDono, nomeRequerente, telefoneRequerente, nomeItem, dataEmprestimo, dataDevolucao);
+		
 	}
 
 	public void finalizar() {

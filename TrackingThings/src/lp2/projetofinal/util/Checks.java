@@ -97,5 +97,20 @@ public class Checks {
 		if (nomePeca.trim().isEmpty())
 			throw new IllegalArgumentException("Peca nao pode ser vazia ou nula");
 	}
+	
+	public static void verificaDataEmprestimoVaziaNula(String data) {
+		if (data.trim().isEmpty())
+			throw new IllegalArgumentException("Data nao pode ser vazia ou nula");
+	}
+	
+	public static void verificaDataDevolucaoVaziaNula(String data) {
+		if (data.trim().isEmpty())
+			throw new IllegalArgumentException("Data devolucao nao pode ser vazia ou nula");
+	}
+	
+	public static void verificaPeriodoZeradoOuNegativo(int periodo) {
+		if (periodo <= 0)
+			throw new IllegalArgumentException("Periodo nao pode zero ou negativo");
+	}
 
 }
