@@ -20,7 +20,14 @@ public class OrdenaItemPreco implements Comparator<Item> {
 	@Override
 	public int compare(Item itemUm, Item itemDois) {
 
-		return (int) (itemUm.getPreco() - itemDois.getPreco());
+		double result = itemUm.getPreco() - itemDois.getPreco();
+		
+		if(result < 0)
+			return -1;
+		else if(result > 0)
+			return 1;
+		else
+			return 0;
 	}
 
 }

@@ -45,11 +45,6 @@ public class Facade {
 		return sistema.getInfoItem(nome, telefone, nomeItem, atributo);
 	}
 
-	// OBS2: Acredito que na nosso implementação isso já acontece. OBS: Nesse
-	// metodo, pedindo o PRECO, se as casas decimais forem zero, retornar s� com
-	// uma casa, se nao for, retornar com duas. Pedindo o NOME, retorna o nome
-	// (estranho porq ele ja passa o nome como parametro);
-
 	public void cadastrarEletronico(String nome, String telefone, String nomeItem, double preco, String plataforma) {
 		sistema.cadastrarEletronico(nome, telefone, nomeItem, preco, plataforma);
 	}
@@ -90,19 +85,16 @@ public class Facade {
 		sistema.atualizarItem(nome, telefone, nomeItem, atributo, valor);
 	}
 
-	// METODOS DO US3.
-
 	public String listarItensOrdenadosPorNome() {
-		return "MUDAR";// CONTROLLERPRINCIPAL.listarItensOrdenadosPorNome();
+		return sistema.listarItensOrdenadosPorNome();
 	}
 
 	public String listarItensOrdenadosPorValor() {
-		return "";// CONTROLLERPRINCIPAL.listarItensOrdenadosPorValor();
+		return sistema.listarItensOrdenadosPorValor();
 	}
 
 	public String pesquisarDetalhesItem(String nome, String telefone, String nomeItem) {
-		return "MUDAR --- toStringDOitem";// CONTROLLERPRINCIPAL.pesquisarDetalhesItem(nome,
-											// telefone, nomeItem);
+		return sistema.pesquisarDetalhesItem(nome, telefone, nomeItem);
 	}
 
 }

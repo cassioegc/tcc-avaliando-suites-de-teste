@@ -1,5 +1,7 @@
 package lp2.projetofinal.controllers;
 
+import java.util.ArrayList;
+
 /**
  * Classe responsavel por conter metodos e atributos de um objeto do tipo Usuario (Usuario representa na vida real um usuario do Traking Things). Compoe ControllerUsuario.
  * 
@@ -11,6 +13,7 @@ package lp2.projetofinal.controllers;
  */
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import lp2.projetofinal.entidades.BluRayFilme;
@@ -182,6 +185,23 @@ public class Usuario {
 			return false;
 
 		return true;
+	}
+
+	public String getDetalhesItem(String nomeItem) {
+		
+		verificaExistenciaItem(nomeItem);
+		
+		return itens.get(nomeItem).toString();
+		
+	}
+
+	public List<Item> seusItens() {
+		
+		List<Item> todosItens = new ArrayList<Item>();
+		for(Item item: this.itens.values())
+			todosItens.add(item);
+		
+		return todosItens;
 	}
 
 }

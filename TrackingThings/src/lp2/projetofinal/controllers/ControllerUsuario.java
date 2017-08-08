@@ -1,5 +1,8 @@
 package lp2.projetofinal.controllers;
 
+import java.util.List;
+import java.util.ArrayList;
+
 /**
  * Classe responsavel por controlar todos os objetos Usuario cadastrados no sistema.
  * 
@@ -14,6 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import lp2.projetofinal.entidades.ChaveNomeTelefone;
+import lp2.projetofinal.entidades.Item;
 import lp2.projetofinal.util.Exceptions;
 
 public class ControllerUsuario {
@@ -28,7 +32,7 @@ public class ControllerUsuario {
 
 		ChaveNomeTelefone chave = new ChaveNomeTelefone(nome, telefone);
 
-		if (usuarios.containsKey(chave)) 
+		if (usuarios.containsKey(chave))
 			Exceptions.usuarioJaCadastradoException();
 
 		Usuario usuario = new Usuario(nome, email, telefone);
@@ -77,7 +81,7 @@ public class ControllerUsuario {
 
 		ChaveNomeTelefone chave = new ChaveNomeTelefone(nome, telefone);
 
-		verificaExistenciaChaveMapa(chave); 
+		verificaExistenciaChaveMapa(chave);
 
 		Usuario usuario = identificaUsuario(nome, telefone);
 
@@ -108,5 +112,14 @@ public class ControllerUsuario {
 		verificaExistenciaChaveMapa(chave);
 
 		return usuarios.get(chave);
+	}
+
+	//Isso não pode ficar aqui.
+	public List<Item> retornaUsuarioItens() {
+		List<Item> listaItens = new ArrayList<>();
+		for (Usuario usuario: usuarios.values())
+			listaItens.addAll(usuario.seusItens());
+		
+		return listaItens;
 	}
 }

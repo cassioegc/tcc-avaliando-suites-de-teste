@@ -50,7 +50,7 @@ public class JogoEletronico extends Item {
 
 	@Override
 	public String toString() {
-		return "JOGO ELETRONICO: " + super.toString() + this.getPlataforma() + "|";
+		return "JOGO ELETRONICO: " + super.toString() + this.getPlataforma();
 	}
 
 }

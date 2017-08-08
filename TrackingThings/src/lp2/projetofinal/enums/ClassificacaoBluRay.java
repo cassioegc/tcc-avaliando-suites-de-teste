@@ -7,8 +7,8 @@
 package lp2.projetofinal.enums;
 
 public enum ClassificacaoBluRay {
-	LIVRE("LIVRE"), DEZ_ANOS("10 ANOS"), DOZE_ANOS("12 ANOS"), QUATORZE_ANOS("14 ANOS"), DEZESSEIS_ANOS(
-			"16 ANOS"), DEZOITO_ANOS("18 ANOS");
+	LIVRE("LIVRE"), DEZ_ANOS("DEZ_ANOS"), DOZE_ANOS("DOZE_ANOS"), QUATORZE_ANOS("QUATORZE_ANOS"), DEZESSEIS_ANOS(
+			"DEZESSEIS_ANOS"), DEZOITO_ANOS("DEZOITO_ANOS");
 
 	private String classificacao;
 
