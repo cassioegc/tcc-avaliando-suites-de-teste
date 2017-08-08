@@ -1,12 +1,5 @@
 package lp2.projetofinal.controllers;
 
-import java.util.Collections;
-import java.util.List;
-
-import lp2.projetofinal.entidades.Item;
-import lp2.projetofinal.orders.OrdenaItemAlfabetico;
-import lp2.projetofinal.orders.OrdenaItemPreco;
-
 /**
  * Classe responsavel por ser o ControllerPrincipal, delega responsabilidades para ControllerUsuario e chama a classe Checks para validar os parametros passados em cada metodo.
  * 
@@ -22,9 +15,11 @@ import lp2.projetofinal.util.Checks;
 public class Sistema {
 
 	private ControllerUsuario controllerUsuario;
+	private ControllerItens controllerItens;
 
 	public Sistema() {
 		controllerUsuario = new ControllerUsuario();
+		controllerItens = new ControllerItens();
 	}
 
 	public void cadastrarUsuario(String nome, String telefone, String email) {
@@ -77,14 +72,14 @@ public class Sistema {
 		verificacaoPadraoCadastroItem(nome, telefone, nomeItem, preco);
 		Checks.verificaPlataformaVaziaNula(plataforma);
 
-		controllerUsuario.identificaUsuario(nome, telefone).adicionaItem(nomeItem, preco, plataforma);
+		controllerItens.adicionaItem(controllerUsuario.identificaUsuario(nome, telefone), nomeItem, preco, plataforma);
 	}
 
 	public void cadastrarJogoTabuleiro(String nome, String telefone, String nomeItem, double preco) {
 
 		verificacaoPadraoCadastroItem(nome, telefone, nomeItem, preco);
 
-		controllerUsuario.identificaUsuario(nome, telefone).adicionaItem(nomeItem, preco);
+		controllerItens.adicionaItem(controllerUsuario.identificaUsuario(nome, telefone), nomeItem, preco);
 	}
 
 	public void cadastrarBluRayFilme(String nome, String telefone, String nomeItem, double preco, int duracao,
@@ -96,8 +91,8 @@ public class Sistema {
 		Checks.verificaClassificacaoVaziaNula(classificacao);
 		Checks.verificaAnoLancamentoZeroNegativo(anoLancamento);
 
-		controllerUsuario.identificaUsuario(nome, telefone).adicionaItem(nomeItem, preco, duracao, genero,
-				classificacao, anoLancamento);
+		controllerItens.adicionaItem(controllerUsuario.identificaUsuario(nome, telefone), nomeItem, preco, duracao,
+				genero, classificacao, anoLancamento);
 	}
 
 	public void cadastrarBluRayShow(String nome, String telefone, String nomeItem, double preco, int duracao,
@@ -109,8 +104,8 @@ public class Sistema {
 		Checks.verificaArtistaVazioNulo(artista);
 		Checks.verificaClassificacaoVaziaNula(classificacao);
 
-		controllerUsuario.identificaUsuario(nome, telefone).adicionaItem(nomeItem, preco, duracao, numeroFaixas,
-				artista, classificacao);
+		controllerItens.adicionaItem(controllerUsuario.identificaUsuario(nome, telefone), nomeItem, preco, duracao,
+				numeroFaixas, artista, classificacao);
 	}
 
 	public void cadastrarBluRaySerie(String nome, String telefone, String nomeItem, double preco, String descricao,
@@ -123,8 +118,8 @@ public class Sistema {
 		Checks.verificaDescricaoVaziaNula(descricao);
 		Checks.verificaTemporadaZeroNegativa(temporada);
 
-		controllerUsuario.identificaUsuario(nome, telefone).adicionaItem(nomeItem, preco, descricao, duracao,
-				classificacao, genero, temporada);
+		controllerItens.adicionaItem(controllerUsuario.identificaUsuario(nome, telefone), nomeItem, preco, descricao,
+				duracao, classificacao, genero, temporada);
 	}
 
 	public void adicionarBluRay(String nome, String telefone, String BlurayTemporada, int duracao) {
@@ -133,7 +128,8 @@ public class Sistema {
 		Checks.verificaNomeItemVazioNulo(BlurayTemporada);
 		Checks.verificaDuracaoZeroNegativa(duracao);
 
-		controllerUsuario.identificaUsuario(nome, telefone).adicionarBluRayEpisodio(BlurayTemporada, duracao);
+		controllerItens.adicionarBluRayEpisodio(controllerUsuario.identificaUsuario(nome, telefone), BlurayTemporada,
+				duracao);
 	}
 
 	public void adicionarPecaPerdida(String nome, String telefone, String nomeItem, String nomePeca) {
@@ -142,7 +138,8 @@ public class Sistema {
 		Checks.verificaNomeItemVazioNulo(nomeItem);
 		Checks.verificaPecaVaziaNula(nomePeca);
 
-		controllerUsuario.identificaUsuario(nome, telefone).cadastrarPecaPerdidaNoTabuleiro(nomeItem, nomePeca);
+		controllerItens.cadastrarPecaPerdidaNoTabuleiro(controllerUsuario.identificaUsuario(nome, telefone), nomeItem,
+				nomePeca);
 	}
 
 	public void removerItem(String nome, String telefone, String nomeItem) {
@@ -150,7 +147,7 @@ public class Sistema {
 		verificacaoPadraoUsuario(nome, telefone);
 		Checks.verificaNomeItemVazioNulo(nomeItem);
 
-		controllerUsuario.identificaUsuario(nome, telefone).removerItem(nomeItem);
+		controllerItens.removerItem(controllerUsuario.identificaUsuario(nome, telefone), nomeItem);
 	}
 
 	public void atualizarItem(String nome, String telefone, String nomeItem, String atributo, String valor) {
@@ -160,7 +157,7 @@ public class Sistema {
 		Checks.verificaAtributolVazioNulo(atributo);
 		Checks.verificaValorVazioNulo(valor);
 
-		controllerUsuario.identificaUsuario(nome, telefone).atualizarItem(nomeItem, atributo, valor);
+		controllerItens.atualizarItem(controllerUsuario.identificaUsuario(nome, telefone), nomeItem, atributo, valor);
 
 	}
 
@@ -170,45 +167,27 @@ public class Sistema {
 		Checks.verificaNomeItemVazioNulo(nomeItem);
 		Checks.verificaAtributolVazioNulo(atributo);
 
-		return controllerUsuario.identificaUsuario(nome, telefone).getInfoItem(nomeItem, atributo);
+		return controllerItens.getInfoItem(controllerUsuario.identificaUsuario(nome, telefone), nomeItem, atributo);
 	}
-	
+
 	public String pesquisarDetalhesItem(String nome, String telefone, String nomeItem) {
 
-		verificacaoPadraoUsuario(nomeItem, telefone);
+		verificacaoPadraoUsuario(nome, telefone);
 		Checks.verificaNomeItemVazioNulo(nomeItem);
 
-		return controllerUsuario.identificaUsuario(nome, telefone).getDetalhesItem(nomeItem);
+		return controllerItens.getDetalhesItem(controllerUsuario.identificaUsuario(nome, telefone), nomeItem);
+	}
+
+	
+	public String listarItensOrdenadosPorNome() {
+		return controllerItens.listarItensOrdenadosPorNome();
+
+	}
+	public String listarItensOrdenadosPorValor() {
+		return controllerItens.listarItensOrdenadosPorValor();
 	}
 
 	public void finalizar() {
 
 	}
-	
-	//Isso não pode ficar aqui.
-	public String listarItensOrdenadosPorNome() {
-
-		List<Item> listaItens = controllerUsuario.retornaUsuarioItens();
-		Collections.sort(listaItens, new OrdenaItemAlfabetico());
-
-		String itensString = "";
-		for (Item item : listaItens) {
-			itensString += item.toString() + "|";
-		}
-		return itensString;
-	}
-
-	//Isso não pode ficar aqui.
-	public String listarItensOrdenadosPorValor() {
-
-		List<Item> listaItens = controllerUsuario.retornaUsuarioItens();
-		Collections.sort(listaItens, new OrdenaItemPreco());
-
-		String itensString = "";
-		for (Item item : listaItens) {
-			itensString += item.toString() + "|";
-		}
-		return itensString;
-	}
-
 }
