@@ -184,4 +184,12 @@ public class ControllerItens {
 		}
 		return itensString;
 	}
+	
+	public Item identificaItemUsuario(Usuario donoItem, String nomeItem){
+		
+		verificaExistenciaItem(nomeItem, donoItem);
+		
+		return itens.get(donoItem).get(nomeItem);
+		
+	}
 }

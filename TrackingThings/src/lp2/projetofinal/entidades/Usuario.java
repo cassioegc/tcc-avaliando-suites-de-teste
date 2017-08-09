@@ -1,16 +1,21 @@
 package lp2.projetofinal.entidades;
 
+import java.util.HashSet;
+import java.util.Set;
+
 public class Usuario {
 
 	private String nome;
 	private String email;
 	private String telefone;
+	private Set<Emprestimo> emprestimosRealizados;
 
 	public Usuario(String nome, String email, String telefone) {
 
 		this.nome = nome;
 		this.email = email;
 		this.telefone = telefone;
+		this.emprestimosRealizados = new HashSet<Emprestimo>();
 	}
 
 	public String getNome() {
@@ -67,6 +72,10 @@ public class Usuario {
 			return false;
 
 		return true;
+	}
+
+	public void registraEmprestimoRealizado(Emprestimo emprestimo) {
+		this.emprestimosRealizados.add(emprestimo);
 	}
 
 }

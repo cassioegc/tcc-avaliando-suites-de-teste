@@ -14,6 +14,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import lp2.projetofinal.entidades.ChaveNomeTelefone;
+import lp2.projetofinal.entidades.Emprestimo;
 import lp2.projetofinal.entidades.Usuario;
 import lp2.projetofinal.util.Exceptions;
 
@@ -109,6 +110,19 @@ public class ControllerUsuario {
 		verificaExistenciaChaveMapa(chave);
 
 		return usuarios.get(chave);
+	}
+
+	public void adicionarEmprestimoRealizado(String nomeDono, String telefoneDono, String nomeRequerente,
+			String telefoneRequerente, Emprestimo emprestimo) {
+
+		ChaveNomeTelefone chaveDono = new ChaveNomeTelefone(nomeDono, telefoneDono);
+		ChaveNomeTelefone chaveRequerente = new ChaveNomeTelefone(nomeRequerente, telefoneRequerente);
+		
+		verificaExistenciaChaveMapa(chaveDono);
+		verificaExistenciaChaveMapa(chaveRequerente);
+		
+		identificaUsuario(nomeDono, telefoneDono).registraEmprestimoRealizado(emprestimo);
+		identificaUsuario(nomeRequerente, telefoneRequerente).registraEmprestimoRealizado(emprestimo);
 	}
 
 }

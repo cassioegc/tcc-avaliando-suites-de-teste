@@ -180,40 +180,51 @@ public class Sistema {
 		return controllerItens.getDetalhesItem(controllerUsuario.identificaUsuario(nome, telefone), nomeItem);
 	}
 
-	
 	public String listarItensOrdenadosPorNome() {
 		return controllerItens.listarItensOrdenadosPorNome();
 
 	}
+
 	public String listarItensOrdenadosPorValor() {
 		return controllerItens.listarItensOrdenadosPorValor();
 	}
-	
+
 	public void registrarEmprestimo(String nomeDono, String telefoneDono, String nomeRequerente,
 			String telefoneRequerente, String nomeItem, String dataEmprestimo, int periodo) {
-		
+
 		verificacaoPadraoUsuario(nomeDono, telefoneDono);
 		verificacaoPadraoUsuario(nomeRequerente, telefoneRequerente);
-		
+
+		Checks.verificaNomeItemVazioNulo(nomeItem);
 		Checks.verificaDataEmprestimoVaziaNula(dataEmprestimo);
 		Checks.verificaPeriodoZeradoOuNegativo(periodo);
-		
-		controllerEmprestimos.registrarEmprestimo(controllerUsuario.identificaUsuario(nomeDono, telefoneDono), controllerUsuario.identificaUsuario( nomeRequerente, telefoneRequerente),  nomeItem, dataEmprestimo, periodo);;
-		
-			
+
+		controllerEmprestimos.registrarEmprestimo(controllerUsuario.identificaUsuario(nomeDono, telefoneDono),
+				controllerUsuario.identificaUsuario(nomeRequerente, telefoneRequerente), controllerItens
+						.identificaItemUsuario(controllerUsuario.identificaUsuario(nomeDono, telefoneDono), nomeItem),
+				dataEmprestimo, periodo);
+
 	}
 
 	public void devolverItem(String nomeDono, String telefoneDono, String nomeRequerente, String telefoneRequerente,
 			String nomeItem, String dataEmprestimo, String dataDevolucao) {
-		
+
 		verificacaoPadraoUsuario(nomeDono, telefoneDono);
 		verificacaoPadraoUsuario(nomeRequerente, telefoneRequerente);
-		
+
+		Checks.verificaNomeItemVazioNulo(nomeItem);
 		Checks.verificaDataEmprestimoVaziaNula(dataEmprestimo);
 		Checks.verificaDataDevolucaoVaziaNula(dataDevolucao);
-		
-		controllerEmprestimos.devolverItem(nomeDono, telefoneDono, nomeRequerente, telefoneRequerente, nomeItem, dataEmprestimo, dataDevolucao);
-		
+
+		controllerEmprestimos.devolverItem(controllerUsuario.identificaUsuario(nomeDono, telefoneDono),
+				controllerUsuario.identificaUsuario(nomeRequerente, telefoneRequerente), controllerItens
+						.identificaItemUsuario(controllerUsuario.identificaUsuario(nomeDono, telefoneDono), nomeItem),
+				dataEmprestimo, dataDevolucao);
+
+		controllerUsuario.adicionarEmprestimoRealizado(nomeDono, telefoneDono, nomeRequerente, telefoneRequerente,
+				controllerEmprestimos.identificaEmprestimo(controllerUsuario.identificaUsuario(nomeDono, telefoneDono),
+						controllerUsuario.identificaUsuario(nomeRequerente, telefoneRequerente), dataEmprestimo));
+
 	}
 
 	public void finalizar() {

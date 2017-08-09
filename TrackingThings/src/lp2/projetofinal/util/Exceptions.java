@@ -28,4 +28,12 @@ public class Exceptions {
 		throw new IllegalArgumentException("Atributo invalido");
 	}
 
+	public static void itemEmprestadoNoMomento() {
+		throw new IllegalArgumentException("Item emprestado no momento");
+	}
+
+	public static void emprestimoNaoEncontrado() {
+		throw new IllegalArgumentException("Emprestimo nao encontrado");
+	}
+
 }
