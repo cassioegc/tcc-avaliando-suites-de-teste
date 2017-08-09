@@ -59,8 +59,8 @@ public class JogoTabuleiroTeste {
 	@Test
 	public void testToString() {
 		jogo1.adicionarPecaPerdida("Peao");
-		assertEquals("JOGO DE TABULEIRO: Xadrez, R$ 89.9, Nao emprestado, COM PECAS PERDIDAS|", jogo1.toString());
-		assertEquals("JOGO DE TABULEIRO: Dama, R$ 50.0, Nao emprestado, COMPLETO|", jogo2.toString());
+		assertEquals("JOGO DE TABULEIRO: Xadrez, R$ 89.9, Nao emprestado, COM PECAS PERDIDAS", jogo1.toString());
+		assertEquals("JOGO DE TABULEIRO: Dama, R$ 50.0, Nao emprestado, COMPLETO", jogo2.toString());
 	}	
 
 }

@@ -85,15 +85,5 @@ public class ControllerEmprestimosTeste {
 		controllerEmprestimos.devolverItem(usuario2, usuario1, item2, "10/08/2017", "20/08/2017");
 		assertEquals("Nao emprestado", item2.getEstado());
 	}
-
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	
 }
