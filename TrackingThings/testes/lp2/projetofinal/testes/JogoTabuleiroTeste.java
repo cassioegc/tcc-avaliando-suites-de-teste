@@ -1,4 +1,4 @@
-package lp2.projetofinal;
+package lp2.projetofinal.testes;
 
 /**
  * Classe responsavel por conter testes para metodos de um objeto do tipo JogoTabuleiro(heranca de Item).

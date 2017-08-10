@@ -54,7 +54,8 @@ public abstract class Item {
 	public void itemDevolvido() {
 		this.estado = EstadoItem.NAO_EMPRESTADO;
 	}
-
+	
+	@Override
 	public String toString() {
 
 		return this.nome + ", R$ " + this.preco + ", " + this.estado.getEstado() + ", ";
@@ -87,25 +88,25 @@ public abstract class Item {
 	public void atualizar(String atributo, String valor) {
 
 		switch (atributo) {
-		case "Nome":
-			this.nome = valor;
-			break;
-		case "Preco":
-			this.preco = Double.parseDouble(valor);
-			break;
-		}
+			case "Nome":
+				this.nome = valor;
+				break;
+			case "Preco":
+				this.preco = Double.parseDouble(valor);
+				break;
+			}
 	}
 
 	public String getInfo(String atributo){
 			
 		switch (atributo) {
-		case "Nome":
-			return this.nome;
-		case "Preco":
-			return "" + this.preco;	
-		default:
-			return "";
-		}
+			case "Nome":
+				return this.nome;
+			case "Preco":
+				return "" + this.preco;	
+			default:
+				return "";
+			}
 	}
 
 }

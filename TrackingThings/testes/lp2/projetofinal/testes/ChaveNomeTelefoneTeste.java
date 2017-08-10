@@ -1,4 +1,4 @@
-package lp2.projetofinal;
+package lp2.projetofinal.testes;
 
 /**
  * Classe responsavel por conter testes para metodos de um objeto do tipo ChaveNomeTelefone(esse objeto sera chave do Map de usuarios em ControllerUsuarios).

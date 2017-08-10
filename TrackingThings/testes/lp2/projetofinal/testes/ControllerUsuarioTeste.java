@@ -1,4 +1,4 @@
-package lp2.projetofinal;
+package lp2.projetofinal.testes;
 
 import static org.junit.Assert.*;
 
