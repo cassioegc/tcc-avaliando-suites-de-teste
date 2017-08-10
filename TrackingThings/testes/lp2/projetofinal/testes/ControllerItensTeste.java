@@ -1,4 +1,4 @@
-package lp2.projetofinal;
+package lp2.projetofinal.testes;
 
 /**
  * Classe responsavel por conter testes para metodos de um objeto do tipo ControllerItens,
@@ -10,14 +10,12 @@ package lp2.projetofinal;
  * @author Gabriel Almeida Azevedo - 116210009
  * @author Marcelo Gabriel dos Santos Queiroz Vitorino - 116211290
  */
-
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 import org.junit.Before;
 import org.junit.Test;
 
 import lp2.projetofinal.controllers.ControllerItens;
-import lp2.projetofinal.entidades.BluRaySerie;
 import lp2.projetofinal.entidades.JogoEletronico;
 import lp2.projetofinal.entidades.JogoTabuleiro;
 import lp2.projetofinal.entidades.Usuario;
@@ -26,13 +24,11 @@ public class ControllerItensTeste {
 
 	private ControllerItens controllerItens;
 	private Usuario usuario1;
-	private Usuario usuario2;
 	
 	@Before
 	public void criaControllerItensEUsuarios(){
 		controllerItens = new ControllerItens();
 		usuario1 = new Usuario("Gabriel", "Gabriel@ccc.ufcg.edu.br", "(83) 9999-9898");
-		usuario2 = new Usuario("Thiago", "Thiago@ccc.ufcg.edu.br", "(83) 8888-8888");
 	}
 	
 	@Test
