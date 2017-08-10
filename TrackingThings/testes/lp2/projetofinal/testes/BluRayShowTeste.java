@@ -1,4 +1,9 @@
+<<<<<<< HEAD:TrackingThings/testes/lp2/projetofinal/testes/BluRayShowTeste.java
 package lp2.projetofinal.testes;
+=======
+
+package lp2.projetofinal;
+>>>>>>> 07161bf746cd4d346c0af106fb08bc640400cb22:TrackingThings/testes/lp2/projetofinal/BluRayShowTeste.java
 
 /**
  * Classe responsavel por conter testes para metodos de um objeto do tipo BluRayShow(tipo especifico de BluRay).
