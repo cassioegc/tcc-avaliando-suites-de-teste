@@ -1,5 +1,16 @@
 package lp2.projetofinal.entidades;
 
+/**
+ * Representacao de um emprestimo cadastrado no Sistema, todo emprestimo no
+ * sistema tem o dono do item, o usuario requerente ,item,data de emprestimo,
+ * numero de dias para o emprestimo e data de devolucao.
+ * 
+ * Laboratorio de Programacao 2 - Projeto Final Parte 01
+ * 
+ * @author Thiago Santos de Moura - 116210967
+ * @author Gabriel Almeida Azevedo - 116210009
+ * @author Marcelo Gabriel dos Santos Queiroz Vitorino - 116211290
+ */
 public class Emprestimo {
 
 	private Usuario donoDoItem;
@@ -14,6 +25,23 @@ public class Emprestimo {
 
 	private String dataDevolucao;
 
+	/**
+	 * Cria um emprestimo com dono do item, usuarioRequerente do
+	 * emprestimo,item, A data do Emprestimo, e o O numero de Dias para
+	 * emprestimo.
+	 *
+	 * @param donoDoItem
+	 *            O donoDoItem para emprestimo.
+	 * @param usuarioRequerente
+	 *            O usuarioRequerente do emprestimo.
+	 * @param item
+	 *            O item do emprestimo.
+	 * @param dataEmprestimo
+	 *            A data do Emprestimo.
+	 * @param numeroDias
+	 *            O numero de Dias para emprestimo.
+	 * 
+	 */
 	public Emprestimo(Usuario donoDoItem, Usuario usuarioRequerente, Item item, String dataEmprestimo, int numeroDias) {
 
 		this.donoDoItem = donoDoItem;
@@ -25,16 +53,40 @@ public class Emprestimo {
 
 	}
 
+	/**
+	 * Cria um emprestimo com dono do item, usuarioRequerente do emprestimo e a
+	 * data do Emprestimo.
+	 *
+	 * @param donoDoItem
+	 *            O donoDoItem para emprestimo.
+	 * @param usuarioRequerente
+	 *            O usuarioRequerente do emprestimo.
+	 * @param dataEmprestimo
+	 *            A data do Emprestimo.
+	 * 
+	 */
 	public Emprestimo(Usuario donoDoItem, Usuario usuarioRequerente, String dataEmprestimo) {
 		this.donoDoItem = donoDoItem;
 		this.usuarioRequerente = usuarioRequerente;
 		this.dataEmprestimo = dataEmprestimo;
 	}
 
+	/**
+	 * @param dataDevolucao
+	 *            A data de devolucao do emprestimo.
+	 *
+	 *            Atualiza a data de devolucao do emprestimo.
+	 *
+	 */
 	public void setDataDevolucao(String dataDevolucao) {
 		this.dataDevolucao = dataDevolucao;
 	}
 
+	/**
+	 * Representacao em string do emprestimo.
+	 *
+	 * @return A representacao em string do emprestimo.
+	 */
 	@Override
 	public String toString() {
 
