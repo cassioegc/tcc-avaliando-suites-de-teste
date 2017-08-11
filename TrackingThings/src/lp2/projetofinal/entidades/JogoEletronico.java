@@ -16,12 +16,28 @@ public class JogoEletronico extends Item {
 
 	private PlataformaJogoEletronico plataforma;
 
+	/**
+	 * Construtor de JogoEletronico. Esse construtor invoca o construtor da
+	 * classe pai (Item) para setar os atributos herdados de Item e seta os
+	 * atributos especificos.
+	 * 
+	 * @param nome
+	 *            = nome do jogo.
+	 * @param preco
+	 *            = preco do jogo.
+	 * @param plataforma
+	 *            = plataforma onde o jogo eh rodado, ex: PS3, PS4 XBOX_ONE.
+	 */
 	public JogoEletronico(String nome, double preco, String plataforma) {
 		super(nome, preco);
 
 		this.plataforma = PlataformaJogoEletronico.indentificaPlataforma(plataforma);
 	}
 
+	/**
+	 * 
+	 * @return = String que representa a plataforma do jogo.
+	 */
 	public String getPlataforma() {
 		return plataforma.getPlataforma();
 	}
@@ -35,6 +51,10 @@ public class JogoEletronico extends Item {
 		return result;
 	}
 
+	/**
+	 * Equals sobreescrito. Dois jogos eletronicos sao iguais se tem o mesmo
+	 * nome e mesma plataforma.
+	 */
 	@Override
 	public boolean equals(Object obj) {
 
@@ -48,6 +68,10 @@ public class JogoEletronico extends Item {
 		return true;
 	}
 
+	/**
+	 * toString sobreescrito. O tString de Item compoe esse toString. Eh uma
+	 * representacao em string do Jogo com seus atributos basicos.
+	 */
 	@Override
 	public String toString() {
 		return "JOGO ELETRONICO: " + super.toString() + this.getPlataforma();
