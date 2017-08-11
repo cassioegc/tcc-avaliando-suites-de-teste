@@ -1,6 +1,5 @@
 package lp2.projetofinal.testes;
 
-
 /**
  * Classe responsavel por conter testes para metodos de um objeto do tipo BluRayFilme(tipo especifico de BluRay).
  * 
