@@ -1,7 +1,8 @@
 package lp2.projetofinal.entidades;
 
 /**
- * Classe responsavel por representar um objeto EpisodioSerie, que compoe a classe BluRaySerie.
+ * Classe responsavel por representar um objeto EpisodioSerie, que compoe a
+ * classe BluRaySerie.
  * 
  * Laboratorio de Programacao 2 - Projeto Final Parte 01
  * 
@@ -14,10 +15,21 @@ public class EpisodioSerie {
 
 	private int duracao;
 
+	/**
+	 * Cria um episodio de serie com duracao
+	 *
+	 * @param duracao
+	 *            A duracao do episodio.
+	 */
 	public EpisodioSerie(int duracao) {
 		this.duracao = duracao;
 	}
 
+	/**
+	 * Recupera a duracao do episodio.
+	 *
+	 * @return A duracao do episodio.
+	 */
 	public int getDuracao() {
 		return duracao;
 	}

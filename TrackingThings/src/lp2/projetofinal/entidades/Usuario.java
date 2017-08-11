@@ -50,9 +50,9 @@ public class Usuario {
 
 	/**
 	 * @param nome
-	 *            O nome do usuario.
+	 *      O nome do usuario.
 	 *
-	 *            Atualiza o nome do usuario.
+	 *       Atualiza o nome do usuario.
 	 *
 	 */
 	public void setNome(String nome) {

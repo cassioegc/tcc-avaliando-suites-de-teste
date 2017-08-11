@@ -21,40 +21,89 @@ public abstract class Item {
 
 	private EstadoItem estado;
 
+	/**
+	 * Cria um item com nome e preco.
+	 *
+	 * @param nome
+	 *            O nome do item.
+	 * @param preco
+	 *            O preco do item.
+	 * 
+	 */
 	public Item(String nome, double preco) {
 		this.nome = nome;
 		this.preco = preco;
 		this.estado = EstadoItem.NAO_EMPRESTADO;
 	}
 
+	/**
+	 * Recupera o preco do item.
+	 *
+	 * @return O preco do item.
+	 */
 	public double getPreco() {
 		return this.preco;
 	}
 
+	/**
+	 * @param nome
+	 *            O preco do item.
+	 *
+	 *            Atualiza o preco do item.
+	 *
+	 */
 	public void setPreco(double preco) {
 		this.preco = preco;
 	}
 
+	/**
+	 * Recupera o nome do item.
+	 *
+	 * @return O nome do item.
+	 */
 	public String getNome() {
 		return this.nome;
 	}
 
+	/**
+	 * @param nome
+	 *            O nome do item.
+	 *
+	 *            Atualiza o nome do item.
+	 *
+	 */
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
 
+	/**
+	 * Recupera o estado do item.
+	 *
+	 * @return O estado do item.
+	 */
 	public String getEstado() {
 		return this.estado.getEstado();
 	}
 
+	/**
+	 * Muda o estado do item.
+	 */
 	public void itemEmprestado() {
 		this.estado = EstadoItem.EMPRESTADO;
 	}
 
+	/**
+	 * Muda o estado do item.
+	 */
 	public void itemDevolvido() {
 		this.estado = EstadoItem.NAO_EMPRESTADO;
 	}
-	
+
+	/**
+	 * Representacao em string do item.
+	 *
+	 * @return A representacao em string do item.
+	 */
 	@Override
 	public String toString() {
 
@@ -85,28 +134,43 @@ public abstract class Item {
 		return true;
 	}
 
+	/**
+	 * @param atributo
+	 *            O atributo do item a ser atualizado.
+	 * 
+	 * @param valor
+	 *            O valor do item a ser atualizado.
+	 *
+	 *            Atualiza um valor do item.
+	 *
+	 */
 	public void atualizar(String atributo, String valor) {
 
 		switch (atributo) {
-			case "Nome":
-				this.nome = valor;
-				break;
-			case "Preco":
-				this.preco = Double.parseDouble(valor);
-				break;
-			}
+		case "Nome":
+			this.nome = valor;
+			break;
+		case "Preco":
+			this.preco = Double.parseDouble(valor);
+			break;
+		}
 	}
 
-	public String getInfo(String atributo){
-			
+	/**
+	 * Recupera uma informacao do item.
+	 *
+	 * @return Um atributo do item.
+	 */
+	public String getInfo(String atributo) {
+
 		switch (atributo) {
-			case "Nome":
-				return this.nome;
-			case "Preco":
-				return "" + this.preco;	
-			default:
-				return "";
-			}
+		case "Nome":
+			return this.nome;
+		case "Preco":
+			return "" + this.preco;
+		default:
+			return "";
+		}
 	}
 
 }
