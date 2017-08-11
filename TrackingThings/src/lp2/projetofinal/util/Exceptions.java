@@ -1,7 +1,8 @@
 package lp2.projetofinal.util;
 
 /**
- * Classe que contem metodos estaticos responsaveis por lancar excessoes chacadas dentro do metodo.
+ * Classe que contem metodos estaticos responsaveis por lancar excessoes
+ * chacadas dentro do metodo.
  * 
  * Laboratorio de Programacao 2 - Projeto Final Parte 01
  * 
@@ -12,26 +13,46 @@ package lp2.projetofinal.util;
 
 public class Exceptions {
 
-	public static void usuarioJaCadastradoException(){
+	/**
+	 * Metodo que lanca excessao caso o usuario que esta sendo criado ja exista.
+	 */
+	public static void usuarioJaCadastradoException() {
 		throw new IllegalArgumentException("Usuario ja cadastrado");
 	}
-	
-	public static void itemNaoEncontradoException(){
+
+	/**
+	 * Metodo que anca excessa caso o item pesquisado nao exista.
+	 */
+	public static void itemNaoEncontradoException() {
 		throw new IllegalArgumentException("Item nao encontrado");
 	}
-	
-	public static void usuarioInvalidoException(){
+
+	/**
+	 * Metodo que lanca excessao caso o usuario passado nao exista.
+	 */
+	public static void usuarioInvalidoException() {
 		throw new IllegalArgumentException("Usuario invalido");
 	}
-	
-	public static void atributoInvalidoException(){
+
+	/**
+	 * Metodo que lanca excessao caso o atributo seja diferente de "Email",
+	 * "Telefone" e "Nome".
+	 */
+	public static void atributoInvalidoException() {
 		throw new IllegalArgumentException("Atributo invalido");
 	}
 
+	/**
+	 * Metodo que lanca excessao caso o item cujo emprestimo esta sendo
+	 * realizado ja esteja emprestado.
+	 */
 	public static void itemEmprestadoNoMomento() {
 		throw new IllegalArgumentException("Item emprestado no momento");
 	}
 
+	/**
+	 * Metodo que lanca excessao caso nao exista determinado emprestimo.
+	 */
 	public static void emprestimoNaoEncontrado() {
 		throw new IllegalArgumentException("Emprestimo nao encontrado");
 	}
