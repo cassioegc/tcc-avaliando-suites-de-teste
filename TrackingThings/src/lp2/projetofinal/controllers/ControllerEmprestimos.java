@@ -1,7 +1,7 @@
 package lp2.projetofinal.controllers;
 
 /**
- * Classe responsavel por controlar todos os objetos Emprestimos registrados no sistema.
+ * Classe responsavel por controlar todos os objetos Emprestimo registrados no sistema.
  * 
  * Laboratorio de Programacao 2 - Projeto Final Parte 01
  * 
