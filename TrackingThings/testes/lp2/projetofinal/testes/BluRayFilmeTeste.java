@@ -1,9 +1,7 @@
-<<<<<<< HEAD:TrackingThings/testes/lp2/projetofinal/testes/BluRayFilmeTeste.java
-package lp2.projetofinal.testes;
-=======
 
-package lp2.projetofinal;
->>>>>>> 07161bf746cd4d346c0af106fb08bc640400cb22:TrackingThings/testes/lp2/projetofinal/BluRayFilmeTeste.java
+package lp2.projetofinal.testes;
+
+
 
 /**
  * Classe responsavel por conter testes para metodos de um objeto do tipo BluRayFilme(tipo especifico de BluRay).
