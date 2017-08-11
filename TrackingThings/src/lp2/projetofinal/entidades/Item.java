@@ -46,7 +46,7 @@ public abstract class Item {
 	}
 
 	/**
-	 * @param nome
+	 * @param preco
 	 *            O preco do item.
 	 *
 	 *            Atualiza o preco do item.
@@ -158,6 +158,8 @@ public abstract class Item {
 
 	/**
 	 * Recupera uma informacao do item.
+	 * 
+	 * @param atributo Atributo que será retornado.
 	 *
 	 * @return Um atributo do item.
 	 */

@@ -147,7 +147,7 @@ public class Sistema {
 	 *            Nome do novo item.
 	 * @param telefone
 	 *            Telefone do novo item.
-	 * @param nome
+	 * @param nomeItem
 	 *            Item Nome do novo item.
 	 * @param preco
 	 *            Preco do novo item.
@@ -171,7 +171,7 @@ public class Sistema {
 	 *            Nome do novo item.
 	 * @param telefone
 	 *            Telefone do novo item.
-	 * @param nome
+	 * @param nomeItem
 	 *            Item Nome do novo item.
 	 * @param preco
 	 *            Preco do novo item.
@@ -192,7 +192,7 @@ public class Sistema {
 	 *            Nome do novo item.
 	 * @param telefone
 	 *            Telefone do novo item.
-	 * @param nome
+	 * @param nomeItem
 	 *            Item Nome do novo item.
 	 * @param preco
 	 *            Preco do novo item.
@@ -227,7 +227,7 @@ public class Sistema {
 	 *            Nome do novo item.
 	 * @param telefone
 	 *            Telefone do novo item.
-	 * @param nome
+	 * @param nomeItem
 	 *            Item Nome do novo item.
 	 * @param preco
 	 *            Preco do novo item.
@@ -262,7 +262,7 @@ public class Sistema {
 	 *            Nome do novo item.
 	 * @param telefone
 	 *            Telefone do novo item.
-	 * @param nome
+	 * @param nomeItem
 	 *            Item Nome do novo item.
 	 * @param preco
 	 *            Preco do novo item.
