@@ -125,7 +125,7 @@ public class ControllerEmprestimos {
 
 		String stringEmprestimos = "Emprestimos: ";
 		for (Emprestimo emprestimo : listaEmprestimos) {
-			stringEmprestimos += emprestimo.toString();
+			stringEmprestimos += emprestimo.toString() + "|";
 		}
 
 		return stringEmprestimos;
@@ -142,7 +142,7 @@ public class ControllerEmprestimos {
 
 		String stringEmprestimos = "Emprestimos pegos: ";
 		for (Emprestimo emprestimo : listaEmprestimos) {
-			stringEmprestimos += emprestimo.toString();
+			stringEmprestimos += emprestimo.toString() + "|";
 		}
 
 		return stringEmprestimos;
