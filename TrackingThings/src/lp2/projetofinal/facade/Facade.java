@@ -109,5 +109,31 @@ public class Facade {
 			
 		sistema.devolverItem(nomeDono, telefoneDono, nomeRequerente, telefoneRequerente, nomeItem, dataEmprestimo, dataDevolucao);
 	}
+	
+	// Meotodos do casos de uso 5
+	
+	public String listarEmprestimosUsuarioEmprestando (String nome, String telefone) {
+		return sistema.listarEmprestimosUsuarioEmprestando(nome, telefone);
+	}
+
+	public String listarEmprestimosUsuarioPegandoEmprestado (String nome, String telefone) {
+		return sistema.listarEmprestimosUsuarioPegandoEmprestado(nome, telefone);
+	}
+	
+	public String listarEmprestimosItem(String nomeItem){
+			return sistema.listarEmprestimosItem(nomeItem);
+	}
+	
+	public void listarItensNaoEmprestados() {
+		sistema.listarItensNaoEmprestados();
+	}
+	
+	public void listarItensEmprestados() {
+		sistema.listarItensEmprestados();
+	}
+	
+	public void listarTop10Itens() {
+		sistema.listarTop10Itens();
+	}
 		
 }
