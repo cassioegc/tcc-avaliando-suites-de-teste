@@ -170,14 +170,14 @@ public class ControllerEmprestimos {
 	public String listarEmprestimosItens(String nomeItem) {
 		
 		String stringEmprestimos = "Emprestimos associados ao item: ";
-		boolean guardEmprestimos = false;
 		
 		for(Emprestimo emprestimo: this.emprestimos) {
-			if(emprestimo.getItem().getNome().equals(nomeItem))
-				stringEmprestimos += emprestimo.toString();
+			if(emprestimo.getItem().getNome().equals(nomeItem)) {
+				stringEmprestimos += emprestimo.toString() + "|";
+			}
 		}
 		
-		if(!guardEmprestimos)
+		if(!stringEmprestimos.contains("|"))
 			return "Nenhum emprestimos associados ao item";
 		
 		return stringEmprestimos;

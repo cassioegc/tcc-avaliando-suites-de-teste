@@ -10,8 +10,6 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
-import lp2.projetofinal.entidades.FakeBluRay;
-
 public class FakeBluRayTeste {
 
 	private FakeBluRay fakeBluRay;

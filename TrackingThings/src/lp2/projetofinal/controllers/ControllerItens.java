@@ -23,6 +23,7 @@ import lp2.projetofinal.entidades.Item;
 import lp2.projetofinal.entidades.JogoEletronico;
 import lp2.projetofinal.entidades.JogoTabuleiro;
 import lp2.projetofinal.entidades.Usuario;
+import lp2.projetofinal.enums.EstadoItem;
 import lp2.projetofinal.orders.OrdenaItemAlfabetico;
 import lp2.projetofinal.orders.OrdenaItemPreco;
 import lp2.projetofinal.util.Exceptions;
@@ -41,9 +42,9 @@ public class ControllerItens {
 	}
 
 	/**
-	 * Metodo responsavel por alocar um item ao mapa de itens de um usuario,
-	 * para isso ele cria esse novo hashmap caso o usuario ainda nao tenha itens
-	 * ou adiciona um novo item caso o mapa ja exista.
+	 * Metodo responsavel por alocar um item ao mapa de itens de um usuario, para
+	 * isso ele cria esse novo hashmap caso o usuario ainda nao tenha itens ou
+	 * adiciona um novo item caso o mapa ja exista.
 	 * 
 	 * @param donoItem
 	 *            Objeto usuario dono do item.
@@ -68,8 +69,8 @@ public class ControllerItens {
 
 	/**
 	 * Metodo responsavel por verificar a existencia de um item no sistema.
-	 * Verificando primeiro a existencia do proprio usuario dono do item e
-	 * depois o item;
+	 * Verificando primeiro a existencia do proprio usuario dono do item e depois o
+	 * item;
 	 * 
 	 * @param item
 	 *            Nome do item que sera verificado.
@@ -86,9 +87,8 @@ public class ControllerItens {
 	}
 
 	/**
-	 * Metodo com polimorfismo parametrico. Ele tem responsabilidade de
-	 * cadastrar um novo item no sistema. Mas especificamente um subtipo Jogo
-	 * Eletronico.
+	 * Metodo com polimorfismo parametrico. Ele tem responsabilidade de cadastrar um
+	 * novo item no sistema. Mas especificamente um subtipo Jogo Eletronico.
 	 * 
 	 * @param donoItem
 	 *            Usuario dono do item e chave no hashmap de itens.
@@ -107,9 +107,8 @@ public class ControllerItens {
 	}
 
 	/**
-	 * Metodo com polimorfismo parametrico. Ele tem responsabilidade de
-	 * cadastrar um novo item no sistema. Mas especificamente um subtipo Jogo
-	 * Tabuleiro.
+	 * Metodo com polimorfismo parametrico. Ele tem responsabilidade de cadastrar um
+	 * novo item no sistema. Mas especificamente um subtipo Jogo Tabuleiro.
 	 * 
 	 * @param donoItem
 	 *            Usuario dono do item e chave no hashmap de itens.
@@ -127,9 +126,8 @@ public class ControllerItens {
 	}
 
 	/**
-	 * Metodo com polimorfismo parametrico. Ele tem responsabilidade de
-	 * cadastrar um novo item no sistema. Mas especificamente um subtipo
-	 * BlurayFilme.
+	 * Metodo com polimorfismo parametrico. Ele tem responsabilidade de cadastrar um
+	 * novo item no sistema. Mas especificamente um subtipo BlurayFilme.
 	 * 
 	 * @param donoItem
 	 *            Usuario dono do item e chave no hashmap de itens.
@@ -155,9 +153,8 @@ public class ControllerItens {
 	}
 
 	/**
-	 * Metodo com polimorfismo parametrico. Ele tem responsabilidade de
-	 * cadastrar um novo item no sistema. Mas especificamente um subtipo
-	 * BlurayShow.
+	 * Metodo com polimorfismo parametrico. Ele tem responsabilidade de cadastrar um
+	 * novo item no sistema. Mas especificamente um subtipo BlurayShow.
 	 * 
 	 * @param donoItem
 	 *            Usuario dono do item e chave no hashmap de itens.
@@ -184,9 +181,8 @@ public class ControllerItens {
 	}
 
 	/**
-	 * Metodo com polimorfismo parametrico. Ele tem responsabilidade de
-	 * cadastrar um novo item no sistema. Mas especificamente um subtipo
-	 * BluraySerie.
+	 * Metodo com polimorfismo parametrico. Ele tem responsabilidade de cadastrar um
+	 * novo item no sistema. Mas especificamente um subtipo BluraySerie.
 	 * 
 	 * @param donoItem
 	 *            Usuario dono do item e chave no hashmap de itens.
@@ -260,8 +256,8 @@ public class ControllerItens {
 	}
 
 	/**
-	 * Metodo responsavel por atualizar um item. Verificando antes sua
-	 * existencia no mapa de itens do usuario escolhido.
+	 * Metodo responsavel por atualizar um item. Verificando antes sua existencia no
+	 * mapa de itens do usuario escolhido.
 	 * 
 	 * @param donoItem
 	 *            Usuario dono do item.
@@ -306,9 +302,8 @@ public class ControllerItens {
 	}
 
 	/**
-	 * Metodo responsavel por retornar o valor do atributo escolhido,
-	 * solicitando ao item que reconheca qual atributo eh ja que eles podem
-	 * divergir de atributos.
+	 * Metodo responsavel por retornar o valor do atributo escolhido, solicitando ao
+	 * item que reconheca qual atributo eh ja que eles podem divergir de atributos.
 	 * 
 	 * @param donoItem
 	 *            Usuario dono do item.
@@ -329,8 +324,7 @@ public class ControllerItens {
 	}
 
 	/**
-	 * Metodo responsavel todas as informacoes de um item a partir do toString
-	 * dele.
+	 * Metodo responsavel todas as informacoes de um item a partir do toString dele.
 	 * 
 	 * @param donoItem
 	 *            Usuario dono do item.
@@ -350,10 +344,9 @@ public class ControllerItens {
 	}
 
 	/**
-	 * Metodo responsavel por retornar os itens de um usuario especifico
-	 * selecionado.
+	 * Metodo responsavel por retornar a lista dos itens cadastrados no sistema.
 	 * 
-	 * @return Retorna um List com esses item.
+	 * @return Retorna um List com esses itens.
 	 */
 	private List<Item> retornaUsuarioItens() {
 		List<Item> listaItens = new ArrayList<Item>();
@@ -366,8 +359,7 @@ public class ControllerItens {
 	}
 
 	/**
-	 * Metodo responsavel por listar todos os itens do sistema em ordem
-	 * alfabetica.
+	 * Metodo responsavel por listar todos os itens do sistema em ordem alfabetica.
 	 * 
 	 * @return Retorna uma string com essa listagem.
 	 */
@@ -408,7 +400,7 @@ public class ControllerItens {
 	 *            Usuario dono do item.
 	 * @param nomeItem
 	 *            Nome do item.
-	 *            
+	 * 
 	 * @return Retorna um objeto do tipo item.
 	 */
 	public Item identificaItemUsuario(Usuario donoItem, String nomeItem) {
@@ -416,6 +408,29 @@ public class ControllerItens {
 		verificaExistenciaItem(nomeItem, donoItem);
 
 		return itens.get(donoItem).get(nomeItem);
+
+	}
+
+	public String listarItensEmprestados() {
+		
+		String stringItens = "";
+		for (Item item : retornaUsuarioItens()) {
+			if(item.getEstado().equals(EstadoItem.EMPRESTADO.getEstado()))
+				stringItens += item.toString() + "|";
+		}
+		
+		return stringItens;
+	}
+
+	public String listarItensNaoEmprestados() {
+		
+		String stringItens = "";
+		for (Item item : retornaUsuarioItens()) {
+			if(item.getEstado().equals(EstadoItem.NAO_EMPRESTADO.getEstado()))
+				stringItens += item.toString() + "|";
+		}
+		
+		return stringItens;
 
 	}
 }
