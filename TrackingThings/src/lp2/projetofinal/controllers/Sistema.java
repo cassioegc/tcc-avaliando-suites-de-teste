@@ -537,4 +537,68 @@ public class Sistema {
 	public void finalizar() {
 
 	}
+	
+	// Metodos do MileStone 2
+	
+	public void listarEmprestimosUsuarioEmprestando (String nome, String telefone) {
+		
+		Checks.verificaNomeVazioNulo(nome);
+		Checks.verificaTelefoneVazioNulo(telefone);
+		
+		// Se usuario nao existir lancar excessao "Usuario invalido" .
+		// Se usuario nao tiver emprestado nada, retornar "Nenhum item emprestado".
+		//controllerUsuarios.
+		//controllerEmprestimos.
+	}
+	
+	public void listarEmprestimosUsuarioPegandoEmprestado (String nome, String telefone) {
+		
+		Checks.verificaNomeVazioNulo(nome);
+		Checks.verificaTelefoneVazioNulo(telefone);
+		// caso o usuario n tenha pego nenhum item emprestado , lancar excessao "Nenhum item pego emprestado". 
+		
+		//controllerUsuarios.
+		//controllerEmprestimos.
+	}
+
+	public void listarEmprestimosItem(String nomeItem) {
+		
+		Checks.verificaNomeItemVazioNulo(nomeItem);
+		// Se existirem itens de usuários diferentes com o mesmo nome, então o histórico de todos esses itens deve ser apresentado;
+		// SE Nao tiver sido emprestado nenhuma vez, imprimprimir "Nenhum mprestimos associados ao item".
+		
+		//controllerItens.
+		
+	}
+	
+	public void listarItensNaoEmprestados() {
+		//O sistema deve permitir uma listagem de todos os itens não emprestados no momento da pesquisa. 
+		//Ordenar essa lista de itens pelo nome do item em ordem crescente;
+		
+		//controllerItens.
+	}
+	
+	public void listarItensEmprestados() {
+		//incluindo o nome do item e o seu dono.
+		
+		//Seria um for para pegar cada chave(usuario) e da lista de emprestimos dele, verificar qual esta em andamento e listar?
+	}
+
+	public void listarTop10Itens() {
+		// Estes são os 10 itens que mais são emprestados . 
+		//Se existirem itens duplicados no sistema (com mesmo nome) eles devem ser tratados de forma separada. 
+		//Por exemplo, se dois usuários diferentes tiverem o mesmo jogo de tabuleiro (cada um tem um jogo com mesmo nome), e o de um usuário foi emprestado 23 vezes e o do outro foi emprestado 31 vezes. 
+		//Se esses jogos fizerem parte dos itens mais emprestados, então ambos devem aparecer na lista top-10 em posições diferentes.;
+		
+		//controllerItens.
+		
+	}
+	
+	
+	
+	
+	
+	
+	
+	
 }
