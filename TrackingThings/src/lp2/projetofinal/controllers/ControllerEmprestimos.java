@@ -166,5 +166,22 @@ public class ControllerEmprestimos {
 		}
 		return listaEmprestimos;
 	}
+	
+	public String listarEmprestimosItens(String nomeItem) {
+		
+		String stringEmprestimos = "Emprestimos associados ao item: ";
+		boolean guardEmprestimos = false;
+		
+		for(Emprestimo emprestimo: this.emprestimos) {
+			if(emprestimo.getItem().getNome().equals(nomeItem))
+				stringEmprestimos += emprestimo.toString();
+		}
+		
+		if(!guardEmprestimos)
+			return "Nenhum emprestimos associados ao item";
+		
+		return stringEmprestimos;
+		
+	}
 
 }
