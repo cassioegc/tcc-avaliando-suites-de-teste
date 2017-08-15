@@ -112,16 +112,16 @@ public class Facade {
 	
 	// Meotodos do casos de uso 5
 	
-	public void listarEmprestimosUsuarioEmprestando (String nome, String telefone) {
-		sistema.listarEmprestimosUsuarioEmprestando(nome, telefone);
+	public String listarEmprestimosUsuarioEmprestando (String nome, String telefone) {
+		return sistema.listarEmprestimosUsuarioEmprestando(nome, telefone);
 	}
 
-	public void listarEmprestimosUsuarioPegandoEmprestado (String nome, String telefone) {
-		sistema.listarEmprestimosUsuarioPegandoEmprestado(nome, telefone);
+	public String listarEmprestimosUsuarioPegandoEmprestado (String nome, String telefone) {
+		return sistema.listarEmprestimosUsuarioPegandoEmprestado(nome, telefone);
 	}
 	
-	public void listarEmprestimosItem(String nomeItem){
-			sistema.listarEmprestimosItem(nomeItem);
+	public String listarEmprestimosItem(String nomeItem){
+			return sistema.listarEmprestimosItem(nomeItem);
 	}
 	
 	public void listarItensNaoEmprestados() {

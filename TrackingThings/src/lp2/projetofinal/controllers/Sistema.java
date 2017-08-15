@@ -558,13 +558,11 @@ public class Sistema {
 		
 	}
 
-	public void listarEmprestimosItem(String nomeItem) {
+	public String listarEmprestimosItem(String nomeItem) {
 		
 		Checks.verificaNomeItemVazioNulo(nomeItem);
-		// Se existirem itens de usuários diferentes com o mesmo nome, então o histórico de todos esses itens deve ser apresentado;
-		// SE Nao tiver sido emprestado nenhuma vez, imprimprimir "Nenhum emprestimos associados ao item".
 		
-		//controllerItens.
+		return controllerEmprestimos.listarEmprestimosItens(nomeItem);
 		
 	}
 	
