@@ -11,12 +11,14 @@ package lp2.projetofinal.controllers;
  */
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import lp2.projetofinal.entidades.Emprestimo;
 import lp2.projetofinal.entidades.Item;
 import lp2.projetofinal.entidades.Usuario;
 import lp2.projetofinal.enums.EstadoItem;
+import lp2.projetofinal.orders.OrdenaItemEmprestadoAlfabetico;
 import lp2.projetofinal.util.Exceptions;
 
 public class ControllerEmprestimos {
@@ -29,15 +31,15 @@ public class ControllerEmprestimos {
 
 	/**
 	 * Metodo responsavel por cadastrar um novo Emprestimo no sistema. Veficando
-	 * antes a disponibilidade do item escolhido e solicitando a alteração do
-	 * seu estado após registro realizado.
+	 * antes a disponibilidade do item escolhido e solicitando a alteração do seu
+	 * estado após registro realizado.
 	 * 
 	 * @param donoItem
-	 *            Objeto do tipo Usuario resgatado pelo controlador de usuarios
-	 *            e dono do item que será emprestado.
+	 *            Objeto do tipo Usuario resgatado pelo controlador de usuarios e
+	 *            dono do item que será emprestado.
 	 * @param requerenteItem
-	 *            Objeto do tipo Usuario resgatado pelo controlador de usuarios
-	 *            e requerente do item.
+	 *            Objeto do tipo Usuario resgatado pelo controlador de usuarios e
+	 *            requerente do item.
 	 * @param item
 	 *            Objeto do tipo Item, resgatado pelo contralador de itens.
 	 * @param dataEmprestimo
@@ -62,11 +64,11 @@ public class ControllerEmprestimos {
 	 * identifando antes o objeto do tipo Emprestimo na lista de emprestimos.
 	 * 
 	 * @param donoItem
-	 *            Objeto do tipo Usuario resgatado pelo controlador de usuarios
-	 *            e dono do item que foi emprestado.
+	 *            Objeto do tipo Usuario resgatado pelo controlador de usuarios e
+	 *            dono do item que foi emprestado.
 	 * @param requerenteItem
-	 *            Objeto do tipo Usuario resgatado pelo controlador de usuarios
-	 *            e requerente do item que foi emprestado.
+	 *            Objeto do tipo Usuario resgatado pelo controlador de usuarios e
+	 *            requerente do item que foi emprestado.
 	 * @param item
 	 *            Objeto do tipo Item, resgatado pelo contralador de itens.
 	 * @param dataEmprestimo
@@ -85,16 +87,16 @@ public class ControllerEmprestimos {
 	}
 
 	/**
-	 * Metodo responsavel por identificar um Emprestimo na lista de emprestimo.
-	 * Para isso ele instancia uma referencia de desse objeto emprestimo para
-	 * que seja possivel encontrar igual na lista.
+	 * Metodo responsavel por identificar um Emprestimo na lista de emprestimo. Para
+	 * isso ele instancia uma referencia de desse objeto emprestimo para que seja
+	 * possivel encontrar igual na lista.
 	 * 
 	 * @param donoItem
-	 *            Objeto do tipo Usuario resgatado pelo controlador de usuarios
-	 *            e dono do item que foi emprestado.
+	 *            Objeto do tipo Usuario resgatado pelo controlador de usuarios e
+	 *            dono do item que foi emprestado.
 	 * @param requerenteItem
-	 *            Objeto do tipo Usuario resgatado pelo controlador de usuarios
-	 *            e requerente do item que foi emprestado.
+	 *            Objeto do tipo Usuario resgatado pelo controlador de usuarios e
+	 *            requerente do item que foi emprestado.
 	 * @param dataEmprestimo
 	 *            Dado da solicitação do emprestimo, passada como string.
 	 * 
@@ -109,6 +111,60 @@ public class ControllerEmprestimos {
 			Exceptions.emprestimoNaoEncontrado();
 
 		return this.emprestimos.get(this.emprestimos.indexOf(emprestimo));
+	}
+
+
+	public String listarEmprestimosEmprestandoOrdenadosPorNomeItem(Usuario usuario) {
+
+		List<Emprestimo> listaEmprestimos = retornaListaEmprestimos(usuario, true);
+
+		if(listaEmprestimos.isEmpty())
+			return "Nenhum item emprestado";
+		
+		Collections.sort(listaEmprestimos, new OrdenaItemEmprestadoAlfabetico());
+
+		String stringEmprestimos = "Emprestimos: ";
+		for (Emprestimo emprestimo : listaEmprestimos) {
+			stringEmprestimos += emprestimo.toString();
+		}
+
+		return stringEmprestimos;
+	}
+	
+	public String listarEmprestimosRequerenteOrdenadosPorNomeItem(Usuario usuario) {
+
+		List<Emprestimo> listaEmprestimos = retornaListaEmprestimos(usuario, false);
+
+		if(listaEmprestimos.isEmpty())
+			return "Nenhum item pego emprestado";
+		
+		Collections.sort(listaEmprestimos, new OrdenaItemEmprestadoAlfabetico());
+
+		String stringEmprestimos = "Emprestimos pegos: ";
+		for (Emprestimo emprestimo : listaEmprestimos) {
+			stringEmprestimos += emprestimo.toString();
+		}
+
+		return stringEmprestimos;
+	}
+	
+	
+
+	public List<Emprestimo> retornaListaEmprestimos(Usuario usuario, boolean emprestando) {
+
+		List<Emprestimo> listaEmprestimos = new ArrayList<Emprestimo>();
+
+		for (Emprestimo emprestimo : this.emprestimos) {
+
+			if (emprestando) {
+				if (emprestimo.getDonoDoItem().equals(usuario))
+					listaEmprestimos.add(emprestimo);
+			} else {
+				if (emprestimo.getUsuarioRequerente().equals(usuario))
+					listaEmprestimos.add(emprestimo);
+			}
+		}
+		return listaEmprestimos;
 	}
 
 }

@@ -57,4 +57,9 @@ public class Exceptions {
 		throw new IllegalArgumentException("Emprestimo nao encontrado");
 	}
 
+	public static void nenhumItemEmprestado() {
+		throw new IllegalArgumentException("Nenhum item emprestado");
+		
+	}
+
 }

@@ -21,5 +21,8 @@ public class OrdenaItemAlfabetico implements Comparator<Item> {
 	public int compare(Item itemUm, Item itemDois) {
 		return itemUm.getNome().compareTo(itemDois.getNome());
 	}
+	
+
+	
 
 }

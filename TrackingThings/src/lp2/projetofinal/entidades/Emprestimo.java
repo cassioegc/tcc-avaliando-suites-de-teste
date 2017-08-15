@@ -94,6 +94,19 @@ public class Emprestimo {
 				+ this.item.getNome() + ", " + this.dataEmprestimo + ", " + this.numeroDias + " dias, ENTREGA: "
 				+ this.dataDevolucao;
 	}
+	
+	
+	public Usuario getDonoDoItem() {
+		return donoDoItem;
+	}
+
+	public Usuario getUsuarioRequerente() {
+		return usuarioRequerente;
+	}
+	
+	public Item getItem() {
+		return this.item;
+	}
 
 	@Override
 	public int hashCode() {
@@ -125,5 +138,7 @@ public class Emprestimo {
 
 		return true;
 	}
+
+
 
 }
