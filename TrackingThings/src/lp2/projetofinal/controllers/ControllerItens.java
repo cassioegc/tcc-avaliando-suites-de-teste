@@ -25,6 +25,7 @@ import lp2.projetofinal.entidades.JogoTabuleiro;
 import lp2.projetofinal.entidades.Usuario;
 import lp2.projetofinal.enums.EstadoItem;
 import lp2.projetofinal.orders.OrdenaItemAlfabetico;
+import lp2.projetofinal.orders.OrdenaItemNumeroEmprestimos;
 import lp2.projetofinal.orders.OrdenaItemPreco;
 import lp2.projetofinal.util.Exceptions;
 
@@ -422,6 +423,25 @@ public class ControllerItens {
 		}
 
 		return stringItens;
+	}
+	
+	
+	public String listarTop10Itens() {
+		/// falta reduzir para apenas 10 itens
+		List<Item> listaItens = retornaUsuariosItens();
+		Collections.sort(listaItens, new OrdenaItemNumeroEmprestimos());
+
+		String top10ItensString = "";
+		for (Item item : listaItens) {
+			top10ItensString += item.toString() + "|";
+		}
+		
+		return top10ItensString;
+		
+// "1) 2 emprestimos - JOGO DE TABULEIRO: War, R$ 70.0, Emprestado, COM PECAS PERDIDAS|2) 1 emprestimos - SERIE: The Walking Dead, R$ 79.99, Nao emprestado, 120 min, DEZESSEIS_ANOS, SUSPENSE, Temporada 1|3) 1 emprestimos - JOGO DE TABULEIRO: Xadrez de Bruxo, R$ 1000.0, Emprestado, COMPLETO|" listarTop10Itens
+	
+		
+		
 	}
 
 }

@@ -577,6 +577,7 @@ public class Sistema {
 	}
 
 	public void listarTop10Itens() {
+
 		// Estes são os 10 itens que mais são emprestados .
 		// Se existirem itens duplicados no sistema (com mesmo nome) eles devem ser
 		// tratados de forma separada.

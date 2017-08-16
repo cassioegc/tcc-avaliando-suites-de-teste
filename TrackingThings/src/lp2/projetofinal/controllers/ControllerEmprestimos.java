@@ -56,6 +56,7 @@ public class ControllerEmprestimos {
 		Emprestimo emprestimo = new Emprestimo(donoItem, requerenteItem, item, dataEmprestimo, periodo);
 
 		this.emprestimos.add(emprestimo);
+		item.atualizaNumeroEmprestimos();
 		item.itemEmprestado();
 	}
 

@@ -20,6 +20,8 @@ public abstract class Item {
 	private double preco;
 
 	private EstadoItem estado;
+	
+	private int numeroEmprestimos;
 
 	/**
 	 * Cria um item com nome e preco.
@@ -33,6 +35,7 @@ public abstract class Item {
 	public Item(String nome, double preco) {
 		this.nome = nome;
 		this.preco = preco;
+		this.numeroEmprestimos = 0;
 		this.estado = EstadoItem.NAO_EMPRESTADO;
 	}
 
@@ -64,6 +67,8 @@ public abstract class Item {
 	public String getNome() {
 		return this.nome;
 	}
+	
+	
 
 	/**
 	 * @param nome
@@ -174,5 +179,15 @@ public abstract class Item {
 			return "";
 		}
 	}
+	
+	public void atualizaNumeroEmprestimos() {
+		this.numeroEmprestimos ++;
+	}
+	
+	public int getNumeroEmprestimos() {
+		return this.numeroEmprestimos;
+	}
+	
+	
 
 }
