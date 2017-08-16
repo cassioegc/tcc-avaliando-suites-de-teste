@@ -348,7 +348,7 @@ public class ControllerItens {
 	 * 
 	 * @return Retorna um List com esses itens.
 	 */
-	private List<Item> retornaUsuarioItens() {
+	private List<Item> retornaUsuariosItens() {
 		List<Item> listaItens = new ArrayList<Item>();
 
 		for (Usuario chave : this.itens.keySet()) {
@@ -365,7 +365,7 @@ public class ControllerItens {
 	 */
 	public String listarItensOrdenadosPorNome() {
 
-		List<Item> listaItens = retornaUsuarioItens();
+		List<Item> listaItens = retornaUsuariosItens();
 		Collections.sort(listaItens, new OrdenaItemAlfabetico());
 
 		String itensString = "";
@@ -383,7 +383,7 @@ public class ControllerItens {
 	 */
 	public String listarItensOrdenadosPorValor() {
 
-		List<Item> listaItens = retornaUsuarioItens();
+		List<Item> listaItens = retornaUsuariosItens();
 		Collections.sort(listaItens, new OrdenaItemPreco());
 
 		String itensString = "";
@@ -411,26 +411,32 @@ public class ControllerItens {
 
 	}
 
+	// tá errado!
 	public String listarItensEmprestados() {
-		
+
 		String stringItens = "";
-		for (Item item : retornaUsuarioItens()) {
-			if(item.getEstado().equals(EstadoItem.EMPRESTADO.getEstado()))
-				stringItens += item.toString() + "|";
+		List<Item> listaItens = retornaUsuariosItens();
+		Collections.sort(listaItens, new OrdenaItemAlfabetico());
+
+		for (Item item : listaItens) {
+			if (item.getEstado().equals(EstadoItem.EMPRESTADO.getEstado()))
+				stringItens += "Dono do item: " + "|";
 		}
-		
+
 		return stringItens;
 	}
 
 	public String listarItensNaoEmprestados() {
-		
+
 		String stringItens = "";
-		for (Item item : retornaUsuarioItens()) {
-			if(item.getEstado().equals(EstadoItem.NAO_EMPRESTADO.getEstado()))
+		List<Item> listaItens = retornaUsuariosItens();
+		Collections.sort(listaItens, new OrdenaItemAlfabetico());
+		for (Item item : listaItens) {
+			if (item.getEstado().equals(EstadoItem.NAO_EMPRESTADO.getEstado()))
 				stringItens += item.toString() + "|";
 		}
-		
-		return stringItens;
 
+		return stringItens;
 	}
+
 }
