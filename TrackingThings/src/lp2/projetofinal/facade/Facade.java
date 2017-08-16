@@ -110,7 +110,7 @@ public class Facade {
 		sistema.devolverItem(nomeDono, telefoneDono, nomeRequerente, telefoneRequerente, nomeItem, dataEmprestimo, dataDevolucao);
 	}
 	
-	// Meotodos do casos de uso 5
+	// Metodos do casos de uso 5
 	
 	public String listarEmprestimosUsuarioEmprestando (String nome, String telefone) {
 		return sistema.listarEmprestimosUsuarioEmprestando(nome, telefone);
@@ -128,12 +128,12 @@ public class Facade {
 		sistema.listarItensNaoEmprestados();
 	}
 	
-	public void listarItensEmprestados() {
-		sistema.listarItensEmprestados();
+	public String listarItensEmprestados() {
+		return sistema.listarItensEmprestados();
 	}
 	
-	public void listarTop10Itens() {
-		sistema.listarTop10Itens();
+	public String listarTop10Itens() {
+		return null; //sistema.listarTop10Itens();
 	}
 		
 }
