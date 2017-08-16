@@ -411,21 +411,6 @@ public class ControllerItens {
 
 	}
 
-	// tá errado!
-	public String listarItensEmprestados() {
-
-		String stringItens = "";
-		List<Item> listaItens = retornaUsuariosItens();
-		Collections.sort(listaItens, new OrdenaItemAlfabetico());
-
-		for (Item item : listaItens) {
-			if (item.getEstado().equals(EstadoItem.EMPRESTADO.getEstado()))
-				stringItens += "Dono do item: " + "|";
-		}
-
-		return stringItens;
-	}
-
 	public String listarItensNaoEmprestados() {
 
 		String stringItens = "";

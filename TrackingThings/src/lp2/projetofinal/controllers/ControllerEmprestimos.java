@@ -113,14 +113,13 @@ public class ControllerEmprestimos {
 		return this.emprestimos.get(this.emprestimos.indexOf(emprestimo));
 	}
 
-
 	public String listarEmprestimosEmprestandoOrdenadosPorNomeItem(Usuario usuario) {
 
 		List<Emprestimo> listaEmprestimos = retornaListaEmprestimos(usuario, true);
 
-		if(listaEmprestimos.isEmpty())
+		if (listaEmprestimos.isEmpty())
 			return "Nenhum item emprestado";
-		
+
 		Collections.sort(listaEmprestimos, new OrdenaItemEmprestadoAlfabetico());
 
 		String stringEmprestimos = "Emprestimos: ";
@@ -130,14 +129,14 @@ public class ControllerEmprestimos {
 
 		return stringEmprestimos;
 	}
-	
+
 	public String listarEmprestimosRequerenteOrdenadosPorNomeItem(Usuario usuario) {
 
 		List<Emprestimo> listaEmprestimos = retornaListaEmprestimos(usuario, false);
 
-		if(listaEmprestimos.isEmpty())
+		if (listaEmprestimos.isEmpty())
 			return "Nenhum item pego emprestado";
-		
+
 		Collections.sort(listaEmprestimos, new OrdenaItemEmprestadoAlfabetico());
 
 		String stringEmprestimos = "Emprestimos pegos: ";
@@ -147,8 +146,6 @@ public class ControllerEmprestimos {
 
 		return stringEmprestimos;
 	}
-	
-	
 
 	public List<Emprestimo> retornaListaEmprestimos(Usuario usuario, boolean emprestando) {
 
@@ -166,22 +163,37 @@ public class ControllerEmprestimos {
 		}
 		return listaEmprestimos;
 	}
-	
+
 	public String listarEmprestimosItens(String nomeItem) {
-		
+
 		String stringEmprestimos = "Emprestimos associados ao item: ";
-		
-		for(Emprestimo emprestimo: this.emprestimos) {
-			if(emprestimo.getItem().getNome().equals(nomeItem)) {
+
+		for (Emprestimo emprestimo : this.emprestimos) {
+			if (emprestimo.getItem().getNome().equals(nomeItem)) {
 				stringEmprestimos += emprestimo.toString() + "|";
 			}
 		}
-		
-		if(!stringEmprestimos.contains("|"))
-			return "Nenhum emprestimos associados ao item";
-		
+
+		if (!stringEmprestimos.contains("|"))
+			return "Nenhum emprestimo associado ao item";
+
 		return stringEmprestimos;
-		
+
+	}
+
+	public String listarItensEmprestados() {
+
+		String stringItens = "";
+		List<Emprestimo> listaEmprestimos = new ArrayList<Emprestimo>(emprestimos);
+		Collections.sort(listaEmprestimos, new OrdenaItemEmprestadoAlfabetico());
+
+		for (Emprestimo emprestimo : listaEmprestimos) {
+			if (emprestimo.getItem().getEstado().equals(EstadoItem.EMPRESTADO.getEstado()))
+				stringItens += "Dono do item: " + emprestimo.getDonoDoItem().getNome() + ", Nome do item emprestado: "
+						+ emprestimo.getItem().getNome() + "|";
+		}
+
+		return stringItens;
 	}
 
 }

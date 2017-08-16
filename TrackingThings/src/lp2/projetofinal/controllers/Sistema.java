@@ -66,8 +66,8 @@ public class Sistema {
 	}
 
 	/**
-	 * Metodo responsavel por delegar ao controller de usuarios a remocao do
-	 * usuario escolhido. Validando antes os paramentros passados.
+	 * Metodo responsavel por delegar ao controller de usuarios a remocao do usuario
+	 * escolhido. Validando antes os paramentros passados.
 	 * 
 	 * @param nome
 	 *            Nome do usuario escolhido.
@@ -139,9 +139,9 @@ public class Sistema {
 	}
 
 	/**
-	 * Metodo responsavel por delegar ao controller de itens o cadastro de um
-	 * novo item atraves de uma chamada polimorfica de parametros. Validando
-	 * antes os paramentros passados.
+	 * Metodo responsavel por delegar ao controller de itens o cadastro de um novo
+	 * item atraves de uma chamada polimorfica de parametros. Validando antes os
+	 * paramentros passados.
 	 * 
 	 * @param nome
 	 *            Nome do novo item.
@@ -163,9 +163,9 @@ public class Sistema {
 	}
 
 	/**
-	 * Metodo responsavel por delegar ao controller de itens o cadastro de um
-	 * novo item atraves de uma chamada polimorfica de parametros. Validando
-	 * antes os paramentros passados.
+	 * Metodo responsavel por delegar ao controller de itens o cadastro de um novo
+	 * item atraves de uma chamada polimorfica de parametros. Validando antes os
+	 * paramentros passados.
 	 * 
 	 * @param nome
 	 *            Nome do novo item.
@@ -184,9 +184,9 @@ public class Sistema {
 	}
 
 	/**
-	 * Metodo responsavel por delegar ao controller de itens o cadastro de um
-	 * novo item atraves de uma chamada polimorfica de parametros. Validando
-	 * antes os paramentros passados.
+	 * Metodo responsavel por delegar ao controller de itens o cadastro de um novo
+	 * item atraves de uma chamada polimorfica de parametros. Validando antes os
+	 * paramentros passados.
 	 * 
 	 * @param nome
 	 *            Nome do novo item.
@@ -219,9 +219,9 @@ public class Sistema {
 	}
 
 	/**
-	 * Metodo responsavel por delegar ao controller de itens o cadastro de um
-	 * novo item atraves de uma chamada polimorfica de parametros. Validando
-	 * antes os paramentros passados.
+	 * Metodo responsavel por delegar ao controller de itens o cadastro de um novo
+	 * item atraves de uma chamada polimorfica de parametros. Validando antes os
+	 * paramentros passados.
 	 * 
 	 * @param nome
 	 *            Nome do novo item.
@@ -254,9 +254,9 @@ public class Sistema {
 	}
 
 	/**
-	 * Metodo responsavel por delegar ao controller de itens o cadastro de um
-	 * novo item atraves de uma chamada polimorfica de parametros. Validando
-	 * antes os paramentros passados.
+	 * Metodo responsavel por delegar ao controller de itens o cadastro de um novo
+	 * item atraves de uma chamada polimorfica de parametros. Validando antes os
+	 * paramentros passados.
 	 * 
 	 * @param nome
 	 *            Nome do novo item.
@@ -315,9 +315,8 @@ public class Sistema {
 	}
 
 	/**
-	 * Método responsável por delegar ao controller de itens a adicao de uma
-	 * peca perdida a um jogo de tabuleiro. Validando antes as informações
-	 * passadas.
+	 * Método responsável por delegar ao controller de itens a adicao de uma peca
+	 * perdida a um jogo de tabuleiro. Validando antes as informações passadas.
 	 * 
 	 * @param nome
 	 *            Nome do dono do item.
@@ -358,8 +357,8 @@ public class Sistema {
 	}
 
 	/**
-	 * Metodo responsavel delegar a atualização de um item ao controller de
-	 * itens. Verificando antes as informações passadas.
+	 * Metodo responsavel delegar a atualização de um item ao controller de itens.
+	 * Verificando antes as informações passadas.
 	 * 
 	 * @param nome
 	 *            Nome do dono do item.
@@ -450,12 +449,11 @@ public class Sistema {
 	}
 
 	/**
-	 * Metodo responsavel por delegar o registro de um emprestimo de um item
-	 * entre dois usuarios cadastros no sistema. Validando antes as informacoes
-	 * passadas. Para isso ele solicita a identificacao dos usuarios
-	 * relacionados nesse emprestimo, e identifca o item em questao. Todas essas
-	 * informacoes sao passadas para o controller de emprestimos que realiza o
-	 * registro.
+	 * Metodo responsavel por delegar o registro de um emprestimo de um item entre
+	 * dois usuarios cadastros no sistema. Validando antes as informacoes passadas.
+	 * Para isso ele solicita a identificacao dos usuarios relacionados nesse
+	 * emprestimo, e identifca o item em questao. Todas essas informacoes sao
+	 * passadas para o controller de emprestimos que realiza o registro.
 	 * 
 	 * @param nomeDono
 	 *            Nome do dono do item.
@@ -490,13 +488,13 @@ public class Sistema {
 	}
 
 	/**
-	 * Metodo responsavel por delegar a devolucao de um item e o encerramento de
-	 * um emprestimo, validando antes as informacoes passadas. Para isso ele
-	 * solicita a identificacao dos usuarios relacionados nesse emprestimo, e
-	 * identifca o item em questao. Todas essas informacoes sao passadas para o
-	 * controller de emprestimos que realiza a devolucao do item. Por fim, o
-	 * emprestimo realizado eh encaminhando para o conjunto de emprestimo de
-	 * cada usuario pelo controller de usuarios.
+	 * Metodo responsavel por delegar a devolucao de um item e o encerramento de um
+	 * emprestimo, validando antes as informacoes passadas. Para isso ele solicita a
+	 * identificacao dos usuarios relacionados nesse emprestimo, e identifca o item
+	 * em questao. Todas essas informacoes sao passadas para o controller de
+	 * emprestimos que realiza a devolucao do item. Por fim, o emprestimo realizado
+	 * eh encaminhando para o conjunto de emprestimo de cada usuario pelo controller
+	 * de usuarios.
 	 * 
 	 * @param nomeDono
 	 *            Nome do dono do item.
@@ -537,63 +535,59 @@ public class Sistema {
 	public void finalizar() {
 
 	}
-	
+
 	// Metodos do MileStone 2
-	
-	public String listarEmprestimosUsuarioEmprestando (String nome, String telefone) {
-		
+
+	public String listarEmprestimosUsuarioEmprestando(String nome, String telefone) {
+
 		Checks.verificaNomeVazioNulo(nome);
 		Checks.verificaTelefoneVazioNulo(telefone);
-		
-		return controllerEmprestimos.listarEmprestimosEmprestandoOrdenadosPorNomeItem(controllerUsuario.identificaUsuario(nome, telefone));
-		
+
+		return controllerEmprestimos
+				.listarEmprestimosEmprestandoOrdenadosPorNomeItem(controllerUsuario.identificaUsuario(nome, telefone));
+
 	}
-	
-	public String listarEmprestimosUsuarioPegandoEmprestado (String nome, String telefone) {
-		
+
+	public String listarEmprestimosUsuarioPegandoEmprestado(String nome, String telefone) {
+
 		Checks.verificaNomeVazioNulo(nome);
 		Checks.verificaTelefoneVazioNulo(telefone);
-		
-		return controllerEmprestimos.listarEmprestimosRequerenteOrdenadosPorNomeItem(controllerUsuario.identificaUsuario(nome, telefone));
-		
+
+		return controllerEmprestimos
+				.listarEmprestimosRequerenteOrdenadosPorNomeItem(controllerUsuario.identificaUsuario(nome, telefone));
+
 	}
 
 	public String listarEmprestimosItem(String nomeItem) {
-		
+
 		Checks.verificaNomeItemVazioNulo(nomeItem);
-		
+
 		return controllerEmprestimos.listarEmprestimosItens(nomeItem);
-		
+
 	}
-	
-	public void listarItensNaoEmprestados() {
-		//O sistema deve permitir uma listagem de todos os itens não emprestados no momento da pesquisa. 
-		//Ordenar essa lista de itens pelo nome do item em ordem crescente;
-		
-		//controllerItens.
+
+	public String listarItensNaoEmprestados() {
+
+		return controllerItens.listarItensNaoEmprestados();
 	}
-	
-	public void listarItensEmprestados() {
-		//incluindo o nome do item e o seu dono.
+
+	public String listarItensEmprestados() {
 		
-		//Seria um for para pegar cada chave(usuario) e da lista de emprestimos dele, verificar qual esta em andamento e listar?
+		return controllerEmprestimos.listarItensEmprestados();
 	}
 
 	public void listarTop10Itens() {
-		// Estes são os 10 itens que mais são emprestados . 
-		//Se existirem itens duplicados no sistema (com mesmo nome) eles devem ser tratados de forma separada. 
-		//Por exemplo, se dois usuários diferentes tiverem o mesmo jogo de tabuleiro (cada um tem um jogo com mesmo nome), e o de um usuário foi emprestado 23 vezes e o do outro foi emprestado 31 vezes. 
-		//Se esses jogos fizerem parte dos itens mais emprestados, então ambos devem aparecer na lista top-10 em posições diferentes.;
-		
-		//controllerItens.
-		
+		// Estes são os 10 itens que mais são emprestados .
+		// Se existirem itens duplicados no sistema (com mesmo nome) eles devem ser
+		// tratados de forma separada.
+		// Por exemplo, se dois usuários diferentes tiverem o mesmo jogo de tabuleiro
+		// (cada um tem um jogo com mesmo nome), e o de um usuário foi emprestado 23
+		// vezes e o do outro foi emprestado 31 vezes.
+		// Se esses jogos fizerem parte dos itens mais emprestados, então ambos devem
+		// aparecer na lista top-10 em posições diferentes.;
+
+		// controllerItens.
+
 	}
-	
-	
-	
-	
-	
-	
-	
-	
+
 }
