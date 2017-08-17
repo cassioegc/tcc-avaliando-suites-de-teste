@@ -182,18 +182,26 @@ public class ControllerEmprestimos {
 
 	}
 
+	// Alterar!!!!
 	public String listarItensEmprestados() {
 
 		String stringItens = "";
 		List<Emprestimo> listaEmprestimos = new ArrayList<Emprestimo>(emprestimos);
 		Collections.sort(listaEmprestimos, new OrdenaItemEmprestadoAlfabetico());
 
-		for (Emprestimo emprestimo : listaEmprestimos) {
-			if (emprestimo.getItem().getEstado().equals(EstadoItem.EMPRESTADO.getEstado()))
-				stringItens += "Dono do item: " + emprestimo.getDonoDoItem().getNome() + ", Nome do item emprestado: "
-						+ emprestimo.getItem().getNome() + "|";
-		}
+		List<String> listaStrings = new ArrayList<String>();
+		String item;
 
+		for (Emprestimo emprestimo : listaEmprestimos) {
+			if (emprestimo.getItem().getEstado().equals(EstadoItem.EMPRESTADO.getEstado())) {
+				item = "Dono do item: " + emprestimo.getDonoDoItem().getNome() + ", Nome do item emprestado: "
+						+ emprestimo.getItem().getNome() + "|";
+				if(!listaStrings.contains(item)) {
+					stringItens += item;
+					listaStrings.add(item);
+				}			
+			}
+		}
 		return stringItens;
 	}
 

@@ -576,19 +576,9 @@ public class Sistema {
 		return controllerEmprestimos.listarItensEmprestados();
 	}
 
-	public void listarTop10Itens() {
-
-		// Estes são os 10 itens que mais são emprestados .
-		// Se existirem itens duplicados no sistema (com mesmo nome) eles devem ser
-		// tratados de forma separada.
-		// Por exemplo, se dois usuários diferentes tiverem o mesmo jogo de tabuleiro
-		// (cada um tem um jogo com mesmo nome), e o de um usuário foi emprestado 23
-		// vezes e o do outro foi emprestado 31 vezes.
-		// Se esses jogos fizerem parte dos itens mais emprestados, então ambos devem
-		// aparecer na lista top-10 em posições diferentes.;
-
-		// controllerItens.
-
+	public String listarTop10Itens() {
+		
+		return controllerItens.listarTop10Itens();
 	}
 
 }

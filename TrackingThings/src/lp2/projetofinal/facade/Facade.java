@@ -133,7 +133,7 @@ public class Facade {
 	}
 	
 	public String listarTop10Itens() {
-		return null; //sistema.listarTop10Itens();
+		return sistema.listarTop10Itens();
 	}
 		
 }
