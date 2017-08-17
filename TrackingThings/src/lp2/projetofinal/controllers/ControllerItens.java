@@ -427,20 +427,22 @@ public class ControllerItens {
 	
 	
 	public String listarTop10Itens() {
-		/// falta reduzir para apenas 10 itens
 		List<Item> listaItens = retornaUsuariosItens();
 		Collections.sort(listaItens, new OrdenaItemNumeroEmprestimos());
 
 		String top10ItensString = "";
+		int numeroItens = 1;
 		for (Item item : listaItens) {
-			top10ItensString += item.toString() + "|";
+			if (numeroItens == 11) {
+				break;
+			}
+			top10ItensString += numeroItens+") "+item.toString() + "|";
+			numeroItens++;
 		}
 		
 		return top10ItensString;
-		
-// "1) 2 emprestimos - JOGO DE TABULEIRO: War, R$ 70.0, Emprestado, COM PECAS PERDIDAS|2) 1 emprestimos - SERIE: The Walking Dead, R$ 79.99, Nao emprestado, 120 min, DEZESSEIS_ANOS, SUSPENSE, Temporada 1|3) 1 emprestimos - JOGO DE TABULEIRO: Xadrez de Bruxo, R$ 1000.0, Emprestado, COMPLETO|" listarTop10Itens
-	
-		
+
+
 		
 	}
 
