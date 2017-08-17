@@ -211,7 +211,7 @@ public class ControllerUsuario {
 		identificaUsuario(nomeRequerente, telefoneRequerente).registraEmprestimoRealizado(emprestimo);
 	}
 	
-	public void atualizaReputacao(String nome, String telefone, double valor) {
+	public void atualizaReputacao(String nome, String telefone, double valor,boolean acresce) {
 		
 
 		ChaveNomeTelefone chave = new ChaveNomeTelefone(nome, telefone);
@@ -220,7 +220,7 @@ public class ControllerUsuario {
 
 		Usuario usuario = identificaUsuario(nome, telefone);
 		
-		usuario.atualizaReputacao(valor);
+		usuario.atualizaReputacao(valor,acresce);
 		
 	}
 

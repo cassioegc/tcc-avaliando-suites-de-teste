@@ -1,5 +1,9 @@
 package lp2.projetofinal.controllers;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+
 /**
  * Classe responsavel por controlar todos os objetos Emprestimo registrados no sistema.
  * 
@@ -12,6 +16,7 @@ package lp2.projetofinal.controllers;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Date;
 import java.util.List;
 
 import lp2.projetofinal.entidades.Emprestimo;
@@ -203,6 +208,19 @@ public class ControllerEmprestimos {
 			}
 		}
 		return stringItens;
+	}
+	
+	public int calcularDiferencaEntreDias(String diaInicial, String diaFinal) throws ParseException {
+        DateFormat df = new SimpleDateFormat ("dd/MM/yyyy");
+        df.setLenient(false);
+        Date d1 = df.parse (diaInicial);
+
+        Date d2 = df.parse (diaFinal);
+
+        long dt = (d2.getTime() - d1.getTime()) + 3600000; // 1 hora para compensar horário de verão
+ 
+	
+        return (int) (dt / 86400000L);
 	}
 
 }

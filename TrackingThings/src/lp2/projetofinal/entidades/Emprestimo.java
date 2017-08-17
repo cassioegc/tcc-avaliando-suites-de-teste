@@ -107,6 +107,10 @@ public class Emprestimo {
 	public Item getItem() {
 		return this.item;
 	}
+	
+	public int getNumeroDias() {
+		return numeroDias;
+	}
 
 	@Override
 	public int hashCode() {

@@ -2,6 +2,8 @@ package lp2.projetofinal.testes;
 
 import static org.junit.Assert.*;
 
+import java.text.ParseException;
+
 import org.junit.Before;
 import org.junit.Test;
 
@@ -321,13 +323,13 @@ public class SistemaTeste {
 	}
 
 	@Test(expected = IllegalArgumentException.class)
-	public void testDataDevolucaoVazia() {
+	public void testDataDevolucaoVazia() throws ParseException {
 		sistema.devolverItem("Gabriel", "(83) 9999-0000", "Thiago", "(83) 8899-0000", "Natiruts em Remigio",
 				"10/08/2017", "");
 	}
 
 	@Test(expected = IllegalArgumentException.class)
-	public void testDataDevolucaoNula() {
+	public void testDataDevolucaoNula() throws ParseException {
 		sistema.devolverItem("Gabriel", "(83) 9999-0000", "Thiago", "(83) 8899-0000", "Natiruts em Remigio",
 				"10/08/2017", "  ");
 	}

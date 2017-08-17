@@ -1,5 +1,10 @@
 package lp2.projetofinal.controllers;
 
+import java.text.ParseException;
+
+import lp2.projetofinal.entidades.Emprestimo;
+import lp2.projetofinal.entidades.Item;
+
 /**
  * Classe responsavel por ser o Controller Principal, delega responsabilidades para ControllerUsuario, ControllerItens e ControllerEmprestimos. Chama a classe Checks para validar os parametros passados em cada metodo.
  * 
@@ -161,7 +166,7 @@ public class Sistema {
 
 		controllerItens.adicionaItem(controllerUsuario.identificaUsuario(nome, telefone), nomeItem, preco, plataforma);
 		
-		controllerUsuario.atualizaReputacao(nome, telefone,  preco*0.05);
+		controllerUsuario.atualizaReputacao(nome, telefone,  preco*0.05,true);
 	}
 
 	/**
@@ -184,7 +189,7 @@ public class Sistema {
 
 		controllerItens.adicionaItem(controllerUsuario.identificaUsuario(nome, telefone), nomeItem, preco);
 		
-		controllerUsuario.atualizaReputacao(nome, telefone,  preco*0.05);
+		controllerUsuario.atualizaReputacao(nome, telefone,  preco*0.05,true);
 	}
 
 	/**
@@ -221,7 +226,7 @@ public class Sistema {
 		controllerItens.adicionaItem(controllerUsuario.identificaUsuario(nome, telefone), nomeItem, preco, duracao,
 				genero, classificacao, anoLancamento);
 		
-		controllerUsuario.atualizaReputacao(nome, telefone,  preco*0.05);
+		controllerUsuario.atualizaReputacao(nome, telefone,  preco*0.05,true);
 	}
 
 	/**
@@ -258,7 +263,7 @@ public class Sistema {
 		controllerItens.adicionaItem(controllerUsuario.identificaUsuario(nome, telefone), nomeItem, preco, duracao,
 				numeroFaixas, artista, classificacao);
 		
-		controllerUsuario.atualizaReputacao(nome, telefone,  preco*0.05);
+		controllerUsuario.atualizaReputacao(nome, telefone,  preco*0.05,true);
 	}
 
 	/**
@@ -298,7 +303,7 @@ public class Sistema {
 		controllerItens.adicionaItem(controllerUsuario.identificaUsuario(nome, telefone), nomeItem, preco, descricao,
 				duracao, classificacao, genero, temporada);
 		
-		controllerUsuario.atualizaReputacao(nome, telefone,  preco*0.05);
+		controllerUsuario.atualizaReputacao(nome, telefone,  preco*0.05,true);
 	}
 
 	/**
@@ -490,11 +495,15 @@ public class Sistema {
 		Checks.verificaNomeItemVazioNulo(nomeItem);
 		Checks.verificaDataEmprestimoVaziaNula(dataEmprestimo);
 		Checks.verificaPeriodoZeradoOuNegativo(periodo);
+		
+		Item item = controllerItens.identificaItemUsuario(controllerUsuario.identificaUsuario(nomeDono,telefoneDono), nomeItem);
 
 		controllerEmprestimos.registrarEmprestimo(controllerUsuario.identificaUsuario(nomeDono, telefoneDono),
-				controllerUsuario.identificaUsuario(nomeRequerente, telefoneRequerente), controllerItens
-						.identificaItemUsuario(controllerUsuario.identificaUsuario(nomeDono, telefoneDono), nomeItem),
+				controllerUsuario.identificaUsuario(nomeRequerente, telefoneRequerente), item,
 				dataEmprestimo, periodo);
+	
+		
+		controllerUsuario.atualizaReputacao(nomeDono, telefoneDono, item.getPreco() * 0.1,true);
 
 	}
 
@@ -521,9 +530,10 @@ public class Sistema {
 	 *            Data em que o emprestimo foi realizado.
 	 * @param dataDevolucao
 	 *            Data da devolucao do item.
+	 * @throws ParseException 
 	 */
 	public void devolverItem(String nomeDono, String telefoneDono, String nomeRequerente, String telefoneRequerente,
-			String nomeItem, String dataEmprestimo, String dataDevolucao) {
+			String nomeItem, String dataEmprestimo, String dataDevolucao) throws ParseException {
 
 		verificacaoPadraoUsuario(nomeDono, telefoneDono);
 		verificacaoPadraoUsuario(nomeRequerente, telefoneRequerente);
@@ -531,16 +541,28 @@ public class Sistema {
 		Checks.verificaNomeItemVazioNulo(nomeItem);
 		Checks.verificaDataEmprestimoVaziaNula(dataEmprestimo);
 		Checks.verificaDataDevolucaoVaziaNula(dataDevolucao);
+		
+		Item item = controllerItens.identificaItemUsuario(controllerUsuario.identificaUsuario(nomeDono,telefoneDono), nomeItem);
 
+		Emprestimo emprestimo = controllerEmprestimos.identificaEmprestimo(controllerUsuario.identificaUsuario(nomeDono, telefoneDono),
+				controllerUsuario.identificaUsuario(nomeRequerente, telefoneRequerente), dataEmprestimo);
+		
 		controllerEmprestimos.devolverItem(controllerUsuario.identificaUsuario(nomeDono, telefoneDono),
-				controllerUsuario.identificaUsuario(nomeRequerente, telefoneRequerente), controllerItens
-						.identificaItemUsuario(controllerUsuario.identificaUsuario(nomeDono, telefoneDono), nomeItem),
+				controllerUsuario.identificaUsuario(nomeRequerente, telefoneRequerente), item,
 				dataEmprestimo, dataDevolucao);
 
-		controllerUsuario.adicionarEmprestimoRealizado(nomeDono, telefoneDono, nomeRequerente, telefoneRequerente,
-				controllerEmprestimos.identificaEmprestimo(controllerUsuario.identificaUsuario(nomeDono, telefoneDono),
-						controllerUsuario.identificaUsuario(nomeRequerente, telefoneRequerente), dataEmprestimo));
-
+		controllerUsuario.adicionarEmprestimoRealizado(nomeDono, telefoneDono, nomeRequerente, telefoneRequerente,emprestimo);
+		
+		int diasAtraso = controllerEmprestimos.calcularDiferencaEntreDias(dataEmprestimo, dataDevolucao) - emprestimo.getNumeroDias();
+		
+		if ((diasAtraso) <= 0) {
+			controllerUsuario.identificaUsuario(nomeRequerente, telefoneRequerente).atualizaReputacao(item.getPreco() * 0.05,true);
+		} else {                                                                                                  
+			controllerUsuario.identificaUsuario(nomeRequerente, telefoneRequerente).atualizaReputacao(item.getPreco() * diasAtraso * 0.01,false); 
+		}
+	
+		
+	
 	}
 
 

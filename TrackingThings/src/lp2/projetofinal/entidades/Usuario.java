@@ -45,8 +45,12 @@ public class Usuario {
 	 * Metodo responsvel por atualizar a reputacao do usuario a cada emprestimo ou item adicionado.
 	 * @param valor = valor do tipo doule que representa o incremento para a reputacao.
 	 */
-	public void atualizaReputacao(double valor) {
-		this.reputacao += valor; 
+	public void atualizaReputacao(double valor,boolean acresce) {
+		if (acresce) {
+			this.reputacao += valor; 
+		} else {
+			this.reputacao -= valor; 
+		}
 	}
 	
 	/**
