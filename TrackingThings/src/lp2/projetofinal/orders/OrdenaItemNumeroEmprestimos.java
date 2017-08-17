@@ -9,7 +9,7 @@ public class OrdenaItemNumeroEmprestimos implements Comparator<Item> {
 	@Override
 	public int compare(Item itemUm, Item itemDois) {
 
-		double result = itemUm.getNumeroEmprestimos() - itemDois.getNumeroEmprestimos();
+		double result = itemDois.getNumeroEmprestimos() - itemUm.getNumeroEmprestimos();
 		
 		if(result < 0)
 			return -1;

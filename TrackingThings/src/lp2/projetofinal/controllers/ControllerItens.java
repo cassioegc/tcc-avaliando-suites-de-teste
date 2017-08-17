@@ -436,8 +436,10 @@ public class ControllerItens {
 			if (numeroItens == 11) {
 				break;
 			}
-			top10ItensString += numeroItens+") "+item.toString() + "|";
-			numeroItens++;
+			if (item.getNumeroEmprestimos() != 0) {
+				top10ItensString += numeroItens+") "+item.getNumeroEmprestimos()+ " emprestimos - "+item.toString() + "|";
+				numeroItens++;
+			}
 		}
 		
 		return top10ItensString;
