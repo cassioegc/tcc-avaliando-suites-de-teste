@@ -76,6 +76,8 @@ public class ControllerUsuario {
 			return usuario.getNome();
 		else if (atributo.equals("Telefone"))
 			return usuario.getTelefone();
+		else if (atributo.equals("Reputacao"))
+			return "" + usuario.getReputacao();
 		else
 			Exceptions.atributoInvalidoException();
 
@@ -207,6 +209,19 @@ public class ControllerUsuario {
 
 		identificaUsuario(nomeDono, telefoneDono).registraEmprestimoRealizado(emprestimo);
 		identificaUsuario(nomeRequerente, telefoneRequerente).registraEmprestimoRealizado(emprestimo);
+	}
+	
+	public void atualizaReputacao(String nome, String telefone, double valor) {
+		
+
+		ChaveNomeTelefone chave = new ChaveNomeTelefone(nome, telefone);
+
+		verificaExistenciaChaveMapa(chave);
+
+		Usuario usuario = identificaUsuario(nome, telefone);
+		
+		usuario.atualizaReputacao(valor);
+		
 	}
 
 }

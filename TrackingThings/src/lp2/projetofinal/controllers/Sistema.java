@@ -160,6 +160,8 @@ public class Sistema {
 		Checks.verificaPlataformaVaziaNula(plataforma);
 
 		controllerItens.adicionaItem(controllerUsuario.identificaUsuario(nome, telefone), nomeItem, preco, plataforma);
+		
+		controllerUsuario.atualizaReputacao(nome, telefone,  preco*0.05);
 	}
 
 	/**
@@ -181,6 +183,8 @@ public class Sistema {
 		verificacaoPadraoCadastroItem(nome, telefone, nomeItem, preco);
 
 		controllerItens.adicionaItem(controllerUsuario.identificaUsuario(nome, telefone), nomeItem, preco);
+		
+		controllerUsuario.atualizaReputacao(nome, telefone,  preco*0.05);
 	}
 
 	/**
@@ -216,6 +220,8 @@ public class Sistema {
 
 		controllerItens.adicionaItem(controllerUsuario.identificaUsuario(nome, telefone), nomeItem, preco, duracao,
 				genero, classificacao, anoLancamento);
+		
+		controllerUsuario.atualizaReputacao(nome, telefone,  preco*0.05);
 	}
 
 	/**
@@ -251,6 +257,8 @@ public class Sistema {
 
 		controllerItens.adicionaItem(controllerUsuario.identificaUsuario(nome, telefone), nomeItem, preco, duracao,
 				numeroFaixas, artista, classificacao);
+		
+		controllerUsuario.atualizaReputacao(nome, telefone,  preco*0.05);
 	}
 
 	/**
@@ -289,6 +297,8 @@ public class Sistema {
 
 		controllerItens.adicionaItem(controllerUsuario.identificaUsuario(nome, telefone), nomeItem, preco, descricao,
 				duracao, classificacao, genero, temporada);
+		
+		controllerUsuario.atualizaReputacao(nome, telefone,  preco*0.05);
 	}
 
 	/**
@@ -312,6 +322,7 @@ public class Sistema {
 
 		controllerItens.adicionarBluRayEpisodio(controllerUsuario.identificaUsuario(nome, telefone), BlurayTemporada,
 				duracao);
+		
 	}
 
 	/**
@@ -532,11 +543,6 @@ public class Sistema {
 
 	}
 
-	public void finalizar() {
-
-	}
-
-	// Metodos do MileStone 2
 
 	public String listarEmprestimosUsuarioEmprestando(String nome, String telefone) {
 
@@ -579,6 +585,10 @@ public class Sistema {
 	public String listarTop10Itens() {
 		
 		return controllerItens.listarTop10Itens();
+	}
+	
+	public void finalizar() {
+
 	}
 
 }
