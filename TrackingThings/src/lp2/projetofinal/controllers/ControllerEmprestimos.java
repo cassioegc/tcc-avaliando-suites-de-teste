@@ -176,7 +176,7 @@ public class ControllerEmprestimos {
 		}
 
 		if (!stringEmprestimos.contains("|"))
-			return "Nenhum emprestimo associado ao item";
+			return "Nenhum emprestimos associados ao item";
 
 		return stringEmprestimos;
 

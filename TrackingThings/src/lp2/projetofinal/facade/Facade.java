@@ -17,7 +17,7 @@ public class Facade {
 	private Sistema sistema = new Sistema();
 
 	public void iniciarSistema() {
-		
+
 	}
 
 	public void cadastrarUsuario(String nome, String telefone, String email) {
@@ -96,44 +96,46 @@ public class Facade {
 	public String pesquisarDetalhesItem(String nome, String telefone, String nomeItem) {
 		return sistema.pesquisarDetalhesItem(nome, telefone, nomeItem);
 	}
-	
-	public void registrarEmprestimo(String nomeDono, String telefoneDono, String nomeRequerente, String telefoneRequerente,
-			String nomeItem, String dataEmprestimo, int periodo){
-		
-		sistema.registrarEmprestimo(nomeDono, telefoneDono, nomeRequerente, telefoneRequerente, nomeItem, dataEmprestimo, periodo);
-		
+
+	public void registrarEmprestimo(String nomeDono, String telefoneDono, String nomeRequerente,
+			String telefoneRequerente, String nomeItem, String dataEmprestimo, int periodo) {
+
+		sistema.registrarEmprestimo(nomeDono, telefoneDono, nomeRequerente, telefoneRequerente, nomeItem,
+				dataEmprestimo, periodo);
+
 	}
-	
+
 	public void devolverItem(String nomeDono, String telefoneDono, String nomeRequerente, String telefoneRequerente,
-			String nomeItem, String dataEmprestimo, String dataDevolucao){
-			
-		sistema.devolverItem(nomeDono, telefoneDono, nomeRequerente, telefoneRequerente, nomeItem, dataEmprestimo, dataDevolucao);
+			String nomeItem, String dataEmprestimo, String dataDevolucao) {
+
+		sistema.devolverItem(nomeDono, telefoneDono, nomeRequerente, telefoneRequerente, nomeItem, dataEmprestimo,
+				dataDevolucao);
 	}
-	
+
 	// Metodos do casos de uso 5
-	
-	public String listarEmprestimosUsuarioEmprestando (String nome, String telefone) {
+
+	public String listarEmprestimosUsuarioEmprestando(String nome, String telefone) {
 		return sistema.listarEmprestimosUsuarioEmprestando(nome, telefone);
 	}
 
-	public String listarEmprestimosUsuarioPegandoEmprestado (String nome, String telefone) {
+	public String listarEmprestimosUsuarioPegandoEmprestado(String nome, String telefone) {
 		return sistema.listarEmprestimosUsuarioPegandoEmprestado(nome, telefone);
 	}
-	
-	public String listarEmprestimosItem(String nomeItem){
-			return sistema.listarEmprestimosItem(nomeItem);
+
+	public String listarEmprestimosItem(String nomeItem) {
+		return sistema.listarEmprestimosItem(nomeItem);
 	}
-	
-	public void listarItensNaoEmprestados() {
-		sistema.listarItensNaoEmprestados();
+
+	public String listarItensNaoEmprestados() {
+		return sistema.listarItensNaoEmprestados();
 	}
-	
+
 	public String listarItensEmprestados() {
 		return sistema.listarItensEmprestados();
 	}
-	
+
 	public String listarTop10Itens() {
 		return sistema.listarTop10Itens();
 	}
-		
+
 }
