@@ -25,6 +25,7 @@ import lp2.projetofinal.entidades.JogoTabuleiro;
 import lp2.projetofinal.entidades.Usuario;
 import lp2.projetofinal.enums.EstadoItem;
 import lp2.projetofinal.orders.OrdenaItemAlfabetico;
+import lp2.projetofinal.orders.OrdenaItemNumeroEmprestimos;
 import lp2.projetofinal.orders.OrdenaItemPreco;
 import lp2.projetofinal.util.Exceptions;
 
@@ -422,6 +423,27 @@ public class ControllerItens {
 		}
 
 		return stringItens;
+	}
+	
+	
+	public String listarTop10Itens() {
+		List<Item> listaItens = retornaUsuariosItens();
+		Collections.sort(listaItens, new OrdenaItemNumeroEmprestimos());
+
+		String top10ItensString = "";
+		int numeroItens = 1;
+		for (Item item : listaItens) {
+			if (numeroItens == 11) {
+				break;
+			}
+			top10ItensString += numeroItens+") "+item.toString() + "|";
+			numeroItens++;
+		}
+		
+		return top10ItensString;
+
+
+		
 	}
 
 }
