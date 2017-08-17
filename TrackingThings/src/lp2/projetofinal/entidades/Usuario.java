@@ -19,6 +19,7 @@ public class Usuario {
 	private String email;
 	private String telefone;
 	private Set<Emprestimo> emprestimosRealizados;
+	private double reputacao;
 
 	/**
 	 * Cria um usuario com nome, email e telefone
@@ -37,8 +38,25 @@ public class Usuario {
 		this.email = email;
 		this.telefone = telefone;
 		this.emprestimosRealizados = new HashSet<Emprestimo>();
+		this.reputacao = 0;
 	}
 
+	/**
+	 * Metodo responsvel por atualizar a reputacao do usuario a cada emprestimo ou item adicionado.
+	 * @param valor = valor do tipo doule que representa o incremento para a reputacao.
+	 */
+	public void atualizaReputacao(double valor) {
+		this.reputacao += valor; 
+	}
+	
+	/**
+	 * Metodo que retorna a reputacao do usuario.
+	 * @return = double com o valor da reputacao desse usuario.
+	 */
+	public double getReputacao() {
+		return reputacao;
+	}
+	
 	/**
 	 * Recupera o nome do usuario.
 	 *
