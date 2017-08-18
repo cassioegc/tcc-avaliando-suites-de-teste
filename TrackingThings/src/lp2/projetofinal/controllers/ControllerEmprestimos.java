@@ -36,15 +36,15 @@ public class ControllerEmprestimos {
 
 	/**
 	 * Metodo responsavel por cadastrar um novo Emprestimo no sistema. Veficando
-	 * antes a disponibilidade do item escolhido e solicitando a alteração do seu
-	 * estado após registro realizado.
+	 * antes a disponibilidade do item escolhido e solicitando a alteração do
+	 * seu estado após registro realizado.
 	 * 
 	 * @param donoItem
-	 *            Objeto do tipo Usuario resgatado pelo controlador de usuarios e
-	 *            dono do item que será emprestado.
+	 *            Objeto do tipo Usuario resgatado pelo controlador de usuarios
+	 *            e dono do item que será emprestado.
 	 * @param requerenteItem
-	 *            Objeto do tipo Usuario resgatado pelo controlador de usuarios e
-	 *            requerente do item.
+	 *            Objeto do tipo Usuario resgatado pelo controlador de usuarios
+	 *            e requerente do item.
 	 * @param item
 	 *            Objeto do tipo Item, resgatado pelo contralador de itens.
 	 * @param dataEmprestimo
@@ -70,11 +70,11 @@ public class ControllerEmprestimos {
 	 * identifando antes o objeto do tipo Emprestimo na lista de emprestimos.
 	 * 
 	 * @param donoItem
-	 *            Objeto do tipo Usuario resgatado pelo controlador de usuarios e
-	 *            dono do item que foi emprestado.
+	 *            Objeto do tipo Usuario resgatado pelo controlador de usuarios
+	 *            e dono do item que foi emprestado.
 	 * @param requerenteItem
-	 *            Objeto do tipo Usuario resgatado pelo controlador de usuarios e
-	 *            requerente do item que foi emprestado.
+	 *            Objeto do tipo Usuario resgatado pelo controlador de usuarios
+	 *            e requerente do item que foi emprestado.
 	 * @param item
 	 *            Objeto do tipo Item, resgatado pelo contralador de itens.
 	 * @param dataEmprestimo
@@ -93,16 +93,16 @@ public class ControllerEmprestimos {
 	}
 
 	/**
-	 * Metodo responsavel por identificar um Emprestimo na lista de emprestimo. Para
-	 * isso ele instancia uma referencia de desse objeto emprestimo para que seja
-	 * possivel encontrar igual na lista.
+	 * Metodo responsavel por identificar um Emprestimo na lista de emprestimo.
+	 * Para isso ele instancia uma referencia de desse objeto emprestimo para
+	 * que seja possivel encontrar igual na lista.
 	 * 
 	 * @param donoItem
-	 *            Objeto do tipo Usuario resgatado pelo controlador de usuarios e
-	 *            dono do item que foi emprestado.
+	 *            Objeto do tipo Usuario resgatado pelo controlador de usuarios
+	 *            e dono do item que foi emprestado.
 	 * @param requerenteItem
-	 *            Objeto do tipo Usuario resgatado pelo controlador de usuarios e
-	 *            requerente do item que foi emprestado.
+	 *            Objeto do tipo Usuario resgatado pelo controlador de usuarios
+	 *            e requerente do item que foi emprestado.
 	 * @param dataEmprestimo
 	 *            Dado da solicitação do emprestimo, passada como string.
 	 * 
@@ -201,28 +201,33 @@ public class ControllerEmprestimos {
 			if (emprestimo.getItem().getEstado().equals(EstadoItem.EMPRESTADO.getEstado())) {
 				item = "Dono do item: " + emprestimo.getDonoDoItem().getNome() + ", Nome do item emprestado: "
 						+ emprestimo.getItem().getNome() + "|";
-				if(!listaStrings.contains(item)) {
+				if (!listaStrings.contains(item)) {
 					stringItens += item;
 					listaStrings.add(item);
-				}			
+				}
 			}
 		}
 		return stringItens;
 	}
-	
-	//WHAT? 
-	public int calcularDiferencaEntreDias(String diaInicial, String diaFinal) throws ParseException {
-		
-		DateFormat df = new SimpleDateFormat ("dd/MM/yyyy");
-        df.setLenient(false);
-        Date d1 = df.parse (diaInicial);
 
-        Date d2 = df.parse (diaFinal);
+	// WHAT? AGAIN?
+	public int calcularDiferencaEntreDias(String diaInicial, String diaFinal) {
 
-        long dt = (d2.getTime() - d1.getTime()) + 3600000; // 1 hora para compensar horario de verao
- 
-	
-        return (int) (dt / 86400000L);
+		DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+		df.setLenient(false);
+
+		long data = 0;
+
+		try {
+
+			Date d1 = df.parse(diaInicial);
+			Date d2 = df.parse(diaFinal);
+
+			data = (d2.getTime() - d1.getTime()) + 3600000;
+
+		} catch (ParseException e) {}
+
+		return (int) (data / 86400000L);
 	}
 
 }

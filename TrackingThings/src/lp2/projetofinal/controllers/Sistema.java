@@ -1,10 +1,5 @@
 package lp2.projetofinal.controllers;
 
-import java.text.ParseException;
-
-import lp2.projetofinal.entidades.Emprestimo;
-import lp2.projetofinal.entidades.Item;
-
 /**
  * Classe responsavel por ser o Controller Principal, delega responsabilidades para ControllerUsuario, ControllerItens e ControllerEmprestimos. Chama a classe Checks para validar os parametros passados em cada metodo.
  * 
@@ -498,13 +493,16 @@ public class Sistema {
 		Checks.verificaDataEmprestimoVaziaNula(dataEmprestimo);
 		Checks.verificaPeriodoZeradoOuNegativo(periodo);
 
-		Item item = controllerItens.identificaItemUsuario(controllerUsuario.identificaUsuario(nomeDono, telefoneDono),
-				nomeItem);
-
 		controllerEmprestimos.registrarEmprestimo(controllerUsuario.identificaUsuario(nomeDono, telefoneDono),
-				controllerUsuario.identificaUsuario(nomeRequerente, telefoneRequerente), item, dataEmprestimo, periodo);
+				controllerUsuario.identificaUsuario(nomeRequerente, telefoneRequerente), controllerItens
+						.identificaItemUsuario(controllerUsuario.identificaUsuario(nomeDono, telefoneDono), nomeItem),
+				dataEmprestimo, periodo);
 
-		controllerUsuario.atualizaReputacao(nomeDono, telefoneDono, item.getPreco() * 0.1, true);
+		controllerUsuario
+				.atualizaReputacao(nomeDono, telefoneDono,
+						controllerItens.identificaItemUsuario(
+								controllerUsuario.identificaUsuario(nomeDono, telefoneDono), nomeItem).getPreco() * 0.1,
+						true);
 
 	}
 
@@ -534,7 +532,7 @@ public class Sistema {
 	 * @throws ParseException
 	 */
 	public void devolverItem(String nomeDono, String telefoneDono, String nomeRequerente, String telefoneRequerente,
-			String nomeItem, String dataEmprestimo, String dataDevolucao) throws ParseException {
+			String nomeItem, String dataEmprestimo, String dataDevolucao) {
 
 		verificacaoPadraoUsuario(nomeDono, telefoneDono);
 		verificacaoPadraoUsuario(nomeRequerente, telefoneRequerente);
@@ -543,31 +541,31 @@ public class Sistema {
 		Checks.verificaDataEmprestimoVaziaNula(dataEmprestimo);
 		Checks.verificaDataDevolucaoVaziaNula(dataDevolucao);
 
-		// Sistema não pode conhecer Item
-		Item item = controllerItens.identificaItemUsuario(controllerUsuario.identificaUsuario(nomeDono, telefoneDono),
-				nomeItem);
-
-		// Sistema não pode conhecer emprestimo
-		Emprestimo emprestimo = controllerEmprestimos.identificaEmprestimo(
-				controllerUsuario.identificaUsuario(nomeDono, telefoneDono),
-				controllerUsuario.identificaUsuario(nomeRequerente, telefoneRequerente), dataEmprestimo);
-
 		controllerEmprestimos.devolverItem(controllerUsuario.identificaUsuario(nomeDono, telefoneDono),
-				controllerUsuario.identificaUsuario(nomeRequerente, telefoneRequerente), item, dataEmprestimo,
-				dataDevolucao);
+				controllerUsuario.identificaUsuario(nomeRequerente, telefoneRequerente), controllerItens
+						.identificaItemUsuario(controllerUsuario.identificaUsuario(nomeDono, telefoneDono), nomeItem),
+				dataEmprestimo, dataDevolucao);
 
 		controllerUsuario.adicionarEmprestimoRealizado(nomeDono, telefoneDono, nomeRequerente, telefoneRequerente,
-				emprestimo);
+				controllerEmprestimos.identificaEmprestimo(controllerUsuario.identificaUsuario(nomeDono, telefoneDono),
+						controllerUsuario.identificaUsuario(nomeRequerente, telefoneRequerente), dataEmprestimo));
 
 		int diasAtraso = controllerEmprestimos.calcularDiferencaEntreDias(dataEmprestimo, dataDevolucao)
-				- emprestimo.getNumeroDias();
+				- controllerEmprestimos
+						.identificaEmprestimo(controllerUsuario.identificaUsuario(nomeDono, telefoneDono),
+								controllerUsuario.identificaUsuario(nomeRequerente, telefoneRequerente), dataEmprestimo)
+						.getNumeroDias();
 
 		if ((diasAtraso) <= 0) {
 			controllerUsuario.identificaUsuario(nomeRequerente, telefoneRequerente)
-					.atualizaReputacao(item.getPreco() * 0.05, true);
+					.atualizaReputacao(controllerItens.identificaItemUsuario(
+							controllerUsuario.identificaUsuario(nomeDono, telefoneDono), nomeItem).getPreco() * 0.05,
+							true);
 		} else {
 			controllerUsuario.identificaUsuario(nomeRequerente, telefoneRequerente)
-					.atualizaReputacao(item.getPreco() * diasAtraso * 0.01, false);
+					.atualizaReputacao(controllerItens.identificaItemUsuario(
+							controllerUsuario.identificaUsuario(nomeDono, telefoneDono), nomeItem).getPreco()
+							* diasAtraso * 0.01, false);
 		}
 
 	}
