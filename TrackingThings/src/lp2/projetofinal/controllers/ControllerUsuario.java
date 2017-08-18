@@ -78,6 +78,8 @@ public class ControllerUsuario {
 			return usuario.getTelefone();
 		else if (atributo.equals("Reputacao"))
 			return "" + usuario.getReputacao();
+		else if (atributo.equals("Cartao"))
+			return usuario.getCartao();
 		else
 			Exceptions.atributoInvalidoException();
 

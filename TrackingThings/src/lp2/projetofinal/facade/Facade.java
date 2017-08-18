@@ -140,8 +140,5 @@ public class Facade {
 		return sistema.listarTop10Itens();
 	}
 	
-	// Metodos do casos de uso 5
-	
-	
 
 }
