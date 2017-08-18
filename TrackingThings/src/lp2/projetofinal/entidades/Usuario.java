@@ -13,6 +13,8 @@ package lp2.projetofinal.entidades;
 import java.util.HashSet;
 import java.util.Set;
 
+import lp2.projetofinal.interfaces.CartaoFidelidade;
+
 public class Usuario {
 
 	private String nome;
@@ -20,7 +22,7 @@ public class Usuario {
 	private String telefone;
 	private Set<Emprestimo> emprestimosRealizados;
 	private double reputacao;
-	private String cartao;
+	private CartaoFidelidade cartao;
 
 	/**
 	 * Cria um usuario com nome, email e telefone
@@ -40,22 +42,21 @@ public class Usuario {
 		this.telefone = telefone;
 		this.emprestimosRealizados = new HashSet<Emprestimo>();
 		this.reputacao = 0;
-		this.cartao = "noob";
+		this.cartao = new CartaoNoob();
 	}
 	
 	/**
-	 * Metodo que retorna o tipo do cartao fidelidade do usuario.
-	 * @return = String com o a representacao do tipo.
+	 * @return = o cartao do usuario.
 	 */
-	public String getCartao(){
+	public CartaoFidelidade getCartao(){
 		return cartao;
 	}
 	
 	/**
 	 * metodo que muda o tipo do cartao do usuario.
-	 * @param cartao = String que representa o novo tipo.
+	 * @param cartao = CartaoFidelidade com o novo tipo.
 	 */
-	public void setCartao(String cartao){
+	public void setCartao(CartaoFidelidade cartao){
 		this.cartao = cartao;
 	}
 
