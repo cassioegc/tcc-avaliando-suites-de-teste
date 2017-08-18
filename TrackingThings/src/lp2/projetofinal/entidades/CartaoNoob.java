@@ -15,5 +15,9 @@ public class CartaoNoob implements CartaoFidelidade{
 
 		return 7;
 	}
+	
+	public String getCartao(){
+		return "Noob";
+	}
 
 }

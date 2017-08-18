@@ -16,4 +16,7 @@ public class CartaoBomAmigo implements CartaoFidelidade{
 		return 14;
 	}
 
+	public String getCartao(){
+		return "BomAmigo";
+	}
 }

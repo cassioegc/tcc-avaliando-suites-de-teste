@@ -15,4 +15,8 @@ public class CartaoFreeRider implements CartaoFidelidade{
 
 		return 5;
 	}
+	
+	public String getNomeCartao(){
+		return "FreeRider";
+	}
 }

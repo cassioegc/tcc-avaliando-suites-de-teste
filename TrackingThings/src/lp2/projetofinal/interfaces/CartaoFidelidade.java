@@ -6,4 +6,6 @@ public interface CartaoFidelidade {
 	
 	public int prazoEmprestimo();
 	
+	public String getNomeCartao();
+	
 }

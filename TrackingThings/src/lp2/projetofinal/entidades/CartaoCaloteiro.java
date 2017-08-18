@@ -15,5 +15,9 @@ public class CartaoCaloteiro implements CartaoFidelidade{
 
 		return 0;
 	}
+	
+	public String getCartao(){
+		return "Caloteiro";
+	}
 
 }
