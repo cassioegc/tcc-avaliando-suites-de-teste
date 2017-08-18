@@ -16,7 +16,8 @@ public class CartaoNoob implements CartaoFidelidade{
 		return 7;
 	}
 	
-	public String getCartao(){
+	@Override
+	public String getNomeCartao(){
 		return "Noob";
 	}
 

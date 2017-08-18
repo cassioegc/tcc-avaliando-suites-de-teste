@@ -16,7 +16,8 @@ public class CartaoCaloteiro implements CartaoFidelidade{
 		return 0;
 	}
 	
-	public String getCartao(){
+	@Override
+	public String getNomeCartao(){
 		return "Caloteiro";
 	}
 

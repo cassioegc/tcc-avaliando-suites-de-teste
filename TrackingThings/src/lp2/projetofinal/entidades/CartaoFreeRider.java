@@ -16,6 +16,7 @@ public class CartaoFreeRider implements CartaoFidelidade{
 		return 5;
 	}
 	
+	@Override
 	public String getNomeCartao(){
 		return "FreeRider";
 	}
