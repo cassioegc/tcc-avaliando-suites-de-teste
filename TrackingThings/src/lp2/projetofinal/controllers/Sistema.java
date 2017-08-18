@@ -1,5 +1,7 @@
 package lp2.projetofinal.controllers;
 
+import lp2.projetofinal.entidades.Usuario;
+
 /**
  * Classe responsavel por ser o Controller Principal, delega responsabilidades para ControllerUsuario, ControllerItens e ControllerEmprestimos. Chama a classe Checks para validar os parametros passados em cada metodo.
  * 
@@ -162,6 +164,8 @@ public class Sistema {
 		controllerItens.adicionaItem(controllerUsuario.identificaUsuario(nome, telefone), nomeItem, preco, plataforma);
 
 		controllerUsuario.atualizaReputacao(nome, telefone, preco * 0.05, true);
+		
+		controllerUsuario.atualizaCartaoFidelidade(nome, telefone);
 	}
 
 	/**
@@ -612,7 +616,7 @@ public class Sistema {
 
 		return controllerItens.listarTop10Itens();
 	}
-
+	
 	public void finalizar() {
 
 	}

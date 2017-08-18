@@ -13,6 +13,8 @@ package lp2.projetofinal.controllers;
 import java.util.HashMap;
 import java.util.Map;
 
+import lp2.projetofinal.entidades.CartaoBomAmigo;
+import lp2.projetofinal.entidades.CartaoCaloteiro;
 import lp2.projetofinal.entidades.ChaveNomeTelefone;
 import lp2.projetofinal.entidades.Emprestimo;
 import lp2.projetofinal.entidades.Usuario;
@@ -223,6 +225,26 @@ public class ControllerUsuario {
 		Usuario usuario = identificaUsuario(nome, telefone);
 		
 		usuario.atualizaReputacao(valor,acresce);
+		
+	}
+
+	public void atualizaCartaoFidelidade(String nome,String telefone) {
+		Usuario usuario = identificaUsuario(nome, telefone);
+		
+		Double reputacao = usuario.getReputacao();
+		
+		if (reputacao < 0.0) {
+			
+			CartaoCaloteiro cartao = new CartaoCaloteiro();
+			
+			usuarios.get(usuario).setCartao(cartao);
+		} else if (reputacao > 100.0) {
+			CartaoBomAmigo cartao = new CartaoBomAmigo();
+			
+			usuarios.get(usuario).setCartao(cartao);
+		} else if (reputacao >= 0) {
+			if ()
+		}
 		
 	}
 
