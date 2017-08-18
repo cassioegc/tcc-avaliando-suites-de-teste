@@ -496,6 +496,11 @@ public class Sistema {
 		Checks.verificaNomeItemVazioNulo(nomeItem);
 		Checks.verificaDataEmprestimoVaziaNula(dataEmprestimo);
 		Checks.verificaPeriodoZeradoOuNegativo(periodo);
+		
+		Usuario usuarioRequerente = controllerUsuario.identificaUsuario(nomeRequerente, telefoneRequerente);
+		if(!usuarioRequerente.getCartao().permisaoPegarEmprestao())
+			throw new IllegalArgumentException("Usuario nao pode pegar nenhum item emprestado");
+
 
 		controllerEmprestimos.registrarEmprestimo(controllerUsuario.identificaUsuario(nomeDono, telefoneDono),
 				controllerUsuario.identificaUsuario(nomeRequerente, telefoneRequerente), controllerItens
