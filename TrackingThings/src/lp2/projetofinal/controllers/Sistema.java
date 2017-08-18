@@ -71,8 +71,8 @@ public class Sistema {
 	}
 
 	/**
-	 * Metodo responsavel por delegar ao controller de usuarios a remocao do usuario
-	 * escolhido. Validando antes os paramentros passados.
+	 * Metodo responsavel por delegar ao controller de usuarios a remocao do
+	 * usuario escolhido. Validando antes os paramentros passados.
 	 * 
 	 * @param nome
 	 *            Nome do usuario escolhido.
@@ -144,9 +144,9 @@ public class Sistema {
 	}
 
 	/**
-	 * Metodo responsavel por delegar ao controller de itens o cadastro de um novo
-	 * item atraves de uma chamada polimorfica de parametros. Validando antes os
-	 * paramentros passados.
+	 * Metodo responsavel por delegar ao controller de itens o cadastro de um
+	 * novo item atraves de uma chamada polimorfica de parametros. Validando
+	 * antes os paramentros passados.
 	 * 
 	 * @param nome
 	 *            Nome do novo item.
@@ -165,14 +165,14 @@ public class Sistema {
 		Checks.verificaPlataformaVaziaNula(plataforma);
 
 		controllerItens.adicionaItem(controllerUsuario.identificaUsuario(nome, telefone), nomeItem, preco, plataforma);
-		
-		controllerUsuario.atualizaReputacao(nome, telefone,  preco*0.05,true);
+
+		controllerUsuario.atualizaReputacao(nome, telefone, preco * 0.05, true);
 	}
 
 	/**
-	 * Metodo responsavel por delegar ao controller de itens o cadastro de um novo
-	 * item atraves de uma chamada polimorfica de parametros. Validando antes os
-	 * paramentros passados.
+	 * Metodo responsavel por delegar ao controller de itens o cadastro de um
+	 * novo item atraves de uma chamada polimorfica de parametros. Validando
+	 * antes os paramentros passados.
 	 * 
 	 * @param nome
 	 *            Nome do novo item.
@@ -188,14 +188,14 @@ public class Sistema {
 		verificacaoPadraoCadastroItem(nome, telefone, nomeItem, preco);
 
 		controllerItens.adicionaItem(controllerUsuario.identificaUsuario(nome, telefone), nomeItem, preco);
-		
-		controllerUsuario.atualizaReputacao(nome, telefone,  preco*0.05,true);
+
+		controllerUsuario.atualizaReputacao(nome, telefone, preco * 0.05, true);
 	}
 
 	/**
-	 * Metodo responsavel por delegar ao controller de itens o cadastro de um novo
-	 * item atraves de uma chamada polimorfica de parametros. Validando antes os
-	 * paramentros passados.
+	 * Metodo responsavel por delegar ao controller de itens o cadastro de um
+	 * novo item atraves de uma chamada polimorfica de parametros. Validando
+	 * antes os paramentros passados.
 	 * 
 	 * @param nome
 	 *            Nome do novo item.
@@ -225,14 +225,14 @@ public class Sistema {
 
 		controllerItens.adicionaItem(controllerUsuario.identificaUsuario(nome, telefone), nomeItem, preco, duracao,
 				genero, classificacao, anoLancamento);
-		
-		controllerUsuario.atualizaReputacao(nome, telefone,  preco*0.05,true);
+
+		controllerUsuario.atualizaReputacao(nome, telefone, preco * 0.05, true);
 	}
 
 	/**
-	 * Metodo responsavel por delegar ao controller de itens o cadastro de um novo
-	 * item atraves de uma chamada polimorfica de parametros. Validando antes os
-	 * paramentros passados.
+	 * Metodo responsavel por delegar ao controller de itens o cadastro de um
+	 * novo item atraves de uma chamada polimorfica de parametros. Validando
+	 * antes os paramentros passados.
 	 * 
 	 * @param nome
 	 *            Nome do novo item.
@@ -262,14 +262,14 @@ public class Sistema {
 
 		controllerItens.adicionaItem(controllerUsuario.identificaUsuario(nome, telefone), nomeItem, preco, duracao,
 				numeroFaixas, artista, classificacao);
-		
-		controllerUsuario.atualizaReputacao(nome, telefone,  preco*0.05,true);
+
+		controllerUsuario.atualizaReputacao(nome, telefone, preco * 0.05, true);
 	}
 
 	/**
-	 * Metodo responsavel por delegar ao controller de itens o cadastro de um novo
-	 * item atraves de uma chamada polimorfica de parametros. Validando antes os
-	 * paramentros passados.
+	 * Metodo responsavel por delegar ao controller de itens o cadastro de um
+	 * novo item atraves de uma chamada polimorfica de parametros. Validando
+	 * antes os paramentros passados.
 	 * 
 	 * @param nome
 	 *            Nome do novo item.
@@ -302,8 +302,8 @@ public class Sistema {
 
 		controllerItens.adicionaItem(controllerUsuario.identificaUsuario(nome, telefone), nomeItem, preco, descricao,
 				duracao, classificacao, genero, temporada);
-		
-		controllerUsuario.atualizaReputacao(nome, telefone,  preco*0.05,true);
+
+		controllerUsuario.atualizaReputacao(nome, telefone, preco * 0.05, true);
 	}
 
 	/**
@@ -327,12 +327,13 @@ public class Sistema {
 
 		controllerItens.adicionarBluRayEpisodio(controllerUsuario.identificaUsuario(nome, telefone), BlurayTemporada,
 				duracao);
-		
+
 	}
 
 	/**
-	 * Método responsável por delegar ao controller de itens a adicao de uma peca
-	 * perdida a um jogo de tabuleiro. Validando antes as informações passadas.
+	 * Método responsável por delegar ao controller de itens a adicao de uma
+	 * peca perdida a um jogo de tabuleiro. Validando antes as informações
+	 * passadas.
 	 * 
 	 * @param nome
 	 *            Nome do dono do item.
@@ -373,8 +374,8 @@ public class Sistema {
 	}
 
 	/**
-	 * Metodo responsavel delegar a atualização de um item ao controller de itens.
-	 * Verificando antes as informações passadas.
+	 * Metodo responsavel delegar a atualização de um item ao controller de
+	 * itens. Verificando antes as informações passadas.
 	 * 
 	 * @param nome
 	 *            Nome do dono do item.
@@ -465,11 +466,12 @@ public class Sistema {
 	}
 
 	/**
-	 * Metodo responsavel por delegar o registro de um emprestimo de um item entre
-	 * dois usuarios cadastros no sistema. Validando antes as informacoes passadas.
-	 * Para isso ele solicita a identificacao dos usuarios relacionados nesse
-	 * emprestimo, e identifca o item em questao. Todas essas informacoes sao
-	 * passadas para o controller de emprestimos que realiza o registro.
+	 * Metodo responsavel por delegar o registro de um emprestimo de um item
+	 * entre dois usuarios cadastros no sistema. Validando antes as informacoes
+	 * passadas. Para isso ele solicita a identificacao dos usuarios
+	 * relacionados nesse emprestimo, e identifca o item em questao. Todas essas
+	 * informacoes sao passadas para o controller de emprestimos que realiza o
+	 * registro.
 	 * 
 	 * @param nomeDono
 	 *            Nome do dono do item.
@@ -495,26 +497,25 @@ public class Sistema {
 		Checks.verificaNomeItemVazioNulo(nomeItem);
 		Checks.verificaDataEmprestimoVaziaNula(dataEmprestimo);
 		Checks.verificaPeriodoZeradoOuNegativo(periodo);
-		
-		Item item = controllerItens.identificaItemUsuario(controllerUsuario.identificaUsuario(nomeDono,telefoneDono), nomeItem);
+
+		Item item = controllerItens.identificaItemUsuario(controllerUsuario.identificaUsuario(nomeDono, telefoneDono),
+				nomeItem);
 
 		controllerEmprestimos.registrarEmprestimo(controllerUsuario.identificaUsuario(nomeDono, telefoneDono),
-				controllerUsuario.identificaUsuario(nomeRequerente, telefoneRequerente), item,
-				dataEmprestimo, periodo);
-	
-		
-		controllerUsuario.atualizaReputacao(nomeDono, telefoneDono, item.getPreco() * 0.1,true);
+				controllerUsuario.identificaUsuario(nomeRequerente, telefoneRequerente), item, dataEmprestimo, periodo);
+
+		controllerUsuario.atualizaReputacao(nomeDono, telefoneDono, item.getPreco() * 0.1, true);
 
 	}
 
 	/**
-	 * Metodo responsavel por delegar a devolucao de um item e o encerramento de um
-	 * emprestimo, validando antes as informacoes passadas. Para isso ele solicita a
-	 * identificacao dos usuarios relacionados nesse emprestimo, e identifca o item
-	 * em questao. Todas essas informacoes sao passadas para o controller de
-	 * emprestimos que realiza a devolucao do item. Por fim, o emprestimo realizado
-	 * eh encaminhando para o conjunto de emprestimo de cada usuario pelo controller
-	 * de usuarios.
+	 * Metodo responsavel por delegar a devolucao de um item e o encerramento de
+	 * um emprestimo, validando antes as informacoes passadas. Para isso ele
+	 * solicita a identificacao dos usuarios relacionados nesse emprestimo, e
+	 * identifca o item em questao. Todas essas informacoes sao passadas para o
+	 * controller de emprestimos que realiza a devolucao do item. Por fim, o
+	 * emprestimo realizado eh encaminhando para o conjunto de emprestimo de
+	 * cada usuario pelo controller de usuarios.
 	 * 
 	 * @param nomeDono
 	 *            Nome do dono do item.
@@ -530,7 +531,7 @@ public class Sistema {
 	 *            Data em que o emprestimo foi realizado.
 	 * @param dataDevolucao
 	 *            Data da devolucao do item.
-	 * @throws ParseException 
+	 * @throws ParseException
 	 */
 	public void devolverItem(String nomeDono, String telefoneDono, String nomeRequerente, String telefoneRequerente,
 			String nomeItem, String dataEmprestimo, String dataDevolucao) throws ParseException {
@@ -541,30 +542,35 @@ public class Sistema {
 		Checks.verificaNomeItemVazioNulo(nomeItem);
 		Checks.verificaDataEmprestimoVaziaNula(dataEmprestimo);
 		Checks.verificaDataDevolucaoVaziaNula(dataDevolucao);
-		
-		Item item = controllerItens.identificaItemUsuario(controllerUsuario.identificaUsuario(nomeDono,telefoneDono), nomeItem);
 
-		Emprestimo emprestimo = controllerEmprestimos.identificaEmprestimo(controllerUsuario.identificaUsuario(nomeDono, telefoneDono),
+		// Sistema não pode conhecer Item
+		Item item = controllerItens.identificaItemUsuario(controllerUsuario.identificaUsuario(nomeDono, telefoneDono),
+				nomeItem);
+
+		// Sistema não pode conhecer emprestimo
+		Emprestimo emprestimo = controllerEmprestimos.identificaEmprestimo(
+				controllerUsuario.identificaUsuario(nomeDono, telefoneDono),
 				controllerUsuario.identificaUsuario(nomeRequerente, telefoneRequerente), dataEmprestimo);
-		
+
 		controllerEmprestimos.devolverItem(controllerUsuario.identificaUsuario(nomeDono, telefoneDono),
-				controllerUsuario.identificaUsuario(nomeRequerente, telefoneRequerente), item,
-				dataEmprestimo, dataDevolucao);
+				controllerUsuario.identificaUsuario(nomeRequerente, telefoneRequerente), item, dataEmprestimo,
+				dataDevolucao);
 
-		controllerUsuario.adicionarEmprestimoRealizado(nomeDono, telefoneDono, nomeRequerente, telefoneRequerente,emprestimo);
-		
-		int diasAtraso = controllerEmprestimos.calcularDiferencaEntreDias(dataEmprestimo, dataDevolucao) - emprestimo.getNumeroDias();
-		
+		controllerUsuario.adicionarEmprestimoRealizado(nomeDono, telefoneDono, nomeRequerente, telefoneRequerente,
+				emprestimo);
+
+		int diasAtraso = controllerEmprestimos.calcularDiferencaEntreDias(dataEmprestimo, dataDevolucao)
+				- emprestimo.getNumeroDias();
+
 		if ((diasAtraso) <= 0) {
-			controllerUsuario.identificaUsuario(nomeRequerente, telefoneRequerente).atualizaReputacao(item.getPreco() * 0.05,true);
-		} else {                                                                                                  
-			controllerUsuario.identificaUsuario(nomeRequerente, telefoneRequerente).atualizaReputacao(item.getPreco() * diasAtraso * 0.01,false); 
+			controllerUsuario.identificaUsuario(nomeRequerente, telefoneRequerente)
+					.atualizaReputacao(item.getPreco() * 0.05, true);
+		} else {
+			controllerUsuario.identificaUsuario(nomeRequerente, telefoneRequerente)
+					.atualizaReputacao(item.getPreco() * diasAtraso * 0.01, false);
 		}
-	
-		
-	
-	}
 
+	}
 
 	public String listarEmprestimosUsuarioEmprestando(String nome, String telefone) {
 
@@ -600,15 +606,15 @@ public class Sistema {
 	}
 
 	public String listarItensEmprestados() {
-		
+
 		return controllerEmprestimos.listarItensEmprestados();
 	}
 
 	public String listarTop10Itens() {
-		
+
 		return controllerItens.listarTop10Itens();
 	}
-	
+
 	public void finalizar() {
 
 	}

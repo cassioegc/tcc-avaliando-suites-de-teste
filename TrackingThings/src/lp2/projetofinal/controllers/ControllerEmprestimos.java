@@ -210,14 +210,16 @@ public class ControllerEmprestimos {
 		return stringItens;
 	}
 	
+	//WHAT? 
 	public int calcularDiferencaEntreDias(String diaInicial, String diaFinal) throws ParseException {
-        DateFormat df = new SimpleDateFormat ("dd/MM/yyyy");
+		
+		DateFormat df = new SimpleDateFormat ("dd/MM/yyyy");
         df.setLenient(false);
         Date d1 = df.parse (diaInicial);
 
         Date d2 = df.parse (diaFinal);
 
-        long dt = (d2.getTime() - d1.getTime()) + 3600000; // 1 hora para compensar horário de verão
+        long dt = (d2.getTime() - d1.getTime()) + 3600000; // 1 hora para compensar horario de verao
  
 	
         return (int) (dt / 86400000L);

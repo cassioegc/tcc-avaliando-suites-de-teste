@@ -437,7 +437,7 @@ public class ControllerItens {
 				break;
 			}
 			if (item.getNumeroEmprestimos() != 0) {
-				top10ItensString += numeroItens+") "+item.getNumeroEmprestimos()+ " emprestimos - "+item.toString() + "|";
+				top10ItensString += numeroItens+") "+ item.getNumeroEmprestimos()+ " emprestimos - "+item.toString() + "|";
 				numeroItens++;
 			}
 		}
