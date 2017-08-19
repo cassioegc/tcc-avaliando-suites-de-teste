@@ -27,7 +27,7 @@ public class Main {
 		testes.add("acceptance_test" + File.separator + "us5_test.txt");
 		testes.add("acceptance_test" + File.separator + "us6_test.txt");
 		//testes.add("acceptance_test" + File.separator + "us7_test.txt");
-		//testes.add("acceptance_test" + File.separator + "us7_test.txt");
+		//testes.add("acceptance_test" + File.separator + "us8_test.txt");
 		EasyAccept.executeEasyAcceptTests("lp2.projetofinal.facade.Facade", testes);
 }
 	

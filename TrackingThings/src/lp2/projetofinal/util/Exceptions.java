@@ -59,7 +59,15 @@ public class Exceptions {
 
 	public static void nenhumItemEmprestado() {
 		throw new IllegalArgumentException("Nenhum item emprestado");
-		
+	}
+	
+	public static void usuarioNaoPodePegarItemException() {
+		throw new IllegalArgumentException("Usuario nao pode pegar nenhum item emprestado");
+	}
+	
+
+	public static void usuarioImpossibilitadoDePegarItemNessePeriodoException() {
+		throw new IllegalArgumentException("Usuario impossiblitado de pegar emprestado por esse periodo");
 	}
 
 }

@@ -12,9 +12,8 @@ package lp2.projetofinal.controllers;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
+import java.util.Set;
 
 import lp2.projetofinal.entidades.BluRayFilme;
 import lp2.projetofinal.entidades.BluRaySerie;
@@ -22,7 +21,6 @@ import lp2.projetofinal.entidades.BluRayShow;
 import lp2.projetofinal.entidades.Item;
 import lp2.projetofinal.entidades.JogoEletronico;
 import lp2.projetofinal.entidades.JogoTabuleiro;
-import lp2.projetofinal.entidades.Usuario;
 import lp2.projetofinal.enums.EstadoItem;
 import lp2.projetofinal.orders.OrdenaItemAlfabetico;
 import lp2.projetofinal.orders.OrdenaItemNumeroEmprestimos;
@@ -31,67 +29,16 @@ import lp2.projetofinal.util.Exceptions;
 
 public class ControllerItens {
 
-	/**
-	 * Mapa de itens do sistema. Cada chave nesse mapa corresponde a um usuario
-	 * cadastrado. O valor dessa chave é por sua vez outro mapa, onde nele, as
-	 * chaves são os nomes dos itens e os valores os proprios itens.
-	 */
-	private Map<Usuario, Map<String, Item>> itens;
-
 	public ControllerItens() {
-		this.itens = new HashMap<>();
+		
 	}
 
-	/**
-	 * Metodo responsavel por alocar um item ao mapa de itens de um usuario, para
-	 * isso ele cria esse novo hashmap caso o usuario ainda nao tenha itens ou
-	 * adiciona um novo item caso o mapa ja exista.
-	 * 
-	 * @param donoItem
-	 *            Objeto usuario dono do item.
-	 * @param item
-	 *            Objeto item que será cadastrado.
-	 * @param nomeItem
-	 *            Nome do item, e também chave do mapa de itens de um usuario.
-	 * 
-	 * @return Retorna um mapa atualizado, que será alocada para o dono dele.
-	 */
-	private Map<String, Item> alocaItem(Usuario donoItem, Item item, String nomeItem) {
-
-		Map<String, Item> subItens;
-		if (!itens.containsKey(donoItem))
-			subItens = new HashMap<>();
-		else
-			subItens = itens.get(donoItem);
-
-		subItens.put(nomeItem, item);
-		return subItens;
-	}
-
-	/**
-	 * Metodo responsavel por verificar a existencia de um item no sistema.
-	 * Verificando primeiro a existencia do proprio usuario dono do item e depois o
-	 * item;
-	 * 
-	 * @param item
-	 *            Nome do item que sera verificado.
-	 * @param usuario
-	 *            Objeto usuario que sera verificado.
-	 */
-	private void verificaExistenciaItem(String item, Usuario usuario) {
-
-		if (!this.itens.containsKey(usuario))
-			Exceptions.itemNaoEncontradoException();
-
-		if (!this.itens.get(usuario).containsKey(item))
-			Exceptions.itemNaoEncontradoException();
-	}
 
 	/**
 	 * Metodo com polimorfismo parametrico. Ele tem responsabilidade de cadastrar um
 	 * novo item no sistema. Mas especificamente um subtipo Jogo Eletronico.
 	 * 
-	 * @param donoItem
+	 * @param set
 	 *            Usuario dono do item e chave no hashmap de itens.
 	 * @param nomeItem
 	 *            Nome do item que sera cadastrado.
@@ -100,29 +47,29 @@ public class ControllerItens {
 	 * @param plataforma
 	 *            Plataforma do jogo que sera cadastrado.
 	 */
-	public void adicionaItem(Usuario donoItem, String nomeItem, double preco, String plataforma) {
+	public void adicionaItem(Set<Item> listaItens, String nomeItem, double preco, String plataforma) {
 
 		JogoEletronico jogoEletronico = new JogoEletronico(nomeItem, preco, plataforma);
-		Map<String, Item> subItens = alocaItem(donoItem, jogoEletronico, nomeItem);
-		itens.put(donoItem, subItens);
+		
+		listaItens.add(jogoEletronico);
 	}
 
 	/**
 	 * Metodo com polimorfismo parametrico. Ele tem responsabilidade de cadastrar um
 	 * novo item no sistema. Mas especificamente um subtipo Jogo Tabuleiro.
 	 * 
-	 * @param donoItem
+	 * @param listaItens
 	 *            Usuario dono do item e chave no hashmap de itens.
 	 * @param nomeItem
 	 *            Nome do item que sera cadastrado.
 	 * @param preco
 	 *            Preco do item que sera cadastrado.
 	 */
-	public void adicionaItem(Usuario donoItem, String nomeItem, double preco) {
+	public void adicionaItem(Set<Item> listaItens, String nomeItem, double preco) {
 
 		JogoTabuleiro jogoTabuleiro = new JogoTabuleiro(nomeItem, preco);
-		Map<String, Item> subItens = alocaItem(donoItem, jogoTabuleiro, nomeItem);
-		itens.put(donoItem, subItens);
+		
+		listaItens.add(jogoTabuleiro);
 
 	}
 
@@ -130,7 +77,7 @@ public class ControllerItens {
 	 * Metodo com polimorfismo parametrico. Ele tem responsabilidade de cadastrar um
 	 * novo item no sistema. Mas especificamente um subtipo BlurayFilme.
 	 * 
-	 * @param donoItem
+	 * @param listaItens
 	 *            Usuario dono do item e chave no hashmap de itens.
 	 * @param nomeItem
 	 *            Nome do item que sera cadastrado.
@@ -145,12 +92,12 @@ public class ControllerItens {
 	 * @param anoLancamento
 	 *            Ano do lancamento do bluray que sera cadastrado.
 	 */
-	public void adicionaItem(Usuario donoItem, String nomeItem, double preco, int duracao, String genero,
+	public void adicionaItem(Set<Item> listaItens, String nomeItem, double preco, int duracao, String genero,
 			String classificacao, int anoLancamento) {
 
 		BluRayFilme bluRayFilme = new BluRayFilme(nomeItem, preco, duracao, genero, classificacao, anoLancamento);
-		Map<String, Item> subItens = alocaItem(donoItem, bluRayFilme, nomeItem);
-		itens.put(donoItem, subItens);
+		
+		listaItens.add(bluRayFilme);
 	}
 
 	/**
@@ -172,12 +119,12 @@ public class ControllerItens {
 	 * @param classificacao
 	 *            Classificacao do bluray que sera cadastrado.
 	 */
-	public void adicionaItem(Usuario donoItem, String nomeItem, double preco, int duracao, int numeroFaixas,
+	public void adicionaItem(Set<Item> listaItens, String nomeItem, double preco, int duracao, int numeroFaixas,
 			String artista, String classificacao) {
 
 		BluRayShow bluRayShow = new BluRayShow(nomeItem, preco, duracao, classificacao, artista, numeroFaixas);
-		Map<String, Item> subItens = alocaItem(donoItem, bluRayShow, nomeItem);
-		itens.put(donoItem, subItens);
+
+		listaItens.add(bluRayShow);
 
 	}
 
@@ -185,7 +132,7 @@ public class ControllerItens {
 	 * Metodo com polimorfismo parametrico. Ele tem responsabilidade de cadastrar um
 	 * novo item no sistema. Mas especificamente um subtipo BluraySerie.
 	 * 
-	 * @param donoItem
+	 * @param listaItens
 	 *            Usuario dono do item e chave no hashmap de itens.
 	 * @param nomeItem
 	 *            Nome do item que sera cadastrado.
@@ -203,13 +150,13 @@ public class ControllerItens {
 	 * @param descricao
 	 *            Descricao do bluray serie.
 	 */
-	public void adicionaItem(Usuario donoItem, String nomeItem, double preco, String descricao, int duracao,
+	public void adicionaItem(Set<Item> listaItens, String nomeItem, double preco, String descricao, int duracao,
 			String classificacao, String genero, int temporada) {
 
 		BluRaySerie bluRaySerie = new BluRaySerie(nomeItem, preco, descricao, duracao, classificacao, genero,
 				temporada);
-		Map<String, Item> subItens = alocaItem(donoItem, bluRaySerie, nomeItem);
-		itens.put(donoItem, subItens);
+		
+		listaItens.add(bluRaySerie);
 	}
 
 	/**
@@ -224,13 +171,9 @@ public class ControllerItens {
 	 * @param duracao
 	 *            Duracao do episodio.
 	 */
-	public void adicionarBluRayEpisodio(Usuario donoItem, String nomeItem, int duracao) {
-
-		verificaExistenciaItem(nomeItem, donoItem);
-
-		Map<String, Item> subItens = itens.get(donoItem);
-		BluRaySerie bluraySerie = (BluRaySerie) subItens.get(nomeItem);
-
+	public void adicionarBluRayEpisodio(Set<Item> listaItens, String nomeItem, int duracao) {
+	
+		BluRaySerie bluraySerie = (BluRaySerie) identificaItem(listaItens, nomeItem);
 		bluraySerie.adicionarBluRay(duracao);
 	}
 
@@ -245,13 +188,9 @@ public class ControllerItens {
 	 * @param nomePeca
 	 *            Nome da peca perdida.
 	 */
-	public void cadastrarPecaPerdidaNoTabuleiro(Usuario donoItem, String nomeItem, String nomePeca) {
+	public void cadastrarPecaPerdidaNoTabuleiro(Set<Item> listaItens, String nomeItem, String nomePeca) {
 
-		verificaExistenciaItem(nomeItem, donoItem);
-
-		Map<String, Item> subItens = itens.get(donoItem);
-		JogoTabuleiro jogoTabuleiro = (JogoTabuleiro) subItens.get(nomeItem);
-
+		JogoTabuleiro jogoTabuleiro = (JogoTabuleiro) identificaItem(listaItens, nomeItem);
 		jogoTabuleiro.adicionarPecaPerdida(nomePeca);
 
 	}
@@ -269,19 +208,11 @@ public class ControllerItens {
 	 * @param valor
 	 *            Novo valor desse atributo.
 	 */
-	public void atualizarItem(Usuario donoItem, String nomeItem, String atributo, String valor) {
+	public void atualizarItem(Set<Item> listaItens, String nomeItem, String atributo, String valor) {
 
-		verificaExistenciaItem(nomeItem, donoItem);
-
-		Map<String, Item> subItens = itens.get(donoItem);
-		Item item = subItens.get(nomeItem);
+		Item item = identificaItem(listaItens, nomeItem);
 		item.atualizar(atributo, valor);
-
-		if (atributo.equals("Nome")) {
-			subItens.put(valor, item);
-			subItens.remove(nomeItem);
-		}
-
+		
 	}
 
 	/**
@@ -293,13 +224,10 @@ public class ControllerItens {
 	 * @param nomeItem
 	 *            Nome do item.
 	 */
-	public void removerItem(Usuario donoItem, String nomeItem) {
+	public void removerItem(Set<Item> listaItens, String nomeItem) {
 
-		verificaExistenciaItem(nomeItem, donoItem);
-
-		Map<String, Item> subItens = itens.get(donoItem);
-
-		subItens.remove(nomeItem);
+		Item item = identificaItem(listaItens, nomeItem);
+		listaItens.remove(item);
 	}
 
 	/**
@@ -315,12 +243,9 @@ public class ControllerItens {
 	 * 
 	 * @return Retorna uma string com o valor desse atributo.
 	 */
-	public String getInfoItem(Usuario donoItem, String nomeItem, String atributo) {
-
-		verificaExistenciaItem(nomeItem, donoItem);
-
-		Map<String, Item> subItens = itens.get(donoItem);
-		Item item = subItens.get(nomeItem);
+	public String getInfoItem(Set<Item> listaItens, String nomeItem, String atributo) {
+		
+		Item item = identificaItem(listaItens, nomeItem);
 		return item.getInfo(atributo);
 	}
 
@@ -334,29 +259,10 @@ public class ControllerItens {
 	 * 
 	 * @return Retorna uma string do item.
 	 */
-	public String getDetalhesItem(Usuario donoItem, String nomeItem) {
+	public String getDetalhesItem(Set<Item> listaItens, String nomeItem) {
 
-		verificaExistenciaItem(nomeItem, donoItem);
-
-		Map<String, Item> subItens = itens.get(donoItem);
-
-		return subItens.get(nomeItem).toString();
-
-	}
-
-	/**
-	 * Metodo responsavel por retornar a lista dos itens cadastrados no sistema.
-	 * 
-	 * @return Retorna um List com esses itens.
-	 */
-	private List<Item> retornaUsuariosItens() {
-		List<Item> listaItens = new ArrayList<Item>();
-
-		for (Usuario chave : this.itens.keySet()) {
-			listaItens.addAll(this.itens.get(chave).values());
-		}
-
-		return listaItens;
+		Item item = identificaItem(listaItens, nomeItem);
+		return item.toString();
 	}
 
 	/**
@@ -364,13 +270,13 @@ public class ControllerItens {
 	 * 
 	 * @return Retorna uma string com essa listagem.
 	 */
-	public String listarItensOrdenadosPorNome() {
+	public String listarItensOrdenadosPorNome(Set<Item> listaTodosItens) {
 
-		List<Item> listaItens = retornaUsuariosItens();
-		Collections.sort(listaItens, new OrdenaItemAlfabetico());
+		List<Item> listaItensOrdenada = new ArrayList<Item>(listaTodosItens);
+		Collections.sort(listaItensOrdenada, new OrdenaItemAlfabetico());
 
 		String itensString = "";
-		for (Item item : listaItens) {
+		for (Item item : listaItensOrdenada) {
 			itensString += item.toString() + "|";
 		}
 		return itensString;
@@ -382,13 +288,13 @@ public class ControllerItens {
 	 * 
 	 * @return Retorna uma string com essa listagem.
 	 */
-	public String listarItensOrdenadosPorValor() {
+	public String listarItensOrdenadosPorValor(Set<Item> listaTodosItens) {
 
-		List<Item> listaItens = retornaUsuariosItens();
-		Collections.sort(listaItens, new OrdenaItemPreco());
+		List<Item> listaItensOrdenada = new ArrayList<Item>(listaTodosItens);
+		Collections.sort(listaItensOrdenada, new OrdenaItemPreco());
 
 		String itensString = "";
-		for (Item item : listaItens) {
+		for (Item item : listaItensOrdenada) {
 			itensString += item.toString() + "|";
 		}
 		return itensString;
@@ -404,35 +310,37 @@ public class ControllerItens {
 	 * 
 	 * @return Retorna um objeto do tipo item.
 	 */
-	public Item identificaItemUsuario(Usuario donoItem, String nomeItem) {
+	public Item identificaItem(Set<Item> listaItens, String nomeItem) {
 
-		verificaExistenciaItem(nomeItem, donoItem);
-
-		return itens.get(donoItem).get(nomeItem);
-
+		for(Item item: listaItens){
+			if(item.getNome().equals(nomeItem))
+				return item;
+		}	
+		Exceptions.itemNaoEncontradoException();
+		return null;
 	}
 
-	public String listarItensNaoEmprestados() {
+	public String listarItensNaoEmprestados(Set<Item> listaTodosItens) {
 
 		String stringItens = "";
-		List<Item> listaItens = retornaUsuariosItens();
-		Collections.sort(listaItens, new OrdenaItemAlfabetico());
-		for (Item item : listaItens) {
+		List<Item> listaItensOrdenada = new ArrayList<Item>(listaTodosItens);
+		Collections.sort(listaItensOrdenada, new OrdenaItemAlfabetico());
+		
+		for (Item item : listaItensOrdenada) {
 			if (item.getEstado().equals(EstadoItem.NAO_EMPRESTADO.getEstado()))
 				stringItens += item.toString() + "|";
 		}
-
 		return stringItens;
 	}
 	
 	
-	public String listarTop10Itens() {
-		List<Item> listaItens = retornaUsuariosItens();
-		Collections.sort(listaItens, new OrdenaItemNumeroEmprestimos());
+	public String listarTop10Itens(Set<Item> listaTodosItens) {
+		List<Item> listaItensOrdenada = new ArrayList<Item>(listaTodosItens);
+		Collections.sort(listaItensOrdenada, new OrdenaItemNumeroEmprestimos());
 
 		String top10ItensString = "";
 		int numeroItens = 1;
-		for (Item item : listaItens) {
+		for (Item item : listaItensOrdenada) {
 			if (numeroItens == 11) {
 				break;
 			}
@@ -443,11 +351,5 @@ public class ControllerItens {
 		}
 		
 		return top10ItensString;
-
-
-		
 	}
-	
-
-
 }

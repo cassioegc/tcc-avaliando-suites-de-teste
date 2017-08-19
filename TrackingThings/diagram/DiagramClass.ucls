@@ -1,32 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <class-diagram version="1.2.0" icons="true" automaticImage="PNG" always-add-relationships="false" generalizations="true" 
   realizations="true" associations="true" dependencies="false" nesting-relationships="true" router="FAN">  
-  <enumeration id="1" language="java" name="lp2.projetofinal.enums.GeneroBluRay" 
+  <enumeration id="1" language="java" name="lp2.projetofinal.enums.EstadoItem" 
     project="116210967_Thiago_Gabriel_Marcelo" 
-    file="/116210967_Thiago_Gabriel_Marcelo/src/lp2/projetofinal/enums/GeneroBluRay.java" binary="false" 
+    file="/116210967_Thiago_Gabriel_Marcelo/src/lp2/projetofinal/enums/EstadoItem.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="644" y="2764"/>    
+    <position height="153" width="181" x="1023" y="2680"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </enumeration>  
-  <class id="2" language="java" name="lp2.projetofinal.entidades.BluRaySerie" project="116210967_Thiago_Gabriel_Marcelo" 
-    file="/116210967_Thiago_Gabriel_Marcelo/src/lp2/projetofinal/entidades/BluRaySerie.java" binary="false" 
+  <class id="2" language="java" name="lp2.projetofinal.orders.OrdenaItemAlfabetico" 
+    project="116210967_Thiago_Gabriel_Marcelo" 
+    file="/116210967_Thiago_Gabriel_Marcelo/src/lp2/projetofinal/orders/OrdenaItemAlfabetico.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="966" y="2497"/>    
+    <position height="99" width="148" x="165" y="-170"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="3" language="java" name="lp2.projetofinal.orders.OrdenaItemPreco" 
-    project="116210967_Thiago_Gabriel_Marcelo" 
-    file="/116210967_Thiago_Gabriel_Marcelo/src/lp2/projetofinal/orders/OrdenaItemPreco.java" binary="false" 
+  <class id="3" language="java" name="lp2.projetofinal.entidades.BluRayShow" project="116210967_Thiago_Gabriel_Marcelo" 
+    file="/116210967_Thiago_Gabriel_Marcelo/src/lp2/projetofinal/entidades/BluRayShow.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1271" y="1112"/>    
+    <position height="171" width="250" x="637" y="2909"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -36,136 +36,135 @@
   <class id="4" language="java" name="lp2.projetofinal.entidades.Emprestimo" project="116210967_Thiago_Gabriel_Marcelo" 
     file="/116210967_Thiago_Gabriel_Marcelo/src/lp2/projetofinal/entidades/Emprestimo.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="717" y="1538"/>    
+    <position height="297" width="233" x="1357" y="1471"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="5" language="java" name="lp2.projetofinal.controllers.ControllerItens" 
+  <class id="5" language="java" name="lp2.projetofinal.entidades.BluRaySerie" project="116210967_Thiago_Gabriel_Marcelo" 
+    file="/116210967_Thiago_Gabriel_Marcelo/src/lp2/projetofinal/entidades/BluRaySerie.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="261" width="277" x="927" y="2909"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="6" language="java" name="lp2.projetofinal.entidades.BluRay" project="116210967_Thiago_Gabriel_Marcelo" 
+    file="/116210967_Thiago_Gabriel_Marcelo/src/lp2/projetofinal/entidades/BluRay.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="189" width="176" x="1244" y="2680"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="7" language="java" name="lp2.projetofinal.entidades.Usuario" project="116210967_Thiago_Gabriel_Marcelo" 
+    file="/116210967_Thiago_Gabriel_Marcelo/src/lp2/projetofinal/entidades/Usuario.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="405" width="219" x="1117" y="1808"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="8" language="java" name="lp2.projetofinal.interfaces.CartaoFidelidade" 
     project="116210967_Thiago_Gabriel_Marcelo" 
-    file="/116210967_Thiago_Gabriel_Marcelo/src/lp2/projetofinal/controllers/ControllerItens.java" binary="false" 
+    file="/116210967_Thiago_Gabriel_Marcelo/src/lp2/projetofinal/interfaces/CartaoFidelidade.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1137" y="1368"/>    
+    <position height="117" width="198" x="641" y="2253"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
-  </class>  
-  <class id="6" language="java" name="lp2.projetofinal.entidades.BluRayShow" project="116210967_Thiago_Gabriel_Marcelo" 
-    file="/116210967_Thiago_Gabriel_Marcelo/src/lp2/projetofinal/entidades/BluRayShow.java" binary="false" 
-    corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1270" y="2488"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="7" language="java" name="lp2.projetofinal.controllers.ControllerEmprestimos" 
-    project="116210967_Thiago_Gabriel_Marcelo" 
-    file="/116210967_Thiago_Gabriel_Marcelo/src/lp2/projetofinal/controllers/ControllerEmprestimos.java" binary="false" 
-    corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="679" y="1136"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="8" language="java" name="lp2.projetofinal.entidades.JogoEletronico" 
-    project="116210967_Thiago_Gabriel_Marcelo" 
-    file="/116210967_Thiago_Gabriel_Marcelo/src/lp2/projetofinal/entidades/JogoEletronico.java" binary="false" 
-    corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="470" y="2120"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="9" language="java" name="lp2.projetofinal.controllers.Sistema" project="116210967_Thiago_Gabriel_Marcelo" 
-    file="/116210967_Thiago_Gabriel_Marcelo/src/lp2/projetofinal/controllers/Sistema.java" binary="false" 
-    corner="BOTTOM_RIGHT">    
-    <position height="473" width="410" x="482" y="532"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="10" language="java" name="lp2.projetofinal.controllers.ControllerUsuario" 
-    project="116210967_Thiago_Gabriel_Marcelo" 
-    file="/116210967_Thiago_Gabriel_Marcelo/src/lp2/projetofinal/controllers/ControllerUsuario.java" binary="false" 
-    corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="208" y="1145"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="11" language="java" name="lp2.projetofinal.util.Exceptions" project="116210967_Thiago_Gabriel_Marcelo" 
-    file="/116210967_Thiago_Gabriel_Marcelo/src/lp2/projetofinal/util/Exceptions.java" binary="false" 
-    corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1472" y="1410"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <enumeration id="12" language="java" name="lp2.projetofinal.enums.ClassificacaoBluRay" 
+  </interface>  
+  <enumeration id="9" language="java" name="lp2.projetofinal.enums.ClassificacaoBluRay" 
     project="116210967_Thiago_Gabriel_Marcelo" 
     file="/116210967_Thiago_Gabriel_Marcelo/src/lp2/projetofinal/enums/ClassificacaoBluRay.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1303" y="2228"/>    
+    <position height="243" width="278" x="1529" y="2909"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </enumeration>  
-  <class id="13" language="java" name="lp2.projetofinal.entidades.BluRayFilme" 
+  <class id="10" language="java" name="lp2.projetofinal.orders.OrdenaItemNumeroEmprestimos" 
+    project="116210967_Thiago_Gabriel_Marcelo" 
+    file="/116210967_Thiago_Gabriel_Marcelo/src/lp2/projetofinal/orders/OrdenaItemNumeroEmprestimos.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="99" width="212" x="353" y="-170"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="11" language="java" name="lp2.projetofinal.entidades.CartaoCaloteiro" 
+    project="116210967_Thiago_Gabriel_Marcelo" 
+    file="/116210967_Thiago_Gabriel_Marcelo/src/lp2/projetofinal/entidades/CartaoCaloteiro.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="135" width="198" x="165" y="1808"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="12" language="java" name="lp2.projetofinal.controllers.ControllerItens" 
+    project="116210967_Thiago_Gabriel_Marcelo" 
+    file="/116210967_Thiago_Gabriel_Marcelo/src/lp2/projetofinal/controllers/ControllerItens.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="369" width="350" x="629" y="1062"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="13" language="java" name="lp2.projetofinal.entidades.JogoEletronico" 
+    project="116210967_Thiago_Gabriel_Marcelo" 
+    file="/116210967_Thiago_Gabriel_Marcelo/src/lp2/projetofinal/entidades/JogoEletronico.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="153" width="198" x="1460" y="2680"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="14" language="java" name="lp2.projetofinal.entidades.BluRayFilme" 
     project="116210967_Thiago_Gabriel_Marcelo" 
     file="/116210967_Thiago_Gabriel_Marcelo/src/lp2/projetofinal/entidades/BluRayFilme.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="666" y="2438"/>    
+    <position height="153" width="245" x="1244" y="2909"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <enumeration id="14" language="java" name="lp2.projetofinal.enums.EstadoItem" 
-    project="116210967_Thiago_Gabriel_Marcelo" 
-    file="/116210967_Thiago_Gabriel_Marcelo/src/lp2/projetofinal/enums/EstadoItem.java" binary="false" 
+  <class id="15" language="java" name="lp2.projetofinal.facade.Facade" project="116210967_Thiago_Gabriel_Marcelo" 
+    file="/116210967_Thiago_Gabriel_Marcelo/src/lp2/projetofinal/facade/Facade.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1261" y="1995"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </enumeration>  
-  <class id="15" language="java" name="lp2.projetofinal.orders.OrdenaItemAlfabetico" 
-    project="116210967_Thiago_Gabriel_Marcelo" 
-    file="/116210967_Thiago_Gabriel_Marcelo/src/lp2/projetofinal/orders/OrdenaItemAlfabetico.java" binary="false" 
-    corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1127" y="1111"/>    
+    <position height="567" width="409" x="605" y="-170"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="16" language="java" name="lp2.projetofinal.entidades.ChaveNomeTelefone" 
+  <class id="16" language="java" name="lp2.projetofinal.controllers.ControllerUsuario" 
     project="116210967_Thiago_Gabriel_Marcelo" 
-    file="/116210967_Thiago_Gabriel_Marcelo/src/lp2/projetofinal/entidades/ChaveNomeTelefone.java" binary="false" 
+    file="/116210967_Thiago_Gabriel_Marcelo/src/lp2/projetofinal/controllers/ControllerUsuario.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="-207" y="1133"/>    
+    <position height="297" width="298" x="1019" y="1062"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -176,298 +175,337 @@
     project="116210967_Thiago_Gabriel_Marcelo" 
     file="/116210967_Thiago_Gabriel_Marcelo/src/lp2/projetofinal/entidades/EpisodioSerie.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="964" y="2721"/>    
+    <position height="117" width="114" x="927" y="3228"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <enumeration id="18" language="java" name="lp2.projetofinal.enums.PlataformaJogoEletronico" 
+  <class id="18" language="java" name="lp2.projetofinal.entidades.CartaoBomAmigo" 
+    project="116210967_Thiago_Gabriel_Marcelo" 
+    file="/116210967_Thiago_Gabriel_Marcelo/src/lp2/projetofinal/entidades/CartaoBomAmigo.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="135" width="198" x="403" y="1808"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <enumeration id="19" language="java" name="lp2.projetofinal.enums.PlataformaJogoEletronico" 
     project="116210967_Thiago_Gabriel_Marcelo" 
     file="/116210967_Thiago_Gabriel_Marcelo/src/lp2/projetofinal/enums/PlataformaJogoEletronico.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="151" y="2121"/>    
+    <position height="279" width="286" x="1847" y="2909"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </enumeration>  
-  <class id="19" language="java" name="lp2.projetofinal.entidades.Item" project="116210967_Thiago_Gabriel_Marcelo" 
+  <enumeration id="20" language="java" name="lp2.projetofinal.enums.GeneroBluRay" 
+    project="116210967_Thiago_Gabriel_Marcelo" 
+    file="/116210967_Thiago_Gabriel_Marcelo/src/lp2/projetofinal/enums/GeneroBluRay.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="405" width="220" x="1085" y="3228"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </enumeration>  
+  <class id="21" language="java" name="lp2.projetofinal.util.Exceptions" project="116210967_Thiago_Gabriel_Marcelo" 
+    file="/116210967_Thiago_Gabriel_Marcelo/src/lp2/projetofinal/util/Exceptions.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="243" width="336" x="1054" y="-170"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="22" language="java" name="lp2.projetofinal.entidades.Item" project="116210967_Thiago_Gabriel_Marcelo" 
     file="/116210967_Thiago_Gabriel_Marcelo/src/lp2/projetofinal/entidades/Item.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1019" y="1894"/>    
+    <position height="387" width="192" x="1357" y="2253"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="20" language="java" name="lp2.projetofinal.facade.Facade" project="116210967_Thiago_Gabriel_Marcelo" 
-    file="/116210967_Thiago_Gabriel_Marcelo/src/lp2/projetofinal/facade/Facade.java" binary="false" 
-    corner="BOTTOM_RIGHT">    
-    <position height="455" width="410" x="482" y="37"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="21" language="java" name="lp2.projetofinal.util.Checks" project="116210967_Thiago_Gabriel_Marcelo" 
-    file="/116210967_Thiago_Gabriel_Marcelo/src/lp2/projetofinal/util/Checks.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1100" y="752"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="22" language="java" name="lp2.projetofinal.entidades.JogoTabuleiro" 
+  <class id="23" language="java" name="lp2.projetofinal.entidades.JogoTabuleiro" 
     project="116210967_Thiago_Gabriel_Marcelo" 
     file="/116210967_Thiago_Gabriel_Marcelo/src/lp2/projetofinal/entidades/JogoTabuleiro.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="724" y="2193"/>    
+    <position height="189" width="189" x="1698" y="2680"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="23" language="java" name="lp2.projetofinal.entidades.BluRay" project="116210967_Thiago_Gabriel_Marcelo" 
-    file="/116210967_Thiago_Gabriel_Marcelo/src/lp2/projetofinal/entidades/BluRay.java" binary="false" 
+  <class id="24" language="java" name="lp2.projetofinal.util.Checks" project="116210967_Thiago_Gabriel_Marcelo" 
+    file="/116210967_Thiago_Gabriel_Marcelo/src/lp2/projetofinal/util/Checks.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="441" width="248" x="1430" y="-170"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="25" language="java" name="lp2.projetofinal.controllers.ControllerEmprestimos" 
+    project="116210967_Thiago_Gabriel_Marcelo" 
+    file="/116210967_Thiago_Gabriel_Marcelo/src/lp2/projetofinal/controllers/ControllerEmprestimos.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="994" y="2233"/>    
+    <position height="243" width="365" x="1357" y="1062"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="24" language="java" name="lp2.projetofinal.entidades.Usuario" project="116210967_Thiago_Gabriel_Marcelo" 
-    file="/116210967_Thiago_Gabriel_Marcelo/src/lp2/projetofinal/entidades/Usuario.java" binary="false" 
+  <class id="26" language="java" name="lp2.projetofinal.orders.OrdenaItemEmprestadoAlfabetico" 
+    project="116210967_Thiago_Gabriel_Marcelo" 
+    file="/116210967_Thiago_Gabriel_Marcelo/src/lp2/projetofinal/orders/OrdenaItemEmprestadoAlfabetico.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="99" width="217" x="1718" y="-170"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="27" language="java" name="lp2.projetofinal.orders.OrdenaItemPreco" 
+    project="116210967_Thiago_Gabriel_Marcelo" 
+    file="/116210967_Thiago_Gabriel_Marcelo/src/lp2/projetofinal/orders/OrdenaItemPreco.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="324" y="1561"/>    
+    <position height="99" width="131" x="1975" y="-170"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <generalization id="25">    
-    <end type="SOURCE" refId="2"/>    
-    <end type="TARGET" refId="23"/>  
-  </generalization>  
-  <association id="26">    
-    <end type="SOURCE" refId="20" navigable="false">      
-      <attribute id="27" name="sistema">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </attribute>      
-      <multiplicity id="28" minimum="0" maximum="1">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="9" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="29">    
-    <end type="SOURCE" refId="24" navigable="false">      
-      <attribute id="30" name="emprestimosRealizados">        
-        <position height="0" width="0" x="-279" y="-81"/>      
-      </attribute>      
-      <multiplicity id="31" minimum="0" maximum="2147483647">        
-        <position height="0" width="0" x="-279" y="-81"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="4" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
+  <class id="28" language="java" name="lp2.projetofinal.entidades.ChaveNomeTelefone" 
+    project="116210967_Thiago_Gabriel_Marcelo" 
+    file="/116210967_Thiago_Gabriel_Marcelo/src/lp2/projetofinal/entidades/ChaveNomeTelefone.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="189" width="192" x="2146" y="-170"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="29" language="java" name="lp2.projetofinal.entidades.CartaoFreeRyder" 
+    project="116210967_Thiago_Gabriel_Marcelo" 
+    file="/116210967_Thiago_Gabriel_Marcelo/src/lp2/projetofinal/entidades/CartaoFreeRyder.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="135" width="198" x="641" y="1808"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="30" language="java" name="lp2.projetofinal.controllers.Sistema" project="116210967_Thiago_Gabriel_Marcelo" 
+    file="/116210967_Thiago_Gabriel_Marcelo/src/lp2/projetofinal/controllers/Sistema.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="585" width="409" x="903" y="437"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="31" language="java" name="lp2.projetofinal.entidades.CartaoNoob" project="116210967_Thiago_Gabriel_Marcelo" 
+    file="/116210967_Thiago_Gabriel_Marcelo/src/lp2/projetofinal/entidades/CartaoNoob.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="135" width="198" x="879" y="1808"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
   <association id="32">    
     <end type="SOURCE" refId="4" navigable="false">      
-      <attribute id="33" name="donoDoItem">        
-        <position height="0" width="0" x="-2" y="-83"/>      
-      </attribute>      
-      <multiplicity id="34" minimum="0" maximum="1">        
-        <position height="0" width="0" x="-2" y="-83"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="24" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="35">    
-    <end type="SOURCE" refId="9" navigable="false">      
-      <attribute id="36" name="controllerEmprestimos">        
-        <position height="0" width="0" x="-366" y="25"/>      
-      </attribute>      
-      <multiplicity id="37" minimum="0" maximum="1">        
-        <position height="0" width="0" x="-366" y="25"/>      
-      </multiplicity>    
+      <attribute id="33" name="donoDoItem"/>      
+      <multiplicity id="34" minimum="0" maximum="1"/>    
     </end>    
     <end type="TARGET" refId="7" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="38">    
-    <end type="SOURCE" refId="19" navigable="false">      
-      <attribute id="39" name="estado">        
-        <position height="0" width="0" x="47" y="55"/>      
-      </attribute>      
-      <multiplicity id="40" minimum="0" maximum="1">        
-        <position height="0" width="0" x="47" y="55"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="14" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="41">    
-    <end type="SOURCE" refId="7" navigable="false">      
-      <attribute id="42" name="emprestimos">        
-        <position height="0" width="0" x="-279" y="-81"/>      
-      </attribute>      
-      <multiplicity id="43" minimum="0" maximum="2147483647">        
-        <position height="0" width="0" x="-279" y="-81"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="4" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="44">    
-    <end type="SOURCE" refId="10" navigable="false">      
-      <attribute id="45" name="usuarios">        
-        <position height="0" width="0" x="-2" y="-83"/>      
-      </attribute>      
-      <multiplicity id="46" minimum="0" maximum="2147483647">        
-        <position height="0" width="0" x="-2" y="-83"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="24" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <generalization id="47">    
-    <end type="SOURCE" refId="23"/>    
-    <end type="TARGET" refId="19"/>  
+  <realization id="35">    
+    <end type="SOURCE" refId="18"/>    
+    <end type="TARGET" refId="8"/>  
+  </realization>  
+  <generalization id="36">    
+    <end type="SOURCE" refId="14"/>    
+    <end type="TARGET" refId="6"/>  
   </generalization>  
-  <association id="48">    
-    <end type="SOURCE" refId="8" navigable="false">      
-      <attribute id="49" name="plataforma">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </attribute>      
-      <multiplicity id="50" minimum="0" maximum="1">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </multiplicity>    
+  <association id="37">    
+    <end type="SOURCE" refId="6" navigable="false">      
+      <attribute id="38" name="classificacao"/>      
+      <multiplicity id="39" minimum="0" maximum="1"/>    
     </end>    
-    <end type="TARGET" refId="18" navigable="true"/>    
+    <end type="TARGET" refId="9" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="51">    
-    <end type="SOURCE" refId="9" navigable="false">      
-      <attribute id="52" name="controllerUsuario">        
-        <position height="0" width="0" x="56" y="9"/>      
-      </attribute>      
-      <multiplicity id="53" minimum="0" maximum="1">        
-        <position height="0" width="0" x="56" y="9"/>      
-      </multiplicity>    
+  <association id="40">    
+    <bendpoint x="1366" y="1808"/>    
+    <end type="SOURCE" refId="4" navigable="false">      
+      <attribute id="41" name="item"/>      
+      <multiplicity id="42" minimum="0" maximum="1"/>    
     </end>    
-    <end type="TARGET" refId="10" navigable="true"/>    
+    <end type="TARGET" refId="22" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="43">    
+    <end type="SOURCE" refId="14" navigable="false">      
+      <attribute id="44" name="genero"/>      
+      <multiplicity id="45" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="20" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="46">    
+    <end type="SOURCE" refId="6"/>    
+    <end type="TARGET" refId="22"/>  
+  </generalization>  
+  <association id="47">    
+    <end type="SOURCE" refId="22" navigable="false">      
+      <attribute id="48" name="estado"/>      
+      <multiplicity id="49" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="1" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="50">    
+    <end type="SOURCE" refId="5"/>    
+    <end type="TARGET" refId="6"/>  
+  </generalization>  
+  <association id="51">    
+    <end type="SOURCE" refId="7" navigable="false">      
+      <attribute id="52" name="cartao"/>      
+      <multiplicity id="53" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="8" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <association id="54">    
-    <end type="SOURCE" refId="4" navigable="false">      
-      <attribute id="55" name="item">        
-        <position height="0" width="0" x="41" y="-45"/>      
-      </attribute>      
-      <multiplicity id="56" minimum="0" maximum="1">        
-        <position height="0" width="0" x="41" y="-45"/>      
-      </multiplicity>    
+    <end type="SOURCE" refId="13" navigable="false">      
+      <attribute id="55" name="plataforma"/>      
+      <multiplicity id="56" minimum="0" maximum="1"/>    
     </end>    
     <end type="TARGET" refId="19" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <association id="57">    
-    <end type="SOURCE" refId="23" navigable="false">      
-      <attribute id="58" name="classificacao">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </attribute>      
-      <multiplicity id="59" minimum="0" maximum="1">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </multiplicity>    
+    <end type="SOURCE" refId="25" navigable="false">      
+      <attribute id="58" name="emprestimos"/>      
+      <multiplicity id="59" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="4" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="60">    
+    <end type="SOURCE" refId="30" navigable="false">      
+      <attribute id="61" name="controllerItens"/>      
+      <multiplicity id="62" minimum="0" maximum="1"/>    
     </end>    
     <end type="TARGET" refId="12" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="60">    
-    <end type="SOURCE" refId="2" navigable="false">      
-      <attribute id="61" name="genero">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </attribute>      
-      <multiplicity id="62" minimum="0" maximum="1">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="1" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
   <association id="63">    
-    <end type="SOURCE" refId="2" navigable="false">      
-      <attribute id="64" name="episodios">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </attribute>      
-      <multiplicity id="65" minimum="0" maximum="2147483647">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </multiplicity>    
+    <end type="SOURCE" refId="15" navigable="false">      
+      <attribute id="64" name="sistema"/>      
+      <multiplicity id="65" minimum="0" maximum="1"/>    
     </end>    
-    <end type="TARGET" refId="17" navigable="true"/>    
+    <end type="TARGET" refId="30" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <association id="66">    
-    <end type="SOURCE" refId="13" navigable="false">      
-      <attribute id="67" name="genero">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </attribute>      
-      <multiplicity id="68" minimum="0" maximum="1">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </multiplicity>    
+    <end type="SOURCE" refId="30" navigable="false">      
+      <attribute id="67" name="controllerEmprestimos"/>      
+      <multiplicity id="68" minimum="0" maximum="1"/>    
     </end>    
-    <end type="TARGET" refId="1" navigable="true"/>    
+    <end type="TARGET" refId="25" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <generalization id="69">    
     <end type="SOURCE" refId="13"/>    
-    <end type="TARGET" refId="23"/>  
+    <end type="TARGET" refId="22"/>  
   </generalization>  
-  <generalization id="70">    
-    <end type="SOURCE" refId="6"/>    
-    <end type="TARGET" refId="23"/>  
+  <realization id="70">    
+    <end type="SOURCE" refId="31"/>    
+    <end type="TARGET" refId="8"/>  
+  </realization>  
+  <generalization id="71">    
+    <end type="SOURCE" refId="23"/>    
+    <end type="TARGET" refId="22"/>  
   </generalization>  
-  <association id="71">    
-    <end type="SOURCE" refId="9" navigable="false">      
-      <attribute id="72" name="controllerItens">        
-        <position height="0" width="0" x="484" y="123"/>      
-      </attribute>      
-      <multiplicity id="73" minimum="0" maximum="1">        
-        <position height="0" width="0" x="484" y="123"/>      
-      </multiplicity>    
+  <association id="72">    
+    <end type="SOURCE" refId="7" navigable="false">      
+      <attribute id="73" name="itens"/>      
+      <multiplicity id="74" minimum="0" maximum="2147483647"/>    
     </end>    
-    <end type="TARGET" refId="5" navigable="true"/>    
+    <end type="TARGET" refId="22" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <generalization id="74">    
-    <end type="SOURCE" refId="22"/>    
-    <end type="TARGET" refId="19"/>  
-  </generalization>  
   <generalization id="75">    
-    <end type="SOURCE" refId="8"/>    
-    <end type="TARGET" refId="19"/>  
+    <end type="SOURCE" refId="3"/>    
+    <end type="TARGET" refId="6"/>  
   </generalization>  
   <association id="76">    
-    <end type="SOURCE" refId="4" navigable="false">      
-      <attribute id="77" name="usuarioRequerente">        
-        <position height="0" width="0" x="-2" y="-83"/>      
-      </attribute>      
-      <multiplicity id="78" minimum="0" maximum="1">        
-        <position height="0" width="0" x="-2" y="-83"/>      
-      </multiplicity>    
+    <end type="SOURCE" refId="5" navigable="false">      
+      <attribute id="77" name="genero"/>      
+      <multiplicity id="78" minimum="0" maximum="1"/>    
     </end>    
-    <end type="TARGET" refId="24" navigable="true"/>    
+    <end type="TARGET" refId="20" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="79">    
+    <bendpoint x="1077" y="1471"/>    
+    <end type="SOURCE" refId="16" navigable="false">      
+      <attribute id="80" name="usuarios"/>      
+      <multiplicity id="81" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="7" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="82">    
+    <end type="SOURCE" refId="30" navigable="false">      
+      <attribute id="83" name="controllerUsuario"/>      
+      <multiplicity id="84" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="16" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="85">    
+    <end type="SOURCE" refId="4" navigable="false">      
+      <attribute id="86" name="usuarioRequerente"/>      
+      <multiplicity id="87" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="7" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="88">    
+    <end type="SOURCE" refId="29"/>    
+    <end type="TARGET" refId="8"/>  
+  </realization>  
+  <realization id="89">    
+    <end type="SOURCE" refId="11"/>    
+    <end type="TARGET" refId="8"/>  
+  </realization>  
+  <association id="90">    
+    <end type="SOURCE" refId="5" navigable="false">      
+      <attribute id="91" name="episodios"/>      
+      <multiplicity id="92" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="17" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 

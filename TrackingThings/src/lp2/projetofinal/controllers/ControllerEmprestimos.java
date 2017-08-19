@@ -187,7 +187,6 @@ public class ControllerEmprestimos {
 
 	}
 
-	// Alterar!!!!
 	public String listarItensEmprestados() {
 
 		String stringItens = "";
@@ -210,14 +209,12 @@ public class ControllerEmprestimos {
 		return stringItens;
 	}
 
-	// WHAT? AGAIN?
 	public int calcularDiferencaEntreDias(String diaInicial, String diaFinal) {
 
 		DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
 		df.setLenient(false);
 
 		long data = 0;
-
 		try {
 
 			Date d1 = df.parse(diaInicial);

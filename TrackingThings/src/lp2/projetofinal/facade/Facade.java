@@ -1,7 +1,5 @@
 package lp2.projetofinal.facade;
 
-import java.text.ParseException;
-
 /**
  * Classe "FACHADA", contem todos os metodos que o usuario do Tracking Things tera acesso. Delega responsabilidades para o sistema.
  * 
@@ -98,7 +96,7 @@ public class Facade {
 	public String pesquisarDetalhesItem(String nome, String telefone, String nomeItem) {
 		return sistema.pesquisarDetalhesItem(nome, telefone, nomeItem);
 	}
-
+	
 	public void registrarEmprestimo(String nomeDono, String telefoneDono, String nomeRequerente,
 			String telefoneRequerente, String nomeItem, String dataEmprestimo, int periodo) {
 
@@ -108,13 +106,11 @@ public class Facade {
 	}
 
 	public void devolverItem(String nomeDono, String telefoneDono, String nomeRequerente, String telefoneRequerente,
-			String nomeItem, String dataEmprestimo, String dataDevolucao) throws ParseException {
+			String nomeItem, String dataEmprestimo, String dataDevolucao) {
 
 		sistema.devolverItem(nomeDono, telefoneDono, nomeRequerente, telefoneRequerente, nomeItem, dataEmprestimo,
 				dataDevolucao);
 	}
-
-	// Metodos do casos de uso 5
 
 	public String listarEmprestimosUsuarioEmprestando(String nome, String telefone) {
 		return sistema.listarEmprestimosUsuarioEmprestando(nome, telefone);
@@ -140,5 +136,5 @@ public class Facade {
 		return sistema.listarTop10Itens();
 	}
 	
-
 }
+

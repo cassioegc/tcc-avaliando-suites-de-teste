@@ -2,7 +2,7 @@ package lp2.projetofinal.entidades;
 
 import lp2.projetofinal.interfaces.CartaoFidelidade;
 
-public class CartaoFreeRider implements CartaoFidelidade{
+public class CartaoFreeRyder implements CartaoFidelidade{
 
 	@Override
 	public boolean permisaoPegarEmprestao() {
@@ -18,6 +18,6 @@ public class CartaoFreeRider implements CartaoFidelidade{
 	
 	@Override
 	public String getNomeCartao(){
-		return "FreeRider";
+		return "FreeRyder";
 	}
 }

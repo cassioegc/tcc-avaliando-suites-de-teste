@@ -11,13 +11,18 @@ package lp2.projetofinal.controllers;
  */
 
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 
 import lp2.projetofinal.entidades.CartaoBomAmigo;
 import lp2.projetofinal.entidades.CartaoCaloteiro;
+import lp2.projetofinal.entidades.CartaoFreeRyder;
+import lp2.projetofinal.entidades.CartaoNoob;
 import lp2.projetofinal.entidades.ChaveNomeTelefone;
-import lp2.projetofinal.entidades.Emprestimo;
+import lp2.projetofinal.entidades.Item;
 import lp2.projetofinal.entidades.Usuario;
+import lp2.projetofinal.interfaces.CartaoFidelidade;
 import lp2.projetofinal.util.Exceptions;
 
 public class ControllerUsuario {
@@ -49,6 +54,8 @@ public class ControllerUsuario {
 		Usuario usuario = new Usuario(nome, email, telefone);
 
 		this.usuarios.put(chave, usuario);
+
+		usuario.setCartao(new CartaoFreeRyder());
 	}
 
 	/**
@@ -185,67 +192,68 @@ public class ControllerUsuario {
 		return usuarios.get(chave);
 	}
 
-	/**
-	 * Metodo responsavel por adicionar um emprestimo realizado ao conjunto de
-	 * emprestimos realizado de um usuario escolhido. Veficando antes a
-	 * existencia do usuario no mapa de usuarios.
-	 * 
-	 * @param nomeDono
-	 *            Nome do usuario dono do item.
-	 * @param telefoneDono
-	 *            Telefone do usuario dono do item.
-	 * @param nomeRequerente
-	 *            Nome do usuario requerente do item.
-	 * @param telefoneRequerente
-	 *            Telefone do usuario requerente do item.
-	 * @param emprestimo
-	 *            Objeto do tipo Emprestimo que será guardado no conjunto de
-	 *            cada usuario relacionado.
-	 */
-	public void adicionarEmprestimoRealizado(String nomeDono, String telefoneDono, String nomeRequerente,
-			String telefoneRequerente, Emprestimo emprestimo) {
-
-		ChaveNomeTelefone chaveDono = new ChaveNomeTelefone(nomeDono, telefoneDono);
-		ChaveNomeTelefone chaveRequerente = new ChaveNomeTelefone(nomeRequerente, telefoneRequerente);
-
-		verificaExistenciaChaveMapa(chaveDono);
-		verificaExistenciaChaveMapa(chaveRequerente);
-
-		identificaUsuario(nomeDono, telefoneDono).registraEmprestimoRealizado(emprestimo);
-		identificaUsuario(nomeRequerente, telefoneRequerente).registraEmprestimoRealizado(emprestimo);
-	}
-	
-	public void atualizaReputacao(String nome, String telefone, double valor,boolean acresce) {
-		
-
-		ChaveNomeTelefone chave = new ChaveNomeTelefone(nome, telefone);
-
-		verificaExistenciaChaveMapa(chave);
+	public Set<Item> retornaUsuarioItens(String nome, String telefone) {
 
 		Usuario usuario = identificaUsuario(nome, telefone);
-		
-		usuario.atualizaReputacao(valor,acresce);
-		
+
+		return usuario.retornaSeusItens();
+
 	}
 
-	public void atualizaCartaoFidelidade(String nome,String telefone) {
+	public void atualizaReputacao(String nome, String telefone, double valor, boolean acresce) {
+
 		Usuario usuario = identificaUsuario(nome, telefone);
-		
+
+		usuario.atualizaReputacao(valor, acresce);
+
+		atualizaCartaoFidelidade(nome, telefone);
+
+	}
+
+	public void atualizaCartaoFidelidade(String nome, String telefone) {
+
+		Usuario usuario = identificaUsuario(nome, telefone);
 		Double reputacao = usuario.getReputacao();
-		
-		if (reputacao < 0.0) {
-			
-			CartaoCaloteiro cartao = new CartaoCaloteiro();
-			
-			usuarios.get(usuario).setCartao(cartao);
-		} else if (reputacao > 100.0) {
-			CartaoBomAmigo cartao = new CartaoBomAmigo();
-			
-			usuarios.get(usuario).setCartao(cartao);
-		} else if (reputacao >= 0) {
-			if ()
+
+		CartaoFidelidade cartao = new CartaoNoob();
+
+		if (reputacao < 0.0)
+			cartao = new CartaoCaloteiro();
+
+		else if (reputacao > 100.0)
+			cartao = new CartaoBomAmigo();
+		else if (reputacao >= 0) {
+			if (usuario.retornaSeusItens().isEmpty())
+				cartao = new CartaoFreeRyder();
 		}
-		
+		usuario.setCartao(cartao);
+
 	}
 
+	public Set<Item> todosUsuariosItens() {
+
+		Set<Item> listaTodosItens = new HashSet<Item>();
+
+		for (Usuario usuario : this.usuarios.values()) {
+			listaTodosItens.addAll(usuario.retornaSeusItens());
+		}
+		return listaTodosItens;
+	}
+
+	public void verificaFidelidadeUsuario(String nomeRequerente, String telefoneRequerente) {
+
+		Usuario usuario = identificaUsuario(nomeRequerente, telefoneRequerente);
+
+		if (!usuario.getCartao().permisaoPegarEmprestao())
+			Exceptions.usuarioNaoPodePegarItemException();
+	}
+
+	public void verificadisponibilidadeUsuario(String nomeRequerente, String telefoneRequerente, int periodo) {
+
+		Usuario usuario = identificaUsuario(nomeRequerente, telefoneRequerente);
+
+		if (usuario.getCartao().prazoEmprestimo() < periodo)
+			Exceptions.usuarioImpossibilitadoDePegarItemNessePeriodoException();
+
+	}
 }

@@ -1,15 +1,5 @@
 package lp2.projetofinal.entidades;
 
-/**
- * Representacao de um usuario cadastrado no Sistema, todo
- * usuario no sistema tem o nome do usuario, telefone e email.
- * 
- * Laboratorio de Programacao 2 - Projeto Final Parte 01
- * 
- * @author Thiago Santos de Moura - 116210967
- * @author Gabriel Almeida Azevedo - 116210009
- * @author Marcelo Gabriel dos Santos Queiroz Vitorino - 116211290
- */
 import java.util.HashSet;
 import java.util.Set;
 
@@ -20,7 +10,7 @@ public class Usuario {
 	private String nome;
 	private String email;
 	private String telefone;
-	private Set<Emprestimo> emprestimosRealizados;
+	private Set<Item> itens;
 	private double reputacao;
 	private CartaoFidelidade cartao;
 
@@ -40,7 +30,7 @@ public class Usuario {
 		this.nome = nome;
 		this.email = email;
 		this.telefone = telefone;
-		this.emprestimosRealizados = new HashSet<Emprestimo>();
+		this.itens = new HashSet<Item>();
 		this.reputacao = 0;
 		this.cartao = new CartaoNoob();
 	}
@@ -176,16 +166,8 @@ public class Usuario {
 
 		return true;
 	}
-
-	/**
-	 * @param emprestimo
-	 *            O emprestimo do usuario.
-	 *
-	 *            Adiciona um emprestimo para o usuario.
-	 *
-	 */
-	public void registraEmprestimoRealizado(Emprestimo emprestimo) {
-		this.emprestimosRealizados.add(emprestimo);
+	
+	public Set<Item> retornaSeusItens(){
+		return this.itens;
 	}
-
 }
