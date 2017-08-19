@@ -544,14 +544,10 @@ public class Sistema {
 		Checks.verificaDataEmprestimoVaziaNula(dataEmprestimo);
 		Checks.verificaDataDevolucaoVaziaNula(dataDevolucao);
 
-		controllerEmprestimos.devolverItem(controllerUsuario.identificaUsuario(nomeDono, telefoneDono),
+		int diasAtraso = controllerEmprestimos.devolverItem(controllerUsuario.identificaUsuario(nomeDono, telefoneDono),
 				controllerUsuario.identificaUsuario(nomeRequerente, telefoneRequerente),
 				controllerItens.identificaItem(controllerUsuario.retornaUsuarioItens(nomeDono, telefoneDono), nomeItem),
 				dataEmprestimo, dataDevolucao);
-
-		int diasAtraso = controllerEmprestimos.calcularDiasAtraso(dataEmprestimo, dataDevolucao,controllerUsuario.identificaUsuario(nomeDono, telefoneDono),
-							controllerUsuario.identificaUsuario(nomeRequerente, telefoneRequerente));
-			
 
 		if ((diasAtraso) <= 0) {
 			controllerUsuario.identificaUsuario(nomeRequerente, telefoneRequerente)
