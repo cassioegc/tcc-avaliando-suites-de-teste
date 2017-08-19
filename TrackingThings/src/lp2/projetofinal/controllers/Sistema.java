@@ -549,11 +549,9 @@ public class Sistema {
 				controllerItens.identificaItem(controllerUsuario.retornaUsuarioItens(nomeDono, telefoneDono), nomeItem),
 				dataEmprestimo, dataDevolucao);
 
-		int diasAtraso = controllerEmprestimos.calcularDiferencaEntreDias(dataEmprestimo, dataDevolucao)
-				- controllerEmprestimos
-						.identificaEmprestimo(controllerUsuario.identificaUsuario(nomeDono, telefoneDono),
-								controllerUsuario.identificaUsuario(nomeRequerente, telefoneRequerente), dataEmprestimo)
-						.getNumeroDias();
+		int diasAtraso = controllerEmprestimos.calcularDiasAtraso(dataEmprestimo, dataDevolucao,controllerUsuario.identificaUsuario(nomeDono, telefoneDono),
+							controllerUsuario.identificaUsuario(nomeRequerente, telefoneRequerente));
+			
 
 		if ((diasAtraso) <= 0) {
 			controllerUsuario.identificaUsuario(nomeRequerente, telefoneRequerente)

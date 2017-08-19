@@ -209,22 +209,22 @@ public class ControllerEmprestimos {
 		return stringItens;
 	}
 
-	public int calcularDiferencaEntreDias(String diaInicial, String diaFinal) {
+	public int calcularDiasAtraso(String dataEmprestimo, String dataDevolucao,Usuario donoItem,Usuario requerenteItem) {
 
-		DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
-		df.setLenient(false);
-
-		long data = 0;
+		DateFormat formatoData = new SimpleDateFormat("dd/MM/yyyy");
 		try {
 
-			Date d1 = df.parse(diaInicial);
-			Date d2 = df.parse(diaFinal);
+			Date dataEmprestimo1 = formatoData.parse(dataEmprestimo);
+			Date dataDevolucao1 = formatoData.parse(dataDevolucao);
 
-			data = (d2.getTime() - d1.getTime()) + 3600000;
-
+			int diasAtraso = (int) (((dataDevolucao1.getTime() - dataEmprestimo1.getTime()) / 86400000L) -  identificaEmprestimo(donoItem,requerenteItem,dataEmprestimo).getNumeroDias());
+			
+			return diasAtraso;
 		} catch (ParseException e) {}
+			return 0;
 
-		return (int) (data / 86400000L);
 	}
+	
+
 
 }
