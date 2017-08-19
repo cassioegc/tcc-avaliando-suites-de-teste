@@ -496,7 +496,7 @@ public class Sistema {
 		Checks.verificaPeriodoZeradoOuNegativo(periodo);
 
 		controllerUsuario.verificaFidelidadeUsuario(nomeRequerente, telefoneRequerente);
-		//controllerUsuario.verificadisponibilidadeUsuario(nomeRequerente, telefoneRequerente, periodo);
+		controllerUsuario.verificadisponibilidadeUsuario(nomeRequerente, telefoneRequerente, periodo);
 
 		controllerEmprestimos.registrarEmprestimo(controllerUsuario.identificaUsuario(nomeDono, telefoneDono),
 				controllerUsuario.identificaUsuario(nomeRequerente, telefoneRequerente),
@@ -560,6 +560,8 @@ public class Sistema {
 							.identificaItem(controllerUsuario.retornaUsuarioItens(nomeDono, telefoneDono), nomeItem)
 							.getPreco() * diasAtraso * 0.01, false);
 		}
+		
+		controllerUsuario.atualizaCartaoFidelidade(nomeRequerente, telefoneRequerente);
 
 	}
 
