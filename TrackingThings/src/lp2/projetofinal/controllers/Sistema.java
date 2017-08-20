@@ -297,8 +297,8 @@ public class Sistema {
 		Checks.verificaDescricaoVaziaNula(descricao);
 		Checks.verificaTemporadaZeroNegativa(temporada);
 
-		controllerItens.adicionaItem(controllerUsuario.retornaUsuarioItens(nome, telefone), nomeItem, preco,
-				descricao, duracao, classificacao, genero, temporada);
+		controllerItens.adicionaItem(controllerUsuario.retornaUsuarioItens(nome, telefone), nomeItem, preco, descricao,
+				duracao, classificacao, genero, temporada);
 
 		controllerUsuario.atualizaReputacao(nome, telefone, preco * 0.05, true);
 	}
@@ -503,8 +503,9 @@ public class Sistema {
 				controllerItens.identificaItem(controllerUsuario.retornaUsuarioItens(nomeDono, telefoneDono), nomeItem),
 				dataEmprestimo, periodo);
 
-		controllerUsuario.atualizaReputacao(nomeDono, telefoneDono, controllerItens
-				.identificaItem(controllerUsuario.retornaUsuarioItens(nomeDono, telefoneDono), nomeItem).getPreco() * 0.1,
+		controllerUsuario.atualizaReputacao(nomeDono, telefoneDono,
+				controllerItens.identificaItem(controllerUsuario.retornaUsuarioItens(nomeDono, telefoneDono), nomeItem)
+						.getPreco() * 0.1,
 				true);
 
 	}
@@ -544,25 +545,27 @@ public class Sistema {
 		Checks.verificaDataEmprestimoVaziaNula(dataEmprestimo);
 		Checks.verificaDataDevolucaoVaziaNula(dataDevolucao);
 
-		int diasAtraso = controllerEmprestimos.devolverItem(controllerUsuario.identificaUsuario(nomeDono, telefoneDono),
+		int diasPassados = controllerEmprestimos.devolverItem(
+				controllerUsuario.identificaUsuario(nomeDono, telefoneDono),
 				controllerUsuario.identificaUsuario(nomeRequerente, telefoneRequerente),
 				controllerItens.identificaItem(controllerUsuario.retornaUsuarioItens(nomeDono, telefoneDono), nomeItem),
 				dataEmprestimo, dataDevolucao);
 
-		if (diasAtraso <= 0) {
-			controllerUsuario.identificaUsuario(nomeRequerente, telefoneRequerente)
-					.atualizaReputacao(controllerItens
-							.identificaItem(controllerUsuario.retornaUsuarioItens(nomeDono, telefoneDono), nomeItem)
-							.getPreco() * 0.05, true);
+		if (diasPassados <= 0) {
+			controllerUsuario
+					.atualizaReputacao(nomeRequerente, telefoneRequerente,
+							controllerItens.identificaItem(
+									controllerUsuario.retornaUsuarioItens(nomeDono, telefoneDono), nomeItem).getPreco()
+									* 0.05,
+							true);
 		} else {
-			controllerUsuario.identificaUsuario(nomeRequerente, telefoneRequerente)
-					.atualizaReputacao(controllerItens
-							.identificaItem(controllerUsuario.retornaUsuarioItens(nomeDono, telefoneDono), nomeItem)
-							.getPreco() * diasAtraso * 0.01, false);
+			controllerUsuario
+					.atualizaReputacao(nomeRequerente, telefoneRequerente,
+							controllerItens.identificaItem(
+									controllerUsuario.retornaUsuarioItens(nomeDono, telefoneDono), nomeItem).getPreco()
+									* diasPassados * 0.01,
+							false);
 		}
-		
-		controllerUsuario.atualizaCartaoFidelidade(nomeRequerente, telefoneRequerente);
-
 	}
 
 	public String listarEmprestimosUsuarioEmprestando(String nome, String telefone) {
@@ -607,19 +610,19 @@ public class Sistema {
 
 		return controllerItens.listarTop10Itens(controllerUsuario.todosUsuariosItens());
 	}
-	
+
 	public String listarCaloteiros() {
 		return controllerUsuario.listarCaloteiros();
 	}
-	
+
 	public String listarTop10MelhoresUsuarios() {
 		return controllerUsuario.listarTop10MelhoresUsuarios();
 	}
-	
+
 	public String listarTop10PioresUsuarios() {
 		return controllerUsuario.listarTop10PioresUsuarios();
 	}
-	
+
 	public void finalizar() {
 
 	}

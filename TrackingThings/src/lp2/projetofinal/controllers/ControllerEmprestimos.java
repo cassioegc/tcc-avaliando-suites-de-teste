@@ -89,9 +89,8 @@ public class ControllerEmprestimos {
 
 		emprestimo.setDataDevolucao(dataDevolucao);
 		item.itemDevolvido();
-		
-		
-		return calcularDiasAtraso(dataEmprestimo,dataDevolucao,emprestimo.getNumeroDias());
+
+		return calcularDiasAtraso(dataEmprestimo, dataDevolucao, emprestimo.getNumeroDias());
 
 	}
 
@@ -212,7 +211,7 @@ public class ControllerEmprestimos {
 		return stringItens;
 	}
 
-	private int calcularDiasAtraso(String dataEmprestimo, String dataDevolucao,int diasParaDevolucao) {
+	private int calcularDiasAtraso(String dataEmprestimo, String dataDevolucao, int diasParaDevolucao) {
 
 		DateFormat formatoData = new SimpleDateFormat("dd/MM/yyyy");
 		try {
@@ -220,14 +219,14 @@ public class ControllerEmprestimos {
 			Date dataEmprestimo1 = formatoData.parse(dataEmprestimo);
 			Date dataDevolucao1 = formatoData.parse(dataDevolucao);
 
-			int diasAtraso = (int) (((dataDevolucao1.getTime() - dataEmprestimo1.getTime()) / 86400000L) -  diasParaDevolucao);
-			
+			int diasAtraso = (int) (((dataDevolucao1.getTime() - dataEmprestimo1.getTime()) / 86400000L)
+					- diasParaDevolucao);
+
 			return diasAtraso;
-		} catch (ParseException e) {}
-			return 0;
+		} catch (ParseException e) {
+		}
+		return 0;
 
 	}
-	
-
 
 }

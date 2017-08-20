@@ -29,14 +29,16 @@ import lp2.projetofinal.util.Exceptions;
 
 public class ControllerItens {
 
+	/**
+	 * Construtor de controllerItens.
+	 */
 	public ControllerItens() {
-		
 	}
 
-
 	/**
-	 * Metodo com polimorfismo parametrico. Ele tem responsabilidade de cadastrar um
-	 * novo item no sistema. Mas especificamente um subtipo Jogo Eletronico.
+	 * Metodo com polimorfismo parametrico. Ele tem responsabilidade de
+	 * cadastrar um novo item no sistema. Mas especificamente um subtipo Jogo
+	 * Eletronico.
 	 * 
 	 * @param set
 	 *            Usuario dono do item e chave no hashmap de itens.
@@ -50,13 +52,14 @@ public class ControllerItens {
 	public void adicionaItem(Set<Item> listaItens, String nomeItem, double preco, String plataforma) {
 
 		JogoEletronico jogoEletronico = new JogoEletronico(nomeItem, preco, plataforma);
-		
+
 		listaItens.add(jogoEletronico);
 	}
 
 	/**
-	 * Metodo com polimorfismo parametrico. Ele tem responsabilidade de cadastrar um
-	 * novo item no sistema. Mas especificamente um subtipo Jogo Tabuleiro.
+	 * Metodo com polimorfismo parametrico. Ele tem responsabilidade de
+	 * cadastrar um novo item no sistema. Mas especificamente um subtipo Jogo
+	 * Tabuleiro.
 	 * 
 	 * @param listaItens
 	 *            Usuario dono do item e chave no hashmap de itens.
@@ -68,14 +71,15 @@ public class ControllerItens {
 	public void adicionaItem(Set<Item> listaItens, String nomeItem, double preco) {
 
 		JogoTabuleiro jogoTabuleiro = new JogoTabuleiro(nomeItem, preco);
-		
+
 		listaItens.add(jogoTabuleiro);
 
 	}
 
 	/**
-	 * Metodo com polimorfismo parametrico. Ele tem responsabilidade de cadastrar um
-	 * novo item no sistema. Mas especificamente um subtipo BlurayFilme.
+	 * Metodo com polimorfismo parametrico. Ele tem responsabilidade de
+	 * cadastrar um novo item no sistema. Mas especificamente um subtipo
+	 * BlurayFilme.
 	 * 
 	 * @param listaItens
 	 *            Usuario dono do item e chave no hashmap de itens.
@@ -96,13 +100,14 @@ public class ControllerItens {
 			String classificacao, int anoLancamento) {
 
 		BluRayFilme bluRayFilme = new BluRayFilme(nomeItem, preco, duracao, genero, classificacao, anoLancamento);
-		
+
 		listaItens.add(bluRayFilme);
 	}
 
 	/**
-	 * Metodo com polimorfismo parametrico. Ele tem responsabilidade de cadastrar um
-	 * novo item no sistema. Mas especificamente um subtipo BlurayShow.
+	 * Metodo com polimorfismo parametrico. Ele tem responsabilidade de
+	 * cadastrar um novo item no sistema. Mas especificamente um subtipo
+	 * BlurayShow.
 	 * 
 	 * @param donoItem
 	 *            Usuario dono do item e chave no hashmap de itens.
@@ -129,8 +134,9 @@ public class ControllerItens {
 	}
 
 	/**
-	 * Metodo com polimorfismo parametrico. Ele tem responsabilidade de cadastrar um
-	 * novo item no sistema. Mas especificamente um subtipo BluraySerie.
+	 * Metodo com polimorfismo parametrico. Ele tem responsabilidade de
+	 * cadastrar um novo item no sistema. Mas especificamente um subtipo
+	 * BluraySerie.
 	 * 
 	 * @param listaItens
 	 *            Usuario dono do item e chave no hashmap de itens.
@@ -155,7 +161,7 @@ public class ControllerItens {
 
 		BluRaySerie bluRaySerie = new BluRaySerie(nomeItem, preco, descricao, duracao, classificacao, genero,
 				temporada);
-		
+
 		listaItens.add(bluRaySerie);
 	}
 
@@ -172,7 +178,7 @@ public class ControllerItens {
 	 *            Duracao do episodio.
 	 */
 	public void adicionarBluRayEpisodio(Set<Item> listaItens, String nomeItem, int duracao) {
-	
+
 		BluRaySerie bluraySerie = (BluRaySerie) identificaItem(listaItens, nomeItem);
 		bluraySerie.adicionarBluRay(duracao);
 	}
@@ -196,8 +202,8 @@ public class ControllerItens {
 	}
 
 	/**
-	 * Metodo responsavel por atualizar um item. Verificando antes sua existencia no
-	 * mapa de itens do usuario escolhido.
+	 * Metodo responsavel por atualizar um item. Verificando antes sua
+	 * existencia no mapa de itens do usuario escolhido.
 	 * 
 	 * @param donoItem
 	 *            Usuario dono do item.
@@ -212,7 +218,7 @@ public class ControllerItens {
 
 		Item item = identificaItem(listaItens, nomeItem);
 		item.atualizar(atributo, valor);
-		
+
 	}
 
 	/**
@@ -231,8 +237,9 @@ public class ControllerItens {
 	}
 
 	/**
-	 * Metodo responsavel por retornar o valor do atributo escolhido, solicitando ao
-	 * item que reconheca qual atributo eh ja que eles podem divergir de atributos.
+	 * Metodo responsavel por retornar o valor do atributo escolhido,
+	 * solicitando ao item que reconheca qual atributo eh ja que eles podem
+	 * divergir de atributos.
 	 * 
 	 * @param donoItem
 	 *            Usuario dono do item.
@@ -244,13 +251,14 @@ public class ControllerItens {
 	 * @return Retorna uma string com o valor desse atributo.
 	 */
 	public String getInfoItem(Set<Item> listaItens, String nomeItem, String atributo) {
-		
+
 		Item item = identificaItem(listaItens, nomeItem);
 		return item.getInfo(atributo);
 	}
 
 	/**
-	 * Metodo responsavel todas as informacoes de um item a partir do toString dele.
+	 * Metodo responsavel todas as informacoes de um item a partir do toString
+	 * dele.
 	 * 
 	 * @param donoItem
 	 *            Usuario dono do item.
@@ -266,7 +274,8 @@ public class ControllerItens {
 	}
 
 	/**
-	 * Metodo responsavel por listar todos os itens do sistema em ordem alfabetica.
+	 * Metodo responsavel por listar todos os itens do sistema em ordem
+	 * alfabetica.
 	 * 
 	 * @return Retorna uma string com essa listagem.
 	 */
@@ -312,10 +321,10 @@ public class ControllerItens {
 	 */
 	public Item identificaItem(Set<Item> listaItens, String nomeItem) {
 
-		for(Item item: listaItens){
-			if(item.getNome().equals(nomeItem))
+		for (Item item : listaItens) {
+			if (item.getNome().equals(nomeItem))
 				return item;
-		}	
+		}
 		Exceptions.itemNaoEncontradoException();
 		return null;
 	}
@@ -325,15 +334,14 @@ public class ControllerItens {
 		String stringItens = "";
 		List<Item> listaItensOrdenada = new ArrayList<Item>(listaTodosItens);
 		Collections.sort(listaItensOrdenada, new OrdenaItemAlfabetico());
-		
+
 		for (Item item : listaItensOrdenada) {
 			if (item.getEstado().equals(EstadoItem.NAO_EMPRESTADO.getEstado()))
 				stringItens += item.toString() + "|";
 		}
 		return stringItens;
 	}
-	
-	
+
 	public String listarTop10Itens(Set<Item> listaTodosItens) {
 		List<Item> listaItensOrdenada = new ArrayList<Item>(listaTodosItens);
 		Collections.sort(listaItensOrdenada, new OrdenaItemNumeroEmprestimos());
@@ -345,11 +353,12 @@ public class ControllerItens {
 				break;
 			}
 			if (item.getNumeroEmprestimos() != 0) {
-				top10ItensString += numeroItens+") "+ item.getNumeroEmprestimos()+ " emprestimos - "+item.toString() + "|";
+				top10ItensString += numeroItens + ") " + item.getNumeroEmprestimos() + " emprestimos - "
+						+ item.toString() + "|";
 				numeroItens++;
 			}
 		}
-		
+
 		return top10ItensString;
 	}
 }
