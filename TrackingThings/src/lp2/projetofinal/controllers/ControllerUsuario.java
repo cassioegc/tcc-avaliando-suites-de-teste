@@ -23,13 +23,12 @@ import lp2.projetofinal.entidades.CartaoCaloteiro;
 import lp2.projetofinal.entidades.CartaoFreeRyder;
 import lp2.projetofinal.entidades.CartaoNoob;
 import lp2.projetofinal.entidades.ChaveNomeTelefone;
-import lp2.projetofinal.entidades.Emprestimo;
 import lp2.projetofinal.entidades.Item;
 import lp2.projetofinal.entidades.Usuario;
 import lp2.projetofinal.interfaces.CartaoFidelidade;
-import lp2.projetofinal.orders.OrdenaItemEmprestadoAlfabetico;
 import lp2.projetofinal.orders.OrdenaUsuarioAlfabetico;
-import lp2.projetofinal.orders.OrdenaUsuarioReputacao;
+import lp2.projetofinal.orders.OrdenaUsuarioReputacaoCrescente;
+import lp2.projetofinal.orders.OrdenaUsuarioReputacaoDecrescente;
 import lp2.projetofinal.util.Exceptions;
 
 public class ControllerUsuario {
@@ -289,7 +288,7 @@ public class ControllerUsuario {
 
 		List<Usuario> top10MelhoresUsuarios = new ArrayList<Usuario>(this.usuarios.values());
 
-		Collections.sort(top10MelhoresUsuarios, new OrdenaUsuarioReputacao());
+		Collections.sort(top10MelhoresUsuarios, new OrdenaUsuarioReputacaoDecrescente());
 
 		int posicaoTop10 = 1;
 
@@ -305,5 +304,27 @@ public class ControllerUsuario {
 
 		return stringTop10MelhoresUsuarios;
 
+	}
+
+	public String listarTop10PioresUsuarios() {
+		String stringTop10PioresUsuarios = "";
+
+		List<Usuario> top10PioresUsuarios = new ArrayList<Usuario>(this.usuarios.values());
+
+		Collections.sort(top10PioresUsuarios, new OrdenaUsuarioReputacaoCrescente());
+
+		int posicaoTop10 = 1;
+
+		for (Usuario usuario : top10PioresUsuarios) {
+			if (posicaoTop10 == 11) {
+				break;
+			}
+			stringTop10PioresUsuarios += posicaoTop10 + ": " + usuario.getNome() + " - Reputacao: "
+					+ String.format("%.2f", usuario.getReputacao()) + "|";
+
+			posicaoTop10++;
+		}
+
+		return stringTop10PioresUsuarios;
 	}
 }

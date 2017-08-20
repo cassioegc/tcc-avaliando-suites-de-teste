@@ -4,12 +4,12 @@ import java.util.Comparator;
 
 import lp2.projetofinal.entidades.Usuario;
 
-public class OrdenaUsuarioReputacao implements Comparator<Usuario> {
+public class OrdenaUsuarioReputacaoCrescente implements Comparator<Usuario> {
 
 	@Override
 	public int compare(Usuario usuarioUm, Usuario usuarioDois) {
 
-		double result = usuarioDois.getReputacao() - usuarioUm.getReputacao();
+		double result = usuarioUm.getReputacao() - usuarioDois.getReputacao();
 		
 		if(result < 0)
 			return -1;
