@@ -178,8 +178,8 @@ public class ControllerUsuario {
 
 	/**
 	 * Metodo responsavel por identificar um usuario no mapa de usuarios e
-	 * retornar o mesmo. Esse objeto eh amplamente utilizado pelo sistema,
-	 * inclusive sendo chave do mapa de itens.
+	 * retornar o mesmo. Esse objeto eh amplamente utilizado pelo sistema.
+	 * 
 	 * 
 	 * @param nome
 	 *            Nome do usuario.
@@ -237,7 +237,6 @@ public class ControllerUsuario {
 	}
 
 	public Set<Item> todosUsuariosItens() {
-
 		Set<Item> listaTodosItens = new HashSet<Item>();
 
 		for (Usuario usuario : this.usuarios.values()) {

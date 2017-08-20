@@ -2,7 +2,7 @@ package lp2.projetofinal.entidades;
 
 import lp2.projetofinal.interfaces.CartaoFidelidade;
 
-public class CartaoBomAmigo implements CartaoFidelidade{
+public class CartaoBomAmigo implements CartaoFidelidade {
 
 	@Override
 	public boolean permisaoPegarEmprestado() {
@@ -17,7 +17,7 @@ public class CartaoBomAmigo implements CartaoFidelidade{
 	}
 
 	@Override
-	public String getNomeCartao(){
+	public String getNomeCartao() {
 		return "BomAmigo";
 	}
 
