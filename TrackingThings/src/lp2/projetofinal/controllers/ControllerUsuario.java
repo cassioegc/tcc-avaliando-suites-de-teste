@@ -273,7 +273,6 @@ public class ControllerUsuario {
 				caloteiros.add(usuario);
 			}
 		}
-
 		Collections.sort(caloteiros, new OrdenaUsuarioAlfabetico());
 
 		for (Usuario usuario : caloteiros) {
