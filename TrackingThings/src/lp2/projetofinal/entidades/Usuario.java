@@ -54,6 +54,8 @@ public class Usuario {
 	 * @param valor = valor do tipo doule que representa o incremento para a reputacao.
 	 */
 	public void atualizaReputacao(double valor,boolean acresce) {
+		
+		
 		if (acresce) {
 			this.reputacao += valor; 
 		} else {

@@ -140,5 +140,9 @@ public class Facade {
 		return sistema.listarCaloteiros();
 	}
 	
+	public String listarTop10MelhoresUsuarios() {
+		return sistema.listarTop10MelhoresUsuarios();
+	}
+	
 }
 

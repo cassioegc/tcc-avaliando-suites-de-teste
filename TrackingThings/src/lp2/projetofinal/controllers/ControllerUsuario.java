@@ -1,7 +1,5 @@
 package lp2.projetofinal.controllers;
 
-
-
 /**
  * Classe responsavel por controlar todos os objetos Usuario cadastrados no sistema.
  * 
@@ -31,6 +29,7 @@ import lp2.projetofinal.entidades.Usuario;
 import lp2.projetofinal.interfaces.CartaoFidelidade;
 import lp2.projetofinal.orders.OrdenaItemEmprestadoAlfabetico;
 import lp2.projetofinal.orders.OrdenaUsuarioAlfabetico;
+import lp2.projetofinal.orders.OrdenaUsuarioReputacao;
 import lp2.projetofinal.util.Exceptions;
 
 public class ControllerUsuario {
@@ -267,21 +266,44 @@ public class ControllerUsuario {
 
 	public String listarCaloteiros() {
 		String stringCaloteiros = "Lista de usuarios com reputacao negativa: ";
-		
+
 		List<Usuario> caloteiros = new ArrayList<Usuario>();
-		
+
 		for (Usuario usuario : this.usuarios.values()) {
 			if (usuario.getReputacao() < 0.0) {
 				caloteiros.add(usuario);
 			}
 		}
-		
+
 		Collections.sort(caloteiros, new OrdenaUsuarioAlfabetico());
-		
+
 		for (Usuario usuario : caloteiros) {
-			stringCaloteiros += usuario.toString() + "|" ;
+			stringCaloteiros += usuario.toString() + "|";
 		}
-		
+
 		return stringCaloteiros;
+	}
+
+	public String listarTop10MelhoresUsuarios() {
+		String stringTop10MelhoresUsuarios = "";
+
+		List<Usuario> top10MelhoresUsuarios = new ArrayList<Usuario>(this.usuarios.values());
+
+		Collections.sort(top10MelhoresUsuarios, new OrdenaUsuarioReputacao());
+
+		int posicaoTop10 = 1;
+
+		for (Usuario usuario : top10MelhoresUsuarios) {
+			if (posicaoTop10 == 11) {
+				break;
+			}
+			stringTop10MelhoresUsuarios += posicaoTop10 + ": " + usuario.getNome() + " - Reputacao: "
+					+ String.format("%.2f", usuario.getReputacao()) + "|";
+
+			posicaoTop10++;
+		}
+
+		return stringTop10MelhoresUsuarios;
+
 	}
 }

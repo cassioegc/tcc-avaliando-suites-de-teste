@@ -612,6 +612,10 @@ public class Sistema {
 		return controllerUsuario.listarCaloteiros();
 	}
 	
+	public String listarTop10MelhoresUsuarios() {
+		return controllerUsuario.listarTop10MelhoresUsuarios();
+	}
+	
 	public void finalizar() {
 
 	}
