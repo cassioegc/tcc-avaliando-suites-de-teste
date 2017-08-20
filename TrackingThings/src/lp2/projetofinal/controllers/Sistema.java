@@ -549,7 +549,7 @@ public class Sistema {
 				controllerItens.identificaItem(controllerUsuario.retornaUsuarioItens(nomeDono, telefoneDono), nomeItem),
 				dataEmprestimo, dataDevolucao);
 
-		if ((diasAtraso) <= 0) {
+		if (diasAtraso <= 0) {
 			controllerUsuario.identificaUsuario(nomeRequerente, telefoneRequerente)
 					.atualizaReputacao(controllerItens
 							.identificaItem(controllerUsuario.retornaUsuarioItens(nomeDono, telefoneDono), nomeItem)
@@ -606,6 +606,10 @@ public class Sistema {
 	public String listarTop10Itens() {
 
 		return controllerItens.listarTop10Itens(controllerUsuario.todosUsuariosItens());
+	}
+	
+	public String listarCaloteiros() {
+		return controllerUsuario.listarCaloteiros();
 	}
 	
 	public void finalizar() {

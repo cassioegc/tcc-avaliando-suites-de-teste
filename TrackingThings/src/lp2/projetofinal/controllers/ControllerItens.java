@@ -303,8 +303,8 @@ public class ControllerItens {
 	/**
 	 * Metodo responsavel por identificar e retornar um item no sistema.
 	 * 
-	 * @param donoItem
-	 *            Usuario dono do item.
+	 * @param listaItens
+	 *            A lista de itens de um usuario.
 	 * @param nomeItem
 	 *            Nome do item.
 	 * 

@@ -1,5 +1,7 @@
 package lp2.projetofinal.controllers;
 
+
+
 /**
  * Classe responsavel por controlar todos os objetos Usuario cadastrados no sistema.
  * 
@@ -12,17 +14,23 @@ package lp2.projetofinal.controllers;
 
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.ArrayList;
+import java.util.Collections;
 
 import lp2.projetofinal.entidades.CartaoBomAmigo;
 import lp2.projetofinal.entidades.CartaoCaloteiro;
 import lp2.projetofinal.entidades.CartaoFreeRyder;
 import lp2.projetofinal.entidades.CartaoNoob;
 import lp2.projetofinal.entidades.ChaveNomeTelefone;
+import lp2.projetofinal.entidades.Emprestimo;
 import lp2.projetofinal.entidades.Item;
 import lp2.projetofinal.entidades.Usuario;
 import lp2.projetofinal.interfaces.CartaoFidelidade;
+import lp2.projetofinal.orders.OrdenaItemEmprestadoAlfabetico;
+import lp2.projetofinal.orders.OrdenaUsuarioAlfabetico;
 import lp2.projetofinal.util.Exceptions;
 
 public class ControllerUsuario {
@@ -255,5 +263,25 @@ public class ControllerUsuario {
 		if (usuario.getCartao().prazoEmprestimo() < periodo)
 			Exceptions.usuarioImpossibilitadoDePegarItemNessePeriodoException();
 
+	}
+
+	public String listarCaloteiros() {
+		String stringCaloteiros = "Lista de usuarios com reputacao negativa: ";
+		
+		List<Usuario> caloteiros = new ArrayList<Usuario>();
+		
+		for (Usuario usuario : this.usuarios.values()) {
+			if (usuario.getReputacao() < 0.0) {
+				caloteiros.add(usuario);
+			}
+		}
+		
+		Collections.sort(caloteiros, new OrdenaUsuarioAlfabetico());
+		
+		for (Usuario usuario : caloteiros) {
+			stringCaloteiros += usuario.toString() + "|" ;
+		}
+		
+		return stringCaloteiros;
 	}
 }

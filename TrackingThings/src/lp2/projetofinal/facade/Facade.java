@@ -136,5 +136,9 @@ public class Facade {
 		return sistema.listarTop10Itens();
 	}
 	
+	public String listarCaloteiros() {
+		return sistema.listarCaloteiros();
+	}
+	
 }
 

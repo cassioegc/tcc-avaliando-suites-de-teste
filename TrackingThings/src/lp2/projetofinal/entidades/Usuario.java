@@ -32,7 +32,6 @@ public class Usuario {
 		this.telefone = telefone;
 		this.itens = new HashSet<Item>();
 		this.reputacao = 0;
-		this.cartao = new CartaoNoob();
 	}
 	
 	/**
