@@ -250,7 +250,7 @@ public class ControllerUsuario {
 
 		Usuario usuario = identificaUsuario(nomeRequerente, telefoneRequerente);
 
-		if (!usuario.getCartao().permisaoPegarEmprestao())
+		if (!usuario.getCartao().permisaoPegarEmprestado())
 			Exceptions.usuarioNaoPodePegarItemException();
 	}
 

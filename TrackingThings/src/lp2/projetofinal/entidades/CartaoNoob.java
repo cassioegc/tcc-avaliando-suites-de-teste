@@ -5,7 +5,7 @@ import lp2.projetofinal.interfaces.CartaoFidelidade;
 public class CartaoNoob implements CartaoFidelidade{
 
 	@Override
-	public boolean permisaoPegarEmprestao() {
+	public boolean permisaoPegarEmprestado() {
 		
 		return true;
 	}
