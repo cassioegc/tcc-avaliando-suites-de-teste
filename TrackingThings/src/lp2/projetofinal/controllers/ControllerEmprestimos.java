@@ -30,6 +30,9 @@ public class ControllerEmprestimos {
 
 	private List<Emprestimo> emprestimos;
 
+	/**
+	 * Construtor de ControllerEmprestimos;
+	 */
 	public ControllerEmprestimos() {
 		this.emprestimos = new ArrayList<Emprestimo>();
 	}
@@ -172,7 +175,7 @@ public class ControllerEmprestimos {
 		for (Emprestimo emprestimo : listaEmprestimos) {
 			stringEmprestimos += emprestimo.toString() + "|";
 		}
-
+		
 		return stringEmprestimos;
 	}
 

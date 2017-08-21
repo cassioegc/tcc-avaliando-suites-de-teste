@@ -35,13 +35,17 @@ public class ControllerUsuario {
 
 	private Map<ChaveNomeTelefone, Usuario> usuarios;
 
+	/**
+	 * Construtor de ControllerUsuario;
+	 */
 	public ControllerUsuario() {
 		usuarios = new HashMap<ChaveNomeTelefone, Usuario>();
 	}
 
 	/**
-	 * Metodo responsavel por cadastrar um novo usuario no sistema. Criando
-	 * antes uma chave para ele e verificando antes sua existencia no mapa.
+	 * Metodo responsavel por cadastrar um novo usuario no sistema. Criando antes
+	 * uma chave para ele e verificando antes sua existencia no mapa. E por fim,
+	 * setando o seu cartao FreeRyder.
 	 * 
 	 * @param nome
 	 *            Nome do usuario.
@@ -116,8 +120,8 @@ public class ControllerUsuario {
 	}
 
 	/**
-	 * Metodo responsavel remover um usuario da lista de usuarios, verificando
-	 * antes sua existencia no mapa de usuarios.
+	 * Metodo responsavel remover um usuario da lista de usuarios, verificando antes
+	 * sua existencia no mapa de usuarios.
 	 * 
 	 * @param nome
 	 *            Nome do usuario.
@@ -135,9 +139,9 @@ public class ControllerUsuario {
 	}
 
 	/**
-	 * Metodo responsavel por atualizar uma informacao em um usuario.
-	 * Verificando antes sua existencia no mapa de usuarios e a existencia do
-	 * atributo escolhido.
+	 * Metodo responsavel por atualizar uma informacao em um usuario. Verificando
+	 * antes sua existencia no mapa de usuarios e a existencia do atributo
+	 * escolhido.
 	 * 
 	 * @param nome
 	 *            Nome do usuario.
@@ -177,9 +181,8 @@ public class ControllerUsuario {
 	}
 
 	/**
-	 * Metodo responsavel por identificar um usuario no mapa de usuarios e
-	 * retornar o mesmo. Esse objeto eh amplamente utilizado pelo sistema.
-	 * 
+	 * Metodo responsavel por identificar um usuario no mapa de usuarios e retornar
+	 * o mesmo.
 	 * 
 	 * @param nome
 	 *            Nome do usuario.
@@ -198,6 +201,17 @@ public class ControllerUsuario {
 		return usuarios.get(chave);
 	}
 
+	/**
+	 * Metodo responsavel por retornar o conjunto de itens do usuario escolhido para
+	 * que ela possa ser processada no controllador de itens.
+	 * 
+	 * @param nome
+	 *            Nome do usuario.
+	 * @param telefone
+	 *            Telefone do usuario.
+	 * 
+	 * @return Retorna um Set com esse conjunto.
+	 */
 	public Set<Item> retornaUsuarioItens(String nome, String telefone) {
 
 		Usuario usuario = identificaUsuario(nome, telefone);
@@ -206,6 +220,20 @@ public class ControllerUsuario {
 
 	}
 
+	/**
+	 * Metodo responsavel por atualizar a reputacao de um usuario, sempre que
+	 * solicitado pelo sistema. Apos essa atualizando, indicando se ela eh possitava
+	 * ou negativa a partir de um booleano, o cartao do usuario eh atualizado.
+	 * 
+	 * @param nome
+	 *            Nome do usuario.
+	 * @param telefone
+	 *            Telefone do usuario.
+	 * @param valor
+	 *            Valor da modificacao na reputacao.
+	 * @param acresce
+	 *            Indicador de acrescimo ou decrescimo na reputacao.
+	 */
 	public void atualizaReputacao(String nome, String telefone, double valor, boolean acresce) {
 
 		Usuario usuario = identificaUsuario(nome, telefone);
@@ -216,7 +244,16 @@ public class ControllerUsuario {
 
 	}
 
-	public void atualizaCartaoFidelidade(String nome, String telefone) {
+	/**
+	 * Metodo responsavel por modificar o cartao fidelidade de um usuario, caso seja
+	 * necessario.
+	 * 
+	 * @param nome
+	 *            Nome do usuario escolhido.
+	 * @param telefone
+	 *            Telefone do usuario escolhido.
+	 */
+	private void atualizaCartaoFidelidade(String nome, String telefone) {
 
 		Usuario usuario = identificaUsuario(nome, telefone);
 		Double reputacao = usuario.getReputacao();
@@ -236,6 +273,12 @@ public class ControllerUsuario {
 
 	}
 
+	/**
+	 * Metodo responsavel por retornar os itens de todos os usuarios cadastrados no
+	 * sistema.
+	 * 
+	 * @return Retorna um set com esses valores.
+	 */
 	public Set<Item> todosUsuariosItens() {
 		Set<Item> listaTodosItens = new HashSet<Item>();
 
@@ -245,6 +288,15 @@ public class ControllerUsuario {
 		return listaTodosItens;
 	}
 
+	/**
+	 * Metodo responsavel verificar a fidelidade de um usuario, lancando uma excecao
+	 * quando o mesmo nao tiver essa permissao.
+	 * 
+	 * @param nomeRequerente
+	 *            Nome do usuario que sera analisado.
+	 * @param telefoneRequerente
+	 *            Telefone do usuario que sera analisado.
+	 */
 	public void verificaFidelidadeUsuario(String nomeRequerente, String telefoneRequerente) {
 
 		Usuario usuario = identificaUsuario(nomeRequerente, telefoneRequerente);
@@ -253,6 +305,17 @@ public class ControllerUsuario {
 			Exceptions.usuarioNaoPodePegarItemException();
 	}
 
+	/**
+	 * Metodo responsavel por verificar a disponibilidade de um usuario pegar um
+	 * item pela quantidade de dias indicada.
+	 * 
+	 * @param nomeRequerente
+	 *            Nome do usuario.
+	 * @param telefoneRequerente
+	 *            Telefone do usuario.
+	 * @param periodo
+	 *            Periodo de dias solicitado.
+	 */
 	public void verificadisponibilidadeUsuario(String nomeRequerente, String telefoneRequerente, int periodo) {
 
 		Usuario usuario = identificaUsuario(nomeRequerente, telefoneRequerente);
@@ -262,6 +325,12 @@ public class ControllerUsuario {
 
 	}
 
+	/**
+	 * Metodo responsavel por listar os caloteiros do sistema, ou seja aqueles que
+	 * tem a reputacao menor que zero.
+	 * 
+	 * @return Retorna uma string com essa listagem.
+	 */
 	public String listarCaloteiros() {
 		String stringCaloteiros = "Lista de usuarios com reputacao negativa: ";
 
@@ -277,10 +346,15 @@ public class ControllerUsuario {
 		for (Usuario usuario : caloteiros) {
 			stringCaloteiros += usuario.toString() + "|";
 		}
-
 		return stringCaloteiros;
 	}
 
+	/**
+	 * Metodo responsavel por listar os dez melhores usuarios cadastrados no
+	 * sistema, ou seja, aqueles que tem as melhores reputacoes.
+	 * 
+	 * @return Retorna uma string com essa listagem.
+	 */
 	public String listarTop10MelhoresUsuarios() {
 		String stringTop10MelhoresUsuarios = "";
 
@@ -299,11 +373,16 @@ public class ControllerUsuario {
 
 			posicaoTop10++;
 		}
-
 		return stringTop10MelhoresUsuarios;
 
 	}
 
+	/**
+	 * Metodo responsvel por listar os dez piores usuarios cadastrados no sistema,
+	 * ou seja, aqueles que tem as piores reputacoes.
+	 * 
+	 * @return Retorna uma string com essa listagem.
+	 */
 	public String listarTop10PioresUsuarios() {
 		String stringTop10PioresUsuarios = "";
 
@@ -322,7 +401,6 @@ public class ControllerUsuario {
 
 			posicaoTop10++;
 		}
-
 		return stringTop10PioresUsuarios;
 	}
 }
