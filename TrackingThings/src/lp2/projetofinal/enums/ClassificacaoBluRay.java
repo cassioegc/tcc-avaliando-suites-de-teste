@@ -37,7 +37,6 @@ public enum ClassificacaoBluRay {
 
 		case "LIVRE":
 			return ClassificacaoBluRay.LIVRE;
-		// NAO PRECISA DO BREAK NE?
 		case "DEZ_ANOS":
 			return ClassificacaoBluRay.DEZ_ANOS;
 		case "DOZE_ANOS":
@@ -50,7 +49,6 @@ public enum ClassificacaoBluRay {
 			return ClassificacaoBluRay.DEZOITO_ANOS;
 
 		}
-		/// RETORNA OQ SE TUDO DER ERRADO?
 		return null;
 	}
 
