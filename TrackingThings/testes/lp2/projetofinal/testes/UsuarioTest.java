@@ -15,7 +15,10 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
+import lp2.projetofinal.entidades.CartaoFreeRyder;
+import lp2.projetofinal.entidades.CartaoNoob;
 import lp2.projetofinal.entidades.Usuario;
+import lp2.projetofinal.interfaces.CartaoFidelidade;
 
 public class UsuarioTest {
 	
@@ -79,6 +82,31 @@ public class UsuarioTest {
 		
 		assertFalse(usuarioUm.equals(usuarioDois));
 		assertTrue(usuarioUm.equals(usuarioTres));
+	}
+	
+	@Test
+	public void testGetReputacaoEAtualizaReputacao(){
+		assertEquals(0.0, usuarioUm.getReputacao(), 0.01);
+		usuarioUm.atualizaReputacao(7.30, true);
+		assertEquals(7.30, usuarioUm.getReputacao(), 0.01);
+	}
+	
+	@Test
+	public void testCompareTo(){
+		Usuario usuarioDois = new Usuario("Gabriel Almeida", "gabriel@ccc.ufcg.edu.br", "9999-7777");
+		assertEquals(11, usuarioUm.compareTo(usuarioDois));
+		assertEquals(0, usuarioUm.compareTo(usuarioUm));
+	}
+	
+	@Test
+	public void testGetCartaoESetCartao(){
+		CartaoFidelidade cartao = new CartaoNoob();
+		CartaoFidelidade cartao2 = new CartaoFreeRyder();
+		
+		usuarioUm.setCartao(cartao);
+		assertEquals(cartao, usuarioUm.getCartao());
+		usuarioUm.setCartao(cartao2);
+		assertEquals(cartao2, usuarioUm.getCartao());
 	}
 
 }
