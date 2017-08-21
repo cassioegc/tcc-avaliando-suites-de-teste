@@ -1,9 +1,5 @@
 package lp2.projetofinal.controllers;
 
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-
 /**
  * Classe responsavel por controlar todos os objetos Emprestimo registrados no sistema.
  * 
@@ -13,6 +9,10 @@ import java.text.SimpleDateFormat;
  * @author Gabriel Almeida Azevedo - 116210009
  * @author Marcelo Gabriel dos Santos Queiroz Vitorino - 116211290
  */
+
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -67,7 +67,8 @@ public class ControllerEmprestimos {
 
 	/**
 	 * Metodo responsavel realizar a devolução do item que foi emprestado,
-	 * identifando antes o objeto do tipo Emprestimo na lista de emprestimos.
+	 * identifando antes o objeto do tipo Emprestimo na lista de emprestimos e
+	 * apos a devolucao, retorna o total de dias percorridos.
 	 * 
 	 * @param donoItem
 	 *            Objeto do tipo Usuario resgatado pelo controlador de usuarios
@@ -81,6 +82,8 @@ public class ControllerEmprestimos {
 	 *            Dado da solicitação do emprestimo, passada como string.
 	 * @param dataDevolucao
 	 *            Data da entrega do item.
+	 * 
+	 * @return Retorna um int com a quantidade de dias percorridos.
 	 */
 	public int devolverItem(Usuario donoItem, Usuario requerenteItem, Item item, String dataEmprestimo,
 			String dataDevolucao) {
@@ -97,7 +100,7 @@ public class ControllerEmprestimos {
 	/**
 	 * Metodo responsavel por identificar um Emprestimo na lista de emprestimo.
 	 * Para isso ele instancia uma referencia de desse objeto emprestimo para
-	 * que seja possivel encontrar igual na lista.
+	 * que seja possivel encontrar o igual na lista.
 	 * 
 	 * @param donoItem
 	 *            Objeto do tipo Usuario resgatado pelo controlador de usuarios
@@ -121,6 +124,15 @@ public class ControllerEmprestimos {
 		return this.emprestimos.get(this.emprestimos.indexOf(emprestimo));
 	}
 
+	/**
+	 * Metodo responsavel por listar os emprestimos em que o usuario eh o dono
+	 * do item, em ordem alfabetica pelo nome do item.
+	 * 
+	 * @param usuario
+	 *            Objeto usuario dono do item no emprestimo.
+	 * 
+	 * @return Retorna uma string com essa listagem.
+	 */
 	public String listarEmprestimosEmprestandoOrdenadosPorNomeItem(Usuario usuario) {
 
 		List<Emprestimo> listaEmprestimos = retornaListaEmprestimos(usuario, true);
@@ -138,6 +150,15 @@ public class ControllerEmprestimos {
 		return stringEmprestimos;
 	}
 
+	/**
+	 * Metodo responsavel por listar os emprestimos em que o usuario eh o
+	 * requerente do item, em ordem alfabetica pelo nome do item.
+	 * 
+	 * @param usuario
+	 *            Objeto usuario requerente do item no emprestimo.
+	 * 
+	 * @return Retorna uma string com essa listagem.
+	 */
 	public String listarEmprestimosRequerenteOrdenadosPorNomeItem(Usuario usuario) {
 
 		List<Emprestimo> listaEmprestimos = retornaListaEmprestimos(usuario, false);
@@ -155,7 +176,20 @@ public class ControllerEmprestimos {
 		return stringEmprestimos;
 	}
 
-	public List<Emprestimo> retornaListaEmprestimos(Usuario usuario, boolean emprestando) {
+	/**
+	 * Metodo responsavel por retornar a lista com os emprestimos em que o
+	 * usuario faz parte. No caso do booleano ser true, retorna os que ele eh o
+	 * dono do item, e no caso de false, os que ele eh o requerente.
+	 * 
+	 * @param usuario
+	 *            Usuario que sera comparado.
+	 * 
+	 * @param emprestando
+	 *            Booleano com a escolha de referencia para usuario.
+	 * 
+	 * @return Retorna uma lista com esses emprestimos.
+	 */
+	private List<Emprestimo> retornaListaEmprestimos(Usuario usuario, boolean emprestando) {
 
 		List<Emprestimo> listaEmprestimos = new ArrayList<Emprestimo>();
 
@@ -172,6 +206,16 @@ public class ControllerEmprestimos {
 		return listaEmprestimos;
 	}
 
+	/**
+	 * Metodo responsavel os emprestimos em que o item participou, idependente
+	 * de serem o mesmo item no sistema ou do mesmo dono.
+	 * 
+	 * @param nomeItem
+	 *            Nome do item.
+	 * 
+	 * @return Retorna uma string com a lista de emprestimos associados a esse
+	 *         item.
+	 */
 	public String listarEmprestimosItens(String nomeItem) {
 
 		String stringEmprestimos = "Emprestimos associados ao item: ";
@@ -189,6 +233,13 @@ public class ControllerEmprestimos {
 
 	}
 
+	/**
+	 * Metodo responsavel por listar os itens que estão sendo emprestados no
+	 * momento, em ordem alfabetica. Mas especificamente, o nome do dono do item
+	 * e o nome dele.
+	 * 
+	 * @return Retorna uma string com essas listagem.
+	 */
 	public String listarItensEmprestados() {
 
 		String stringItens = "";
@@ -211,6 +262,19 @@ public class ControllerEmprestimos {
 		return stringItens;
 	}
 
+	/**
+	 * Metodo responsavel por calcular e retornar os dias percorridos dentre a
+	 * data de devolucao e data de emprestimo.
+	 * 
+	 * @param dataEmprestimo
+	 *            String da data de emprestimo.
+	 * @param dataDevolucao
+	 *            String da data de devolucao.
+	 * @param diasParaDevolucao
+	 *            Periodo de dias acordado no empresimo.
+	 * 
+	 * @return Retorna um int com esse calculo.
+	 */
 	private int calcularDiasAtraso(String dataEmprestimo, String dataDevolucao, int diasParaDevolucao) {
 
 		DateFormat formatoData = new SimpleDateFormat("dd/MM/yyyy");
@@ -226,7 +290,6 @@ public class ControllerEmprestimos {
 		} catch (ParseException e) {
 		}
 		return 0;
-
 	}
 
 }

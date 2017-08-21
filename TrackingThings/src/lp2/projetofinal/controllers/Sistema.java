@@ -545,13 +545,13 @@ public class Sistema {
 		Checks.verificaDataEmprestimoVaziaNula(dataEmprestimo);
 		Checks.verificaDataDevolucaoVaziaNula(dataDevolucao);
 
-		int diasPassados = controllerEmprestimos.devolverItem(
+		int diasAtraso = controllerEmprestimos.devolverItem(
 				controllerUsuario.identificaUsuario(nomeDono, telefoneDono),
 				controllerUsuario.identificaUsuario(nomeRequerente, telefoneRequerente),
 				controllerItens.identificaItem(controllerUsuario.retornaUsuarioItens(nomeDono, telefoneDono), nomeItem),
 				dataEmprestimo, dataDevolucao);
 
-		if (diasPassados <= 0) {
+		if (diasAtraso <= 0) {
 			controllerUsuario
 					.atualizaReputacao(nomeRequerente, telefoneRequerente,
 							controllerItens.identificaItem(
@@ -563,7 +563,7 @@ public class Sistema {
 					.atualizaReputacao(nomeRequerente, telefoneRequerente,
 							controllerItens.identificaItem(
 									controllerUsuario.retornaUsuarioItens(nomeDono, telefoneDono), nomeItem).getPreco()
-									* diasPassados * 0.01,
+									* diasAtraso * 0.01,
 							false);
 		}
 	}
