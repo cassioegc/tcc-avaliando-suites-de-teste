@@ -5,7 +5,7 @@ import java.util.Set;
 
 import lp2.projetofinal.interfaces.CartaoFidelidade;
 
-public class Usuario {
+public class Usuario implements Comparable<Usuario>{
 
 	private String nome;
 	private String email;
@@ -170,5 +170,10 @@ public class Usuario {
 	
 	public Set<Item> retornaSeusItens(){
 		return this.itens;
+	}
+
+	@Override
+	public int compareTo(Usuario usuario) {
+		return this.nome.compareTo(usuario.getNome());
 	}
 }

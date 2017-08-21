@@ -26,7 +26,6 @@ import lp2.projetofinal.entidades.ChaveNomeTelefone;
 import lp2.projetofinal.entidades.Item;
 import lp2.projetofinal.entidades.Usuario;
 import lp2.projetofinal.interfaces.CartaoFidelidade;
-import lp2.projetofinal.orders.OrdenaUsuarioAlfabetico;
 import lp2.projetofinal.orders.OrdenaUsuarioReputacaoCrescente;
 import lp2.projetofinal.orders.OrdenaUsuarioReputacaoDecrescente;
 import lp2.projetofinal.util.Exceptions;
@@ -341,7 +340,7 @@ public class ControllerUsuario {
 				caloteiros.add(usuario);
 			}
 		}
-		Collections.sort(caloteiros, new OrdenaUsuarioAlfabetico());
+		Collections.sort(caloteiros);
 
 		for (Usuario usuario : caloteiros) {
 			stringCaloteiros += usuario.toString() + "|";

@@ -13,7 +13,7 @@ package lp2.projetofinal.entidades;
 
 import lp2.projetofinal.enums.EstadoItem;
 
-public abstract class Item {
+public abstract class Item implements Comparable<Item>{
 
 	private String nome;
 
@@ -189,5 +189,8 @@ public abstract class Item {
 	}
 	
 	
-
+	@Override
+	public int compareTo(Item item) {
+		return this.nome.compareTo(item.getNome());
+	}
 }

@@ -22,9 +22,8 @@ import lp2.projetofinal.entidades.Item;
 import lp2.projetofinal.entidades.JogoEletronico;
 import lp2.projetofinal.entidades.JogoTabuleiro;
 import lp2.projetofinal.enums.EstadoItem;
-import lp2.projetofinal.orders.OrdenaItemAlfabetico;
 import lp2.projetofinal.orders.OrdenaItemNumeroEmprestimos;
-import lp2.projetofinal.orders.OrdenaItemPreco;
+import lp2.projetofinal.orders.OrdenaItemPeloPreco;
 import lp2.projetofinal.util.Exceptions;
 
 public class ControllerItens {
@@ -279,7 +278,7 @@ public class ControllerItens {
 	public String listarItensOrdenadosPorNome(Set<Item> listaTodosItens) {
 
 		List<Item> listaItensOrdenada = new ArrayList<Item>(listaTodosItens);
-		Collections.sort(listaItensOrdenada, new OrdenaItemAlfabetico());
+		Collections.sort(listaItensOrdenada);
 
 		String itensString = "";
 		for (Item item : listaItensOrdenada) {
@@ -297,7 +296,7 @@ public class ControllerItens {
 	public String listarItensOrdenadosPorValor(Set<Item> listaTodosItens) {
 
 		List<Item> listaItensOrdenada = new ArrayList<Item>(listaTodosItens);
-		Collections.sort(listaItensOrdenada, new OrdenaItemPreco());
+		Collections.sort(listaItensOrdenada, new OrdenaItemPeloPreco());
 
 		String itensString = "";
 		for (Item item : listaItensOrdenada) {
@@ -339,7 +338,7 @@ public class ControllerItens {
 
 		String stringItens = "";
 		List<Item> listaItensOrdenada = new ArrayList<Item>(listaTodosItens);
-		Collections.sort(listaItensOrdenada, new OrdenaItemAlfabetico());
+		Collections.sort(listaItensOrdenada);
 
 		for (Item item : listaItensOrdenada) {
 			if (item.getEstado().equals(EstadoItem.NAO_EMPRESTADO.getEstado()))
