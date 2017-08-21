@@ -36,12 +36,12 @@ public class ControllerItens {
 	}
 
 	/**
-	 * Metodo com polimorfismo parametrico. Ele tem responsabilidade de
-	 * cadastrar um novo item no sistema. Mas especificamente um subtipo Jogo
-	 * Eletronico.
+	 * Metodo com polimorfismo parametrico. Ele tem responsabilidade de cadastrar um
+	 * novo item no sistema. Mas especificamente um subtipo Jogo Eletronico.
 	 * 
-	 * @param set
-	 *            Usuario dono do item e chave no hashmap de itens.
+	 * @param listaItens
+	 *            Conjunto de itens que pertecem ao usuario escolhido para o
+	 *            cadastro.
 	 * @param nomeItem
 	 *            Nome do item que sera cadastrado.
 	 * @param preco
@@ -52,17 +52,16 @@ public class ControllerItens {
 	public void adicionaItem(Set<Item> listaItens, String nomeItem, double preco, String plataforma) {
 
 		JogoEletronico jogoEletronico = new JogoEletronico(nomeItem, preco, plataforma);
-
 		listaItens.add(jogoEletronico);
 	}
 
 	/**
-	 * Metodo com polimorfismo parametrico. Ele tem responsabilidade de
-	 * cadastrar um novo item no sistema. Mas especificamente um subtipo Jogo
-	 * Tabuleiro.
+	 * Metodo com polimorfismo parametrico. Ele tem responsabilidade de cadastrar um
+	 * novo item no sistema. Mas especificamente um subtipo Jogo Tabuleiro.
 	 * 
 	 * @param listaItens
-	 *            Usuario dono do item e chave no hashmap de itens.
+	 *            Conjunto de itens que pertecem ao usuario escolhido para o
+	 *            cadastro.
 	 * @param nomeItem
 	 *            Nome do item que sera cadastrado.
 	 * @param preco
@@ -71,18 +70,17 @@ public class ControllerItens {
 	public void adicionaItem(Set<Item> listaItens, String nomeItem, double preco) {
 
 		JogoTabuleiro jogoTabuleiro = new JogoTabuleiro(nomeItem, preco);
-
 		listaItens.add(jogoTabuleiro);
 
 	}
 
 	/**
-	 * Metodo com polimorfismo parametrico. Ele tem responsabilidade de
-	 * cadastrar um novo item no sistema. Mas especificamente um subtipo
-	 * BlurayFilme.
+	 * Metodo com polimorfismo parametrico. Ele tem responsabilidade de cadastrar um
+	 * novo item no sistema. Mas especificamente um subtipo BlurayFilme.
 	 * 
 	 * @param listaItens
-	 *            Usuario dono do item e chave no hashmap de itens.
+	 *            Conjunto de itens que pertecem ao usuario escolhido para o
+	 *            cadastro.
 	 * @param nomeItem
 	 *            Nome do item que sera cadastrado.
 	 * @param preco
@@ -100,17 +98,16 @@ public class ControllerItens {
 			String classificacao, int anoLancamento) {
 
 		BluRayFilme bluRayFilme = new BluRayFilme(nomeItem, preco, duracao, genero, classificacao, anoLancamento);
-
 		listaItens.add(bluRayFilme);
 	}
 
 	/**
-	 * Metodo com polimorfismo parametrico. Ele tem responsabilidade de
-	 * cadastrar um novo item no sistema. Mas especificamente um subtipo
-	 * BlurayShow.
+	 * Metodo com polimorfismo parametrico. Ele tem responsabilidade de cadastrar um
+	 * novo item no sistema. Mas especificamente um subtipo BlurayShow.
 	 * 
-	 * @param donoItem
-	 *            Usuario dono do item e chave no hashmap de itens.
+	 * @param listaItens
+	 *            Conjunto de itens que pertecem ao usuario escolhido para o
+	 *            cadastro.
 	 * @param nomeItem
 	 *            Nome do item que sera cadastrado.
 	 * @param preco
@@ -128,18 +125,16 @@ public class ControllerItens {
 			String artista, String classificacao) {
 
 		BluRayShow bluRayShow = new BluRayShow(nomeItem, preco, duracao, classificacao, artista, numeroFaixas);
-
 		listaItens.add(bluRayShow);
-
 	}
 
 	/**
-	 * Metodo com polimorfismo parametrico. Ele tem responsabilidade de
-	 * cadastrar um novo item no sistema. Mas especificamente um subtipo
-	 * BluraySerie.
+	 * Metodo com polimorfismo parametrico. Ele tem responsabilidade de cadastrar um
+	 * novo item no sistema. Mas especificamente um subtipo BluraySerie.
 	 * 
 	 * @param listaItens
-	 *            Usuario dono do item e chave no hashmap de itens.
+	 *            Conjunto de itens que pertecem ao usuario escolhido para o
+	 *            cadastro.
 	 * @param nomeItem
 	 *            Nome do item que sera cadastrado.
 	 * @param preco
@@ -167,11 +162,11 @@ public class ControllerItens {
 
 	/**
 	 * Metodo responsavel por adicionar um bluray episodio ao bluray serie
-	 * escolhido. Verificando antes sua existencia nos itens cadastrados desse
-	 * usuario.
+	 * escolhido. Encontrando antes o item para o cadastro.
 	 * 
-	 * @param donoItem
-	 *            Usuario dono do item.
+	 * @param listaItens
+	 *            Conjunto de itens que pertecem ao usuario escolhido para o
+	 *            cadastro.
 	 * @param nomeItem
 	 *            Nome do bluray serie.
 	 * @param duracao
@@ -185,10 +180,11 @@ public class ControllerItens {
 
 	/**
 	 * Metodo responsavel por cadastrar uma peca perdida no tabuleiro escolhido.
-	 * Verificando antes a existencia desse item no mapa de itens desse usuario.
+	 * Encontrando antes o item para o cadastro.
 	 * 
-	 * @param donoItem
-	 *            Usuario dono do item.
+	 * @param listaItens
+	 *            Conjunto de itens que pertecem ao usuario escolhido para o
+	 *            cadastro.
 	 * @param nomeItem
 	 *            Nome do jogo de tabuleiro.
 	 * @param nomePeca
@@ -202,11 +198,12 @@ public class ControllerItens {
 	}
 
 	/**
-	 * Metodo responsavel por atualizar um item. Verificando antes sua
-	 * existencia no mapa de itens do usuario escolhido.
+	 * Metodo responsavel por atualizar um item. Encontrando antes o item para a
+	 * atualizacao.
 	 * 
-	 * @param donoItem
-	 *            Usuario dono do item.
+	 * @param listaItens
+	 *            Conjunto de itens que pertecem ao usuario escolhido para a
+	 *            atualizacao.
 	 * @param nomeItem
 	 *            Nome do item escolhido.
 	 * @param atributo
@@ -222,11 +219,11 @@ public class ControllerItens {
 	}
 
 	/**
-	 * Metodo responsavel por remover um item do mapa de itens de um usuario.
-	 * Verificando antes a existencia do mesmo.
+	 * Metodo responsavel por remover um item do conjunto de itens de um usuario.
 	 * 
-	 * @param donoItem
-	 *            Usuario dono do item.
+	 * @param listaItens
+	 *            Conjunto de itens que pertecem ao usuario escolhido para a
+	 *            remocao.
 	 * @param nomeItem
 	 *            Nome do item.
 	 */
@@ -237,12 +234,12 @@ public class ControllerItens {
 	}
 
 	/**
-	 * Metodo responsavel por retornar o valor do atributo escolhido,
-	 * solicitando ao item que reconheca qual atributo eh ja que eles podem
-	 * divergir de atributos.
+	 * Metodo responsavel por retornar o valor do atributo escolhido, solicitando ao
+	 * item que reconheca qual atributo eh ja que eles podem divergir de atributos.
 	 * 
-	 * @param donoItem
-	 *            Usuario dono do item.
+	 * @param listaItens
+	 *            Conjunto de itens que pertecem ao usuario escolhido para a
+	 *            recuperacao de informacao.
 	 * @param nomeItem
 	 *            Nome do item.
 	 * @param atributo
@@ -257,11 +254,12 @@ public class ControllerItens {
 	}
 
 	/**
-	 * Metodo responsavel todas as informacoes de um item a partir do toString
-	 * dele.
+	 * Metodo responsavel por retornar todas as informacoes de um item a partir do
+	 * toString dele.
 	 * 
-	 * @param donoItem
-	 *            Usuario dono do item.
+	 * @param listaItens
+	 *            Conjunto de itens que pertecem ao usuario escolhido para a
+	 *            recuperacao de informacao.
 	 * @param nomeItem
 	 *            Nome do item.
 	 * 
@@ -274,8 +272,7 @@ public class ControllerItens {
 	}
 
 	/**
-	 * Metodo responsavel por listar todos os itens do sistema em ordem
-	 * alfabetica.
+	 * Metodo responsavel por listar todos os itens do sistema em ordem alfabetica.
 	 * 
 	 * @return Retorna uma string com essa listagem.
 	 */
@@ -313,7 +310,7 @@ public class ControllerItens {
 	 * Metodo responsavel por identificar e retornar um item no sistema.
 	 * 
 	 * @param listaItens
-	 *            A lista de itens de um usuario.
+	 *            O conjunto de itens de um usuario.
 	 * @param nomeItem
 	 *            Nome do item.
 	 * 
@@ -329,6 +326,15 @@ public class ControllerItens {
 		return null;
 	}
 
+	/**
+	 * Metodo responsavel por listar os itens do sistema que nao estao sendo
+	 * emprestados no momento. Levando em consideracao a ordem alfabetica.
+	 * 
+	 * @param listaTodosItens
+	 *            Conjunto de todos os itens do sistema.
+	 * 
+	 * @return Retorna uma string com essa listagem.
+	 */
 	public String listarItensNaoEmprestados(Set<Item> listaTodosItens) {
 
 		String stringItens = "";
@@ -342,6 +348,15 @@ public class ControllerItens {
 		return stringItens;
 	}
 
+	/**
+	 * Metodo responsavel por listar os dez itens que foram mais emprestados no
+	 * sistema.
+	 * 
+	 * @param listaTodosItens
+	 *            Conjunto de todos os itens do sistema.
+	 * 
+	 * @return Retorna uma string com essa listagem.
+	 */
 	public String listarTop10Itens(Set<Item> listaTodosItens) {
 		List<Item> listaItensOrdenada = new ArrayList<Item>(listaTodosItens);
 		Collections.sort(listaItensOrdenada, new OrdenaItemNumeroEmprestimos());
@@ -358,7 +373,6 @@ public class ControllerItens {
 				numeroItens++;
 			}
 		}
-
 		return top10ItensString;
 	}
 }

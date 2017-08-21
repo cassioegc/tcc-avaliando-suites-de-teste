@@ -143,6 +143,4 @@ public class Emprestimo {
 		return true;
 	}
 
-
-
 }
