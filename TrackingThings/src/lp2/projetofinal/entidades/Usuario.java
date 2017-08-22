@@ -1,5 +1,15 @@
 package lp2.projetofinal.entidades;
 
+/**
+ * Classe responsavel por representar um usuario para o sistema. O usuario contem um conjunto com seus itens.
+ * 
+ * Laboratorio de Programacao 2 - Projeto Final Parte 01
+ * 
+ * @author Thiago Santos de Moura - 116210967
+ * @author Gabriel Almeida Azevedo - 116210009
+ * @author Marcelo Gabriel dos Santos Queiroz Vitorino - 116211290
+ */
+
 import java.util.HashSet;
 import java.util.Set;
 
@@ -15,7 +25,7 @@ public class Usuario implements Comparable<Usuario>{
 	private CartaoFidelidade cartao;
 
 	/**
-	 * Cria um usuario com nome, email e telefone
+	 * Cria um usuario com nome, email e telefone.
 	 *
 	 * @param nome
 	 *            O nome do usuario.
@@ -42,7 +52,7 @@ public class Usuario implements Comparable<Usuario>{
 	}
 	
 	/**
-	 * metodo que muda o tipo do cartao do usuario.
+	 * Metodo responsavel por setar o novo cartao do usuario.
 	 * @param cartao = CartaoFidelidade com o novo tipo.
 	 */
 	public void setCartao(CartaoFidelidade cartao){
@@ -172,6 +182,9 @@ public class Usuario implements Comparable<Usuario>{
 		return this.itens;
 	}
 
+	/**
+	 * Objetos usuarios sao comparados pelo nome, de forma alfabetica.
+	 */
 	@Override
 	public int compareTo(Usuario usuario) {
 		return this.nome.compareTo(usuario.getNome());

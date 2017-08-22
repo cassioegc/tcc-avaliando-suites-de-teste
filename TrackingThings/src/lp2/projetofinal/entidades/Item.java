@@ -188,7 +188,9 @@ public abstract class Item implements Comparable<Item>{
 		return this.numeroEmprestimos;
 	}
 	
-	
+	/**
+	 * Objetos itens sao comparados pelo nome, de forma alfabetica.
+	 */
 	@Override
 	public int compareTo(Item item) {
 		return this.nome.compareTo(item.getNome());
