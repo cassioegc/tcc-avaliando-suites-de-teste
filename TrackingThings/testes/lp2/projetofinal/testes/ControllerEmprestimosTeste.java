@@ -82,8 +82,11 @@ public class ControllerEmprestimosTeste {
 	public void testDevolverItem() {
 		controllerEmprestimos.registrarEmprestimo(usuario2, usuario1, item2, "10/08/2017", 14);
 		assertEquals("Emprestado", item2.getEstado());
-		controllerEmprestimos.devolverItem(usuario2, usuario1, item2, "10/08/2017", "20/08/2017");
+		assertEquals(-4, controllerEmprestimos.devolverItem(usuario2, usuario1, item2, "10/08/2017", "20/08/2017"));
 		assertEquals("Nao emprestado", item2.getEstado());
+		
+		controllerEmprestimos.registrarEmprestimo(usuario2, usuario1, item2, "22/08/2017", 5);
+		assertEquals(2, controllerEmprestimos.devolverItem(usuario2, usuario1, item2, "22/08/2017", "29/08/2017"));	
 	}
 	
 }
