@@ -239,7 +239,7 @@ public class ControllerUsuario {
 
 		usuario.atualizaReputacao(valor, acresce);
 
-		atualizaCartaoFidelidade(nome, telefone);
+		atualizaCartaoFidelidade(usuario);
 
 	}
 
@@ -252,9 +252,8 @@ public class ControllerUsuario {
 	 * @param telefone
 	 *            Telefone do usuario escolhido.
 	 */
-	private void atualizaCartaoFidelidade(String nome, String telefone) {
+	private void atualizaCartaoFidelidade(Usuario usuario) {
 
-		Usuario usuario = identificaUsuario(nome, telefone);
 		Double reputacao = usuario.getReputacao();
 
 		CartaoFidelidade cartao = new CartaoNoob();
