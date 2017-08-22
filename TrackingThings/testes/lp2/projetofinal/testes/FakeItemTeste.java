@@ -60,7 +60,7 @@ public class FakeItemTeste {
 	}
 	
 	@Test
-	public void testInfoAtributo() {
+	public void testGetInfoAtributo() {
 		assertEquals("Xadrez",fakeItem.getInfo("Nome"));
 		assertEquals("50.0",fakeItem.getInfo("Preco"));
 		
@@ -93,6 +93,21 @@ public class FakeItemTeste {
 		assertEquals("Xadrez, R$ 50.0, Emprestado, ",fakeItem.toString());
 
 	}
-
+	
+	@Test
+	public void testGetNumeroEmprestimosEAtualizaNumeroEmprestimos(){
+		assertEquals(0, fakeItem.getNumeroEmprestimos());
+		fakeItem.atualizaNumeroEmprestimos();
+		fakeItem.atualizaNumeroEmprestimos();
+		assertEquals(2, fakeItem.getNumeroEmprestimos());
+	}
+	
+	@Test
+	public void testCompareTo(){
+		FakeItem fakeItemDois = new FakeItem("War", 200.00);
+		assertEquals(-1, fakeItemDois.compareTo(fakeItem));
+		assertEquals(0, fakeItem.compareTo(fakeItem));
+		assertEquals(1, fakeItem.compareTo(fakeItemDois));
+	}
 	
 }
