@@ -43,8 +43,8 @@ public class Exceptions {
 	}
 
 	/**
-	 * Metodo que lanca excessao caso o item cujo emprestimo esta sendo
-	 * realizado ja esteja emprestado.
+	 * Metodo que lanca excessao caso o item cujo emprestimo esta sendo realizado ja
+	 * esteja emprestado.
 	 */
 	public static void itemEmprestadoNoMomento() {
 		throw new IllegalArgumentException("Item emprestado no momento");
@@ -57,15 +57,24 @@ public class Exceptions {
 		throw new IllegalArgumentException("Emprestimo nao encontrado");
 	}
 
+	/**
+	 * Metodo que lanca excessao caso o usuario nao tenha nenhum item emprestado.
+	 */
 	public static void nenhumItemEmprestado() {
 		throw new IllegalArgumentException("Nenhum item emprestado");
 	}
-	
+
+	/**
+	 * Metodo que lanca excessao caso o usuario tenha uma reputacao negativa.
+	 */
 	public static void usuarioNaoPodePegarItemException() {
 		throw new IllegalArgumentException("Usuario nao pode pegar nenhum item emprestado");
 	}
-	
 
+	/**
+	 * Metodo que lanca excessao caso o usuario tente pegar um item por um periodo
+	 * maior do que o cartao dele permite.
+	 */
 	public static void usuarioImpossibilitadoDePegarItemNessePeriodoException() {
 		throw new IllegalArgumentException("Usuario impossiblitado de pegar emprestado por esse periodo");
 	}
