@@ -2,7 +2,7 @@ package lp2.projetofinal.orders;
 
 /**
  * Classe responsavel por implementar a interface Comparator e criar um criterio de comparacao para itens. 
- * Criterio pela quantidade de apostas.
+ * Criterio pelo preco do item.
  * 
  * Laboratorio de Programacao 2 - Projeto Final Parte 01
  * 
