@@ -261,11 +261,9 @@ public class ControllerUsuario {
 
 		if (reputacao < 0.0)
 			cartao = new CartaoCaloteiro();
-
 		else if (reputacao > 100.0)
 			cartao = new CartaoBomAmigo();
-		else if (reputacao >= 0) {
-			if (usuario.retornaSeusItens().isEmpty())
+		else if (reputacao >= 0 && usuario.retornaSeusItens().isEmpty()) {
 				cartao = new CartaoFreeRyder();
 		}
 		usuario.setCartao(cartao);
