@@ -12,136 +12,137 @@ package lp2.projetofinal.testes;
  */
 import static org.junit.Assert.assertEquals;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import org.junit.Before;
 import org.junit.Test;
 
 import lp2.projetofinal.controllers.ControllerItens;
+import lp2.projetofinal.entidades.Item;
 import lp2.projetofinal.entidades.JogoEletronico;
 import lp2.projetofinal.entidades.JogoTabuleiro;
-import lp2.projetofinal.entidades.Usuario;
 
 public class ControllerItensTeste {
-/**
+
 	private ControllerItens controllerItens;
-	private Usuario usuario1;
+	private Set<Item> listaItens;
 	
 	@Before
 	public void criaControllerItensEUsuarios(){
 		controllerItens = new ControllerItens();
-		usuario1 = new Usuario("Gabriel", "Gabriel@ccc.ufcg.edu.br", "(83) 9999-9898");
+		listaItens = new HashSet<>();
 	}
 	
 	@Test
 	public void testConstrutorControllerItens() {
-		assertEquals("", controllerItens.listarItensOrdenadosPorNome());
+		assertEquals("", controllerItens.listarItensOrdenadosPorNome(listaItens));
 	}
 
 	@Test
-	public void testAdicionaItemUsuarioStringDoubleString() {
-		controllerItens.adicionaItem(usuario1, "PES 2017", 145.00, "PS4");
-		assertEquals("JOGO ELETRONICO: PES 2017, R$ 145.0, Nao emprestado, PS4|", controllerItens.listarItensOrdenadosPorNome());
+	public void testAdicionaItemSetStringDoubleString() {
+		controllerItens.adicionaItem(listaItens, "PES 2017", 145.00, "PS4");
+		assertEquals("JOGO ELETRONICO: PES 2017, R$ 145.0, Nao emprestado, PS4|", controllerItens.listarItensOrdenadosPorNome(listaItens));
 	}
 
 	@Test
-	public void testAdicionaItemUsuarioStringDouble() {
-		controllerItens.adicionaItem(usuario1, "WAR", 200.00);
-		assertEquals("JOGO DE TABULEIRO: WAR, R$ 200.0, Nao emprestado, COMPLETO|", controllerItens.listarItensOrdenadosPorNome());
+	public void testAdicionaItemSetStringDouble() {
+		controllerItens.adicionaItem(listaItens, "WAR", 200.00);
+		assertEquals("JOGO DE TABULEIRO: WAR, R$ 200.0, Nao emprestado, COMPLETO|", controllerItens.listarItensOrdenadosPorNome(listaItens));
 	}
 
 	@Test
-	public void testAdicionaItemUsuarioStringDoubleIntStringStringInt() {
-		controllerItens.adicionaItem(usuario1, "Velozes e Furiosos 7", 39.99, 123, "ACAO", "DEZESSEIS_ANOS", 2017);
-		assertEquals("FILME: Velozes e Furiosos 7, R$ 39.99, Nao emprestado, 123 min, DEZESSEIS_ANOS, ACAO, 2017|", controllerItens.listarItensOrdenadosPorNome());
+	public void testAdicionaItemSetStringDoubleIntStringStringInt() {
+		controllerItens.adicionaItem(listaItens, "Velozes e Furiosos 7", 39.99, 123, "ACAO", "DEZESSEIS_ANOS", 2017);
+		assertEquals("FILME: Velozes e Furiosos 7, R$ 39.99, Nao emprestado, 123 min, DEZESSEIS_ANOS, ACAO, 2017|", controllerItens.listarItensOrdenadosPorNome(listaItens));
 	}
 
 	@Test
-	public void testAdicionaItemUsuarioStringDoubleIntIntStringString() {
-		controllerItens.adicionaItem(usuario1, "Os Anjos Cantam", 25.90, 110, 12, "Jorge e Matheus", "LIVRE");
-		assertEquals("SHOW: Os Anjos Cantam, R$ 25.9, Nao emprestado, 110 min, LIVRE, Jorge e Matheus, 12 faixas|", controllerItens.listarItensOrdenadosPorNome());
+	public void testAdicionaItemSetStringDoubleIntIntStringString() {
+		controllerItens.adicionaItem(listaItens, "Os Anjos Cantam", 25.90, 110, 12, "Jorge e Matheus", "LIVRE");
+		assertEquals("SHOW: Os Anjos Cantam, R$ 25.9, Nao emprestado, 110 min, LIVRE, Jorge e Matheus, 12 faixas|", controllerItens.listarItensOrdenadosPorNome(listaItens));
 	}
 
 	@Test
-	public void testAdicionaItemUsuarioStringDoubleStringIntStringStringInt() {
-		controllerItens.adicionaItem(usuario1, "Big Time Rush", 30.00,"BTR in Paris", 60,"DEZESSEIS_ANOS","MUSICAL", 1);
-		assertEquals("SERIE: Big Time Rush, R$ 30.0, Nao emprestado, 60 min, DEZESSEIS_ANOS, MUSICAL, Temporada 1|", controllerItens.listarItensOrdenadosPorNome());
+	public void testAdicionaItemSetStringDoubleStringIntStringStringInt() {
+		controllerItens.adicionaItem(listaItens, "Big Time Rush", 30.00,"BTR in Paris", 60,"DEZESSEIS_ANOS","MUSICAL", 1);
+		assertEquals("SERIE: Big Time Rush, R$ 30.0, Nao emprestado, 60 min, DEZESSEIS_ANOS, MUSICAL, Temporada 1|", controllerItens.listarItensOrdenadosPorNome(listaItens));
 	}
 
 	@Test
 	public void testCadastrarPecaPerdidaNoTabuleiro() {
-		controllerItens.adicionaItem(usuario1, "WAR", 200.00);
-		assertEquals("JOGO DE TABULEIRO: WAR, R$ 200.0, Nao emprestado, COMPLETO|", controllerItens.listarItensOrdenadosPorNome());
-		controllerItens.cadastrarPecaPerdidaNoTabuleiro(usuario1, "WAR", "Dado Amarelo");
-		assertEquals("JOGO DE TABULEIRO: WAR, R$ 200.0, Nao emprestado, COM PECAS PERDIDAS|", controllerItens.listarItensOrdenadosPorNome());
+		controllerItens.adicionaItem(listaItens, "WAR", 200.00);
+		assertEquals("JOGO DE TABULEIRO: WAR, R$ 200.0, Nao emprestado, COMPLETO|", controllerItens.listarItensOrdenadosPorNome(listaItens));
+		controllerItens.cadastrarPecaPerdidaNoTabuleiro(listaItens, "WAR", "Dado Amarelo");
+		assertEquals("JOGO DE TABULEIRO: WAR, R$ 200.0, Nao emprestado, COM PECAS PERDIDAS|", controllerItens.listarItensOrdenadosPorNome(listaItens));
 	}
 
 	@Test
 	public void testAtualizarItem() {
-		controllerItens.adicionaItem(usuario1, "WAR", 200.00);
-		assertEquals("JOGO DE TABULEIRO: WAR, R$ 200.0, Nao emprestado, COMPLETO|", controllerItens.listarItensOrdenadosPorNome());
-		controllerItens.atualizarItem(usuario1, "WAR", "Nome", "WAR - IMPERIO ROMANO");
-		assertEquals("JOGO DE TABULEIRO: WAR - IMPERIO ROMANO, R$ 200.0, Nao emprestado, COMPLETO|", controllerItens.listarItensOrdenadosPorNome());
-		controllerItens.atualizarItem(usuario1, "WAR - IMPERIO ROMANO", "Preco", "220.00");
-		assertEquals("JOGO DE TABULEIRO: WAR - IMPERIO ROMANO, R$ 220.0, Nao emprestado, COMPLETO|", controllerItens.listarItensOrdenadosPorNome());
+		controllerItens.adicionaItem(listaItens, "WAR", 200.00);
+		assertEquals("JOGO DE TABULEIRO: WAR, R$ 200.0, Nao emprestado, COMPLETO|", controllerItens.listarItensOrdenadosPorNome(listaItens));
+		controllerItens.atualizarItem(listaItens, "WAR", "Nome", "WAR - IMPERIO ROMANO");
+		assertEquals("JOGO DE TABULEIRO: WAR - IMPERIO ROMANO, R$ 200.0, Nao emprestado, COMPLETO|", controllerItens.listarItensOrdenadosPorNome(listaItens));
+		controllerItens.atualizarItem(listaItens, "WAR - IMPERIO ROMANO", "Preco", "220.00");
+		assertEquals("JOGO DE TABULEIRO: WAR - IMPERIO ROMANO, R$ 220.0, Nao emprestado, COMPLETO|", controllerItens.listarItensOrdenadosPorNome(listaItens));
 	}
 
 	@Test
 	public void testRemoverItem() {
-		controllerItens.adicionaItem(usuario1, "WAR", 200.00);
-		assertEquals("JOGO DE TABULEIRO: WAR, R$ 200.0, Nao emprestado, COMPLETO|", controllerItens.listarItensOrdenadosPorNome());
-		controllerItens.removerItem(usuario1, "WAR");
-		assertEquals("", controllerItens.listarItensOrdenadosPorNome());
+		controllerItens.adicionaItem(listaItens, "WAR", 200.00);
+		assertEquals("JOGO DE TABULEIRO: WAR, R$ 200.0, Nao emprestado, COMPLETO|", controllerItens.listarItensOrdenadosPorNome(listaItens));
+		controllerItens.removerItem(listaItens, "WAR");
+		assertEquals("", controllerItens.listarItensOrdenadosPorNome(listaItens));
 	}
 
 	@Test
 	public void testGetInfoItem() {
-		controllerItens.adicionaItem(usuario1, "Big Time Rush", 30.00,"BTR in Paris", 60,"DEZESSEIS_ANOS","MUSICAL", 1);
-		assertEquals("Big Time Rush", controllerItens.getInfoItem(usuario1, "Big Time Rush", "Nome"));
-		assertEquals("30.0", controllerItens.getInfoItem(usuario1, "Big Time Rush", "Preco"));
+		controllerItens.adicionaItem(listaItens, "Big Time Rush", 30.00,"BTR in Paris", 60,"DEZESSEIS_ANOS","MUSICAL", 1);
+		assertEquals("Big Time Rush", controllerItens.getInfoItem(listaItens, "Big Time Rush", "Nome"));
+		assertEquals("30.0", controllerItens.getInfoItem(listaItens, "Big Time Rush", "Preco"));
 
 	}
 
 	@Test
 	public void testGetDetalhesItem() {
-		controllerItens.adicionaItem(usuario1, "WAR", 200.00);
-		controllerItens.adicionaItem(usuario1, "Os Anjos Cantam", 25.90, 110, 12, "Jorge e Matheus", "LIVRE");
-		assertEquals("JOGO DE TABULEIRO: WAR, R$ 200.0, Nao emprestado, COMPLETO", controllerItens.getDetalhesItem(usuario1, "WAR"));
-		assertEquals("SHOW: Os Anjos Cantam, R$ 25.9, Nao emprestado, 110 min, LIVRE, Jorge e Matheus, 12 faixas", controllerItens.getDetalhesItem(usuario1, "Os Anjos Cantam"));
+		controllerItens.adicionaItem(listaItens, "WAR", 200.00);
+		controllerItens.adicionaItem(listaItens, "Os Anjos Cantam", 25.90, 110, 12, "Jorge e Matheus", "LIVRE");
+		assertEquals("JOGO DE TABULEIRO: WAR, R$ 200.0, Nao emprestado, COMPLETO", controllerItens.getDetalhesItem(listaItens, "WAR"));
+		assertEquals("SHOW: Os Anjos Cantam, R$ 25.9, Nao emprestado, 110 min, LIVRE, Jorge e Matheus, 12 faixas", controllerItens.getDetalhesItem(listaItens, "Os Anjos Cantam"));
 	}
 
 	@Test
 	public void testListarItensOrdenadosPorNome() {
-		controllerItens.adicionaItem(usuario1, "PES 2017", 145.00, "PS4");
-		controllerItens.adicionaItem(usuario1, "WAR", 200.00);
-		controllerItens.adicionaItem(usuario1, "Velozes e Furiosos 7", 39.99, 123, "ACAO", "DEZESSEIS_ANOS", 2017);
-		controllerItens.adicionaItem(usuario1, "Os Anjos Cantam", 25.90, 110, 12, "Jorge e Matheus", "LIVRE");
-		controllerItens.adicionaItem(usuario1, "Big Time Rush", 30.00,"BTR in Paris", 60,"DEZESSEIS_ANOS","MUSICAL", 1);
+		controllerItens.adicionaItem(listaItens, "PES 2017", 145.00, "PS4");
+		controllerItens.adicionaItem(listaItens, "WAR", 200.00);
+		controllerItens.adicionaItem(listaItens, "Velozes e Furiosos 7", 39.99, 123, "ACAO", "DEZESSEIS_ANOS", 2017);
+		controllerItens.adicionaItem(listaItens, "Os Anjos Cantam", 25.90, 110, 12, "Jorge e Matheus", "LIVRE");
+		controllerItens.adicionaItem(listaItens, "Big Time Rush", 30.00,"BTR in Paris", 60,"DEZESSEIS_ANOS","MUSICAL", 1);
 		assertEquals("SERIE: Big Time Rush, R$ 30.0, Nao emprestado, 60 min, DEZESSEIS_ANOS, MUSICAL, Temporada 1|SHOW: Os Anjos Cantam, R$ 25.9, Nao emprestado, 110 min, LIVRE, Jorge e Matheus, 12 faixas|"
 				+ "JOGO ELETRONICO: PES 2017, R$ 145.0, Nao emprestado, PS4|FILME: Velozes e Furiosos 7, R$ 39.99, Nao emprestado, 123 min, DEZESSEIS_ANOS, ACAO, 2017|"
-				+ "JOGO DE TABULEIRO: WAR, R$ 200.0, Nao emprestado, COMPLETO|" ,controllerItens.listarItensOrdenadosPorNome());
+				+ "JOGO DE TABULEIRO: WAR, R$ 200.0, Nao emprestado, COMPLETO|" ,controllerItens.listarItensOrdenadosPorNome(listaItens));
 	}
 
 	@Test
 	public void testListarItensOrdenadosPorValor() {
-		controllerItens.adicionaItem(usuario1, "PES 2017", 145.00, "PS4");
-		controllerItens.adicionaItem(usuario1, "WAR", 200.00);
-		controllerItens.adicionaItem(usuario1, "Velozes e Furiosos 7", 39.99, 123, "ACAO", "DEZESSEIS_ANOS", 2017);
-		controllerItens.adicionaItem(usuario1, "Os Anjos Cantam", 25.90, 110, 12, "Jorge e Matheus", "LIVRE");
-		controllerItens.adicionaItem(usuario1, "Big Time Rush", 30.00,"BTR in Paris", 60,"DEZESSEIS_ANOS","MUSICAL", 1);
+		controllerItens.adicionaItem(listaItens, "PES 2017", 145.00, "PS4");
+		controllerItens.adicionaItem(listaItens, "WAR", 200.00);
+		controllerItens.adicionaItem(listaItens, "Velozes e Furiosos 7", 39.99, 123, "ACAO", "DEZESSEIS_ANOS", 2017);
+		controllerItens.adicionaItem(listaItens, "Os Anjos Cantam", 25.90, 110, 12, "Jorge e Matheus", "LIVRE");
+		controllerItens.adicionaItem(listaItens, "Big Time Rush", 30.00,"BTR in Paris", 60,"DEZESSEIS_ANOS","MUSICAL", 1);
 		assertEquals("SHOW: Os Anjos Cantam, R$ 25.9, Nao emprestado, 110 min, LIVRE, Jorge e Matheus, 12 faixas|SERIE: Big Time Rush, R$ 30.0, Nao emprestado, 60 min, DEZESSEIS_ANOS, MUSICAL, Temporada 1|"
 				+ "FILME: Velozes e Furiosos 7, R$ 39.99, Nao emprestado, 123 min, DEZESSEIS_ANOS, ACAO, 2017|JOGO ELETRONICO: PES 2017, R$ 145.0, Nao emprestado, PS4|"
-				+ "JOGO DE TABULEIRO: WAR, R$ 200.0, Nao emprestado, COMPLETO|", controllerItens.listarItensOrdenadosPorValor());
+				+ "JOGO DE TABULEIRO: WAR, R$ 200.0, Nao emprestado, COMPLETO|", controllerItens.listarItensOrdenadosPorValor(listaItens));
 	}
 
 	@Test
 	public void testIdentificaItemUsuario() {
 		JogoEletronico Pes = new JogoEletronico("PES 2017", 145.00, "PS4");
 		JogoTabuleiro WAR = new JogoTabuleiro("WAR", 200.00);
-		controllerItens.adicionaItem(usuario1, "PES 2017", 145.00, "PS4");
-		controllerItens.adicionaItem(usuario1, "WAR", 200.00);
-		assertEquals(Pes, controllerItens.identificaItem(usuario1, "PES 2017"));
-		assertEquals(WAR, controllerItens.identificaItem(usuario1, "WAR"));
+		controllerItens.adicionaItem(listaItens, "PES 2017", 145.00, "PS4");
+		controllerItens.adicionaItem(listaItens, "WAR", 200.00);
+		assertEquals(Pes, controllerItens.identificaItem(listaItens, "PES 2017"));
+		assertEquals(WAR, controllerItens.identificaItem(listaItens, "WAR"));
 	}
-
-}
-**/
+	
 }

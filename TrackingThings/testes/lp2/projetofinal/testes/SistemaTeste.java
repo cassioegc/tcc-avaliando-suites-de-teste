@@ -474,7 +474,7 @@ public class SistemaTeste {
 	
 	
 	@Test
-	public void testAAA(){
+	public void testListarTop10Itens(){
 		sistema.cadastrarUsuario("gabriel", "9999-7777", "gabriel@ccc.ufcg.edu.br");
 		sistema.cadastrarUsuario("thiago", "8888-9999", "thiago@ccc.ufcg.edu.br");
 		
