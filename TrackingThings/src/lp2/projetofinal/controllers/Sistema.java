@@ -140,7 +140,8 @@ public class Sistema {
 
 	/**
 	 * Metodo responsavel por delegar ao controller de itens o cadastro de um
-	 * novo item atraves de uma chamada polimorfica de parametros. Validando
+	 * novo item no conjunto de itens de um usuario passado, atraves de uma
+	 * chamada polimorfica de parametros no metodo adicionarItem(). Validando
 	 * antes os paramentros passados.
 	 * 
 	 * @param nome
@@ -168,7 +169,8 @@ public class Sistema {
 
 	/**
 	 * Metodo responsavel por delegar ao controller de itens o cadastro de um
-	 * novo item atraves de uma chamada polimorfica de parametros. Validando
+	 * novo item no conjunto de itens de um usuario passado, atraves de uma
+	 * chamada polimorfica de parametros no metodo adicionarItem(). Validando
 	 * antes os paramentros passados.
 	 * 
 	 * @param nome
@@ -191,7 +193,8 @@ public class Sistema {
 
 	/**
 	 * Metodo responsavel por delegar ao controller de itens o cadastro de um
-	 * novo item atraves de uma chamada polimorfica de parametros. Validando
+	 * novo item no conjunto de itens de um usuario passado, atraves de uma
+	 * chamada polimorfica de parametros no metodo adicionarItem(). Validando
 	 * antes os paramentros passados.
 	 * 
 	 * @param nome
@@ -228,7 +231,8 @@ public class Sistema {
 
 	/**
 	 * Metodo responsavel por delegar ao controller de itens o cadastro de um
-	 * novo item atraves de uma chamada polimorfica de parametros. Validando
+	 * novo item no conjunto de itens de um usuario passado, atraves de uma
+	 * chamada polimorfica de parametros no metodo adicionarItem(). Validando
 	 * antes os paramentros passados.
 	 * 
 	 * @param nome
@@ -265,7 +269,8 @@ public class Sistema {
 
 	/**
 	 * Metodo responsavel por delegar ao controller de itens o cadastro de um
-	 * novo item atraves de uma chamada polimorfica de parametros. Validando
+	 * novo item no conjunto de itens de um usuario passado, atraves de uma
+	 * chamada polimorfica de parametros no metodo adicionarItem(). Validando
 	 * antes os paramentros passados.
 	 * 
 	 * @param nome
@@ -515,9 +520,9 @@ public class Sistema {
 	 * um emprestimo, validando antes as informacoes passadas. Para isso ele
 	 * solicita a identificacao dos usuarios relacionados nesse emprestimo, e
 	 * identifca o item em questao. Todas essas informacoes sao passadas para o
-	 * controller de emprestimos que realiza a devolucao do item. Por fim, o
-	 * emprestimo realizado eh encaminhando para o conjunto de emprestimo de
-	 * cada usuario pelo controller de usuarios.
+	 * controller de emprestimos que realiza a devolucao do item. Por fim, os
+	 * dias de atraso é retornada e a reputacao do usuario requerente eh
+	 * atualizada.
 	 * 
 	 * @param nomeDono
 	 *            Nome do dono do item.
@@ -533,7 +538,6 @@ public class Sistema {
 	 *            Data em que o emprestimo foi realizado.
 	 * @param dataDevolucao
 	 *            Data da devolucao do item.
-	 * @throws ParseException
 	 */
 	public void devolverItem(String nomeDono, String telefoneDono, String nomeRequerente, String telefoneRequerente,
 			String nomeItem, String dataEmprestimo, String dataDevolucao) {
@@ -545,8 +549,7 @@ public class Sistema {
 		Checks.verificaDataEmprestimoVaziaNula(dataEmprestimo);
 		Checks.verificaDataDevolucaoVaziaNula(dataDevolucao);
 
-		int diasAtraso = controllerEmprestimos.devolverItem(
-				controllerUsuario.identificaUsuario(nomeDono, telefoneDono),
+		int diasAtraso = controllerEmprestimos.devolverItem(controllerUsuario.identificaUsuario(nomeDono, telefoneDono),
 				controllerUsuario.identificaUsuario(nomeRequerente, telefoneRequerente),
 				controllerItens.identificaItem(controllerUsuario.retornaUsuarioItens(nomeDono, telefoneDono), nomeItem),
 				dataEmprestimo, dataDevolucao);
@@ -568,6 +571,17 @@ public class Sistema {
 		}
 	}
 
+	/**
+	 * Metodo responsavel por listar os emprestimos em que o usuario eh o dono
+	 * do item que esta sendo emprestado, em ordem alfabetica.
+	 * 
+	 * @param nome
+	 *            Nome do usuario dono.
+	 * @param telefone
+	 *            Telefone do usuario dono.
+	 * 
+	 * @return Retorna uma string com essa listagem.
+	 */
 	public String listarEmprestimosUsuarioEmprestando(String nome, String telefone) {
 
 		Checks.verificaNomeVazioNulo(nome);
@@ -578,6 +592,17 @@ public class Sistema {
 
 	}
 
+	/**
+	 * Metodo responsavel por listar os emprestimos em que o usuario eh o
+	 * requerente do item que esta sendo emprestado, em ordem alfabetica.
+	 * 
+	 * @param nome
+	 *            Nome do usuario requerente.
+	 * @param telefone
+	 *            Telefone do usuario requerente.
+	 * 
+	 * @return Retorna uma string com essa listagem.
+	 */
 	public String listarEmprestimosUsuarioPegandoEmprestado(String nome, String telefone) {
 
 		Checks.verificaNomeVazioNulo(nome);
@@ -588,6 +613,15 @@ public class Sistema {
 
 	}
 
+	/**
+	 * Metodo responsavel por listar os emprestimos em que o nome do item esta
+	 * associado, em ordem alfabetica. Independe de serem o mesmo item.
+	 * 
+	 * @param nomeItem
+	 *            Nome do item.
+	 * 
+	 * @return Retorna uma string com essa listagem.
+	 */
 	public String listarEmprestimosItem(String nomeItem) {
 
 		Checks.verificaNomeItemVazioNulo(nomeItem);
@@ -596,29 +630,65 @@ public class Sistema {
 
 	}
 
+	/**
+	 * Metodo responsavel por listar os itens que estao disponivel para
+	 * emprestimos no sistema. Em ordem alfabetica.
+	 * 
+	 * @return Retorna uma string com essa listagem.
+	 */
 	public String listarItensNaoEmprestados() {
 
 		return controllerItens.listarItensNaoEmprestados(controllerUsuario.todosUsuariosItens());
 	}
 
+	/**
+	 * Metodo responsavel por listar os itens que nao estao disponivel para
+	 * emprestimos no sistema. Em ordem alfabetica.
+	 * 
+	 * @return Retorna uma string com essa listagem.
+	 */
 	public String listarItensEmprestados() {
 
 		return controllerEmprestimos.listarItensEmprestados();
 	}
 
+	/**
+	 * Metodo responsavel por listar os 10 itens que mais foram emprestados no
+	 * sistema. Em ordem alfabetica.
+	 *
+	 * @return Retorna uma string com essa listagem.
+	 */
 	public String listarTop10Itens() {
 
 		return controllerItens.listarTop10Itens(controllerUsuario.todosUsuariosItens());
 	}
 
+	/**
+	 * Metodo responsavel por listar os usuarios que possuem o cartao caloteiro
+	 * no sistema. Em ordem alfabetica.
+	 * 
+	 * @return Retorna uma string com essa listagem.
+	 */
 	public String listarCaloteiros() {
 		return controllerUsuario.listarCaloteiros();
 	}
 
+	/**
+	 * Metodo responsavel por listar os 10 usuarios que possuem as maiores
+	 * reputacoes no sistema. Em ordem alfabetica.
+	 *
+	 * @return Retorna uma string com essa listagem.
+	 */
 	public String listarTop10MelhoresUsuarios() {
 		return controllerUsuario.listarTop10MelhoresUsuarios();
 	}
 
+	/**
+	 * Metodo responsavel por listar os 10 usuarios que possuem as piores
+	 * reputacoes no sistema. Em ordem alfabetica.
+	 *
+	 * @return Retorna uma string com essa listagem.
+	 */
 	public String listarTop10PioresUsuarios() {
 		return controllerUsuario.listarTop10PioresUsuarios();
 	}

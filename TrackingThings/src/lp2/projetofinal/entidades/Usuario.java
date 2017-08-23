@@ -15,7 +15,7 @@ import java.util.Set;
 
 import lp2.projetofinal.interfaces.CartaoFidelidade;
 
-public class Usuario implements Comparable<Usuario>{
+public class Usuario implements Comparable<Usuario> {
 
 	private String nome;
 	private String email;
@@ -43,44 +43,55 @@ public class Usuario implements Comparable<Usuario>{
 		this.itens = new HashSet<Item>();
 		this.reputacao = 0;
 	}
-	
+
 	/**
 	 * @return = o cartao do usuario.
 	 */
-	public CartaoFidelidade getCartao(){
+	public CartaoFidelidade getCartao() {
 		return cartao;
 	}
-	
+
 	/**
 	 * Metodo responsavel por setar o novo cartao do usuario.
-	 * @param cartao = CartaoFidelidade com o novo tipo.
+	 * 
+	 * @param cartao
+	 *            = CartaoFidelidade com o novo tipo.
 	 */
-	public void setCartao(CartaoFidelidade cartao){
+	public void setCartao(CartaoFidelidade cartao) {
 		this.cartao = cartao;
 	}
 
 	/**
-	 * Metodo responsavel por atualizar a reputacao do usuario a cada emprestimo ou item adicionado.
-	 * @param valor = valor do tipo doule que representa o incremento para a reputacao.
+	 * Metodo responsavel por atualizar a reputacao do usuario a cada emprestimo
+	 * ou item adicionado.
+	 * 
+	 * @param acresce
+	 *            Booleano que determina se o valor ira incrementar ou
+	 *            decrementar.
+	 * 
+	 * @param valor
+	 *            Valor do tipo doule que representa o incremento para a
+	 *            reputacao.
+	 * 
 	 */
-	public void atualizaReputacao(double valor,boolean acresce) {
-		
-		
+	public void atualizaReputacao(double valor, boolean acresce) {
+
 		if (acresce) {
-			this.reputacao += valor; 
+			this.reputacao += valor;
 		} else {
-			this.reputacao -= valor; 
+			this.reputacao -= valor;
 		}
 	}
-	
+
 	/**
 	 * Metodo que retorna a reputacao do usuario.
+	 * 
 	 * @return = double com o valor da reputacao desse usuario.
 	 */
 	public double getReputacao() {
 		return reputacao;
 	}
-	
+
 	/**
 	 * Recupera o nome do usuario.
 	 *
@@ -92,9 +103,9 @@ public class Usuario implements Comparable<Usuario>{
 
 	/**
 	 * @param nome
-	 *      O nome do usuario.
+	 *            O nome do usuario.
 	 *
-	 *       Atualiza o nome do usuario.
+	 *            Atualiza o nome do usuario.
 	 *
 	 */
 	public void setNome(String nome) {
@@ -177,8 +188,8 @@ public class Usuario implements Comparable<Usuario>{
 
 		return true;
 	}
-	
-	public Set<Item> retornaSeusItens(){
+
+	public Set<Item> retornaSeusItens() {
 		return this.itens;
 	}
 

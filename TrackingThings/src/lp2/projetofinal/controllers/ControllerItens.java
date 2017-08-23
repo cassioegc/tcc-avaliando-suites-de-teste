@@ -35,8 +35,9 @@ public class ControllerItens {
 	}
 
 	/**
-	 * Metodo com polimorfismo parametrico. Ele tem responsabilidade de cadastrar um
-	 * novo item no sistema. Mas especificamente um subtipo Jogo Eletronico.
+	 * Metodo com polimorfismo parametrico. Ele tem responsabilidade de
+	 * cadastrar um novo item no sistema. Mas especificamente um subtipo Jogo
+	 * Eletronico.
 	 * 
 	 * @param listaItens
 	 *            Conjunto de itens que pertecem ao usuario escolhido para o
@@ -55,8 +56,9 @@ public class ControllerItens {
 	}
 
 	/**
-	 * Metodo com polimorfismo parametrico. Ele tem responsabilidade de cadastrar um
-	 * novo item no sistema. Mas especificamente um subtipo Jogo Tabuleiro.
+	 * Metodo com polimorfismo parametrico. Ele tem responsabilidade de
+	 * cadastrar um novo item no sistema. Mas especificamente um subtipo Jogo
+	 * Tabuleiro.
 	 * 
 	 * @param listaItens
 	 *            Conjunto de itens que pertecem ao usuario escolhido para o
@@ -74,8 +76,9 @@ public class ControllerItens {
 	}
 
 	/**
-	 * Metodo com polimorfismo parametrico. Ele tem responsabilidade de cadastrar um
-	 * novo item no sistema. Mas especificamente um subtipo BlurayFilme.
+	 * Metodo com polimorfismo parametrico. Ele tem responsabilidade de
+	 * cadastrar um novo item no sistema. Mas especificamente um subtipo
+	 * BlurayFilme.
 	 * 
 	 * @param listaItens
 	 *            Conjunto de itens que pertecem ao usuario escolhido para o
@@ -101,8 +104,9 @@ public class ControllerItens {
 	}
 
 	/**
-	 * Metodo com polimorfismo parametrico. Ele tem responsabilidade de cadastrar um
-	 * novo item no sistema. Mas especificamente um subtipo BlurayShow.
+	 * Metodo com polimorfismo parametrico. Ele tem responsabilidade de
+	 * cadastrar um novo item no sistema. Mas especificamente um subtipo
+	 * BlurayShow.
 	 * 
 	 * @param listaItens
 	 *            Conjunto de itens que pertecem ao usuario escolhido para o
@@ -128,8 +132,9 @@ public class ControllerItens {
 	}
 
 	/**
-	 * Metodo com polimorfismo parametrico. Ele tem responsabilidade de cadastrar um
-	 * novo item no sistema. Mas especificamente um subtipo BluraySerie.
+	 * Metodo com polimorfismo parametrico. Ele tem responsabilidade de
+	 * cadastrar um novo item no sistema. Mas especificamente um subtipo
+	 * BluraySerie.
 	 * 
 	 * @param listaItens
 	 *            Conjunto de itens que pertecem ao usuario escolhido para o
@@ -218,7 +223,8 @@ public class ControllerItens {
 	}
 
 	/**
-	 * Metodo responsavel por remover um item do conjunto de itens de um usuario.
+	 * Metodo responsavel por remover um item do conjunto de itens de um
+	 * usuario.
 	 * 
 	 * @param listaItens
 	 *            Conjunto de itens que pertecem ao usuario escolhido para a
@@ -233,8 +239,9 @@ public class ControllerItens {
 	}
 
 	/**
-	 * Metodo responsavel por retornar o valor do atributo escolhido, solicitando ao
-	 * item que reconheca qual atributo eh ja que eles podem divergir de atributos.
+	 * Metodo responsavel por retornar o valor do atributo escolhido,
+	 * solicitando ao item que reconheca qual atributo eh ja que eles podem
+	 * divergir de atributos.
 	 * 
 	 * @param listaItens
 	 *            Conjunto de itens que pertecem ao usuario escolhido para a
@@ -253,8 +260,8 @@ public class ControllerItens {
 	}
 
 	/**
-	 * Metodo responsavel por retornar todas as informacoes de um item a partir do
-	 * toString dele.
+	 * Metodo responsavel por retornar todas as informacoes de um item a partir
+	 * do toString dele.
 	 * 
 	 * @param listaItens
 	 *            Conjunto de itens que pertecem ao usuario escolhido para a
@@ -271,7 +278,11 @@ public class ControllerItens {
 	}
 
 	/**
-	 * Metodo responsavel por listar todos os itens do sistema em ordem alfabetica.
+	 * Metodo responsavel por listar todos os itens do sistema em ordem
+	 * alfabetica.
+	 * 
+	 * @param listaTodosItens
+	 *            Conjunto de itens que sera ordenado.
 	 * 
 	 * @return Retorna uma string com essa listagem.
 	 */
@@ -290,6 +301,9 @@ public class ControllerItens {
 	/**
 	 * Metodo responsavel por listar todos os itens do sistema levando em
 	 * consideração o seu preco.
+	 * 
+	 * @param listaTodosItens
+	 *            Conjunto de itens que sera ordenado.
 	 * 
 	 * @return Retorna uma string com essa listagem.
 	 */
@@ -374,5 +388,5 @@ public class ControllerItens {
 		}
 		return top10ItensString;
 	}
-	
+
 }
