@@ -1,5 +1,7 @@
 package lp2.projetofinal.entidades;
 
+import java.io.Serializable;
+
 /**
  * Classe responsavel por servir de molde para a criacao do objeto ChaveNomeTelefone.
  * Esse objeto sera a chave de cada Usuario no mapa de usuarios em controllerUsuario.
@@ -11,8 +13,10 @@ package lp2.projetofinal.entidades;
  * @author Marcelo Gabriel dos Santos Queiroz Vitorino - 116211290
  */
 
-public class ChaveNomeTelefone {
+public class ChaveNomeTelefone implements Serializable {
 
+	private static final long serialVersionUID = 5450465976832396207L;
+	
 	private String nome;
 	private String telefone;
 

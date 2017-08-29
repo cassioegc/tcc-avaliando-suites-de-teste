@@ -8,6 +8,8 @@ import lp2.projetofinal.entidades.BluRay;
 
 public class FakeBluRay extends BluRay{
 
+	private static final long serialVersionUID = 1L;
+
 	public FakeBluRay(String nome, double preco, int duracao, String classificacao) {
 		super(nome, preco, duracao, classificacao);
 	}

@@ -16,6 +16,9 @@ import java.util.Set;
 import lp2.projetofinal.enums.GeneroBluRay;
 
 public class BluRaySerie extends BluRay {
+
+	private static final long serialVersionUID = 5637453773118694637L;
+	
 	private GeneroBluRay genero;
 	private int numeroTemporada;
 	private Set<EpisodioSerie> episodios;

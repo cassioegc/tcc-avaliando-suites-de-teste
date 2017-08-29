@@ -28,6 +28,7 @@ import lp2.projetofinal.entidades.Usuario;
 import lp2.projetofinal.interfaces.CartaoFidelidade;
 import lp2.projetofinal.orders.OrdenaUsuarioReputacaoCrescente;
 import lp2.projetofinal.orders.OrdenaUsuarioReputacaoDecrescente;
+import lp2.projetofinal.persistencia.Persistencia;
 import lp2.projetofinal.util.Exceptions;
 
 public class ControllerUsuario {
@@ -38,7 +39,18 @@ public class ControllerUsuario {
 	 * Construtor de ControllerUsuario;
 	 */
 	public ControllerUsuario() {
-		usuarios = new HashMap<ChaveNomeTelefone, Usuario>();
+		this.usuarios = new HashMap<ChaveNomeTelefone, Usuario>();
+	}
+	
+	public void carregaMapaUsuarios() {
+		
+		if(!Persistencia.carregaUsuarios().isEmpty())
+			this.usuarios = Persistencia.carregaUsuarios();
+	}
+	
+
+	public void salvarMapaUsuarios() {
+		Persistencia.salvarUsuarios(this.usuarios);	
 	}
 
 	/**

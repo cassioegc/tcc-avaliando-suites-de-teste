@@ -1,5 +1,7 @@
 package lp2.projetofinal.entidades;
 
+import java.io.Serializable;
+
 /**
  * Classe abstrata responsavel por conter metodos e atributos de um objeto do tipo Item.
  * Classe pai de BluRay, JogoEletronico e JogoTabuleiro.
@@ -13,14 +15,14 @@ package lp2.projetofinal.entidades;
 
 import lp2.projetofinal.enums.EstadoItem;
 
-public abstract class Item implements Comparable<Item>{
+public abstract class Item implements Comparable<Item>, Serializable{
+
+
+	private static final long serialVersionUID = 5532259661608172523L;
 
 	private String nome;
-
 	private double preco;
-
 	private EstadoItem estado;
-	
 	private int numeroEmprestimos;
 
 	/**

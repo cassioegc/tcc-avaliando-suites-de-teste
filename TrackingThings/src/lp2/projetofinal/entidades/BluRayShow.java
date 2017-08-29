@@ -13,6 +13,8 @@ package lp2.projetofinal.entidades;
 
 public class BluRayShow extends BluRay {
 
+	private static final long serialVersionUID = -7807249517166765913L;
+	
 	private String nomeArtista;
 	private int numFaixas;
 

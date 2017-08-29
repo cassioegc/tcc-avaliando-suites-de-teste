@@ -1,5 +1,7 @@
 package lp2.projetofinal.entidades;
 
+import java.io.Serializable;
+
 /**
  * Classe responsavel por representar um cartao para o sistema. Implementa CartaoFidelidade para o uso do strategy.
  * 
@@ -12,7 +14,9 @@ package lp2.projetofinal.entidades;
 
 import lp2.projetofinal.interfaces.CartaoFidelidade;
 
-public class CartaoFreeRyder implements CartaoFidelidade{
+public class CartaoFreeRyder implements CartaoFidelidade, Serializable{
+
+	private static final long serialVersionUID = -1384332756555273317L;
 
 	@Override
 	public boolean permisaoPegarEmprestado() {

@@ -14,6 +14,8 @@ import lp2.projetofinal.enums.PlataformaJogoEletronico;
 
 public class JogoEletronico extends Item {
 
+	private static final long serialVersionUID = 7016161167443155144L;
+	
 	private PlataformaJogoEletronico plataforma;
 
 	/**

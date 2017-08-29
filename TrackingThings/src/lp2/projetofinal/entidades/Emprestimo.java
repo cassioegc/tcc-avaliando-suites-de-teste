@@ -1,5 +1,7 @@
 package lp2.projetofinal.entidades;
 
+import java.io.Serializable;
+
 /**
  * Representacao de um emprestimo cadastrado no Sistema, todo emprestimo no
  * sistema tem o dono do item, o usuario requerente ,item,data de emprestimo,
@@ -11,7 +13,10 @@ package lp2.projetofinal.entidades;
  * @author Gabriel Almeida Azevedo - 116210009
  * @author Marcelo Gabriel dos Santos Queiroz Vitorino - 116211290
  */
-public class Emprestimo {
+public class Emprestimo implements Serializable {
+
+
+	private static final long serialVersionUID = -8552283230885947000L;
 
 	private Usuario donoDoItem;
 

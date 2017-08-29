@@ -23,6 +23,11 @@ public class Sistema {
 		controllerItens = new ControllerItens();
 		controllerEmprestimos = new ControllerEmprestimos();
 	}
+	
+	public void inicializar() {
+		controllerEmprestimos.carregaListaEmprestimos();
+		controllerUsuario.carregaMapaUsuarios();
+	}
 
 	/**
 	 * Metodo responsavel por delegar a acao de cadastrar um novo usuario para o
@@ -695,6 +700,9 @@ public class Sistema {
 
 	public void finalizar() {
 
+		controllerEmprestimos.salvarListaEmprestimos();
+		controllerUsuario.salvarMapaUsuarios();
+		
 	}
 
 }

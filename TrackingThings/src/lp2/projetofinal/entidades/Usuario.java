@@ -1,5 +1,7 @@
 package lp2.projetofinal.entidades;
 
+import java.io.Serializable;
+
 /**
  * Classe responsavel por representar um usuario para o sistema. O usuario contem um conjunto com seus itens.
  * 
@@ -15,8 +17,10 @@ import java.util.Set;
 
 import lp2.projetofinal.interfaces.CartaoFidelidade;
 
-public class Usuario implements Comparable<Usuario> {
+public class Usuario implements Comparable<Usuario>, Serializable {
 
+	private static final long serialVersionUID = -1505651149540142793L;
+	
 	private String nome;
 	private String email;
 	private String telefone;

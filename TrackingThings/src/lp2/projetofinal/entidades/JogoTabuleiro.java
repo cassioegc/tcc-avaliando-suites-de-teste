@@ -15,6 +15,8 @@ import java.util.List;
 
 public class JogoTabuleiro extends Item {
 
+	private static final long serialVersionUID = 257560625865434596L;
+	
 	private List<String> pecasPerdidas;
 
 	/**

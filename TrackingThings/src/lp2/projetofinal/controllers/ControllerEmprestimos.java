@@ -24,9 +24,10 @@ import lp2.projetofinal.entidades.Item;
 import lp2.projetofinal.entidades.Usuario;
 import lp2.projetofinal.enums.EstadoItem;
 import lp2.projetofinal.orders.OrdenaItemEmprestadoAlfabetico;
+import lp2.projetofinal.persistencia.Persistencia;
 import lp2.projetofinal.util.Exceptions;
 
-public class ControllerEmprestimos {
+public class ControllerEmprestimos {	
 
 	private List<Emprestimo> emprestimos;
 
@@ -36,6 +37,17 @@ public class ControllerEmprestimos {
 	public ControllerEmprestimos() {
 		this.emprestimos = new ArrayList<Emprestimo>();
 	}
+
+	public void carregaListaEmprestimos() {
+		
+		if(!Persistencia.carregaEmprestimos().isEmpty())
+			this.emprestimos = Persistencia.carregaEmprestimos();
+	}
+	
+	public void salvarListaEmprestimos() {
+		Persistencia.salvarEmprestimos(this.emprestimos);
+	}
+	
 
 	/**
 	 * Metodo responsavel por cadastrar um novo Emprestimo no sistema. Veficando

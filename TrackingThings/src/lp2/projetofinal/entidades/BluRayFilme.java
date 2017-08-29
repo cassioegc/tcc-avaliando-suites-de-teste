@@ -14,6 +14,8 @@ import lp2.projetofinal.enums.GeneroBluRay;;
 
 public class BluRayFilme extends BluRay {
 
+	private static final long serialVersionUID = 3512995529374676940L;
+	
 	private int anoLancamento;
 	private GeneroBluRay genero;
 

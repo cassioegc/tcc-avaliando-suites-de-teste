@@ -18,6 +18,7 @@ public class Facade {
 
 	public void iniciarSistema() {
 
+		sistema.inicializar();
 	}
 
 	public void cadastrarUsuario(String nome, String telefone, String email) {

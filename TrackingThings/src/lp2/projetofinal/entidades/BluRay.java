@@ -13,6 +13,9 @@ package lp2.projetofinal.entidades;
 import lp2.projetofinal.enums.ClassificacaoBluRay;
 
 public abstract class BluRay extends Item {
+
+	private static final long serialVersionUID = -3729950227643601450L;
+	
 	private int duracao;
 	private ClassificacaoBluRay classificacao;
 
