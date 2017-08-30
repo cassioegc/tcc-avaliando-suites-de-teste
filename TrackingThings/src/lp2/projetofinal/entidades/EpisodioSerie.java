@@ -1,5 +1,7 @@
 package lp2.projetofinal.entidades;
 
+import java.io.Serializable;
+
 /**
  * Classe responsavel por representar um objeto EpisodioSerie, que compoe a
  * classe BluRaySerie.
@@ -11,8 +13,10 @@ package lp2.projetofinal.entidades;
  * @author Marcelo Gabriel dos Santos Queiroz Vitorino - 116211290
  */
 
-public class EpisodioSerie {
+public class EpisodioSerie implements Serializable {
 
+	private static final long serialVersionUID = 577931172507227147L;
+	
 	private int duracao;
 
 	/**

@@ -1,6 +1,6 @@
 package lp2.projetofinal.persistencia;
 
-import java.io.BufferedOutputStream;
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -20,10 +20,8 @@ public class Persistencia {
 		try {
 
 			FileOutputStream fos = new FileOutputStream("data/emprestimos.dat");
-			BufferedOutputStream bos = new BufferedOutputStream(fos);
-			ObjectOutputStream oos = new ObjectOutputStream(bos);
+			ObjectOutputStream oos = new ObjectOutputStream(fos);
 
-			oos.writeInt(emprestimos.size());
 			oos.writeObject(emprestimos);
 
 			oos.close();
@@ -38,7 +36,11 @@ public class Persistencia {
 
 		try {
 
-			FileInputStream fis = new FileInputStream("data/emprestimos.dat");
+			File arquivo = new File("data/emprestimos.dat");
+			if(!arquivo.exists())
+				arquivo.createNewFile();
+			
+			FileInputStream fis = new FileInputStream(arquivo);
 			ObjectInputStream ois = new ObjectInputStream(fis);
 
 			@SuppressWarnings("unchecked")
@@ -48,7 +50,7 @@ public class Persistencia {
 			return emprestimos;
 
 		} catch (IOException e) {
-			e.printStackTrace();
+			return null;
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		}
@@ -60,8 +62,12 @@ public class Persistencia {
 	public static Map<ChaveNomeTelefone, Usuario> carregaUsuarios() {
 
 		try {
-
-			FileInputStream fis = new FileInputStream("data/usuarios.dat");
+			
+			File arquivo = new File("data/usuarios.dat");
+			if(!arquivo.exists())
+				arquivo.createNewFile();
+			
+			FileInputStream fis = new FileInputStream(arquivo);
 			ObjectInputStream ois = new ObjectInputStream(fis);
 
 			@SuppressWarnings("unchecked")
@@ -70,7 +76,9 @@ public class Persistencia {
 			ois.close();
 			return usuarios;
 
-		} catch (Exception e) {
+		} catch (IOException e) {
+			return null;
+		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		}
 		
@@ -83,10 +91,8 @@ public class Persistencia {
 		try {
 
 			FileOutputStream fos = new FileOutputStream("data/usuarios.dat");
-			BufferedOutputStream bos = new BufferedOutputStream(fos);
-			ObjectOutputStream oos = new ObjectOutputStream(bos);
+			ObjectOutputStream oos = new ObjectOutputStream(fos);
 
-			oos.writeInt(usuarios.size());
 			oos.writeObject(usuarios);
 			oos.close();
 

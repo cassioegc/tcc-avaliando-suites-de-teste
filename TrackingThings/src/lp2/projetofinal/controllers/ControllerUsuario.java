@@ -41,22 +41,21 @@ public class ControllerUsuario {
 	public ControllerUsuario() {
 		this.usuarios = new HashMap<ChaveNomeTelefone, Usuario>();
 	}
-	
+
 	public void carregaMapaUsuarios() {
-		
-		if(!Persistencia.carregaUsuarios().isEmpty())
+
+		if (!(Persistencia.carregaUsuarios() == null))
 			this.usuarios = Persistencia.carregaUsuarios();
 	}
-	
 
 	public void salvarMapaUsuarios() {
-		Persistencia.salvarUsuarios(this.usuarios);	
+		Persistencia.salvarUsuarios(this.usuarios);
 	}
 
 	/**
-	 * Metodo responsavel por cadastrar um novo usuario no sistema. Criando antes
-	 * uma chave para ele e verificando antes sua existencia no mapa. E por fim,
-	 * setando o seu cartao FreeRyder.
+	 * Metodo responsavel por cadastrar um novo usuario no sistema. Criando
+	 * antes uma chave para ele e verificando antes sua existencia no mapa. E
+	 * por fim, setando o seu cartao FreeRyder.
 	 * 
 	 * @param nome
 	 *            Nome do usuario.
@@ -131,8 +130,8 @@ public class ControllerUsuario {
 	}
 
 	/**
-	 * Metodo responsavel remover um usuario da lista de usuarios, verificando antes
-	 * sua existencia no mapa de usuarios.
+	 * Metodo responsavel remover um usuario da lista de usuarios, verificando
+	 * antes sua existencia no mapa de usuarios.
 	 * 
 	 * @param nome
 	 *            Nome do usuario.
@@ -150,9 +149,9 @@ public class ControllerUsuario {
 	}
 
 	/**
-	 * Metodo responsavel por atualizar uma informacao em um usuario. Verificando
-	 * antes sua existencia no mapa de usuarios e a existencia do atributo
-	 * escolhido.
+	 * Metodo responsavel por atualizar uma informacao em um usuario.
+	 * Verificando antes sua existencia no mapa de usuarios e a existencia do
+	 * atributo escolhido.
 	 * 
 	 * @param nome
 	 *            Nome do usuario.
@@ -192,8 +191,8 @@ public class ControllerUsuario {
 	}
 
 	/**
-	 * Metodo responsavel por identificar um usuario no mapa de usuarios e retornar
-	 * o mesmo.
+	 * Metodo responsavel por identificar um usuario no mapa de usuarios e
+	 * retornar o mesmo.
 	 * 
 	 * @param nome
 	 *            Nome do usuario.
@@ -213,8 +212,8 @@ public class ControllerUsuario {
 	}
 
 	/**
-	 * Metodo responsavel por retornar o conjunto de itens do usuario escolhido para
-	 * que ela possa ser processada no controllador de itens.
+	 * Metodo responsavel por retornar o conjunto de itens do usuario escolhido
+	 * para que ela possa ser processada no controllador de itens.
 	 * 
 	 * @param nome
 	 *            Nome do usuario.
@@ -233,8 +232,9 @@ public class ControllerUsuario {
 
 	/**
 	 * Metodo responsavel por atualizar a reputacao de um usuario, sempre que
-	 * solicitado pelo sistema. Apos essa atualizando, indicando se ela eh possitava
-	 * ou negativa a partir de um booleano, o cartao do usuario eh atualizado.
+	 * solicitado pelo sistema. Apos essa atualizando, indicando se ela eh
+	 * possitava ou negativa a partir de um booleano, o cartao do usuario eh
+	 * atualizado.
 	 * 
 	 * @param nome
 	 *            Nome do usuario.
@@ -256,8 +256,8 @@ public class ControllerUsuario {
 	}
 
 	/**
-	 * Metodo responsavel por modificar o cartao fidelidade de um usuario, caso seja
-	 * necessario.
+	 * Metodo responsavel por modificar o cartao fidelidade de um usuario, caso
+	 * seja necessario.
 	 * 
 	 * @param nome
 	 *            Nome do usuario escolhido.
@@ -275,15 +275,15 @@ public class ControllerUsuario {
 		else if (reputacao > 100.0)
 			cartao = new CartaoBomAmigo();
 		else if (reputacao >= 0 && usuario.retornaSeusItens().isEmpty()) {
-				cartao = new CartaoFreeRyder();
+			cartao = new CartaoFreeRyder();
 		}
 		usuario.setCartao(cartao);
 
 	}
 
 	/**
-	 * Metodo responsavel por retornar os itens de todos os usuarios cadastrados no
-	 * sistema.
+	 * Metodo responsavel por retornar os itens de todos os usuarios cadastrados
+	 * no sistema.
 	 * 
 	 * @return Retorna um set com esses valores.
 	 */
@@ -297,8 +297,8 @@ public class ControllerUsuario {
 	}
 
 	/**
-	 * Metodo responsavel verificar a fidelidade de um usuario, lancando uma excecao
-	 * quando o mesmo nao tiver essa permissao.
+	 * Metodo responsavel verificar a fidelidade de um usuario, lancando uma
+	 * excecao quando o mesmo nao tiver essa permissao.
 	 * 
 	 * @param nomeRequerente
 	 *            Nome do usuario que sera analisado.
@@ -334,8 +334,8 @@ public class ControllerUsuario {
 	}
 
 	/**
-	 * Metodo responsavel por listar os caloteiros do sistema, ou seja aqueles que
-	 * tem a reputacao menor que zero.
+	 * Metodo responsavel por listar os caloteiros do sistema, ou seja aqueles
+	 * que tem a reputacao menor que zero.
 	 * 
 	 * @return Retorna uma string com essa listagem.
 	 */
@@ -386,8 +386,8 @@ public class ControllerUsuario {
 	}
 
 	/**
-	 * Metodo responsvel por listar os dez piores usuarios cadastrados no sistema,
-	 * ou seja, aqueles que tem as piores reputacoes.
+	 * Metodo responsvel por listar os dez piores usuarios cadastrados no
+	 * sistema, ou seja, aqueles que tem as piores reputacoes.
 	 * 
 	 * @return Retorna uma string com essa listagem.
 	 */
