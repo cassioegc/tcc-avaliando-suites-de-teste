@@ -38,12 +38,19 @@ public class ControllerUsuario {
 		this.usuarios = new HashMap<ChaveNomeTelefone, Usuario>();
 	}
 
+	/**
+	 * Metodo responsavel por carregar o mapa de usuarios, caso exista na
+	 * persistencia.
+	 */
 	public void carregaMapaUsuarios() {
 
 		if (!(Persistencia.carregaUsuarios() == null))
 			this.usuarios = Persistencia.carregaUsuarios();
 	}
 
+	/**
+	 * Metodo responsavel por salvar o mapa de usuarios na persistencia.
+	 */
 	public void salvarMapaUsuarios() {
 		Persistencia.salvarUsuarios(this.usuarios);
 	}
@@ -225,10 +232,9 @@ public class ControllerUsuario {
 	}
 
 	/**
-	 * Metodo responsavel por atualizar a reputacao de um usuario, sempre que
-	 * solicitado pelo sistema. Apos essa atualizando, indicando se ela eh
-	 * possitava ou negativa a partir de um booleano, o cartao do usuario eh
-	 * atualizado.
+	 * Metodo responsavel identificar o usuario e solicitar ao mesmo a
+	 * atualizacao na reputacao. Apontando se ela eh positiva ou negativa, a
+	 * partir do boolean que eh passado.
 	 * 
 	 * @param nome
 	 *            Nome do usuario.

@@ -209,8 +209,8 @@ public class Usuario implements Comparable<Usuario>, Serializable {
 	}
 
 	/**
-	 * Metodo responsavel por modificar o cartao fidelidade de um usuario, caso
-	 * seja necessario.
+	 * Metodo responsavel por modificar o cartao fidelidade, caso seja
+	 * necessario.
 	 * 
 	 */
 	private void atualizaCartaoFidelidade() {

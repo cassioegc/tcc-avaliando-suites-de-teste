@@ -38,10 +38,6 @@ public class Facade {
 		sistema.atualizarUsuario(nome, telefone, atributo, valor);
 	}
 
-	public void fecharSistema() {
-		sistema.finalizar();
-	}
-
 	public String getInfoItem(String nome, String telefone, String nomeItem, String atributo) {
 		return sistema.getInfoItem(nome, telefone, nomeItem, atributo);
 	}
@@ -149,5 +145,8 @@ public class Facade {
 		return sistema.listarTop10PioresUsuarios();
 	}
 	
+	public void fecharSistema() {
+		sistema.finalizar();
+	}
 }
 

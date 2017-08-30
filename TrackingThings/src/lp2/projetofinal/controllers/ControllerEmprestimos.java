@@ -38,12 +38,19 @@ public class ControllerEmprestimos {
 		this.emprestimos = new ArrayList<Emprestimo>();
 	}
 
+	/**
+	 * Metodo responsavel por carregar a lista de emprestimos, caso exista na
+	 * persistencia.
+	 */
 	public void carregaListaEmprestimos() {
 
 		if (!(Persistencia.carregaEmprestimos() == null))
 			this.emprestimos = Persistencia.carregaEmprestimos();
 	}
 
+	/**
+	 * Metodo responsavel por salvar a lista de emprestimos na persistencia.
+	 */
 	public void salvarListaEmprestimos() {
 		Persistencia.salvarEmprestimos(this.emprestimos);
 	}
