@@ -20,7 +20,7 @@ import lp2.projetofinal.interfaces.CartaoFidelidade;
 public class Usuario implements Comparable<Usuario>, Serializable {
 
 	private static final long serialVersionUID = -1505651149540142793L;
-	
+
 	private String nome;
 	private String email;
 	private String telefone;
@@ -46,6 +46,7 @@ public class Usuario implements Comparable<Usuario>, Serializable {
 		this.telefone = telefone;
 		this.itens = new HashSet<Item>();
 		this.reputacao = 0;
+		this.cartao = new CartaoFreeRyder();
 	}
 
 	/**
@@ -85,6 +86,8 @@ public class Usuario implements Comparable<Usuario>, Serializable {
 		} else {
 			this.reputacao -= valor;
 		}
+
+		atualizaCartaoFidelidade();
 	}
 
 	/**
@@ -203,5 +206,21 @@ public class Usuario implements Comparable<Usuario>, Serializable {
 	@Override
 	public int compareTo(Usuario usuario) {
 		return this.nome.compareTo(usuario.getNome());
+	}
+
+	/**
+	 * Metodo responsavel por modificar o cartao fidelidade de um usuario, caso
+	 * seja necessario.
+	 * 
+	 */
+	private void atualizaCartaoFidelidade() {
+
+		if (this.reputacao < 0.0)
+			this.cartao = new CartaoCaloteiro();
+		else if (this.reputacao > 100.0)
+			this.cartao = new CartaoBomAmigo();
+		else if (this.reputacao >= 0 && !retornaSeusItens().isEmpty()) {
+			this.cartao = new CartaoNoob();
+		}
 	}
 }

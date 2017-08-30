@@ -1,5 +1,8 @@
 package lp2.projetofinal.controllers;
 
+import java.util.ArrayList;
+import java.util.Collections;
+
 /**
  * Classe responsavel por controlar todos os objetos Usuario cadastrados no sistema.
  * 
@@ -15,17 +18,10 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import java.util.ArrayList;
-import java.util.Collections;
 
-import lp2.projetofinal.entidades.CartaoBomAmigo;
-import lp2.projetofinal.entidades.CartaoCaloteiro;
-import lp2.projetofinal.entidades.CartaoFreeRyder;
-import lp2.projetofinal.entidades.CartaoNoob;
 import lp2.projetofinal.entidades.ChaveNomeTelefone;
 import lp2.projetofinal.entidades.Item;
 import lp2.projetofinal.entidades.Usuario;
-import lp2.projetofinal.interfaces.CartaoFidelidade;
 import lp2.projetofinal.orders.OrdenaUsuarioReputacaoCrescente;
 import lp2.projetofinal.orders.OrdenaUsuarioReputacaoDecrescente;
 import lp2.projetofinal.persistencia.Persistencia;
@@ -74,8 +70,6 @@ public class ControllerUsuario {
 		Usuario usuario = new Usuario(nome, email, telefone);
 
 		this.usuarios.put(chave, usuario);
-
-		usuario.setCartao(new CartaoFreeRyder());
 	}
 
 	/**
@@ -250,34 +244,6 @@ public class ControllerUsuario {
 		Usuario usuario = identificaUsuario(nome, telefone);
 
 		usuario.atualizaReputacao(valor, acresce);
-
-		atualizaCartaoFidelidade(usuario);
-
-	}
-
-	/**
-	 * Metodo responsavel por modificar o cartao fidelidade de um usuario, caso
-	 * seja necessario.
-	 * 
-	 * @param nome
-	 *            Nome do usuario escolhido.
-	 * @param telefone
-	 *            Telefone do usuario escolhido.
-	 */
-	private void atualizaCartaoFidelidade(Usuario usuario) {
-
-		Double reputacao = usuario.getReputacao();
-
-		CartaoFidelidade cartao = new CartaoNoob();
-
-		if (reputacao < 0.0)
-			cartao = new CartaoCaloteiro();
-		else if (reputacao > 100.0)
-			cartao = new CartaoBomAmigo();
-		else if (reputacao >= 0 && usuario.retornaSeusItens().isEmpty()) {
-			cartao = new CartaoFreeRyder();
-		}
-		usuario.setCartao(cartao);
 
 	}
 
