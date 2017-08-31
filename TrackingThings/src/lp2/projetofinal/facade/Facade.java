@@ -15,7 +15,7 @@ import lp2.projetofinal.controllers.Sistema;
 public class Facade {
 
 	private Sistema sistema = new Sistema();
-
+	
 	public void iniciarSistema() {
 
 		sistema.inicializar();
@@ -147,6 +147,10 @@ public class Facade {
 	
 	public void fecharSistema() {
 		sistema.finalizar();
+	}
+	
+	public void resetarPersistencia(){
+		sistema.resetarPersistencia();
 	}
 }
 

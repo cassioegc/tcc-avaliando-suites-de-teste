@@ -142,4 +142,13 @@ public class Persistencia {
 		}
 	}
 
+	public static void resetar() {
+		
+		File arquivoUm = new File("data/emprestimos.dat");
+		File arquivoDois = new File("data/usuarios.dat");
+		
+		arquivoUm.delete();
+		arquivoDois.delete();
+	}
+
 }

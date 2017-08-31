@@ -28,6 +28,10 @@ public class Main {
 		testes.add("acceptance_test" + File.separator + "us6_test.txt");
 		testes.add("acceptance_test" + File.separator + "us7_test.txt");
 		testes.add("acceptance_test" + File.separator + "us8_test.txt");
+		
+		//Rodar esse teste, limpará a persistência.
+		//testes.add("acceptance_test/persistencia" + File.separator + "resetarPersistencia.txt");
+		
 		EasyAccept.executeEasyAcceptTests("lp2.projetofinal.facade.Facade", testes);
 }
 	

@@ -1,5 +1,7 @@
 package lp2.projetofinal.controllers;
 
+import lp2.projetofinal.persistencia.Persistencia;
+
 /**
  * Classe responsavel por ser o Controller Principal, delega responsabilidades para ControllerUsuario, ControllerItens e ControllerEmprestimos. Chama a classe Checks para validar os parametros passados em cada metodo.
  * 
@@ -703,6 +705,10 @@ public class Sistema {
 		controllerEmprestimos.salvarListaEmprestimos();
 		controllerUsuario.salvarMapaUsuarios();
 		
+	}
+
+	public void resetarPersistencia() {
+		Persistencia.resetar();
 	}
 
 }
