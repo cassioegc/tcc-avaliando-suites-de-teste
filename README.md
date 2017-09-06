@@ -11,3 +11,7 @@ Diego
 Wesley
 Vinicius
 Sezinando
+
+# Processo de Desenvolvimento
+
+Iremos usar o processo de desenvolvimento SCRUM 
