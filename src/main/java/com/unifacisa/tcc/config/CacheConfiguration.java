@@ -42,6 +42,9 @@ public class CacheConfiguration {
             cm.createCache(com.unifacisa.tcc.domain.Authority.class.getName(), jcacheConfiguration);
             cm.createCache(com.unifacisa.tcc.domain.User.class.getName() + ".authorities", jcacheConfiguration);
             cm.createCache(com.unifacisa.tcc.domain.SocialUserConnection.class.getName(), jcacheConfiguration);
+            cm.createCache(com.unifacisa.tcc.domain.Professor.class.getName(), jcacheConfiguration);
+            cm.createCache(com.unifacisa.tcc.domain.Professor.class.getName() + ".alunos", jcacheConfiguration);
+            cm.createCache(com.unifacisa.tcc.domain.Aluno.class.getName(), jcacheConfiguration);
             // jhipster-needle-ehcache-add-entry
         };
     }

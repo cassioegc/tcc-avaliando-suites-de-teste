@@ -1,0 +1,63 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "aluno",
+            "otherEntityName": "aluno",
+            "otherEntityRelationshipName": "professor"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "primeiroNome",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "minlength"
+            ],
+            "fieldValidateRulesMinlength": 3
+        },
+        {
+            "fieldName": "segundoNome",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "minlength"
+            ],
+            "fieldValidateRulesMinlength": 3
+        },
+        {
+            "fieldName": "matricula",
+            "fieldType": "Long",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "email",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "minlength"
+            ],
+            "fieldValidateRulesMinlength": 3
+        },
+        {
+            "fieldName": "numeroContato",
+            "fieldType": "Long",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "diponibilidade",
+            "fieldType": "Boolean"
+        }
+    ],
+    "changelogDate": "20170923201424",
+    "entityTableName": "professor",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no"
+}
