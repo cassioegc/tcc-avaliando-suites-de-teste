@@ -371,22 +371,28 @@ public class ControllerItens {
 	 * @return Retorna uma string com essa listagem.
 	 */
 	public String listarTop10Itens(Set<Item> listaTodosItens) {
-		List<Item> listaItensOrdenada = new ArrayList<Item>(listaTodosItens);
+		List<Item> listaItensOrdenada = getItensJaForamEmprestados(listaTodosItens);
 		Collections.sort(listaItensOrdenada, new OrdenaItemNumeroEmprestimos());
 
 		String top10ItensString = "";
-		int numeroItens = 1;
-		for (Item item : listaItensOrdenada) {
-			if (numeroItens == 11) {
-				break;
-			}
-			if (item.getNumeroEmprestimos() != 0) {
-				top10ItensString += numeroItens + ") " + item.getNumeroEmprestimos() + " emprestimos - "
+		int numeroItens = Math.min(10, listaItensOrdenada.size());
+		for (int i = 0; i < numeroItens; i++) {
+			Item item = listaItensOrdenada.get(i);
+			top10ItensString += numeroItens + ") " + item.getNumeroEmprestimos() + " emprestimos - "
 						+ item.toString() + "|";
-				numeroItens++;
-			}
 		}
 		return top10ItensString;
+	}
+
+	private List<Item> getItensJaForamEmprestados(Set<Item> listaTodosItens) {
+		List<Item> listaItens = new ArrayList<Item>(listaTodosItens);
+		List<Item> itensEmprestados = new ArrayList<Item>();
+
+		for (Item item : listaItens) {
+			itensEmprestados.add(item);
+		}
+
+		return itensEmprestados;
 	}
 
 }
