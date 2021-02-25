@@ -292,9 +292,7 @@ public class ControllerItens {
 		Collections.sort(listaItensOrdenada);
 
 		String itensString = "";
-		for (Item item : listaItensOrdenada) {
-			itensString += item.toString() + "|";
-		}
+		getItensString(listaItensOrdenada, itensString);
 		return itensString;
 	}
 
@@ -313,6 +311,11 @@ public class ControllerItens {
 		Collections.sort(listaItensOrdenada, new OrdenaItemPeloPreco());
 
 		String itensString = "";
+		itensString = getItensString(listaItensOrdenada, itensString);
+		return itensString;
+	}
+
+	private String getItensString(List<Item> listaItensOrdenada, String itensString) {
 		for (Item item : listaItensOrdenada) {
 			itensString += item.toString() + "|";
 		}
