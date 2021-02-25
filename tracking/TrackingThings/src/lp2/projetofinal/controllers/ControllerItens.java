@@ -296,6 +296,13 @@ public class ControllerItens {
 		return itensString;
 	}
 
+	private String getItensString(List<Item> listaItensOrdenada, String itensString) {
+		for (Item item : listaItensOrdenada) {
+			itensString += item.toString() + "|";
+		}
+		return itensString;
+	}
+
 	/**
 	 * Metodo responsavel por listar todos os itens do sistema levando em
 	 * consideração o seu preco.
@@ -311,11 +318,6 @@ public class ControllerItens {
 		Collections.sort(listaItensOrdenada, new OrdenaItemPeloPreco());
 
 		String itensString = "";
-		itensString = getItensString(listaItensOrdenada, itensString);
-		return itensString;
-	}
-
-	private String getItensString(List<Item> listaItensOrdenada, String itensString) {
 		for (Item item : listaItensOrdenada) {
 			itensString += item.toString() + "|";
 		}
