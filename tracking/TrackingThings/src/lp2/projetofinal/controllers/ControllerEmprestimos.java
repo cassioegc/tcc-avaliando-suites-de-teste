@@ -76,14 +76,16 @@ public class ControllerEmprestimos {
 	public void registrarEmprestimo(Usuario donoItem, Usuario requerenteItem, Item item, String dataEmprestimo,
 			int periodo) {
 
-		if (item.getEstado().equals(EstadoItem.EMPRESTADO.getEstado()))
-			Exceptions.itemEmprestadoNoMomento();
-
 		Emprestimo emprestimo = new Emprestimo(donoItem, requerenteItem, item, dataEmprestimo, periodo);
 
 		this.emprestimos.add(emprestimo);
 		item.atualizaNumeroEmprestimos();
 		item.itemEmprestado();
+	}
+
+	private void verificarItemEstaEmprestado(Item item) {
+		if (item.getEstado().equals(EstadoItem.EMPRESTADO.getEstado()))
+			Exceptions.itemEmprestadoNoMomento();
 	}
 
 	/**
