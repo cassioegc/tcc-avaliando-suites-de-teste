@@ -323,6 +323,11 @@ public class ControllerUsuario {
 		}
 		Collections.sort(caloteiros);
 
+		getCaloteirosString(stringCaloteiros, caloteiros);
+		return stringCaloteiros;
+	}
+
+	private String getCaloteirosString(String stringCaloteiros, List<Usuario> caloteiros) {
 		for (Usuario usuario : caloteiros) {
 			stringCaloteiros += usuario.toString() + "|";
 		}
