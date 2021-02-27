@@ -375,6 +375,11 @@ public class ControllerItens {
 		Collections.sort(listaItensOrdenada, new OrdenaItemNumeroEmprestimos());
 
 		String top10ItensString = "";
+		getTop10ItensString(listaItensOrdenada, top10ItensString);
+		return top10ItensString;
+	}
+
+	private String getTop10ItensString(List<Item> listaItensOrdenada, String top10ItensString) {
 		int numeroItens = 1;
 		for (Item item : listaItensOrdenada) {
 			if (numeroItens == 11) {
