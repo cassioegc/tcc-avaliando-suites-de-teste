@@ -164,9 +164,7 @@ public class ControllerEmprestimos {
 		Collections.sort(listaEmprestimos, new OrdenaItemEmprestadoAlfabetico());
 
 		String stringEmprestimos = "Emprestimos: ";
-		for (Emprestimo emprestimo : listaEmprestimos) {
-			stringEmprestimos += emprestimo.toString() + "|";
-		}
+		getEmprestimosString(listaEmprestimos, stringEmprestimos);
 
 		return stringEmprestimos;
 	}
@@ -194,6 +192,13 @@ public class ControllerEmprestimos {
 			stringEmprestimos += emprestimo.toString() + "|";
 		}
 
+		return stringEmprestimos;
+	}
+
+	private String getEmprestimosString(List<Emprestimo> listaEmprestimos, String stringEmprestimos) {
+		for (Emprestimo emprestimo : listaEmprestimos) {
+			stringEmprestimos += emprestimo.toString() + "|";
+		}
 		return stringEmprestimos;
 	}
 
