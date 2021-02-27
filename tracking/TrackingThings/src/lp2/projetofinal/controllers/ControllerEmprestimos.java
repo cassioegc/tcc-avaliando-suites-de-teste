@@ -241,6 +241,14 @@ public class ControllerEmprestimos {
 
 		String stringEmprestimos = "Emprestimos associados ao item: ";
 
+		getEmprestimosItensString(nomeItem, stringEmprestimos);
+		if (stringEmprestimos == null) return "Nenhum emprestimos associados ao item";
+
+		return stringEmprestimos;
+
+	}
+
+	private String getEmprestimosItensString(String nomeItem, String stringEmprestimos) {
 		for (Emprestimo emprestimo : this.emprestimos) {
 			if (emprestimo.getItem().getNome().equals(nomeItem)) {
 				stringEmprestimos += emprestimo.toString() + "|";
@@ -248,10 +256,8 @@ public class ControllerEmprestimos {
 		}
 
 		if (!stringEmprestimos.contains("|"))
-			return "Nenhum emprestimos associados ao item";
-
+			return null;
 		return stringEmprestimos;
-
 	}
 
 	/**
