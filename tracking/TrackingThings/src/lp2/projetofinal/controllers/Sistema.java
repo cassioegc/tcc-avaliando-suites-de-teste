@@ -425,11 +425,13 @@ public class Sistema {
 	 */
 	public String getInfoItem(String nome, String telefone, String nomeItem, String atributo) {
 
+		return controllerItens.getInfoItem(controllerUsuario.retornaUsuarioItens(nome, telefone), nomeItem, atributo);
+	}
+
+	private void verificar(String nome, String telefone, String nomeItem, String atributo) {
 		verificacaoPadraoUsuario(nome, telefone);
 		Checks.verificaNomeItemVazioNulo(nomeItem);
 		Checks.verificaAtributolVazioNulo(atributo);
-
-		return controllerItens.getInfoItem(controllerUsuario.retornaUsuarioItens(nome, telefone), nomeItem, atributo);
 	}
 
 	/**
