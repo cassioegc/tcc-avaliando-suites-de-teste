@@ -300,9 +300,11 @@ public class ControllerUsuario {
 
 		Usuario usuario = identificaUsuario(nomeRequerente, telefoneRequerente);
 
+	}
+
+	private void verificarUsuario(int periodo, Usuario usuario) {
 		if (usuario.getCartao().prazoEmprestimo() < periodo)
 			Exceptions.usuarioImpossibilitadoDePegarItemNessePeriodoException();
-
 	}
 
 	/**
