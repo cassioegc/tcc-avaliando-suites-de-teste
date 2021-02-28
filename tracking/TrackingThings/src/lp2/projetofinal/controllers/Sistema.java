@@ -399,13 +399,15 @@ public class Sistema {
 	 */
 	public void atualizarItem(String nome, String telefone, String nomeItem, String atributo, String valor) {
 
+		controllerItens.atualizarItem(controllerUsuario.retornaUsuarioItens(nome, telefone), nomeItem, atributo, valor);
+
+	}
+
+	private void verificar(String nome, String telefone, String nomeItem, String atributo, String valor) {
 		verificacaoPadraoUsuario(nome, telefone);
 		Checks.verificaNomeItemVazioNulo(nomeItem);
 		Checks.verificaAtributolVazioNulo(atributo);
 		Checks.verificaValorVazioNulo(valor);
-
-		controllerItens.atualizarItem(controllerUsuario.retornaUsuarioItens(nome, telefone), nomeItem, atributo, valor);
-
 	}
 
 	/**
