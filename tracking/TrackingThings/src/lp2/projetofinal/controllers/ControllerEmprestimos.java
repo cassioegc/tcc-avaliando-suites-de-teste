@@ -111,11 +111,14 @@ public class ControllerEmprestimos {
 
 		Emprestimo emprestimo = identificaEmprestimo(donoItem, requerenteItem, dataEmprestimo);
 
-		emprestimo.setDataDevolucao(dataDevolucao);
-		item.itemDevolvido();
+		extracted(item, dataDevolucao, emprestimo);
 
 		return calcularDiasAtraso(dataEmprestimo, dataDevolucao, emprestimo.getNumeroDias());
 
+	}
+
+	private void extracted(Item item, String dataDevolucao, Emprestimo emprestimo) {
+		item.itemDevolvido();
 	}
 
 	/**
