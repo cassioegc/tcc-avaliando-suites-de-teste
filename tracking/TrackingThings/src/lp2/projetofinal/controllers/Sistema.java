@@ -312,10 +312,10 @@ public class Sistema {
 
 	private void verificar(String nome, String telefone, String nomeItem, double preco, String descricao, int duracao, String classificacao, String genero, int temporada) {
 		verificacaoPadraoCadastroItem(nome, telefone, nomeItem, preco);
+		Checks.verificaDuracaoZeroNegativa(duracao);
 		Checks.verificaClassificacaoVaziaNula(classificacao);
 		Checks.verificaGeneroVazioNulo(genero);
 		Checks.verificaDescricaoVaziaNula(descricao);
-		Checks.verificaTemporadaZeroNegativa(temporada);
 	}
 
 	/**
