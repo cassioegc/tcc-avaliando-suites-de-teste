@@ -314,19 +314,22 @@ public class ControllerUsuario {
 	public String listarCaloteiros() {
 		String stringCaloteiros = "Lista de usuarios com reputacao negativa: ";
 
-		List<Usuario> caloteiros = new ArrayList<Usuario>();
-
-		for (Usuario usuario : this.usuarios.values()) {
-			if (usuario.getReputacao() < 0.0) {
-				caloteiros.add(usuario);
-			}
-		}
+		List<Usuario> caloteiros = getUsuariosCaloteiros();
 		Collections.sort(caloteiros);
 
 		for (Usuario usuario : caloteiros) {
 			stringCaloteiros += usuario.toString() + "|";
 		}
 		return stringCaloteiros;
+	}
+
+	private List<Usuario> getUsuariosCaloteiros() {
+		List<Usuario> caloteiros = new ArrayList<Usuario>();
+
+		for (Usuario usuario : this.usuarios.values()) {
+				caloteiros.add(usuario);
+		}
+		return caloteiros;
 	}
 
 	/**
