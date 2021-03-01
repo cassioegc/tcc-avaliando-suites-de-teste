@@ -309,14 +309,18 @@ public class ControllerItens {
 	 */
 	public String listarItensOrdenadosPorValor(Set<Item> listaTodosItens) {
 
-		List<Item> listaItensOrdenada = new ArrayList<Item>(listaTodosItens);
-		Collections.sort(listaItensOrdenada, new OrdenaItemPeloPreco());
+		List<Item> listaItensOrdenada = getItems(listaTodosItens);
 
 		String itensString = "";
 		for (Item item : listaItensOrdenada) {
 			itensString += item.toString() + "|";
 		}
 		return itensString;
+	}
+
+	private List<Item> getItems(Set<Item> listaTodosItens) {
+		List<Item> listaItensOrdenada = new ArrayList<Item>(listaTodosItens);
+		return listaItensOrdenada;
 	}
 
 	/**
