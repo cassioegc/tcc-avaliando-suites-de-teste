@@ -317,7 +317,7 @@ public class ControllerUsuario {
 		List<Usuario> caloteiros = new ArrayList<Usuario>();
 
 		for (Usuario usuario : this.usuarios.values()) {
-			if (usuario.getReputacao() < 0.0) {
+			if (isCaloteiro(0)) {
 				caloteiros.add(usuario);
 			}
 		}
@@ -327,6 +327,10 @@ public class ControllerUsuario {
 			stringCaloteiros += usuario.toString() + "|";
 		}
 		return stringCaloteiros;
+	}
+
+	private boolean isCaloteiro(double retutacao) {
+		return retutacao < 0.0;
 	}
 
 	/**
