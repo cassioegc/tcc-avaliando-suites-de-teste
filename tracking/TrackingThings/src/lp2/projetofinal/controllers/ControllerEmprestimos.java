@@ -301,16 +301,21 @@ public class ControllerEmprestimos {
 		DateFormat formatoData = new SimpleDateFormat("dd/MM/yyyy");
 		try {
 
-			Date dataEmprestimo1 = formatoData.parse(dataEmprestimo);
-			Date dataDevolucao1 = formatoData.parse(dataDevolucao);
-
-			int diasAtraso = (int) (((dataDevolucao1.getTime() - dataEmprestimo1.getTime()) / 86400000L)
-					- diasParaDevolucao);
+			int diasAtraso = getDiasAtraso(dataDevolucao, dataEmprestimo, diasParaDevolucao, formatoData);
 
 			return diasAtraso;
 		} catch (ParseException e) {
 		}
 		return 0;
+	}
+
+	private int getDiasAtraso(String dataEmprestimo, String dataDevolucao, int diasParaDevolucao, DateFormat formatoData) throws ParseException {
+		Date dataEmprestimo1 = formatoData.parse(dataEmprestimo);
+		Date dataDevolucao1 = formatoData.parse(dataDevolucao);
+
+		int diasAtraso = (int) (((dataDevolucao1.getTime() - dataEmprestimo1.getTime()) / 86400000L)
+				- diasParaDevolucao);
+		return diasAtraso;
 	}
 
 }
