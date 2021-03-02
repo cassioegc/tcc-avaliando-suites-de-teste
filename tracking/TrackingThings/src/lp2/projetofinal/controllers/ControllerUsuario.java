@@ -348,13 +348,15 @@ public class ControllerUsuario {
 			if (posicaoTop10 == 11) {
 				break;
 			}
-			stringTop10MelhoresUsuarios += posicaoTop10 + ": " + usuario.getNome() + " - Reputacao: "
-					+ String.format("%.2f", usuario.getReputacao()) + "|";
-
-			posicaoTop10++;
+			stringTop10MelhoresUsuarios += getStringTop10MelhoresUsuarios(++posicaoTop10, usuario);
 		}
 		return stringTop10MelhoresUsuarios;
 
+	}
+
+	private String getStringTop10MelhoresUsuarios(int posicaoTop10, Usuario usuario) {
+		return posicaoTop10 + ": " + usuario.getNome() + " - Reputacao: "
+				+ String.format("%.2f", usuario.getReputacao()) + "|";
 	}
 
 	/**
