@@ -100,6 +100,11 @@ public class ControllerUsuario {
 
 		Usuario usuario = this.usuarios.get(chave);
 
+		return getAtributo(nome, usuario);
+
+	}
+
+	private String getAtributo(String atributo, Usuario usuario) {
 		if (atributo.equals("Email"))
 			return usuario.getEmail();
 		else if (atributo.equals("Nome"))
@@ -114,7 +119,6 @@ public class ControllerUsuario {
 			Exceptions.atributoInvalidoException();
 
 		return null;
-
 	}
 
 	/**
