@@ -268,19 +268,13 @@ public class ControllerEmprestimos {
 		Collections.sort(listaEmprestimos, new OrdenaItemEmprestadoAlfabetico());
 
 		List<String> listaStrings = new ArrayList<String>();
-		String item;
 
-		for (Emprestimo emprestimo : listaEmprestimos) {
-			if (emprestimo.getItem().getEstado().equals(EstadoItem.EMPRESTADO.getEstado())) {
-				item = "Dono do item: " + emprestimo.getDonoDoItem().getNome() + ", Nome do item emprestado: "
-						+ emprestimo.getItem().getNome() + "|";
-				if (!listaStrings.contains(item)) {
-					stringItens += item;
-					listaStrings.add(item);
-				}
-			}
-		}
+		stringItens = getString(stringItens, listaEmprestimos, listaStrings);
 		return stringItens;
+	}
+
+	private String getString(String stringItens, List<Emprestimo> listaEmprestimos, List<String> listaStrings) {
+		return  "";
 	}
 
 	/**
