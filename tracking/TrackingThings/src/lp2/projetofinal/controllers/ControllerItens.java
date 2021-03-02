@@ -380,13 +380,17 @@ public class ControllerItens {
 			if (numeroItens == 11) {
 				break;
 			}
-			if (item.getNumeroEmprestimos() != 0) {
+			if (isaBoolean(0)) {
 				top10ItensString += numeroItens + ") " + item.getNumeroEmprestimos() + " emprestimos - "
 						+ item.toString() + "|";
 				numeroItens++;
 			}
 		}
 		return top10ItensString;
+	}
+
+	private boolean isaBoolean(int emprestimos) {
+		return emprestimos != 0;
 	}
 
 }
