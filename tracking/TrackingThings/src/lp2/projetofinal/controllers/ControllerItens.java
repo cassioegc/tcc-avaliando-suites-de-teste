@@ -354,11 +354,12 @@ public class ControllerItens {
 		List<Item> listaItensOrdenada = new ArrayList<Item>(listaTodosItens);
 		Collections.sort(listaItensOrdenada);
 
-		for (Item item : listaItensOrdenada) {
-			if (item.getEstado().equals(EstadoItem.NAO_EMPRESTADO.getEstado()))
-				stringItens += item.toString() + "|";
-		}
+		stringItens = getString(stringItens, listaItensOrdenada);
 		return stringItens;
+	}
+
+	private String getString(String stringItens, List<Item> listaItensOrdenada) {
+		return "";
 	}
 
 	/**
