@@ -262,16 +262,16 @@ public class Sistema {
 	public void cadastrarBluRayShow(String nome, String telefone, String nomeItem, double preco, int duracao,
 			int numeroFaixas, String artista, String classificacao) {
 
-		verificacaoPadraoCadastroItem(nome, telefone, nomeItem, preco);
-		Checks.verificaDuracaoZeroNegativa(duracao);
-		Checks.verificaNumeroFaixasZeroNegativo(numeroFaixas);
-		Checks.verificaArtistaVazioNulo(artista);
-		Checks.verificaClassificacaoVaziaNula(classificacao);
+		extracted(nome, telefone, nomeItem, preco, duracao, numeroFaixas, artista, classificacao);
 
 		controllerItens.adicionaItem(controllerUsuario.retornaUsuarioItens(nome, telefone), nomeItem, preco, duracao,
 				numeroFaixas, artista, classificacao);
 
 		controllerUsuario.atualizaReputacao(nome, telefone, preco * 0.05, true);
+	}
+
+	private void extracted(String nome, String telefone, String nomeItem, double preco, int duracao, int numeroFaixas, String artista, String classificacao) {
+
 	}
 
 	/**
