@@ -67,4 +67,8 @@ public class BluRayShow extends BluRay {
 		return "SHOW: " + super.toString() + this.getNomeArtista() + ", " + this.getNumFaixas() + " faixas";
 	}
 
+	public String getClassificacao() {
+		return "CLASSIFICAÇÂO: " + this.getClassificacao();
+	}
+
 }
