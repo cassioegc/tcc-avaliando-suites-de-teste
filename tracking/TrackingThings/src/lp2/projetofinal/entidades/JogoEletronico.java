@@ -79,4 +79,9 @@ public class JogoEletronico extends Item {
 		return "JOGO ELETRONICO: " + super.toString() + this.getPlataforma();
 	}
 
+	@Override
+	public String getNome() {
+		return "JOGO ELETRONICO: " + this.getNome();
+	}
+
 }
