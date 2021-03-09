@@ -69,4 +69,7 @@ public class BluRayFilme extends BluRay {
 		return "FILME: " + super.toString() + this.getGenero() + ", " + this.getAnoLancamento();
 	}
 
+	public int getDuracao() {
+		return this.getDuracao() / 60;
+	}
 }
