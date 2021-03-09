@@ -95,4 +95,8 @@ public class JogoTabuleiro extends Item {
 		return "JOGO DE TABULEIRO: " + super.toString() + this.contemPecasPerdidas();
 	}
 
+	@Override
+	public String getNome() {
+		return "NOME: " + super.getNome();
+	}
 }
