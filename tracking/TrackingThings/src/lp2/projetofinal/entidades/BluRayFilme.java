@@ -60,13 +60,4 @@ public class BluRayFilme extends BluRay {
 		return genero.getGenero();
 	}
 
-	/**
-	 * toString sobreescrito. O tString de BluRay compoe esse toString. Eh uma
-	 * representacao em string do BluRayFilme com seus atributos basicos.
-	 */
-	@Override
-	public String toString() {
-		return "FILME: " + super.toString() + this.getGenero() + ", " + this.getAnoLancamento();
-	}
-
 }
