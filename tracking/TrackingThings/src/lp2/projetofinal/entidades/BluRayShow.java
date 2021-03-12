@@ -58,4 +58,16 @@ public class BluRayShow extends BluRay {
 		return numFaixas;
 	}
 
+	/**
+	 * toString sobreescrito. O tString de BluRay compoe esse toString. Eh uma
+	 * representacao em string do BluRayShow com seus atributos basicos.
+	 */
+	@Override
+	public String toString() {
+		return "SHOW: " + super.toString() + this.getNomeArtista() + ", " + this.getNumFaixas() + " faixas";
+	}
+
+	public String getNome() {
+		return "SHOW: " + this.getNome();
+	}
 }
