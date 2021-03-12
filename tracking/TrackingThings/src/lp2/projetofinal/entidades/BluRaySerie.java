@@ -106,15 +106,6 @@ public class BluRaySerie extends BluRay {
 		return descricao;
 	}
 
-	/**
-	 * toString sobreescrito. O tString de BluRay compoe esse toString. Eh uma
-	 * representacao em string do BluRaySerie com seus atributos basicos.
-	 */
-	@Override
-	public String toString() {
-		return "SERIE: " + super.toString() + this.getGenero() + ", Temporada " + this.numeroTemporada;
-	}
-
 	@Override
 	public int hashCode() {
 		final int prime = 31;
