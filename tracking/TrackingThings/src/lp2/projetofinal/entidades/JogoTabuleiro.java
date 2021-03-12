@@ -86,13 +86,4 @@ public class JogoTabuleiro extends Item {
 		return true;
 	}
 
-	/**
-	 * toString sobreescrito. O tString de Item compoe esse toString. Eh uma
-	 * representacao em string do Jogo com seus atributos basicos.
-	 */
-	@Override
-	public String toString() {
-		return "JOGO DE TABULEIRO: " + super.toString() + this.contemPecasPerdidas();
-	}
-
 }
