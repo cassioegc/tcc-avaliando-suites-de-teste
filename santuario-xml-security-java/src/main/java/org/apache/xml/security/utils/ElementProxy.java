@@ -355,6 +355,11 @@ public abstract class ElementProxy {
         String localname, String namespace
     ) {
         Node n = XMLUtils.selectNode(getFirstChild(), namespace, localname, 0);
+        getBigInteger(n);
+        return null;
+    }
+
+    private BigInteger getBigInteger(Node n) {
         if (n != null) {
             return new BigInteger(1, XMLUtils.decode(XMLUtils.getFullTextChildrenFromNode(n)));
         }
