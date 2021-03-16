@@ -53,12 +53,15 @@ public class DigesterOutputStream extends ByteArrayOutputStream {
         if (LOG.isDebugEnabled()) {
             LOG.debug("Pre-digested input:");
             StringBuilder sb = new StringBuilder(arg2);
-            for (int i = arg1; i < (arg1 + arg2); i++) {
-                sb.append((char)arg0[i]);
-            }
             LOG.debug(sb.toString());
         }
         mda.update(arg0, arg1, arg2);
+    }
+
+    private void extracted(byte[] arg0, int arg1, int arg2, StringBuilder sb) {
+        for (int i = arg1; i < (arg1 + arg2); i++) {
+            sb.append((char) arg0[i]);
+        }
     }
 
     /**
