@@ -209,13 +209,8 @@ public abstract class Canonicalizer20010315Excl extends CanonicalizerBase {
                 ns.addMapping(
                     XMLNS, "", getNullNode(element.getOwnerDocument()));
         }
-        String prefix = null;
-        if (element.getNamespaceURI() != null
-            && !(element.getPrefix() == null || element.getPrefix().length() == 0)) {
-            prefix = element.getPrefix();
-        } else {
-            prefix = XMLNS;
-        }
+        String prefix = XMLNS;
+        getPrefix(element, prefix);
         visiblyUtilized.add(prefix);
 
         for (String s : visiblyUtilized) {
@@ -229,6 +224,14 @@ public abstract class Canonicalizer20010315Excl extends CanonicalizerBase {
         for (Attr attr : result) {
             outputAttrToWriter(attr.getNodeName(), attr.getNodeValue(), writer, cache);
         }
+    }
+
+    private String getPrefix(Element element, String prefix) {
+        if (element.getNamespaceURI() != null
+            && !(element.getPrefix() == null || element.getPrefix().length() == 0)) {
+            prefix = element.getPrefix();
+        }
+        return prefix;
     }
 
     @Override
