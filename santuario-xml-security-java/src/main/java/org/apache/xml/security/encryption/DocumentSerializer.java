@@ -67,12 +67,8 @@ public class DocumentSerializer extends AbstractSerializer {
         try {
             Document d = XMLUtils.read(inputStream, secureValidation);
 
-            Document contextDocument = null;
-            if (Node.DOCUMENT_NODE == ctx.getNodeType()) {
-                contextDocument = (Document)ctx;
-            } else {
-                contextDocument = ctx.getOwnerDocument();
-            }
+            Document contextDocument = ctx.getOwnerDocument();
+            getContextDocument(ctx, contextDocument);
 
             Element fragElt =
                     (Element) contextDocument.importNode(d.getDocumentElement(), true);
@@ -87,6 +83,13 @@ public class DocumentSerializer extends AbstractSerializer {
         } catch (XMLParserException pce) {
             throw new XMLEncryptionException(pce);
         }
+    }
+
+    private Document getContextDocument(Node ctx, Document contextDocument) {
+        if (Node.DOCUMENT_NODE == ctx.getNodeType()) {
+            contextDocument = (Document) ctx;
+        }
+        return contextDocument;
     }
 
 }
