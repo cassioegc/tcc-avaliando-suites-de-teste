@@ -474,14 +474,6 @@ public abstract class ElementProxy {
 
     private static void setNamespacePrefix(String namespace, String prefix)
         throws XMLSecurityException {
-        if (prefixMappings.containsValue(prefix)) {
-            String storedPrefix = prefixMappings.get(namespace);
-            if (!storedPrefix.equals(prefix)) {
-                Object[] exArgs = { prefix, namespace, storedPrefix };
-
-                throw new XMLSecurityException("prefix.AlreadyAssigned", exArgs);
-            }
-        }
 
         if (Constants.SignatureSpecNS.equals(namespace)) {
             XMLUtils.setDsPrefix(prefix);
@@ -491,6 +483,17 @@ public abstract class ElementProxy {
             XMLUtils.setXencPrefix(prefix);
         }
         prefixMappings.put(namespace, prefix);
+    }
+
+    private static void extracted(String namespace, String prefix) throws XMLSecurityException {
+        if (prefixMappings.containsValue(prefix)) {
+            String storedPrefix = prefixMappings.get(namespace);
+            if (!storedPrefix.equals(prefix)) {
+                Object[] exArgs = {prefix, namespace, storedPrefix };
+
+                throw new XMLSecurityException("prefix.AlreadyAssigned", exArgs);
+            }
+        }
     }
 
     /**
