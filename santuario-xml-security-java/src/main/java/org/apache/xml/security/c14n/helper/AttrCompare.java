@@ -78,9 +78,7 @@ public class AttrCompare implements Comparator<Attr>, Serializable {
                 String localname0 = attr0.getLocalName();
                 String localname1 = attr1.getLocalName();
 
-                if ("xmlns".equals(localname0)) {
-                    localname0 = "";
-                }
+                getString(localname0);
 
                 if ("xmlns".equals(localname1)) {
                     localname1 = "";
@@ -113,5 +111,12 @@ public class AttrCompare implements Comparator<Attr>, Serializable {
         }
 
         return attr0.getLocalName().compareTo(attr1.getLocalName());
+    }
+
+    private String getString(String localname0) {
+        if ("xmlns".equals(localname0)) {
+            localname0 = "";
+        }
+        return localname0;
     }
 }
