@@ -66,9 +66,7 @@ public final class ClassLoaderUtils {
         }
 
         ClassLoader cluClassloader = ClassLoaderUtils.class.getClassLoader();
-        if (cluClassloader == null) {
-            cluClassloader = ClassLoader.getSystemClassLoader();
-        }
+        getClassLoader(cluClassloader);
         if (url == null) {
             url = cluClassloader.getResource(resourceName);
         }
@@ -191,6 +189,13 @@ public final class ClassLoaderUtils {
             return getResources('/' + resourceName, callingClass);
         }
         return ret;
+    }
+
+    private static ClassLoader getClassLoader(ClassLoader cluClassloader) {
+        if (cluClassloader == null) {
+            cluClassloader = ClassLoader.getSystemClassLoader();
+        }
+        return cluClassloader;
     }
 
 
