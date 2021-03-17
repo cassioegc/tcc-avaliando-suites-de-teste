@@ -105,6 +105,11 @@ public final class DOMRetrievalMethod extends DOMStructure
             }
         }
         this.uri = uri;
+
+        this.type = type;
+    }
+
+    private void extracted(String uri) {
         if (!uri.isEmpty()) {
             try {
                 new URI(uri);
@@ -112,8 +117,6 @@ public final class DOMRetrievalMethod extends DOMStructure
                 throw new IllegalArgumentException(e.getMessage());
             }
         }
-
-        this.type = type;
     }
 
     /**
