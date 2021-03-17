@@ -145,15 +145,20 @@ public class RFC2253Parser {
         }
         String attrType = normalizeAT(str.substring(0, i));
         // only normalize if value is a String
-        String attrValue = null;
-        if (attrType.charAt(0) >= '0' && attrType.charAt(0) <= '9') {
+        String attrValue = getString(str, toXml, i, attrType);
+
+        return attrType + "=" + attrValue;
+
+    }
+
+    private static String getString(String str, boolean toXml, int i, String attrType) throws IOException {
+        String attrValue;
+        if (attrType.charAt(0) >= '0' || attrType.charAt(0) <= '9') {
             attrValue = str.substring(i + 1);
         } else {
             attrValue = normalizeV(str.substring(i + 1), toXml);
         }
-
-        return attrType + "=" + attrValue;
-
+        return attrValue;
     }
 
     /**
