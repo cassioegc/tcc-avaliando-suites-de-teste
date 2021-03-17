@@ -96,6 +96,16 @@ public class AttrCompare implements Comparator<Attr>, Serializable {
         }
 
         // none is a namespace
+
+        int a = namespaceURI0.compareTo(namespaceURI1);
+        if (a != 0) {
+            return a;
+        }
+
+        return attr0.getLocalName().compareTo(attr1.getLocalName());
+    }
+
+    private int extracted(Attr attr0, Attr attr1, String namespaceURI0, String namespaceURI1) {
         if (namespaceURI0 == null) {
             if (namespaceURI1 == null) {
                 String name0 = attr0.getName();
@@ -106,12 +116,6 @@ public class AttrCompare implements Comparator<Attr>, Serializable {
         } else if (namespaceURI1 == null) {
             return ATTR1_BEFORE_ATTR0;
         }
-
-        int a = namespaceURI0.compareTo(namespaceURI1);
-        if (a != 0) {
-            return a;
-        }
-
-        return attr0.getLocalName().compareTo(attr1.getLocalName());
+        return 0;
     }
 }
