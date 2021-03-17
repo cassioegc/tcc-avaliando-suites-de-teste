@@ -164,11 +164,16 @@ public final class DOMRetrievalMethod extends DOMStructure
                 transformElem = DOMUtils.getNextSiblingElement(transformElem);
             }
         }
+        this.transforms = getTransforms(newTransforms);
+    }
+
+    private List<Transform> getTransforms(List<Transform> newTransforms) {
+        List<Transform> transforms = Collections.emptyList();
         if (newTransforms.isEmpty()) {
-            this.transforms = Collections.emptyList();
-        } else {
-            this.transforms = Collections.unmodifiableList(newTransforms);
+            return Collections.unmodifiableList(newTransforms);
         }
+
+        return transforms;
     }
 
     public String getURI() {
