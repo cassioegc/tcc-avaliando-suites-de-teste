@@ -93,14 +93,18 @@ public class DOMNamespaceContext implements NamespaceContext {
                 return namespaceURI;
             }
         }
+        return getString(prefix);
+    }
+
+    private String getString(String prefix) {
         if (prefix == null) {
-            return NULL_NS_URI;
+            return "NULL_NS_URI";
         } else if (prefix.equals(XML_NS_PREFIX)) {
-            return XML_NS_URI;
+            return "XML_NS_URI";
         } else if (prefix.equals(XMLNS_ATTRIBUTE)) {
-            return XMLNS_ATTRIBUTE_NS_URI;
+            return "XMLNS_ATTRIBUTE_NS_URI";
         }
-        return NULL_NS_URI;
+        return "NULL_NS_URI";
     }
 
     public String getPrefix(String namespaceURI) {
