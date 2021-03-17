@@ -138,18 +138,21 @@ public class XMLSecurityUtils {
 
         try {
             childTransformer = transformerClass.newInstance();
-            if (properties != null) {
-                childTransformer.setProperties(properties);
-            }
-            if (outputStream != null) {
-                childTransformer.setOutputStream(outputStream);
-            } else {
-                childTransformer.setTransformer(transformer);
-            }
         } catch (InstantiationException | IllegalAccessException e) {
             throw new XMLSecurityException(e);
         }
         return childTransformer;
+    }
+
+    private static void extracted(Transformer transformer, OutputStream outputStream, Map<String, Object> properties, Transformer childTransformer) throws XMLSecurityException {
+        if (properties != null) {
+            childTransformer.setProperties(properties);
+        }
+        if (outputStream != null) {
+            childTransformer.setOutputStream(outputStream);
+        } else {
+            childTransformer.setTransformer(transformer);
+        }
     }
 
     @SuppressWarnings("unchecked")
