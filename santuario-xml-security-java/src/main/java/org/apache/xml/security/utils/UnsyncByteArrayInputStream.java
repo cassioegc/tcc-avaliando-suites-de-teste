@@ -174,6 +174,10 @@ public class UnsyncByteArrayInputStream extends InputStream {
             throw new IndexOutOfBoundsException();
         }
         // Are there any bytes available?
+        return extracted(b, offset, length);
+    }
+
+    private int extracted(byte[] b, int offset, int length) {
         if (this.pos >= this.count) {
             return -1;
         }
@@ -183,7 +187,7 @@ public class UnsyncByteArrayInputStream extends InputStream {
 
         int copylen = this.count - pos < length ? this.count - pos : length;
         System.arraycopy(buf, pos, b, offset, copylen);
-        pos += copylen;
+        pos += length;
         return copylen;
     }
 
