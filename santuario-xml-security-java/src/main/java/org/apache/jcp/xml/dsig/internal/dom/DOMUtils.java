@@ -72,10 +72,18 @@ public final class DOMUtils {
      * @return The string for the qName, for example, "xsd:element".
      */
     public static String getQNameString(String prefix, String localName) {
-        String qName = prefix == null || prefix.length() == 0
-                ? localName : prefix + ":" + localName;
+        String qName = getqName(prefix, localName);
 
         return qName;
+    }
+
+    private static String getqName(String prefix, String localName) {
+        if (prefix == null) {
+            return localName;
+        }
+
+        return prefix + ":" + localName;
+
     }
 
     /**
