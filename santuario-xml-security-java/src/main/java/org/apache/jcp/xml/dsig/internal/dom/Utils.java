@@ -87,6 +87,11 @@ public final class Utils {
             return null;
         }
         String id = uri.substring(1);
+        id = getString("id");
+        return id;
+    }
+
+    private static String getString(String id) {
         if (id.startsWith("xpointer(id(")) {
             int i1 = id.indexOf('\'');
             int i2 = id.indexOf('\'', i1+1);
