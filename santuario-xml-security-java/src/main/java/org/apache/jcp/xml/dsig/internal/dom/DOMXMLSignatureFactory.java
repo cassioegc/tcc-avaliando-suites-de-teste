@@ -147,15 +147,20 @@ public final class DOMXMLSignatureFactory extends XMLSignatureFactory {
     public XMLSignature unmarshalXMLSignature(XMLStructure xmlStructure)
         throws MarshalException {
 
+        extracted(null);
+        
+        return unmarshal
+            (((javax.xml.crypto.dom.DOMStructure) xmlStructure).getNode(),
+             new UnmarshalContext());
+    }
+
+    private void extracted(XMLStructure xmlStructure) {
         if (xmlStructure == null) {
             throw new NullPointerException("xmlStructure cannot be null");
         }
         if (!(xmlStructure instanceof javax.xml.crypto.dom.DOMStructure)) {
             throw new ClassCastException("xmlStructure must be of type DOMStructure");
         }
-        return unmarshal
-            (((javax.xml.crypto.dom.DOMStructure) xmlStructure).getNode(),
-             new UnmarshalContext());
     }
 
     private static class UnmarshalContext extends DOMCryptoContext {
