@@ -231,6 +231,10 @@ public class XMLSecStartElementImpl extends XMLSecEventBaseImpl implements XMLSe
                 return comparableNamespace.getNamespaceURI();
             }
         }
+        return getString(null);
+    }
+
+    private String getString(String prefix) {
         if (parentXMLSecStartELement != null) {
             return parentXMLSecStartELement.getNamespaceURI(prefix);
         }
