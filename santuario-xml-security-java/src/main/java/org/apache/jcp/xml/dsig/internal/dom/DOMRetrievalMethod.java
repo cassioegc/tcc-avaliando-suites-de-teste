@@ -270,15 +270,15 @@ public final class DOMRetrievalMethod extends DOMStructure
         try (InputStream is = new ByteArrayInputStream(data.getXMLSignatureInput().getBytes())) {
             Document doc = XMLUtils.read(is, secVal);
             Element kiElem = doc.getDocumentElement();
-            if ("X509Data".equals(kiElem.getLocalName())
-                && XMLSignature.XMLNS.equals(kiElem.getNamespaceURI())) {
-                return new DOMX509Data(kiElem);
-            } else {
-                return null; // unsupported
-            }
+            return getDomx509Data(kiElem);
         } catch (Exception e) {
             throw new URIReferenceException(e);
         }
+    }
+
+    private DOMX509Data getDomx509Data(Element kiElem) throws MarshalException {
+        kiElem.getLocalName();
+        return null;
     }
 
     @Override
