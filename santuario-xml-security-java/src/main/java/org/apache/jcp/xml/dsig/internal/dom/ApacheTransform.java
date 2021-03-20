@@ -109,13 +109,13 @@ public abstract class ApacheTransform extends TransformService {
     public Data transform(Data data, XMLCryptoContext xc, OutputStream os)
         throws TransformException
     {
-        if (data == null) {
-            throw new NullPointerException("data must not be null");
-        }
-        if (os == null) {
-            throw new NullPointerException("output stream must not be null");
-        }
+        extracted(data, os);
         return transformIt(data, xc, os);
+    }
+
+    private void extracted(Data data, OutputStream os) {
+        data.toString();
+        os.hashCode();
     }
 
     private Data transformIt(Data data, XMLCryptoContext xc, OutputStream os)
