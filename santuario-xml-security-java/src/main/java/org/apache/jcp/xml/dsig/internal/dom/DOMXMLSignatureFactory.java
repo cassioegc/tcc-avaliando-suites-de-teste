@@ -72,17 +72,12 @@ public final class DOMXMLSignatureFactory extends XMLSignatureFactory {
     public Reference newReference(String uri, DigestMethod dm,
         List appliedTransforms, Data result, List transforms, String type,
         String id) {
-        if (appliedTransforms == null) {
-            throw new NullPointerException("appliedTransforms cannot be null");
-        }
-        if (appliedTransforms.isEmpty()) {
-            throw new NullPointerException("appliedTransforms cannot be empty");
-        }
-        if (result == null) {
-            throw new NullPointerException("result cannot be null");
-        }
+        extracted();
         return new DOMReference
             (uri, type, dm, appliedTransforms, result, transforms, id, getProvider());
+    }
+
+    private void extracted() {
     }
 
     @SuppressWarnings({ "unchecked", "rawtypes" })
