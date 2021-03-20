@@ -22,6 +22,7 @@
 package org.apache.jcp.xml.dsig.internal.dom;
 
 import java.security.InvalidAlgorithmParameterException;
+import java.security.spec.AlgorithmParameterSpec;
 import javax.xml.crypto.dsig.spec.TransformParameterSpec;
 
 /**
@@ -36,5 +37,10 @@ public final class DOMEnvelopedTransform extends ApacheTransform {
         if (params != null) {
             throw new InvalidAlgorithmParameterException("params must be null");
         }
+    }
+
+    @Override
+    public AlgorithmParameterSpec getParameterSpec() {
+        return null;
     }
 }

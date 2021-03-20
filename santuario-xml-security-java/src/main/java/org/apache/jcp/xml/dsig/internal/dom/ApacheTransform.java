@@ -23,7 +23,6 @@ package org.apache.jcp.xml.dsig.internal.dom;
 
 import java.io.OutputStream;
 import java.security.InvalidAlgorithmParameterException;
-import java.security.spec.AlgorithmParameterSpec;
 import java.util.Set;
 
 import org.w3c.dom.Document;
@@ -55,11 +54,6 @@ public abstract class ApacheTransform extends TransformService {
     protected Document ownerDoc;
     protected Element transformElem;
     protected TransformParameterSpec params;
-
-    @Override
-    public final AlgorithmParameterSpec getParameterSpec() {
-        return params;
-    }
 
     public void init(XMLStructure parent, XMLCryptoContext context)
         throws InvalidAlgorithmParameterException

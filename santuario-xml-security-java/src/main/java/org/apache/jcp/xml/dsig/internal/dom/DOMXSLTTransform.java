@@ -22,6 +22,8 @@
 package org.apache.jcp.xml.dsig.internal.dom;
 
 import java.security.InvalidAlgorithmParameterException;
+import java.security.spec.AlgorithmParameterSpec;
+
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 
@@ -69,4 +71,10 @@ public final class DOMXSLTTransform extends ApacheTransform {
             ((javax.xml.crypto.dom.DOMStructure) xp.getStylesheet()).getNode();
         DOMUtils.appendChild(transformElem, xsltElem);
     }
+
+    @Override
+    public AlgorithmParameterSpec getParameterSpec() {
+        return null;
+    }
+
 }

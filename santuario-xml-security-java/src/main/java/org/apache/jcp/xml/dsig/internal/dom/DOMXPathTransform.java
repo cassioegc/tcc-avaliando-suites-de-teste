@@ -22,6 +22,7 @@
 package org.apache.jcp.xml.dsig.internal.dom;
 
 import java.security.InvalidAlgorithmParameterException;
+import java.security.spec.AlgorithmParameterSpec;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
@@ -106,5 +107,10 @@ public final class DOMXPathTransform extends ApacheTransform {
         }
 
         transformElem.appendChild(xpathElem);
+    }
+
+    @Override
+    public AlgorithmParameterSpec getParameterSpec() {
+        return null;
     }
 }
