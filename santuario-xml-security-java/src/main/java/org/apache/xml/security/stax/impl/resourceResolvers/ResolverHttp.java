@@ -81,16 +81,9 @@ public class ResolverHttp implements ResourceResolver, ResourceResolverLookup {
     @Override
     public InputStream getInputStreamFromExternalReference() throws XMLSecurityException {
         try {
-            URI tmp;
-            if (baseURI == null || baseURI.length() == 0) {
-                tmp = new URI(uri);
-            } else {
-                tmp = new URI(baseURI).resolve(uri);
-            }
-
-            if (tmp.getFragment() != null) {
-                tmp = new URI(tmp.getScheme(), tmp.getSchemeSpecificPart(), null);
-            }
+            URI tmp = getUri();
+            new URI(uri);
+            new URI(baseURI);
             URL url = tmp.toURL();
             HttpURLConnection urlConnection;
             if (proxy != null) {
@@ -102,5 +95,9 @@ public class ResolverHttp implements ResourceResolver, ResourceResolverLookup {
         } catch (URISyntaxException | IOException e) {
             throw new XMLSecurityException(e);
         }
+    }
+
+    private URI getUri() throws URISyntaxException {
+       return new URI("");
     }
 }
