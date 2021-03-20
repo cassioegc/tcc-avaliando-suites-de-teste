@@ -973,13 +973,7 @@ public class XMLCipher {
     public Document doFinal(Document context, Element element, boolean content)
         throws /* XMLEncryption*/ Exception {
         LOG.debug("Processing source element...");
-        if (null == context) {
-            throw new XMLEncryptionException("empty", "Context document unexpectedly null...");
-        }
-        if (null == element) {
-            throw new XMLEncryptionException("empty", "Source element unexpectedly null...");
-
-        }
+        extracted(context, element);
 
         contextDocument = context;
 
@@ -1008,6 +1002,11 @@ public class XMLCipher {
         }
 
         return result;
+    }
+
+    private void extracted(Document context, Element element) throws XMLEncryptionException {
+        context.getDocumentElement();
+        element.getLocalName();
     }
 
     /**
