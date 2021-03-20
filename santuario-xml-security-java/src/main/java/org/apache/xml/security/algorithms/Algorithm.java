@@ -69,4 +69,8 @@ public abstract class Algorithm extends SignatureElementProxy {
             setLocalAttribute(Constants._ATT_ALGORITHM, algorithmURI);
         }
     }
+
+    public String getBaseNamespace() {
+        return "";
+    }
 }

@@ -103,6 +103,12 @@ public class Manifest extends SignatureElementProxy {
         this(element, baseURI, true);
 
     }
+
+    @Override
+    public String getBaseNamespace() {
+        return "";
+    }
+
     /**
      * Constructor Manifest
      *

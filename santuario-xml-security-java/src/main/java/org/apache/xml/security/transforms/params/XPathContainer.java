@@ -43,6 +43,11 @@ public class XPathContainer extends SignatureElementProxy implements TransformPa
         super(doc);
     }
 
+    @Override
+    public String getBaseNamespace() {
+        return "";
+    }
+
     /**
      * Sets the TEXT value of the <CODE>ds:XPath</CODE> Element.
      *

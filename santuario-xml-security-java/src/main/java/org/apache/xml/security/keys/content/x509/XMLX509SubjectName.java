@@ -43,6 +43,11 @@ public class XMLX509SubjectName extends SignatureElementProxy implements XMLX509
         super(element, baseURI);
     }
 
+    @Override
+    public String getBaseNamespace() {
+        return "";
+    }
+
     /**
      * Constructor X509SubjectName
      *
