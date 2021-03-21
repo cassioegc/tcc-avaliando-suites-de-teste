@@ -101,15 +101,6 @@ public class InclusiveNamespaces extends ElementProxy implements TransformParam 
     }
 
     /**
-     * Method getInclusiveNamespaces
-     *
-     * @return The Inclusive Namespace string
-     */
-    public String getInclusiveNamespaces() {
-        return getLocalAttribute(InclusiveNamespaces._ATT_EC_PREFIXLIST);
-    }
-
-    /**
      * Decodes the <code>inclusiveNamespaces</code> String and returns all
      * selected namespace prefixes as a Set. The <code>#default</code>
      * namespace token is represented as an empty namespace prefix

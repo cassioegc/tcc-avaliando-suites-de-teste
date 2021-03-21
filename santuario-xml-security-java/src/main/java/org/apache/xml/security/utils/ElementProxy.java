@@ -546,6 +546,10 @@ public abstract class ElementProxy {
         return getElement().getAttributeNS(null, attrName);
     }
 
+    public String getInclusiveNamespaces() {
+        return getLocalAttribute("");
+    }
+
     protected void setLocalAttribute(String attrName, String value) {
         getElement().setAttributeNS(null, attrName, value);
     }
