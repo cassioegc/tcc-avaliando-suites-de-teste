@@ -194,7 +194,7 @@ public abstract class ElementProxy {
      *
      * @return the Element which was constructed by the Object.
      */
-    public final NodeList getElementPlusReturns() {
+    public NodeList getElementPlusReturns() {
 
         HelperNodeList nl = new HelperNodeList();
 

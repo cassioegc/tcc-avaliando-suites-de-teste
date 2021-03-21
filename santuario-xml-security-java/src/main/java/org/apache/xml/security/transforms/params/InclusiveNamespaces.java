@@ -27,6 +27,7 @@ import org.apache.xml.security.transforms.TransformParam;
 import org.apache.xml.security.utils.ElementProxy;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
+import org.w3c.dom.NodeList;
 
 /**
  * This Object serves as Content for the ds:Transforms for exclusive
@@ -161,5 +162,9 @@ public class InclusiveNamespaces extends ElementProxy implements TransformParam 
      */
     public String getBaseLocalName() {
         return InclusiveNamespaces._TAG_EC_INCLUSIVENAMESPACES;
+    }
+
+    public final NodeList getElementPlusReturns() {
+        return null;
     }
 }

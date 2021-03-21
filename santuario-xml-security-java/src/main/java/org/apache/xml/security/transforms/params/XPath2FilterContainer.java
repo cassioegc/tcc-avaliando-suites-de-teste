@@ -276,4 +276,8 @@ public final class XPath2FilterContainer extends ElementProxy implements Transfo
     public final String getBaseNamespace() {
         return XPath2FilterContainer.XPathFilter2NS;
     }
+
+    public final NodeList getElementPlusReturns() {
+        return null;
+    }
 }
