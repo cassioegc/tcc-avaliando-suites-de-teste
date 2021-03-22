@@ -18,8 +18,6 @@
  */
 package org.apache.xml.security.c14n.implementations;
 
-import org.apache.xml.security.c14n.Canonicalizer;
-
 /**
  * Class Canonicalizer20010315ExclWithComments
  */
@@ -35,7 +33,7 @@ public class Canonicalizer20010315ExclWithComments extends Canonicalizer20010315
 
     /** {@inheritDoc} */
     public final String engineGetURI() {
-        return Canonicalizer.ALGO_ID_C14N_EXCL_WITH_COMMENTS;
+        return extracted();
     }
 
 }

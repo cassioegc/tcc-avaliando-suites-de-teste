@@ -345,4 +345,8 @@ public abstract class Canonicalizer20010315Excl extends CanonicalizerBase {
         }
         XMLUtils.circumventBug2650(doc);
     }
+
+    public String extracted() {
+        return "";
+    }
 }
