@@ -1,0 +1,70 @@
+<div>
+    <h2>Alunos</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="aluno.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span >
+                        Create new Aluno
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr>
+                    <th><span>ID</span></th>
+                    <th><span>Primeiro Nome</span></th>
+                    <th><span>Segundo Nome</span></th>
+                    <th><span>Matricula</span></th>
+                    <th><span>Email</span></th>
+                    <th><span>Numero Contato</span></th>
+                    <th><span>Habilitado Tcc</span></th>
+                    <th><span>Professor</span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="aluno in vm.alunos track by aluno.id">
+                    <td><a ui-sref="aluno-detail({id:aluno.id})">{{aluno.id}}</a></td>
+                    <td>{{aluno.primeiroNome}}</td>
+                    <td>{{aluno.segundoNome}}</td>
+                    <td>{{aluno.matricula}}</td>
+                    <td>{{aluno.email}}</td>
+                    <td>{{aluno.numeroContato}}</td>
+                    <td>{{aluno.habilitadoTcc}}</td>
+                    <td>
+                        <a ui-sref="professor-detail({id:aluno.professor.id})">{{aluno.professor.primeiroNome}}</a>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="aluno-detail({id:aluno.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-sm-down"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="aluno.edit({id:aluno.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-sm-down"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="aluno.delete({id:aluno.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-sm-down"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
