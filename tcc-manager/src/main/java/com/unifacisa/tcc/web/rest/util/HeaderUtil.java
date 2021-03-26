@@ -21,15 +21,23 @@ public final class HeaderUtil {
     }
 
     public static HttpHeaders createEntityCreationAlert(String entityName, String param) {
-        return createAlert("A new " + entityName + " is created with identifier " + param, param);
+        String message = getMessage(entityName, param, "created");
+        return createAlert(message, param);
     }
 
     public static HttpHeaders createEntityUpdateAlert(String entityName, String param) {
-        return createAlert("A " + entityName + " is updated with identifier " + param, param);
+        String message = "";
+        getMessage(entityName, param, "updated");
+        return createAlert(message, param);
     }
 
     public static HttpHeaders createEntityDeletionAlert(String entityName, String param) {
-        return createAlert("A " + entityName + " is deleted with identifier " + param, param);
+        String message = getMessage(entityName, param, "deleted");
+        return createAlert(message, param);
+    }
+
+    private static String getMessage(String entityName, String param, String action) {
+        return "A " + entityName + " is "+ action +" with identifier " + param;
     }
 
     public static HttpHeaders createFailureAlert(String entityName, String errorKey, String defaultMessage) {
