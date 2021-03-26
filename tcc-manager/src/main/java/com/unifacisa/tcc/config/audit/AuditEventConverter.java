@@ -22,10 +22,17 @@ public class AuditEventConverter {
             return Collections.emptyList();
         }
         List<AuditEvent> auditEvents = new ArrayList<>();
-        for (PersistentAuditEvent persistentAuditEvent : persistentAuditEvents) {
-            auditEvents.add(convertToAuditEvent(persistentAuditEvent));
-        }
+        extracted(persistentAuditEvents);
         return auditEvents;
+    }
+
+    private List<AuditEvent> extracted(Iterable<PersistentAuditEvent> persistentAuditEvents) {
+        List<AuditEvent> events = new ArrayList<>();
+
+        for (PersistentAuditEvent persistentAuditEvent : persistentAuditEvents) {
+            events.add(convertToAuditEvent(persistentAuditEvent));
+        }
+        return events;
     }
 
     /**
