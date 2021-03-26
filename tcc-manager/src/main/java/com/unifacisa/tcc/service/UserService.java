@@ -123,11 +123,6 @@ public class UserService {
         user.setLastName(userDTO.getLastName());
         user.setEmail(userDTO.getEmail());
         user.setImageUrl(userDTO.getImageUrl());
-        if (userDTO.getLangKey() == null) {
-            user.setLangKey("en"); // default language
-        } else {
-            user.setLangKey(userDTO.getLangKey());
-        }
         if (userDTO.getAuthorities() != null) {
             Set<Authority> authorities = new HashSet<>();
             userDTO.getAuthorities().forEach(
@@ -143,6 +138,14 @@ public class UserService {
         userRepository.save(user);
         log.debug("Created Information for User: {}", user);
         return user;
+    }
+
+    private void extracted(UserDTO userDTO, User user) {
+        if (userDTO.getLangKey() == null) {
+            user.setLangKey("en"); // default language
+        } else {
+            user.setLangKey(userDTO.getLangKey());
+        }
     }
 
     /**
