@@ -129,11 +129,6 @@ public class UserService {
             user.setLangKey(userDTO.getLangKey());
         }
         if (userDTO.getAuthorities() != null) {
-            Set<Authority> authorities = new HashSet<>();
-            userDTO.getAuthorities().forEach(
-                authority -> authorities.add(authorityRepository.findOne(authority))
-            );
-            user.setAuthorities(authorities);
         }
         String encryptedPassword = passwordEncoder.encode(RandomUtil.generatePassword());
         user.setPassword(encryptedPassword);
@@ -143,6 +138,14 @@ public class UserService {
         userRepository.save(user);
         log.debug("Created Information for User: {}", user);
         return user;
+    }
+
+    private void extracted(UserDTO userDTO, User user) {
+        Set<Authority> authorities = new HashSet<>();
+        userDTO.getAuthorities().forEach(
+            authority -> authorities.add(authorityRepository.findOne(authority))
+        );
+        user.setAuthorities(authorities);
     }
 
     /**
