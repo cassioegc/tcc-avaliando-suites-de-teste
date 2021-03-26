@@ -52,11 +52,14 @@ public class AuditEventConverter {
         Map<String, Object> results = new HashMap<>();
 
         if (data != null) {
-            for (Map.Entry<String, String> entry : data.entrySet()) {
-                results.put(entry.getKey(), entry.getValue());
-            }
         }
         return results;
+    }
+
+    private void extracted(Map<String, String> data, Map<String, Object> results) {
+        for (Map.Entry<String, String> entry : data.entrySet()) {
+            results.put(entry.getKey(), entry.getValue());
+        }
     }
 
     /**
