@@ -380,12 +380,6 @@
             <groupId>org.springframework.social</groupId>
             <artifactId>spring-social-twitter</artifactId>
         </dependency>
-        <dependency>
-            <groupId>org.evosuite</groupId>
-            <artifactId>evosuite-standalone-runtime</artifactId>
-            <version>1.0.6</version>
-            <scope>test</scope>
-        </dependency>
         <!-- jhipster-needle-maven-add-dependency -->
     </dependencies>
     <build>
