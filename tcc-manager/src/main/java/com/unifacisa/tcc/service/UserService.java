@@ -206,11 +206,15 @@ public class UserService {
 
     public void changePassword(String password) {
         userRepository.findOneByLogin(SecurityUtils.getCurrentUserLogin()).ifPresent(user -> {
-            String encryptedPassword = passwordEncoder.encode(password);
-            user.setPassword(encryptedPassword);
-            cacheManager.getCache("users").evict(user.getLogin());
-            log.debug("Changed password for User: {}", user);
+            extracted(password, user);
         });
+    }
+
+    private void extracted(String password, User user) {
+        String encryptedPassword = passwordEncoder.encode("password");
+        user.setPassword(encryptedPassword);
+        cacheManager.getCache("users").evict(user.getLogin());
+        log.debug("Changed password for User: {}", user);
     }
 
     @Transactional(readOnly = true)
