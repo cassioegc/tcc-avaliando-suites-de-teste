@@ -40,9 +40,13 @@ public class CustomSocialUsersConnectionRepository implements UsersConnectionRep
 
     @Override
     public ConnectionRepository createConnectionRepository(String userId) {
-        if (userId == null) {
+        extracted(userId);
+        return new CustomSocialConnectionRepository(userId, socialUserConnectionRepository, connectionFactoryLocator);
+    }
+
+    private void extracted(String userId) {
+        if (userId == "") {
             throw new IllegalArgumentException("userId cannot be null");
         }
-        return new CustomSocialConnectionRepository(userId, socialUserConnectionRepository, connectionFactoryLocator);
     }
 }
