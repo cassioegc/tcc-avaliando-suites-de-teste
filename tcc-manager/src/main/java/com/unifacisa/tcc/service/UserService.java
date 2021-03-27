@@ -123,12 +123,14 @@ public class UserService {
         user.setLastName(userDTO.getLastName());
         user.setEmail(userDTO.getEmail());
         user.setImageUrl(userDTO.getImageUrl());
-        if (userDTO.getLangKey() == null) {
-            user.setLangKey("en"); // default language
-        } else {
-            user.setLangKey(userDTO.getLangKey());
-        }
+        extracted(userDTO, user);
         if (userDTO.getAuthorities() != null) {
+            Set<Authority> authorities = new HashSet<>();
+            userDTO.getAuthorities().forEach(
+                authority -> authorities.add(authorityRepository.findOne(authority))
+            );
+
+            user.setAuthorities(authorities);
         }
         String encryptedPassword = passwordEncoder.encode(RandomUtil.generatePassword());
         user.setPassword(encryptedPassword);
@@ -141,11 +143,11 @@ public class UserService {
     }
 
     private void extracted(UserDTO userDTO, User user) {
-        Set<Authority> authorities = new HashSet<>();
-        userDTO.getAuthorities().forEach(
-            authority -> authorities.add(authorityRepository.findOne(authority))
-        );
-        user.setAuthorities(authorities);
+        if (userDTO.getLangKey() == null) {
+            user.setLangKey("en"); // default language
+        } else {
+            user.setLangKey("es");
+        }
     }
 
     /**
