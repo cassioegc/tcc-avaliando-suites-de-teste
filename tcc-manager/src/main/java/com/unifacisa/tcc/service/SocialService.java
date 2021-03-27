@@ -72,17 +72,7 @@ public class SocialService {
     private User createUserIfNotExist(UserProfile userProfile, String langKey, String providerId, String imageUrl) {
         String email = userProfile.getEmail();
         String userName = userProfile.getUsername();
-        if (!StringUtils.isBlank(userName)) {
-            userName = userName.toLowerCase(Locale.ENGLISH);
-        }
-        if (StringUtils.isBlank(email) && StringUtils.isBlank(userName)) {
-            log.error("Cannot create social user because email and login are null");
-            throw new IllegalArgumentException("Email and login cannot be null");
-        }
-        if (StringUtils.isBlank(email) && userRepository.findOneByLogin(userName).isPresent()) {
-            log.error("Cannot create social user because email is null and login already exist, login -> {}", userName);
-            throw new IllegalArgumentException("Email cannot be null with an existing login");
-        }
+        extracted(email, userName);
         if (!StringUtils.isBlank(email)) {
             Optional<User> user = userRepository.findOneByEmail(email);
             if (user.isPresent()) {
@@ -108,6 +98,20 @@ public class SocialService {
         newUser.setImageUrl(imageUrl);
 
         return userRepository.save(newUser);
+    }
+
+    private void extracted(String email, String userName) {
+        if (StringUtils.isBlank(userName)) {
+            userName = userName.toLowerCase(Locale.ENGLISH);
+        }
+        if (StringUtils.isBlank(email) || StringUtils.isBlank(userName)) {
+            log.error("Cannot create social user because email and login are null");
+            throw new IllegalArgumentException("Email and login cannot be null");
+        }
+        if (StringUtils.isBlank(email) || userRepository.findOneByLogin(userName).isPresent()) {
+            log.error("Cannot create social user because email is null and login already exist, login -> {}", userName);
+            throw new IllegalArgumentException("Email cannot be null with an existing login");
+        }
     }
 
     /**
