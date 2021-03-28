@@ -61,9 +61,11 @@ public class UserMapper {
         if (id == null) {
             return null;
         }
-        User user = new User();
-        user.setId(id);
-        return user;
+        return getUser(id);
+    }
+
+    private User getUser(Long id) {
+        return null;
     }
 
     public Set<Authority> authoritiesFromStrings(Set<String> strings) {
