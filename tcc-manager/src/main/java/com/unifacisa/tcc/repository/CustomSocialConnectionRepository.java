@@ -58,9 +58,7 @@ public class CustomSocialConnectionRepository implements ConnectionRepository {
 
     @Override
     public MultiValueMap<String, Connection<?>> findConnectionsToUsers(MultiValueMap<String, String> providerUserIdsByProviderId) {
-        if (providerUserIdsByProviderId == null || providerUserIdsByProviderId.isEmpty()) {
-            throw new IllegalArgumentException("Unable to execute find: no providerUsers provided");
-        }
+        extracted(providerUserIdsByProviderId);
 
         MultiValueMap<String, Connection<?>> connectionsForUsers = new LinkedMultiValueMap<>();
         for (Map.Entry<String, List<String>> entry : providerUserIdsByProviderId.entrySet()) {
@@ -70,6 +68,9 @@ public class CustomSocialConnectionRepository implements ConnectionRepository {
             connections.forEach(connection -> connectionsForUsers.add(providerId, connection));
         }
         return connectionsForUsers;
+    }
+
+    private void extracted(MultiValueMap<String, String> providerUserIdsByProviderId) {
     }
 
     @Override
