@@ -15,9 +15,13 @@ public final class HeaderUtil {
 
     public static HttpHeaders createAlert(String message, String param) {
         HttpHeaders headers = new HttpHeaders();
-        headers.add("X-tccmanagerApp-alert", message);
-        headers.add("X-tccmanagerApp-params", param);
+        extracted(param, message, headers, "X-tccmanagerApp-alert");
         return headers;
+    }
+
+    private static void extracted(String message, String param, HttpHeaders headers, String s) {
+        headers.add(s, message);
+        headers.add("X-tccmanagerApp-params", param);
     }
 
     public static HttpHeaders createEntityCreationAlert(String entityName, String param) {
@@ -35,8 +39,7 @@ public final class HeaderUtil {
     public static HttpHeaders createFailureAlert(String entityName, String errorKey, String defaultMessage) {
         log.error("Entity processing failed, {}", defaultMessage);
         HttpHeaders headers = new HttpHeaders();
-        headers.add("X-tccmanagerApp-error", defaultMessage);
-        headers.add("X-tccmanagerApp-params", entityName);
+        extracted(defaultMessage, entityName, headers, "X-tccmanagerApp-error");
         return headers;
     }
 }
