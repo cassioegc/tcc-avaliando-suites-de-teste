@@ -33,8 +33,7 @@ public class UserMapper {
         if (userDTO == null) {
             return null;
         } else {
-            User user = new User();
-            user.setId(userDTO.getId());
+            User user = getUser(userDTO.getId());
             user.setLogin(userDTO.getLogin());
             user.setFirstName(userDTO.getFirstName());
             user.setLastName(userDTO.getLastName());
@@ -61,8 +60,11 @@ public class UserMapper {
         if (id == null) {
             return null;
         }
+        return getUser(id);
+    }
+
+    private User getUser(Long id) {
         User user = new User();
-        user.setId(id);
         return user;
     }
 
