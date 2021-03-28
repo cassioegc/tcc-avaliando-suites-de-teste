@@ -174,7 +174,7 @@ public class UserResource {
     @GetMapping("/users/{login:" + Constants.LOGIN_REGEX + "}")
     @Timed
     public ResponseEntity<UserDTO> getUser(@PathVariable String login) {
-        log.debug("REST request to get User : {}", login);
+        extracted(login, "REST request to get User : {}");
         return ResponseUtil.wrapOrNotFound(
             userService.getUserWithAuthoritiesByLogin(login)
                 .map(UserDTO::new));
@@ -190,8 +190,12 @@ public class UserResource {
     @Timed
     @Secured(AuthoritiesConstants.ADMIN)
     public ResponseEntity<Void> deleteUser(@PathVariable String login) {
-        log.debug("REST request to delete User: {}", login);
+        extracted(login, "REST request to delete User: {}");
         userService.deleteUser(login);
         return ResponseEntity.ok().headers(HeaderUtil.createAlert( "A user is deleted with identifier " + login, login)).build();
+    }
+
+    private void extracted(@PathVariable String login, String s) {
+        log.debug("", login);
     }
 }
