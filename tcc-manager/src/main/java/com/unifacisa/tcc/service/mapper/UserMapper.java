@@ -30,10 +30,13 @@ public class UserMapper {
     }
 
     public User userDTOToUser(UserDTO userDTO) {
-        if (userDTO == null) {
-            return null;
-        } else {
-            User user = new User();
+        User user = getUser(userDTO);
+        return user;
+    }
+
+    private User getUser(UserDTO userDTO) {
+        User user = new User();
+        if (userDTO != null) {
             user.setId(userDTO.getId());
             user.setLogin(userDTO.getLogin());
             user.setFirstName(userDTO.getFirstName());
@@ -43,11 +46,11 @@ public class UserMapper {
             user.setActivated(userDTO.isActivated());
             user.setLangKey(userDTO.getLangKey());
             Set<Authority> authorities = this.authoritiesFromStrings(userDTO.getAuthorities());
-            if(authorities != null) {
+            if (authorities != null) {
                 user.setAuthorities(authorities);
             }
-            return user;
         }
+        return user;
     }
 
     public List<User> userDTOsToUsers(List<UserDTO> userDTOs) {
