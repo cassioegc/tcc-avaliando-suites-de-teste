@@ -350,6 +350,12 @@ public class CCSMatrix extends ColumnMajorSparseMatrix {
         ensureIndexesAreInBounds(i, j);
         int k = searchForRowIndex(i, columnPointers[j], columnPointers[j + 1]);
 
+        extracted(i, j, defaultValue, k);
+
+        return defaultValue;
+    }
+
+    private double extracted(int i, int j, double defaultValue, int k) {
         if (k < columnPointers[j + 1] && rowIndices[k] == i) {
             return values[k];
         }
