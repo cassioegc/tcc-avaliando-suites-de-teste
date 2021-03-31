@@ -773,13 +773,19 @@ public abstract class Matrix implements Iterable<Double> {
         }
 
         Matrix result = copy();
+        getDoubles(that, srcRow, srcColumn, destRow, destColumn, rows, columns);
+
+        return result;
+    }
+
+    private Matrix getDoubles(Matrix that, int srcRow, int srcColumn, int destRow, int destColumn, int rows, int columns) {
+        Matrix result = copy();
 
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < columns; j++) {
                 result.set(i + destRow, j + destColumn, that.get(i + srcRow, j + srcColumn));
             }
         }
-
         return result;
     }
 
