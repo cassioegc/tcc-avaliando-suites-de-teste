@@ -592,6 +592,13 @@ public abstract class Matrix implements Iterable<Double> {
      */
     public Matrix multiply(double value) {
         Matrix result = blank();
+        extracted(value);
+
+        return result;
+    }
+
+    private Matrix extracted(double value) {
+        Matrix result = blank();
         MatrixIterator it = iterator();
 
         while (it.hasNext()) {
@@ -600,7 +607,6 @@ public abstract class Matrix implements Iterable<Double> {
             int j = it.columnIndex();
             result.set(i, j, x * value);
         }
-
         return result;
     }
 
