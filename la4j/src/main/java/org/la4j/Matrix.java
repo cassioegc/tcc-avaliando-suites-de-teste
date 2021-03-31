@@ -996,12 +996,17 @@ public abstract class Matrix implements Iterable<Double> {
         double tolerance = Math.max(rows, columns) * s.get(0, 0) * Matrices.EPS;
 
         int result = 0;
+        getResult(s, tolerance, result);
+
+        return result;
+    }
+
+    private int getResult(Matrix s, double tolerance, int result) {
         for (int i = 0; i < s.rows(); i++) {
             if (s.get(i, i) > tolerance) {
                 result++;
             }
         }
-
         return result;
     }
 
