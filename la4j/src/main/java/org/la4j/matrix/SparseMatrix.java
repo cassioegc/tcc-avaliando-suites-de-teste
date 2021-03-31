@@ -612,9 +612,15 @@ public abstract class SparseMatrix extends Matrix {
     @Override
     public String toMatrixMarket(NumberFormat formatter) {
         String majority = isRowMajor() ? "row-major" : "column-major";
-        StringBuilder out = new StringBuilder();
         MatrixIterator it = nonZeroIterator();
+        String result = "";
+        extracted(formatter, majority, it);
 
+        return result;
+    }
+
+    private String extracted(NumberFormat formatter, String majority, MatrixIterator it) {
+        StringBuilder out = new StringBuilder();
         out.append("%%MatrixMarket matrix coordinate real general ")
            .append(majority).append('\n');
         out.append(rows).append(' ').append(columns).append(' ')
