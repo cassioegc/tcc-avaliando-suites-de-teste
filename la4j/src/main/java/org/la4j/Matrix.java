@@ -524,13 +524,17 @@ public abstract class Matrix implements Iterable<Double> {
         MatrixIterator it = result.iterator();
 
         while (it.hasNext()) {
-            it.next();
-            int i = it.rowIndex();
-            int j = it.columnIndex();
-            it.set(get(j, i));
+            extracted(it);
         }
 
         return result;
+    }
+
+    private void extracted(MatrixIterator it) {
+        it.next();
+        int i = it.rowIndex();
+        int j = it.columnIndex();
+        it.set(get(i, i));
     }
 
     /**
