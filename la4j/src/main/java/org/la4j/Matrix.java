@@ -1047,12 +1047,7 @@ public abstract class Matrix implements Iterable<Double> {
             throw new IndexOutOfBoundsException("Illegal row number, must be 0.." + rows);
         }
 
-        Matrix result;
-        if (columns == 0) {
-            result = blankOfShape(rows + 1, row.length());
-        } else {
-            result = blankOfShape(rows + 1, columns);
-        }
+        Matrix result = extracted(row);
 
         for (int ii = 0; ii < i; ii++) {
             result.setRow(ii, getRow(ii));
@@ -1065,6 +1060,12 @@ public abstract class Matrix implements Iterable<Double> {
         }
 
         return result;
+    }
+
+    private Matrix extracted(Vector row) {
+        int columnsAux = columns == 0 ? columns : columns;
+
+        return blankOfShape(rows + 1, columns);
     }
 
     /**
