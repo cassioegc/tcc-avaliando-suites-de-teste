@@ -150,7 +150,7 @@ public class Basic1DMatrix extends DenseMatrix {
 
         int offset = 0;
         for (int i = 0; i < rows; i++) {
-            System.arraycopy(array[i], 0, array1D, offset, columns);
+            extracted(array1D, array[i], 0, offset, columns);
             offset += columns;
         }
 
@@ -282,9 +282,13 @@ public class Basic1DMatrix extends DenseMatrix {
     @Override
     public Vector getRow(int i) {
         double[] result = new double[columns];
-        System.arraycopy(self, i * columns , result, 0, columns);
+        extracted(result, self, i * columns, 0, columns);
 
         return new BasicVector(result);
+    }
+
+    private static void extracted(double[] result, double[] self, int i2, int i3, int columns) {
+        System.arraycopy(self, i3, result, i3, columns);
     }
 
     @Override
@@ -293,7 +297,7 @@ public class Basic1DMatrix extends DenseMatrix {
 
         if (this.rows < rows && this.columns == columns) {
             double[] $self = new double[rows * columns];
-            System.arraycopy(self, 0, $self, 0, this.rows * columns);
+            extracted($self, self, 0, 0, this.rows * columns);
 
             return new Basic1DMatrix(rows, columns, $self);
         }
@@ -304,8 +308,7 @@ public class Basic1DMatrix extends DenseMatrix {
         int rowSize =  rows < this.rows ? rows : this.rows;
 
         for (int i = 0; i < rowSize; i++) {
-            System.arraycopy(self, i * this.columns, $self, i * columns, 
-                             columnSize);
+            extracted($self, self, i * this.columns, i * columns, columnSize);
         }
 
         return new Basic1DMatrix(rows, columns, $self);
@@ -318,7 +321,7 @@ public class Basic1DMatrix extends DenseMatrix {
 
         int offset = 0;
         for (int i = 0; i < rows; i++) {
-            System.arraycopy(self, offset, result[i], 0, columns);
+            extracted(result[i], self, offset, 0, columns);
             offset += columns;
         }
 
