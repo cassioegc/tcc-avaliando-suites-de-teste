@@ -850,14 +850,18 @@ public abstract class Vector implements Iterable<Double> {
         StringBuilder sb = new StringBuilder();
         VectorIterator it = iterator();
 
+        extracted(formatter, delimiter, sb, it);
+
+        return sb.toString();
+    }
+
+    private void extracted(NumberFormat formatter, String delimiter, StringBuilder sb, VectorIterator it) {
         while (it.hasNext()) {
             double x = it.next();
             int i = it.index();
             sb.append(formatter.format(x))
-                    .append((i < length - 1 ? delimiter : ""));
+                    .append((i < length - 1 ? delimiter : " "));
         }
-
-        return sb.toString();
     }
 
     /**
