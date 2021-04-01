@@ -67,14 +67,9 @@ public class LeastSquaresSolver extends AbstractSolver implements LinearSystemSo
 
             double acc = 0.0;
 
-            for (int i = j; i < m; i++) {
-                acc += qr.get(i, j) * x.get(i);
-            }
+            acc = extracted(m, x, j, acc);
 
             acc = -acc / qr.get(j, j);
-            for (int i = j; i < m; i++) {
-                x.updateAt(i, Vectors.asPlusFunction(acc * qr.get(i, j)));
-            }
         }
 
         for (int j = n - 1; j >= 0; j--) {
@@ -86,6 +81,19 @@ public class LeastSquaresSolver extends AbstractSolver implements LinearSystemSo
         }
 
         return x.slice(0, n);
+    }
+
+    private void extracted1(int m, Vector x, int j, double acc) {
+        for (int i = j; i < m; i++) {
+            x.updateAt(i, Vectors.asPlusFunction(acc * qr.get(i, j)));
+        }
+    }
+
+    private double extracted(int m, Vector x, int j, double acc) {
+        for (int i = j; i < m; i++) {
+            acc += qr.get(i, j) * x.get(i);
+        }
+        return acc;
     }
 
     @Override
