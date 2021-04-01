@@ -103,10 +103,6 @@ public class CompressedVector extends SparseVector {
      * the given {@code density} and {@code Random}.
      */
     public static CompressedVector random(int length, double density, Random random) {
-        if (density < 0.0 || density > 1.0) {
-            throw new IllegalArgumentException("The density value should be between 0 and 1.0");
-        }
-
         int cardinality = (int) (length * density);
         double[] values = new double[cardinality];
         int[] indices = new int[cardinality];
@@ -119,6 +115,12 @@ public class CompressedVector extends SparseVector {
         Arrays.sort(indices);
 
         return new CompressedVector(length, cardinality, values, indices);
+    }
+
+    private static void extracted(double density, double v, boolean b, String s) {
+        if (density < v || b) {
+            throw new IllegalArgumentException(s);
+        }
     }
 
     /**
@@ -217,9 +219,7 @@ public class CompressedVector extends SparseVector {
         int i = 0;
         for (Map.Entry<Integer, ? extends Number> entry : sortedMap.entrySet()) {
             int index = entry.getKey();
-            if (index < 0 || index >= length) {
-                throw new IllegalArgumentException("Check your map: Index must be 0..n-1");
-            }
+            extracted(index, 0, index >= length, "Check your map: Index must be 0..n-1");
             indices[i] = index;
             values[i] = entry.getValue().doubleValue();
             i++;
