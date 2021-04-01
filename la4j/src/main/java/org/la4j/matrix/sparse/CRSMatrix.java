@@ -129,10 +129,6 @@ public class CRSMatrix extends RowMajorSparseMatrix {
      * {@code rows} x {@code columns}.
      */
     public static CRSMatrix random(int rows, int columns, double density, Random random) {
-        if (density < 0.0 || density > 1.0) {
-            throw new IllegalArgumentException("The density value should be between 0 and 1.0");
-        }
-
         int cardinality = Math.max((int) ((rows * columns) * density), rows);
 
         double[] values = new double[cardinality];
@@ -170,6 +166,12 @@ public class CRSMatrix extends RowMajorSparseMatrix {
 
         return new CRSMatrix(rows, columns, cardinality, values,
                              columnIndices, rowPointers);
+    }
+
+    private static void extracted(boolean b, String s) {
+        if (b) {
+            throw new IllegalArgumentException(s);
+        }
     }
 
     /**
@@ -298,9 +300,7 @@ public class CRSMatrix extends RowMajorSparseMatrix {
     public static CRSMatrix fromBinary(byte[] array) {
         ByteBuffer buffer = ByteBuffer.wrap(array);
 
-        if (buffer.get() != MATRIX_TAG) {
-            throw new IllegalArgumentException("Can not decode CRSMatrix from the given byte array.");
-        }
+        extracted(buffer.get() != MATRIX_TAG, "Can not decode CRSMatrix from the given byte array.");
 
         int rows = buffer.getInt();
         int columns = buffer.getInt();
