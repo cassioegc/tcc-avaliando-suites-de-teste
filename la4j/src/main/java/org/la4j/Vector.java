@@ -365,13 +365,17 @@ public abstract class Vector implements Iterable<Double> {
         VectorIterator it = iterator();
         Vector result = blank();
 
+        extracted(0, it, result);
+
+        return result;
+    }
+
+    private void extracted(double value, VectorIterator it, Vector result) {
         while (it.hasNext()) {
             double x = it.next();
             int i = it.index();
             result.set(i, x + value);
         }
-
-        return result;
     }
 
     /**
