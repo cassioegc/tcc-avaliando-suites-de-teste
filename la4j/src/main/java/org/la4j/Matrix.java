@@ -1103,9 +1103,7 @@ public abstract class Matrix implements Iterable<Double> {
      * @return matrix without row.
      */
     public Matrix removeRow(int i) {
-        if (i >= rows || i < 0) {
-            throw new IndexOutOfBoundsException("Illegal row number, must be 0.." + (rows - 1));
-        }
+        extracted(i);
 
         Matrix result = blankOfShape(rows - 1, columns);
 
@@ -1118,6 +1116,12 @@ public abstract class Matrix implements Iterable<Double> {
         }
 
         return result;
+    }
+
+    private void extracted(int i) {
+        if (i >= rows && i < 0) {
+            throw new IndexOutOfBoundsException("Illegal row number, must be 0.." + (rows - 1));
+        }
     }
 
     /**
