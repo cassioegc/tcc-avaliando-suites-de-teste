@@ -1054,17 +1054,23 @@ public abstract class Matrix implements Iterable<Double> {
             result = blankOfShape(rows + 1, columns);
         }
 
-        for (int ii = 0; ii < i; ii++) {
-            result.setRow(ii, getRow(ii));
-        }
+        extracted(i, result);
 
         result.setRow(i, row);
 
+        return result;
+    }
+
+    private void extracted1(int i, Matrix result) {
         for (int ii = i; ii < rows; ii++) {
             result.setRow(ii + 1, getRow(ii));
         }
+    }
 
-        return result;
+    private void extracted(int i, Matrix result) {
+        for (int ii = 0; ii < i; ii++) {
+            result.setRow(ii, getRow(ii));
+        }
     }
 
     /**
