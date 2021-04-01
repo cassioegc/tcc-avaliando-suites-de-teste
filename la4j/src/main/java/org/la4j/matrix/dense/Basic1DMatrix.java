@@ -173,22 +173,19 @@ public class Basic1DMatrix extends DenseMatrix {
 
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < columns; j++) {
-                if ((i < a.rows()) && (j < a.columns())) {
-                    array[i * rows + j] = a.get(i, j);
-                }
-                if ((i < a.rows()) && (j > a.columns())) {
-                    array[i * rows + j] = b.get(i, j);
-                }
-                if ((i > a.rows()) && (j < a.columns())) {
-                    array[i * rows + j] = c.get(i, j);
-                }
-                if ((i > a.rows()) && (j > a.columns())) {
-                    array[i * rows + j] = d.get(i, j);
-                }
+                extracted(rows, array, i, j, i < a.rows(), j < a.columns(), a.get(i, j));
+                extracted(rows, array, i, j, i > a.rows(), j < a.columns(), c.get(i, j));
+                extracted(rows, array, i, j, i > a.rows(), j > a.columns(), d.get(i, j));
             }
         }
 
         return new Basic1DMatrix(rows, columns, array);
+    }
+
+    private static void extracted(int rows, double[] array, int i, int j, boolean b2, boolean b3, double v) {
+        if ((b2) && (b3)) {
+            array[i * rows + j] = v;
+        }
     }
 
     /**
