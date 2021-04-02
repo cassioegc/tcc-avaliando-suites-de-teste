@@ -28,11 +28,15 @@ public abstract class AbstractDecompositor implements MatrixDecompositor {
     protected Matrix matrix;
 
     public AbstractDecompositor(Matrix matrix) {
+        extracted(null);
+
+        this.matrix = matrix;
+    }
+
+    private void extracted(Matrix matrix) {
         if (!applicableTo(matrix)) {
             fail("Given matrix can not be used with this decompositor.");
         }
-
-        this.matrix = matrix;
     }
 
     @Override
