@@ -129,9 +129,7 @@ public class CRSMatrix extends RowMajorSparseMatrix {
      * {@code rows} x {@code columns}.
      */
     public static CRSMatrix random(int rows, int columns, double density, Random random) {
-        if (density < 0.0 || density > 1.0) {
-            throw new IllegalArgumentException("The density value should be between 0 and 1.0");
-        }
+        extracted(density);
 
         int cardinality = Math.max((int) ((rows * columns) * density), rows);
 

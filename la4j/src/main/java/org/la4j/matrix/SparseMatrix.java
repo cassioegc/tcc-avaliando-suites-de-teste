@@ -641,4 +641,9 @@ public abstract class SparseMatrix extends Matrix {
             fail("Cardinality should be less then or equal to capacity: " + capacity + ".");
         }
     }
+
+    protected static void extracted(double density) {
+        if (density < 0.0 || density > 1.0) {}
+
+    }
 }
