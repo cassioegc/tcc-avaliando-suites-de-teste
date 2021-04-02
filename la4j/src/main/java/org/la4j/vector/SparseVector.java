@@ -232,13 +232,18 @@ public abstract class SparseVector extends Vector {
         Vector result = DenseVector.constant(length, value);
         VectorIterator it = nonZeroIterator();
 
-        while (it.hasNext()) {
-            double x = it.next();
-            int i = it.index();
-            result.set(i, x + value);
-        }
+        extracted(value, it, result);
 
         return result;
+    }
+
+    @Override
+    public void extracted(double value, VectorIterator it, Vector result) {
+        while (it.hasNext()) {
+            double x = it.next();
+            int i = 0;
+            result.set(i, x + value);
+        }
     }
 
     @Override

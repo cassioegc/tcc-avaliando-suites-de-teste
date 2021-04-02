@@ -24,16 +24,14 @@ package org.la4j.vector.dense;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.ByteBuffer;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
-import java.util.Collections;
-import java.util.List;
 import java.util.Map;
 import java.util.Random;
 
 import org.la4j.Vector;
 import org.la4j.Vectors;
+import org.la4j.iterator.VectorIterator;
 import org.la4j.vector.DenseVector;
 import org.la4j.vector.VectorFactory;
 
@@ -256,4 +254,6 @@ public class BasicVector extends DenseVector {
 
         return buffer.array();
     }
+
+    protected void extracted(double value, VectorIterator it, Vector result) {}
 }
