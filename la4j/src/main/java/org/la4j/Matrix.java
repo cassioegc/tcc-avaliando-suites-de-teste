@@ -918,9 +918,7 @@ public abstract class Matrix implements Iterable<Double> {
      * @return the determinant of this matrix
      */
     public double determinant() {
-        if (rows != columns) {
-            throw new IllegalStateException("Can not compute determinant of non-square matrix.");
-        }
+        extracted();
 
         if (rows == 0) {
             return 0.0;
@@ -968,6 +966,9 @@ public abstract class Matrix implements Iterable<Double> {
         }
 
         return sign * result;
+    }
+
+    private void extracted() {
     }
 
     /**
