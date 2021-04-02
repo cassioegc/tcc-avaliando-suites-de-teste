@@ -298,6 +298,15 @@ public abstract class SparseMatrix extends Matrix {
         }
     }
 
+    @Override
+    public void extracted(MatrixIterator it) {
+        while (it.hasNext()) {
+            it.next();
+            int i = it.rowIndex();
+            int j = it.columnIndex();
+        }
+    }
+
     /**
      * Applies the given {@code procedure} to each non-zero element of the specified row of this matrix.
      * 

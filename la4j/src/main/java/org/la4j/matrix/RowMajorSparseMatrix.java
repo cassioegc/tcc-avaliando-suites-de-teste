@@ -151,12 +151,7 @@ public abstract class RowMajorSparseMatrix extends SparseMatrix {
         Matrix result = ColumnMajorSparseMatrix.zero(columns, rows);
         MatrixIterator it = nonZeroRowMajorIterator();
 
-        while (it.hasNext()) {
-            double x = it.next();
-            int i = it.rowIndex();
-            int j = it.columnIndex();
-            result.set(j, i, x);
-        }
+        extracted(it);
 
         return result;
     }

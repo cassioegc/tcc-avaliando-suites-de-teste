@@ -523,15 +523,12 @@ public abstract class Matrix implements Iterable<Double> {
         Matrix result = blankOfShape(columns, rows);
         MatrixIterator it = result.iterator();
 
-        while (it.hasNext()) {
-            it.next();
-            int i = it.rowIndex();
-            int j = it.columnIndex();
-            it.set(get(j, i));
-        }
+        extracted(it);
 
         return result;
     }
+
+    protected abstract void extracted(MatrixIterator it);
 
     /**
      * Rotates this matrix by 90 degrees to the right.

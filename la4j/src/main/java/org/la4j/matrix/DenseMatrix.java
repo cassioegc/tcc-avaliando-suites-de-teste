@@ -23,6 +23,7 @@ package org.la4j.matrix;
 
 import org.la4j.Matrices;
 import org.la4j.Matrix;
+import org.la4j.iterator.MatrixIterator;
 import org.la4j.matrix.dense.Basic1DMatrix;
 import org.la4j.matrix.dense.Basic2DMatrix;
 import org.la4j.operation.MatrixMatrixOperation;
@@ -200,5 +201,14 @@ public abstract class DenseMatrix extends Matrix {
         }
 
         return out.toString();
+    }
+
+    @Override
+    public void extracted(MatrixIterator it) {
+        while (it.hasNext()) {
+            it.next();
+            int i = it.rowIndex();
+            int j = it.columnIndex();
+        }
     }
 }
