@@ -23,6 +23,7 @@ package org.la4j.matrix;
 
 import org.la4j.Matrices;
 import org.la4j.Matrix;
+import org.la4j.iterator.VectorIterator;
 import org.la4j.matrix.dense.Basic1DMatrix;
 import org.la4j.matrix.dense.Basic2DMatrix;
 import org.la4j.operation.MatrixMatrixOperation;
@@ -30,6 +31,7 @@ import org.la4j.operation.MatrixOperation;
 import org.la4j.operation.MatrixVectorOperation;
 import org.la4j.Vector;
 import org.la4j.vector.DenseVector;
+import org.la4j.vector.functor.VectorProcedure;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -200,5 +202,9 @@ public abstract class DenseMatrix extends Matrix {
         }
 
         return out.toString();
+    }
+    @Override
+    protected void extracted(VectorProcedure procedure, VectorIterator it) {
+
     }
 }

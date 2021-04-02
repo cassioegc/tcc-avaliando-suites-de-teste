@@ -1384,12 +1384,10 @@ public abstract class Matrix implements Iterable<Double> {
     public void eachInRow(int i, VectorProcedure procedure) {
         VectorIterator it = iteratorOfRow(i);
 
-        while (it.hasNext()) {
-            double x = it.next();
-            int j = it.index();
-            procedure.apply(j, x);
-        }
+        extracted(procedure, it);
     }
+
+    protected abstract void extracted(VectorProcedure procedure, VectorIterator it);
 
     /**
      * Applies given {@code procedure} to each element of specified column of this matrix.

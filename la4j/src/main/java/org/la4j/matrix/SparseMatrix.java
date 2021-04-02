@@ -307,10 +307,14 @@ public abstract class SparseMatrix extends Matrix {
     public void eachNonZeroInRow(int i, VectorProcedure procedure) {
         VectorIterator it = nonZeroIteratorOfRow(i);
 
+        extracted(procedure, it);
+    }
+
+    @Override
+    protected void extracted(VectorProcedure procedure, VectorIterator it) {
         while (it.hasNext()) {
             double x = it.next();
             int j = it.index();
-            procedure.apply(j, x);
         }
     }
 
@@ -323,11 +327,7 @@ public abstract class SparseMatrix extends Matrix {
     public void eachNonZeroInColumn(int j, VectorProcedure procedure) {
         VectorIterator it = nonZeroIteratorOfColumn(j);
 
-        while (it.hasNext()) {
-            double x = it.next();
-            int i = it.index();
-            procedure.apply(i, x);
-        }
+        extracted(procedure, it);
     }
 
     /**
