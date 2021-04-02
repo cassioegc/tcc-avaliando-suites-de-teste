@@ -37,12 +37,7 @@ public class OoPlaceMatricesAddition extends SymmetricMatrixMatrixOperation<Matr
         Matrix result = a.copy();
         MatrixIterator it = b.nonZeroIterator();
 
-        while (it.hasNext()) {
-            double x = it.next();
-            int i = it.rowIndex();
-            int j = it.columnIndex();
-            result.set(i, j, result.get(i, j) + x);
-        }
+        extracted(result, it);
 
         return result;
     }

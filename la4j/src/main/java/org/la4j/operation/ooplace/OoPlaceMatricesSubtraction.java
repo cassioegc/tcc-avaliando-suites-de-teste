@@ -64,12 +64,7 @@ public class OoPlaceMatricesSubtraction extends SimpleMatrixMatrixOperation<Matr
         Matrix result = b.multiply(-1.0);
         MatrixIterator it = a.nonZeroIterator();
 
-        while (it.hasNext()) {
-            double x = it.next();
-            int i = it.rowIndex();
-            int j = it.columnIndex();
-            result.set(i, j, result.get(i, j) + x);
-        }
+        extracted(result, it);
 
         return result;
     }

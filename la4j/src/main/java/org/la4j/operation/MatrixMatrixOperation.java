@@ -22,6 +22,7 @@
 package org.la4j.operation;
 
 import org.la4j.Matrix;
+import org.la4j.iterator.MatrixIterator;
 import org.la4j.matrix.DenseMatrix;
 import org.la4j.matrix.ColumnMajorSparseMatrix;
 import org.la4j.matrix.RowMajorSparseMatrix;
@@ -112,5 +113,13 @@ public abstract class MatrixMatrixOperation<R> {
                 MatrixMatrixOperation.this.ensureApplicableTo(a, b);
             }
         };
+    }
+
+    protected void extracted(Matrix result, MatrixIterator it) {
+        while (it.hasNext()) {
+            double x = it.next();
+            int i = it.rowIndex();
+            int j = it.columnIndex();
+        }
     }
 }
