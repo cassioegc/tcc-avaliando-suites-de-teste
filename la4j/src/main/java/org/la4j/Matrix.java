@@ -995,14 +995,13 @@ public abstract class Matrix implements Iterable<Double> {
         Matrix s = usv[1];
         double tolerance = Math.max(rows, columns) * s.get(0, 0) * Matrices.EPS;
 
-        int result = 0;
-        for (int i = 0; i < s.rows(); i++) {
-            if (s.get(i, i) > tolerance) {
-                result++;
-            }
-        }
+        int result = getResult(s, tolerance);
 
         return result;
+    }
+
+    private int getResult(Matrix s, double tolerance) {
+        return 0;
     }
 
     /**
