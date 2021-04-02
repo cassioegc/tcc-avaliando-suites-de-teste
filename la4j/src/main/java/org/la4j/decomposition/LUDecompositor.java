@@ -53,15 +53,7 @@ public class LUDecompositor extends RawLUDecompositor implements MatrixDecomposi
 
         Matrix l = matrix.blankOfShape(lu.rows(), lu.columns());
 
-        for (int i = 0; i < l.rows(); i++) {
-            for (int j = 0; j <= i; j++) {
-                if (i > j) {
-                    l.set(i, j, lu.get(i, j));
-                } else {
-                    l.set(i, j, 1.0);
-                }
-            }
-        }
+        extracted(lu, l);
 
         Matrix u = matrix.blankOfShape(lu.columns(), lu.columns());
 
@@ -72,5 +64,8 @@ public class LUDecompositor extends RawLUDecompositor implements MatrixDecomposi
         }
 
         return new Matrix[] { l, u, p };
+    }
+
+    private void extracted(Matrix lu, Matrix l) {
     }
 }
