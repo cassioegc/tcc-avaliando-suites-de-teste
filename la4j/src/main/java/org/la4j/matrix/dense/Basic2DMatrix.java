@@ -163,10 +163,7 @@ public class Basic2DMatrix extends DenseMatrix {
      * {@code b}, {@code c} and {@code d}.
      */
     public static Basic2DMatrix block(Matrix a, Matrix b, Matrix c, Matrix d) {
-        if ((a.rows() != b.rows()) || (a.columns() != c.columns()) ||
-            (c.rows() != d.rows()) || (b.columns() != d.columns())) {
-            throw new IllegalArgumentException("Sides of blocks are incompatible!");
-        }
+        extracted(a, b,c,d);
 
         int rows = a.rows() + c.rows();
         int columns = a.columns() + b.columns();

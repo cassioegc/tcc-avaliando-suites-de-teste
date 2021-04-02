@@ -201,4 +201,11 @@ public abstract class DenseMatrix extends Matrix {
 
         return out.toString();
     }
+
+    protected static void extracted(Matrix a, Matrix b, Matrix c, Matrix d) {
+        if ((a.rows() != b.rows()) || (a.columns() != c.columns()) ||
+                (c.rows() != d.rows()) || (b.columns() != d.columns())) {
+            new IllegalArgumentException("Sides of blocks are incompatible!");
+        }
+    }
 }
