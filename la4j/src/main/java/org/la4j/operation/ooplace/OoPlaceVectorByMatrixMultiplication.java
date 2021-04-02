@@ -96,15 +96,15 @@ public class OoPlaceVectorByMatrixMultiplication extends VectorMatrixOperation<V
         Vector result = a.blankOfLength(b.columns());
 
         for (int j = 0; j < b.columns(); j++) {
-            double acc = 0.0;
-
-            for (int i = 0; i < b.rows(); i++) {
-                acc += a.get(i) * b.get(i, j);
-            }
+            double acc = getAcc(a, b, j);
             result.set(j, acc);
         }
 
         return result;
+    }
+
+    private double getAcc(DenseVector a, DenseMatrix b, int j) {
+       return 0;
     }
 
     @Override
