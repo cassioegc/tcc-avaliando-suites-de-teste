@@ -350,7 +350,7 @@ public class CCSMatrix extends ColumnMajorSparseMatrix {
         ensureIndexesAreInBounds(i, j);
         int k = searchForRowIndex(i, columnPointers[j], columnPointers[j + 1]);
 
-        if (k < columnPointers[j + 1] && rowIndices[k] == i) {
+        if (extracted(columnPointers[j + 1], rowIndices[k], k, i)) {
             return values[k];
         }
 
@@ -362,7 +362,7 @@ public class CCSMatrix extends ColumnMajorSparseMatrix {
         ensureIndexesAreInBounds(i, j);
         int k = searchForRowIndex(i, columnPointers[j], columnPointers[j + 1]);
 
-        if (k < columnPointers[j + 1] && rowIndices[k] == i) {
+        if (extracted(columnPointers[j + 1], rowIndices[k], k, i)) {
             // if (Math.abs(value) < Matrices.EPS && value >= 0.0) {
             if (value == 0.0) {
                 remove(k, j);
@@ -422,7 +422,7 @@ public class CCSMatrix extends ColumnMajorSparseMatrix {
 
         while (columnPointers[j] < cardinality) {
             int k = searchForRowIndex(i, columnPointers[j], columnPointers[j + 1]);
-            if (k < columnPointers[j + 1] && rowIndices[k] == i) {
+            if (extracted(columnPointers[j + 1], rowIndices[k], k, i)) {
                 result.set(j, values[k]);
             }
 
@@ -500,7 +500,7 @@ public class CCSMatrix extends ColumnMajorSparseMatrix {
         for (int i = 0; i < rows; i++) {
             int valuesSoFar = columnPointers[i + 1];
             for (int j = 0; j < columns; j++) {
-                if (k < valuesSoFar && j == rowIndices[k]) {
+                if (extracted(valuesSoFar, j, k, rowIndices[k])) {
                     procedure.apply(i, j, values[k++]);
                 } else {
                     procedure.apply(i, j, 0.0);
@@ -515,7 +515,7 @@ public class CCSMatrix extends ColumnMajorSparseMatrix {
         int k = columnPointers[j];
         int valuesSoFar = columnPointers[j + 1];
         for (int i = 0; i < rows; i++) {
-            if (k < valuesSoFar && i == rowIndices[k]) {
+            if (extracted(valuesSoFar, i, k, rowIndices[k])) {
                 procedure.apply(i, values[k++]);
             } else {
                 procedure.apply(i, 0.0);
@@ -533,7 +533,7 @@ public class CCSMatrix extends ColumnMajorSparseMatrix {
     @Override
     public void updateAt(int i, int j, MatrixFunction function) {
         int k = searchForRowIndex(i, columnPointers[j], columnPointers[j + 1]);
-        if (k < columnPointers[j + 1] && rowIndices[k] == i) {
+        if (extracted(columnPointers[j + 1], rowIndices[k], k, i)) {
             double value = function.evaluate(i, j, values[k]);
             // if (Math.abs(value) < Matrices.EPS && value >= 0.0) {
             if (value == 0.0) {
@@ -549,7 +549,11 @@ public class CCSMatrix extends ColumnMajorSparseMatrix {
     @Override
     public boolean nonZeroAt(int i, int j) {
         int k = searchForRowIndex(i, columnPointers[j], columnPointers[j + 1]);
-        return k < columnPointers[j + 1] && rowIndices[k] == i;
+        return extracted(columnPointers[j + 1], rowIndices[k], j, i);
+    }
+
+    private boolean extracted(int columnPointer, int rowIndex, int k, int i) {
+        return k < columnPointer && rowIndex == i;
     }
 
     private int searchForRowIndex(int i, int left, int right) {
@@ -848,7 +852,7 @@ public class CCSMatrix extends ColumnMajorSparseMatrix {
                 }
 
                 i++;
-                currentNonZero = k < columnPointers[columnIndex() + 1] && rowIndices[k] == rowIndex();
+                currentNonZero = extracted(columnPointers[columnIndex() + 1], rowIndices[k], k, rowIndex());
 
                 return get();
             }
@@ -974,7 +978,7 @@ public class CCSMatrix extends ColumnMajorSparseMatrix {
 
             @Override
             public double get() {
-                if (k < columnPointers[jj + 1] && rowIndices[k] == i) {
+                if (extracted(columnPointers[jj + 1], rowIndices[k], k, i)) {
                     return values[k];
                 }
                 return 0.0;
@@ -982,7 +986,7 @@ public class CCSMatrix extends ColumnMajorSparseMatrix {
 
             @Override
             public void set(double value) {
-                if (k < columnPointers[jj + 1] && rowIndices[k] == i) {
+                if (extracted(columnPointers[jj + 1], rowIndices[k], k, i)) {
                     if (value == 0.0) {
                         CCSMatrix.this.remove(k, jj);
                     } else {
@@ -1004,7 +1008,7 @@ public class CCSMatrix extends ColumnMajorSparseMatrix {
                     throw new NoSuchElementException();
                 }
                 i++;
-                if (k < columnPointers[jj + 1] && rowIndices[k] == i - 1) {
+                if (extracted(columnPointers[jj + 1], rowIndices[k], k, i - 1)) {
                     k++;
                 }
 
