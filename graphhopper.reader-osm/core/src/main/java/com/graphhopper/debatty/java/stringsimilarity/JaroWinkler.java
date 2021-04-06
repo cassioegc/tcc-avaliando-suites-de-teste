@@ -79,6 +79,11 @@ public class JaroWinkler {
                 / THREE;
         double jw = j;
 
+        getJw(mtp, j, jw);
+        return jw;
+    }
+
+    private double getJw(int[] mtp, double j, double jw) {
         if (j > getThreshold()) {
             jw = j + Math.min(JW_COEF, 1.0 / mtp[THREE]) * mtp[2] * (1 - j);
         }
