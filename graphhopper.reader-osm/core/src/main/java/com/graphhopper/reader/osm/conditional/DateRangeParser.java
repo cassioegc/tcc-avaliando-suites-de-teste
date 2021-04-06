@@ -113,6 +113,12 @@ public class DateRangeParser implements ConditionalValueParser {
             return null;
         // throw new IllegalArgumentException("Only Strings containing two Date separated by a '-' or a single Date are allowed");
 
+        DateRange date = null;
+        getDateRange(dateArr);
+        return date;
+    }
+
+    private DateRange getDateRange(String[] dateArr) throws ParseException {
         ParsedCalendar from = parseDateString(dateArr[0]);
         ParsedCalendar to;
         if (dateArr.length == 2)
