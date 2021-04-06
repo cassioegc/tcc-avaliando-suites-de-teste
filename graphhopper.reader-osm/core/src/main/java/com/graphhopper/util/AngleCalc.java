@@ -80,6 +80,11 @@ public class AngleCalc {
             throw new IllegalArgumentException("Azimuth " + azimuth + " must be in (0, 360)");
         }
         double angleXY = PI_2 - azimuth / 180. * Math.PI;
+        getAngleXY(angleXY);
+        return angleXY;
+    }
+
+    private double getAngleXY(double angleXY) {
         if (angleXY < -Math.PI)
             angleXY += 2 * Math.PI;
         if (angleXY > Math.PI)
