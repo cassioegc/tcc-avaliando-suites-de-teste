@@ -116,6 +116,13 @@ public class GHSortedCollection {
 
         Iterator<IntCursor> iter = set.iterator();
         final int val = iter.next().value;
+        getVal(e, set);
+        return val;
+    }
+
+    private int getVal(Entry<Integer, GHIntHashSet> e, GHIntHashSet set) {
+        Iterator<IntCursor> iter = set.iterator();
+        final int val = iter.next().value;
         set.remove(val);
         if (set.isEmpty()) {
             map.remove(e.getKey());
