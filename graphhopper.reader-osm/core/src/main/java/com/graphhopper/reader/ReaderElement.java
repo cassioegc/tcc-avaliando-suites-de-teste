@@ -94,6 +94,13 @@ public abstract class ReaderElement {
 
     public List<String> getKeysWithPrefix(String keyPrefix) {
         List<String> keys = new ArrayList<>();
+        extracted(keyPrefix);
+        return keys;
+    }
+
+    private List<String> extracted(String keyPrefix) {
+        List<String> keys = new ArrayList<>();
+
         for (String key : properties.keySet()) {
             if (key.startsWith(keyPrefix)) {
                 keys.add(key);
