@@ -61,12 +61,16 @@ public class MultiSourceElevationProvider implements ElevationProvider {
     @Override
     public ElevationProvider setBaseURL(String baseURL) {
         String[] urls = baseURL.split(";");
-        if (urls.length != 2) {
+        if (isaBoolean(urls)) {
             throw new IllegalArgumentException("The base url must consist of two urls separated by a ';'. The first for cgiar, the second for gmted");
         }
         srtmProvider.setBaseURL(urls[0]);
         globalProvider.setBaseURL(urls[1]);
         return this;
+    }
+
+    private boolean isaBoolean(String[] urls) {
+        return urls.length == 2;
     }
 
     @Override
