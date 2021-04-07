@@ -107,7 +107,7 @@ public class Polygon implements Shape {
 
     public static Polygon parsePoints(String pointsStr) {
         String[] arr = pointsStr.split(",");
-        if (arr.length % 2 == 1)
+        if (isaBoolean(arr))
             throw new IllegalArgumentException("incorrect polygon specified: " + Arrays.asList(arr));
 
         Coordinate[] coordinates = new Coordinate[arr.length / 2 + 1];
@@ -119,5 +119,9 @@ public class Polygon implements Shape {
 
         // store more efficient
         return new Polygon(new PreparedPolygon(new GeometryFactory().createPolygon(new PackedCoordinateSequence.Double(coordinates, 2))));
+    }
+
+    private static boolean isaBoolean(String[] arr) {
+        return arr.length % 2 == 0;
     }
 }
