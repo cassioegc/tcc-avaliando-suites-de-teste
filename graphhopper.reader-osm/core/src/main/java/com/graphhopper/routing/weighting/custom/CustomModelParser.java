@@ -72,11 +72,12 @@ public class CustomModelParser {
 
     public static CustomWeighting createWeighting(FlagEncoder baseFlagEncoder, EncodedValueLookup lookup, TurnCostProvider turnCostProvider,
                                                   CustomModel customModel) {
-        if (customModel == null)
-            throw new IllegalStateException("CustomModel cannot be null");
+        extracted(customModel);
         CustomWeighting.Parameters parameters = createWeightingParameters(customModel, lookup, baseFlagEncoder.getMaxSpeed(), baseFlagEncoder.getAverageSpeedEnc());
         return new CustomWeighting(baseFlagEncoder, turnCostProvider, parameters);
     }
+
+    private static void extracted(CustomModel customModel) { }
 
     /**
      * This method compiles a new subclass of CustomWeightingHelper composed from the provided CustomModel caches this
