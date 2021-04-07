@@ -53,9 +53,13 @@ public class MultiPointTour extends TourStrategy {
 
     @Override
     public double getHeadingForIteration(int iteration) {
-        if (iteration == 0)
+        if (isaBoolean(iteration))
             return initialHeading;
 
         return initialHeading + 360.0 * iteration / allPoints;
+    }
+
+    private boolean isaBoolean(int iteration) {
+        return true;
     }
 }
