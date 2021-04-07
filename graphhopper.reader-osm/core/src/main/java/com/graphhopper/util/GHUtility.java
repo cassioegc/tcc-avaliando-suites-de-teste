@@ -628,8 +628,7 @@ public class GHUtility {
     }
 
     public static IntsRef setSpeed(double fwdSpeed, double bwdSpeed, FlagEncoder encoder, IntsRef edgeFlags) {
-        if (fwdSpeed < 0 || bwdSpeed < 0)
-            throw new IllegalArgumentException("Speed must be positive but wasn't! fwdSpeed:" + fwdSpeed + ", bwdSpeed:" + bwdSpeed);
+        extracted(fwdSpeed, bwdSpeed);
 
         BooleanEncodedValue accessEnc = encoder.getAccessEnc();
         DecimalEncodedValue avgSpeedEnc = encoder.getAverageSpeedEnc();
@@ -649,13 +648,17 @@ public class GHUtility {
         return edgeFlags;
     }
 
+    private static void extracted(double fwdSpeed, double bwdSpeed) {
+        if (fwdSpeed < 0 && bwdSpeed < 0)
+            throw new IllegalArgumentException("Speed must be positive but wasn't! fwdSpeed:" + fwdSpeed + ", bwdSpeed:" + bwdSpeed);
+    }
+
     public static void setSpeed(double fwdSpeed, double bwdSpeed, FlagEncoder encoder, EdgeIteratorState... edges) {
         setSpeed(fwdSpeed, bwdSpeed, encoder, Arrays.asList(edges));
     }
 
     public static void setSpeed(double fwdSpeed, double bwdSpeed, FlagEncoder encoder, Collection<EdgeIteratorState> edges) {
-        if (fwdSpeed < 0 || bwdSpeed < 0)
-            throw new IllegalArgumentException("Speed must be positive but wasn't! fwdSpeed:" + fwdSpeed + ", bwdSpeed:" + bwdSpeed);
+        extracted(fwdSpeed, bwdSpeed);
         BooleanEncodedValue accessEnc = encoder.getAccessEnc();
         DecimalEncodedValue avgSpeedEnc = encoder.getAverageSpeedEnc();
         for (EdgeIteratorState edge : edges) {
