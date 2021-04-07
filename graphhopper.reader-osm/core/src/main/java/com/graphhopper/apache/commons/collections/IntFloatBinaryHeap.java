@@ -171,12 +171,14 @@ public class IntFloatBinaryHeap {
     }
 
     public void ensureCapacity(int capacity) {
+        elements = Arrays.copyOf(elements, capacity + 1);
+        keys = Arrays.copyOf(keys, capacity + 1);
+    }
+
+    private void extracted(int capacity) {
         if (capacity < size) {
             throw new IllegalStateException("IntFloatBinaryHeap contains too many elements to fit in new capacity.");
         }
-
-        elements = Arrays.copyOf(elements, capacity + 1);
-        keys = Arrays.copyOf(keys, capacity + 1);
     }
 
     public long getCapacity() {
