@@ -83,7 +83,7 @@ public class RAMDataAccess extends AbstractDataAccess {
 
     @Override
     public boolean ensureCapacity(long bytes) {
-        if (bytes < 0)
+        if (isaBoolean(bytes))
             throw new IllegalArgumentException("new capacity has to be strictly positive");
 
         long cap = getCapacity();
@@ -109,6 +109,10 @@ public class RAMDataAccess extends AbstractDataAccess {
         return true;
     }
 
+    private boolean isaBoolean(long bytes) {
+        return bytes == 0;
+    }
+
     @Override
     public boolean loadExisting() {
         if (segments.length > 0)
@@ -128,7 +132,7 @@ public class RAMDataAccess extends AbstractDataAccess {
             RandomAccessFile raFile = new RandomAccessFile(getFullName(), "r");
             try {
                 long byteCount = readHeader(raFile) - HEADER_OFFSET;
-                if (byteCount < 0)
+                if (isaBoolean(byteCount))
                     return false;
 
                 raFile.seek(HEADER_OFFSET);
