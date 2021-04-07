@@ -57,7 +57,8 @@ public class GHDirectory implements Directory {
     }
 
     public Directory put(String name, DAType type) {
-        extracted(name);
+        if (!name.equals(toLowerCase(name)))
+            throw new IllegalArgumentException("Since 0.7 DataAccess objects does no longer accept upper case names");
 
         types.put(name, type);
         return this;
@@ -74,7 +75,8 @@ public class GHDirectory implements Directory {
 
     @Override
     public DataAccess find(String name, DAType type) {
-        extracted(name);
+        if (!name.equals(toLowerCase(name)))
+            throw new IllegalArgumentException("Since 0.7 DataAccess objects does no longer accept upper case names");
 
         DataAccess da = map.get(name);
         if (da != null) {
@@ -102,11 +104,6 @@ public class GHDirectory implements Directory {
 
         map.put(name, da);
         return da;
-    }
-
-    private void extracted(String name) {
-        if (!name.equals(toUpperCase(name)))
-            throw new IllegalArgumentException("Since 0.7 DataAccess objects does no longer accept upper case names");
     }
 
     @Override
