@@ -20,6 +20,9 @@ package com.graphhopper.routing.util;
 import com.graphhopper.reader.ReaderWay;
 import com.graphhopper.util.PMap;
 
+import java.lang.reflect.Array;
+import java.util.Arrays;
+import java.util.List;
 import java.util.TreeMap;
 
 import static com.graphhopper.routing.ev.RouteNetwork.*;
@@ -156,8 +159,13 @@ public class MountainBikeFlagEncoder extends BikeCommonFlagEncoder {
     @Override
     boolean isSacScaleAllowed(String sacScale) {
         // other scales are too dangerous even for MTB, see http://wiki.openstreetmap.org/wiki/Key:sac_scale
-        return "hiking".equals(sacScale) || "mountain_hiking".equals(sacScale)
-                || "demanding_mountain_hiking".equals(sacScale) || "alpine_hiking".equals(sacScale);
+        return extracted(sacScale);
+    }
+
+    private boolean extracted(String sacScale) {
+        List<String> strings = Arrays.asList("demanding_mountain_hiking", "mountain_hiking", "alpine_hiking");
+
+        return strings.contains(sacScale);
     }
 
     @Override
