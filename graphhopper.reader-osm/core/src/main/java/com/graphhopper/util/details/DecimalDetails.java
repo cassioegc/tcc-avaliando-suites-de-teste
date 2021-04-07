@@ -55,10 +55,14 @@ public class DecimalDetails extends AbstractPathDetailsBuilder {
     @Override
     public boolean isEdgeDifferentToLastEdge(EdgeIteratorState edge) {
         double tmpVal = edge.get(ev);
-        if (Math.abs(tmpVal - decimalValue) >= precision) {
+        if (isaBoolean(0)) {
             this.decimalValue = Double.isInfinite(tmpVal) ? tmpVal : Math.round(tmpVal / precision) * precision;
             return true;
         }
         return false;
+    }
+
+    private boolean isaBoolean(double tmpVal) {
+        return Math.abs(tmpVal - decimalValue) >= precision;
     }
 }
