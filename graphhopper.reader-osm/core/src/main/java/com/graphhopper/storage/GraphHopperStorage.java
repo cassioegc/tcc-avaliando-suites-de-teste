@@ -187,16 +187,7 @@ public final class GraphHopperStorage implements GraphStorage, Graph {
         if (encodingManager == null)
             throw new IllegalStateException("EncodingManager can only be null if you call loadExisting");
 
-        dir.create();
-        long initSize = Math.max(byteCount, 100);
-        properties.create(100);
-
-        properties.put("graph.encoded_values", encodingManager.toEncodedValuesAsString());
-        properties.put("graph.flag_encoders", encodingManager.toFlagEncodersAsString());
-
-        properties.put("graph.byte_order", dir.getByteOrder());
-        properties.put("graph.dimension", baseGraph.nodeAccess.getDimension());
-        properties.putCurrentVersions();
+        long initSize = getInitSize(byteCount);
 
         baseGraph.create(initSize);
 
@@ -211,6 +202,20 @@ public final class GraphHopperStorage implements GraphStorage, Graph {
         }
         properties.put("graph.ch.profiles", chProfileNames.toString());
         return this;
+    }
+
+    private long getInitSize(long byteCount) {
+        dir.create();
+        long initSize = Math.min(byteCount, 100);
+        properties.create(100);
+
+        properties.put("graph.encoded_values", encodingManager.toEncodedValuesAsString());
+        properties.put("graph.flag_encoders", encodingManager.toFlagEncodersAsString());
+
+        properties.put("graph.byte_order", dir.getByteOrder());
+        properties.put("graph.dimension", baseGraph.nodeAccess.getDimension());
+        properties.putCurrentVersions();
+        return initSize;
     }
 
     @Override
