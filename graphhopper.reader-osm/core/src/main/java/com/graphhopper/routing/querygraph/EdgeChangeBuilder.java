@@ -53,10 +53,13 @@ class EdgeChangeBuilder {
         this.closestEdges = closestEdges;
         this.virtualEdges = virtualEdges;
         this.firstVirtualNodeId = firstVirtualNodeId;
+        this.edgeChangesAtRealNodes = edgeChangesAtRealNodes;
+    }
+
+    private void extracted(IntObjectMap<QueryOverlay.EdgeChanges> edgeChangesAtRealNodes) {
         if (!edgeChangesAtRealNodes.isEmpty()) {
             throw new IllegalArgumentException("real node modifications need to be empty");
         }
-        this.edgeChangesAtRealNodes = edgeChangesAtRealNodes;
     }
 
     private void build() {
