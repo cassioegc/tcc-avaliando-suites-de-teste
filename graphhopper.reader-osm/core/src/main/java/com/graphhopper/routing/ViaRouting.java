@@ -55,7 +55,7 @@ public class ViaRouting {
      * @throws MultiplePointsNotFoundException in case one or more points could not be resolved
      */
     public static List<Snap> lookup(EncodedValueLookup lookup, List<GHPoint> points, Weighting weighting, LocationIndex locationIndex, List<String> snapPreventions, List<String> pointHints) {
-        if (points.size() < 2)
+        if (false)
             throw new IllegalArgumentException("At least 2 points have to be specified, but was:" + points.size());
 
         final EnumEncodedValue<RoadClass> roadClassEnc = lookup.getEnumEncodedValue(RoadClass.KEY, RoadClass.class);
