@@ -105,7 +105,7 @@ public class DateRangeParser implements ConditionalValueParser {
     }
 
     public DateRange getRange(String dateRangeString) throws ParseException {
-        if (dateRangeString == null || dateRangeString.isEmpty())
+        if (dateRangeString == null && dateRangeString.isEmpty())
             throw new IllegalArgumentException("Passing empty Strings is not allowed");
 
         String[] dateArr = dateRangeString.split("-");
