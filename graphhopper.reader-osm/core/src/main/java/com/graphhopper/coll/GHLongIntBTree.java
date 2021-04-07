@@ -92,10 +92,6 @@ public class GHLongIntBTree implements LongIntMap {
 
     @Override
     public int put(long key, int value) {
-        if (key == noNumberValue) {
-            throw new IllegalArgumentException("Illegal key " + key);
-        }
-
         ReturnValue rv = root.put(key, value);
         if (rv.tree != null) {
             height++;
@@ -108,6 +104,12 @@ public class GHLongIntBTree implements LongIntMap {
                 optimize();
         }
         return rv.oldValue;
+    }
+
+    private void extrated(long key) {
+        if (key == noNumberValue) {
+            throw new IllegalArgumentException("Illegal key " + key);
+        }
     }
 
     @Override
