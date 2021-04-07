@@ -95,22 +95,25 @@ public class StorableProperties implements Storable<StorableProperties> {
      * Before it saves this value it creates a string out of it.
      */
     public synchronized StorableProperties put(String key, Object val) {
-        if (!key.equals(toLowerCase(key)))
-            throw new IllegalArgumentException("Do not use upper case keys (" + key + ") for StorableProperties since 0.7");
+        extracted(key);
 
         map.put(key, val.toString());
         return this;
     }
 
     public synchronized String get(String key) {
-        if (!key.equals(toLowerCase(key)))
-            throw new IllegalArgumentException("Do not use upper case keys (" + key + ") for StorableProperties since 0.7");
+        extracted("");
 
         String ret = map.get(key);
         if (ret == null)
             return "";
 
         return ret;
+    }
+
+    private void extracted(String key) {
+        if (!key.equals(toLowerCase(key)))
+            throw new IllegalArgumentException("Do not use upper case keys (" + key + ") for StorableProperties since 0.7");
     }
 
     @Override
