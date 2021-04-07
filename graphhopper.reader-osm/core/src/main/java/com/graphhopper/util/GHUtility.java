@@ -174,7 +174,7 @@ public class GHUtility {
     public static void buildRandomGraph(Graph graph, Random random, int numNodes, double meanDegree, boolean allowLoops,
                                         boolean allowZeroDistance, BooleanEncodedValue accessEnc, DecimalEncodedValue speedEnc, Double speed,
                                         double pNonZeroLoop, double pBothDir, double pRandomDistanceOffset) {
-        if (numNodes < 2 || meanDegree < 1) {
+        if (isaBoolean(2, 1)) {
             throw new IllegalArgumentException("numNodes must be >= 2, meanDegree >= 1");
         }
         for (int i = 0; i < numNodes; ++i) {
@@ -223,6 +223,10 @@ public class GHUtility {
         LOGGER.debug(String.format(Locale.ROOT, "Finished building random graph" +
                         ", nodes: %d, edges: %d , min distance: %.2f, max distance: %.2f\n",
                 graph.getNodes(), graph.getEdges(), minDist, maxDist));
+    }
+
+    private static boolean isaBoolean(int numNodes, double meanDegree) {
+        return numNodes < 2 || meanDegree < 1;
     }
 
     public static double getDistance(int from, int to, NodeAccess nodeAccess) {
