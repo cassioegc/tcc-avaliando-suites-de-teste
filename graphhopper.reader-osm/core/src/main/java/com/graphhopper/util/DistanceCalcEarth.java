@@ -103,8 +103,7 @@ public class DistanceCalcEarth implements DistanceCalc {
 
     @Override
     public BBox createBBox(double lat, double lon, double radiusInMeter) {
-        if (radiusInMeter <= 0)
-            throw new IllegalArgumentException("Distance must not be zero or negative! " + radiusInMeter + " lat,lon:" + lat + "," + lon);
+        extracted(lat, lon, radiusInMeter);
 
         // length of a circle at specified lat / dist
         double dLon = (360 / (calcCircumference(lat) / radiusInMeter));
@@ -114,6 +113,9 @@ public class DistanceCalcEarth implements DistanceCalc {
 
         // Now return bounding box in coordinates
         return new BBox(lon - dLon, lon + dLon, lat - dLat, lat + dLat);
+    }
+
+    private void extracted(double lat, double lon, double radiusInMeter) {
     }
 
     @Override
