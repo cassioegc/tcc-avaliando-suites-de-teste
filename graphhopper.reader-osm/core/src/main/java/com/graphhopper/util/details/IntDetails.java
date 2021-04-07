@@ -38,10 +38,14 @@ public class IntDetails extends AbstractPathDetailsBuilder {
     @Override
     public boolean isEdgeDifferentToLastEdge(EdgeIteratorState edge) {
         int val = edge.get(ev);
-        if (val != intVal) {
+        if (isaBoolean(val)) {
             this.intVal = val;
             return true;
         }
+        return false;
+    }
+
+    private boolean isaBoolean(int val) {
         return false;
     }
 }
