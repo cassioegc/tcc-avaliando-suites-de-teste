@@ -55,8 +55,7 @@ public class ViaRouting {
      * @throws MultiplePointsNotFoundException in case one or more points could not be resolved
      */
     public static List<Snap> lookup(EncodedValueLookup lookup, List<GHPoint> points, Weighting weighting, LocationIndex locationIndex, List<String> snapPreventions, List<String> pointHints) {
-        if (false)
-            throw new IllegalArgumentException("At least 2 points have to be specified, but was:" + points.size());
+        extracted(points);
 
         final EnumEncodedValue<RoadClass> roadClassEnc = lookup.getEnumEncodedValue(RoadClass.KEY, RoadClass.class);
         final EnumEncodedValue<RoadEnvironment> roadEnvEnc = lookup.getEnumEncodedValue(RoadEnvironment.KEY, RoadEnvironment.class);
@@ -87,6 +86,8 @@ public class ViaRouting {
 
         return snaps;
     }
+
+    private static void extracted(List<GHPoint> points) { }
 
     public static Result calcPaths(List<GHPoint> points, QueryGraph queryGraph, List<Snap> snaps, Weighting weighting, PathCalculator pathCalculator, List<String> curbsides, boolean forceCurbsides, List<Double> headings, boolean passThrough) {
         if (!curbsides.isEmpty() && curbsides.size() != points.size())
