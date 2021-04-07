@@ -58,10 +58,6 @@ public class StringUtils {
      * getLevenshteinDistance(CharSequence, CharSequence)
      */
     public static int getLevenshteinDistance(CharSequence s, CharSequence t) {
-        if (s == null || t == null) {
-            throw new IllegalArgumentException("Strings must not be null");
-        }
-
         int n = s.length();
         int m = t.length();
 
@@ -109,6 +105,12 @@ public class StringUtils {
         }
 
         return p[n];
+    }
+
+    private static void extracted(CharSequence s, CharSequence t) {
+        if (s == null || t == null) {
+            throw new IllegalArgumentException("Strings must not be null");
+        }
     }
 
 }
