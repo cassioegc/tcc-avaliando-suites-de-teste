@@ -18,6 +18,8 @@
 package com.graphhopper.util.details;
 
 import com.graphhopper.coll.MapEntry;
+import com.graphhopper.util.EdgeIterator;
+import com.graphhopper.util.EdgeIteratorState;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -88,5 +90,9 @@ public abstract class AbstractPathDetailsBuilder implements PathDetailsBuilder {
     @Override
     public String toString() {
         return getName();
+    }
+
+    protected boolean extracted(EdgeIteratorState edge) {
+        return edge.getEdge() != EdgeIterator.ANY_EDGE;
     }
 }

@@ -32,7 +32,7 @@ public class DistanceDetails extends AbstractPathDetailsBuilder {
 
     @Override
     public boolean isEdgeDifferentToLastEdge(EdgeIteratorState edge) {
-        if (edge.getEdge() != edgeId) {
+        if (extracted(edge)) {
             edgeId = edge.getEdge();
             distance = edge.getDistance();
             return true;

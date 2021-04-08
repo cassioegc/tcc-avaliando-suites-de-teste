@@ -42,7 +42,7 @@ public class WeightDetails extends AbstractPathDetailsBuilder {
 
     @Override
     public boolean isEdgeDifferentToLastEdge(EdgeIteratorState edge) {
-        if (edge.getEdge() != edgeId) {
+        if (extracted(edge)) {
             edgeId = edge.getEdge();
             weight = GHUtility.calcWeightWithTurnWeightWithAccess(weighting, edge, false, edgeId);
             return true;
