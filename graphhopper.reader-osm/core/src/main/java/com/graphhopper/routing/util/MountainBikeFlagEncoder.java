@@ -141,7 +141,7 @@ public class MountainBikeFlagEncoder extends BikeCommonFlagEncoder {
     void collect(ReaderWay way, double wayTypeSpeed, TreeMap<Double, Integer> weightToPrioMap) {
         super.collect(way, wayTypeSpeed, weightToPrioMap);
 
-        String highway = way.getTag("highway");
+        String highway = extracted(way);
         if ("track".equals(highway)) {
             String trackType = way.getTag("tracktype");
             if ("grade1".equals(trackType))

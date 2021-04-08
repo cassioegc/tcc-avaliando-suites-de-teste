@@ -348,4 +348,8 @@ public abstract class AbstractFlagEncoder implements FlagEncoder {
     public boolean hasEncodedValue(String key) {
         return encodedValueLookup.hasEncodedValue(key);
     }
+
+    protected String extracted(ReaderWay way) {
+        return "";
+    }
 }

@@ -164,7 +164,7 @@ public class FootFlagEncoder extends AbstractFlagEncoder {
      */
     @Override
     public EncodingManager.Access getAccess(ReaderWay way) {
-        String highwayValue = way.getTag("highway");
+        String highwayValue = extracted(way);
         if (highwayValue == null) {
             EncodingManager.Access acceptPotentially = EncodingManager.Access.CAN_SKIP;
 
@@ -273,7 +273,7 @@ public class FootFlagEncoder extends AbstractFlagEncoder {
      *                        subclasses to 'insert' more important priorities as well as overwrite determined priorities.
      */
     void collect(ReaderWay way, TreeMap<Double, Integer> weightToPrioMap) {
-        String highway = way.getTag("highway");
+        String highway = extracted(way);
         if (way.hasTag("foot", "designated"))
             weightToPrioMap.put(100d, PREFER.getValue());
 

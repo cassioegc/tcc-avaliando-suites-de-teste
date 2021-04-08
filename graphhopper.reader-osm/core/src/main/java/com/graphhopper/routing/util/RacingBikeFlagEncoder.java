@@ -128,7 +128,7 @@ public class RacingBikeFlagEncoder extends BikeCommonFlagEncoder {
     void collect(ReaderWay way, double wayTypeSpeed, TreeMap<Double, Integer> weightToPrioMap) {
         super.collect(way, wayTypeSpeed, weightToPrioMap);
 
-        String highway = way.getTag("highway");
+        String highway = extracted(way);
         if ("service".equals(highway)) {
             weightToPrioMap.put(40d, UNCHANGED.getValue());
         } else if ("track".equals(highway)) {

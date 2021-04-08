@@ -203,7 +203,7 @@ abstract public class BikeCommonFlagEncoder extends AbstractFlagEncoder {
 
     @Override
     public EncodingManager.Access getAccess(ReaderWay way) {
-        String highwayValue = way.getTag("highway");
+        String highwayValue = extracted(way);
         if (highwayValue == null) {
             EncodingManager.Access accept = EncodingManager.Access.CAN_SKIP;
 
@@ -319,7 +319,7 @@ abstract public class BikeCommonFlagEncoder extends AbstractFlagEncoder {
 
     int getSpeed(ReaderWay way) {
         int speed = PUSHING_SECTION_SPEED;
-        String highwayTag = way.getTag("highway");
+        String highwayTag = extracted(way);
         Integer highwaySpeed = highwaySpeeds.get(highwayTag);
 
         // Under certain conditions we need to increase the speed of pushing sections to the speed of a "highway=cycleway"
@@ -433,7 +433,7 @@ abstract public class BikeCommonFlagEncoder extends AbstractFlagEncoder {
      */
     void collect(ReaderWay way, double wayTypeSpeed, TreeMap<Double, Integer> weightToPrioMap) {
         String service = way.getTag("service");
-        String highway = way.getTag("highway");
+        String highway = extracted(way);
         if (way.hasTag("bicycle", "designated") || way.hasTag("bicycle", "official")) {
             if ("path".equals(highway))
                 weightToPrioMap.put(100d, VERY_NICE.getValue());

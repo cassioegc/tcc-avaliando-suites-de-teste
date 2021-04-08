@@ -168,7 +168,7 @@ public class CarFlagEncoder extends AbstractFlagEncoder {
     }
 
     protected double getSpeed(ReaderWay way) {
-        String highwayValue = way.getTag("highway");
+        String highwayValue = extracted(way);
         if (!Helper.isEmpty(highwayValue) && way.hasTag("motorroad", "yes")
                 && !"motorway".equals(highwayValue) && !"motorway_link".equals(highwayValue)) {
             highwayValue = "motorroad";
@@ -192,7 +192,7 @@ public class CarFlagEncoder extends AbstractFlagEncoder {
     @Override
     public EncodingManager.Access getAccess(ReaderWay way) {
         // TODO: Ferries have conditionals, like opening hours or are closed during some time in the year
-        String highwayValue = way.getTag("highway");
+        String highwayValue = extracted(way);
         String firstValue = way.getFirstPriorityTag(restrictions);
         if (highwayValue == null) {
             if (way.hasTag("route", ferries)) {
