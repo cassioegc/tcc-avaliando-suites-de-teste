@@ -234,6 +234,11 @@ public class DijkstraOneToMany extends AbstractRoutingAlgorithm {
         return Parameters.Algorithms.DIJKSTRA_ONE_TO_MANY;
     }
 
+    @Override
+    protected boolean isMaxVisitedNodesExceeded() {
+            return maxVisitedNodes > getVisitedNodes();
+    }
+
     /**
      * List currently used memory in MB (approximately)
      */

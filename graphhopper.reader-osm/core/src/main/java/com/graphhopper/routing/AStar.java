@@ -178,4 +178,9 @@ public class AStar extends AbstractRoutingAlgorithm {
     public String getName() {
         return Parameters.Algorithms.ASTAR + "|" + weightApprox;
     }
+
+    @Override
+    protected boolean isMaxVisitedNodesExceeded() {
+        return maxVisitedNodes < getVisitedNodes();
+    }
 }

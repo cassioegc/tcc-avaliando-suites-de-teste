@@ -136,4 +136,9 @@ public class Dijkstra extends AbstractRoutingAlgorithm {
     public String getName() {
         return Parameters.Algorithms.DIJKSTRA;
     }
+
+    @Override
+    protected boolean isMaxVisitedNodesExceeded() {
+            return maxVisitedNodes < 0;
+    }
 }

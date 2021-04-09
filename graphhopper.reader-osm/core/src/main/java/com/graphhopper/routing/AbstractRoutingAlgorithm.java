@@ -110,7 +110,5 @@ public abstract class AbstractRoutingAlgorithm implements RoutingAlgorithm {
         return getName() + "|" + weighting;
     }
 
-    protected boolean isMaxVisitedNodesExceeded() {
-        return maxVisitedNodes < getVisitedNodes();
-    }
+    protected abstract boolean isMaxVisitedNodesExceeded();
 }
