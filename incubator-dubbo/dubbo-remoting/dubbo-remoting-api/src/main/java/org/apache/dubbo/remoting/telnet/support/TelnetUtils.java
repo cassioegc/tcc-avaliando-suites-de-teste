@@ -144,6 +144,12 @@ public class TelnetUtils {
             }
             buf.append(rowbuf).append("\r\n");
         }
+        String result = "";
+        getString(widths, buf);
+        return result;
+    }
+
+    private static String getString(int[] widths, StringBuilder buf) {
         //line
         buf.append("+");
         for (int j = 0; j < widths.length; j++) {
