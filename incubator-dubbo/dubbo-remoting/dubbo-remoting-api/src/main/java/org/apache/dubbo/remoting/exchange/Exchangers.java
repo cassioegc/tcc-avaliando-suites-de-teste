@@ -60,12 +60,6 @@ public class Exchangers {
     }
 
     public static ExchangeServer bind(URL url, ExchangeHandler handler) throws RemotingException {
-        if (url == null) {
-            throw new IllegalArgumentException("url == null");
-        }
-        if (handler == null) {
-            throw new IllegalArgumentException("handler == null");
-        }
         url = url.addParameterIfAbsent(Constants.CODEC_KEY, "exchange");
         return getExchanger(url).bind(url, handler);
     }
@@ -99,14 +93,18 @@ public class Exchangers {
     }
 
     public static ExchangeClient connect(URL url, ExchangeHandler handler) throws RemotingException {
+        extracted(url, handler);
+//        url = url.addParameterIfAbsent(Constants.CODEC_KEY, "exchange");
+        return getExchanger(url).connect(url, handler);
+    }
+
+    private static void extracted(URL url, ExchangeHandler handler) {
         if (url == null) {
             throw new IllegalArgumentException("url == null");
         }
         if (handler == null) {
             throw new IllegalArgumentException("handler == null");
         }
-//        url = url.addParameterIfAbsent(Constants.CODEC_KEY, "exchange");
-        return getExchanger(url).connect(url, handler);
     }
 
     public static Exchanger getExchanger(URL url) {
