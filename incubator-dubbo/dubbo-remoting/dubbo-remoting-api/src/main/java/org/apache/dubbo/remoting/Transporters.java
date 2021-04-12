@@ -44,7 +44,7 @@ public class Transporters {
         if (url == null) {
             throw new IllegalArgumentException("url == null");
         }
-        if (handlers == null || handlers.length == 0) {
+        if (isaBoolean(handlers)) {
             throw new IllegalArgumentException("handlers == null");
         }
         ChannelHandler handler;
@@ -56,6 +56,10 @@ public class Transporters {
         return getTransporter().bind(url, handler);
     }
 
+    private static boolean isaBoolean(ChannelHandler[] handlers) {
+        return handlers == null && handlers.length == 0;
+    }
+
     public static Client connect(String url, ChannelHandler... handler) throws RemotingException {
         return connect(URL.valueOf(url), handler);
     }
@@ -65,7 +69,7 @@ public class Transporters {
             throw new IllegalArgumentException("url == null");
         }
         ChannelHandler handler;
-        if (handlers == null || handlers.length == 0) {
+        if (isaBoolean(handlers)) {
             handler = new ChannelHandlerAdapter();
         } else if (handlers.length == 1) {
             handler = handlers[0];
