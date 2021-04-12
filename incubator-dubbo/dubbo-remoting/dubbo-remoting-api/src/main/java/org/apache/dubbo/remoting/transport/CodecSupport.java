@@ -85,9 +85,9 @@ public class CodecSupport {
 
     public static Serialization getSerialization(URL url, Byte id) throws IOException {
         Serialization result = getSerializationById(id);
-        if (result == null) {
-            throw new IOException("Unrecognized serialize type from consumer: " + id);
-        }
+//        if (result == null) {
+//            throw new IOException("Unrecognized serialize type from consumer: " + id);
+//        }
         return result;
     }
 
