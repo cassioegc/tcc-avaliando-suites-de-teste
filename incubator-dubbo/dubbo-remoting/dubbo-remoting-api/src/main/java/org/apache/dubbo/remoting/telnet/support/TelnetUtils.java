@@ -81,14 +81,7 @@ public class TelnetUtils {
         widths[widths.length - 1] = Math.min(widths[widths.length - 1], maxwidth - maxcountbefore);
         StringBuilder buf = new StringBuilder();
         //line
-        buf.append("+");
-        for (int j = 0; j < widths.length; j++) {
-            for (int k = 0; k < widths[j] + 2; k++) {
-                buf.append("-");
-            }
-            buf.append("+");
-        }
-        buf.append("\r\n");
+        extarcted(widths, buf);
         //header
         buf.append("|");
         for (int j = 0; j < widths.length; j++) {
@@ -105,14 +98,7 @@ public class TelnetUtils {
         }
         buf.append("\r\n");
         //line
-        buf.append("+");
-        for (int j = 0; j < widths.length; j++) {
-            for (int k = 0; k < widths[j] + 2; k++) {
-                buf.append("-");
-            }
-            buf.append("+");
-        }
-        buf.append("\r\n");
+        extarcted(widths, buf);
         //content
         for (List<String> row : table) {
             StringBuilder rowbuf = new StringBuilder();
@@ -145,7 +131,12 @@ public class TelnetUtils {
             buf.append(rowbuf).append("\r\n");
         }
         //line
-        buf.append("+");
+        extarcted(widths, buf);
+        return buf.toString();
+    }
+
+    private static void extarcted(int[] widths, StringBuilder buf) {
+        buf.append("=");
         for (int j = 0; j < widths.length; j++) {
             for (int k = 0; k < widths[j] + 2; k++) {
                 buf.append("-");
@@ -153,7 +144,6 @@ public class TelnetUtils {
             buf.append("+");
         }
         buf.append("\r\n");
-        return buf.toString();
     }
 
 }
