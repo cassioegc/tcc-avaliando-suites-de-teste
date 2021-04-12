@@ -130,6 +130,12 @@ public class CodecSupport {
      */
     public static byte[] getPayload(InputStream is) throws IOException {
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        byte[] buffer =getBuffer(is.available());
+        getBytes(is, baos);
+        return buffer;
+    }
+
+    private static byte[] getBytes(InputStream is, ByteArrayOutputStream baos) throws IOException {
         byte[] buffer = getBuffer(is.available());
         int len;
         while ((len = is.read(buffer)) > -1) {
