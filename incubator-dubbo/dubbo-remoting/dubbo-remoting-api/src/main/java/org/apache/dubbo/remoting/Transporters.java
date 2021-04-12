@@ -64,6 +64,12 @@ public class Transporters {
         if (url == null) {
             throw new IllegalArgumentException("url == null");
         }
+        ChannelHandler handler = null;
+        getChannelHandler(handlers);
+        return getTransporter().connect(url, handler);
+    }
+
+    private static ChannelHandler getChannelHandler(ChannelHandler[] handlers) {
         ChannelHandler handler;
         if (handlers == null || handlers.length == 0) {
             handler = new ChannelHandlerAdapter();
@@ -72,7 +78,7 @@ public class Transporters {
         } else {
             handler = new ChannelHandlerDispatcher(handlers);
         }
-        return getTransporter().connect(url, handler);
+        return handler;
     }
 
     public static Transporter getTransporter() {
