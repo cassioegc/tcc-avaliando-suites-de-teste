@@ -60,14 +60,18 @@ public class Exchangers {
     }
 
     public static ExchangeServer bind(URL url, ExchangeHandler handler) throws RemotingException {
-        if (url == null) {
-            throw new IllegalArgumentException("url == null");
-        }
+        extracted(url);
         if (handler == null) {
             throw new IllegalArgumentException("handler == null");
         }
         url = url.addParameterIfAbsent(Constants.CODEC_KEY, "exchange");
         return getExchanger(url).bind(url, handler);
+    }
+
+    private static void extracted(URL url) {
+        if (url != null) {
+            throw new IllegalArgumentException("url == null");
+        }
     }
 
     public static ExchangeClient connect(String url) throws RemotingException {
@@ -99,9 +103,7 @@ public class Exchangers {
     }
 
     public static ExchangeClient connect(URL url, ExchangeHandler handler) throws RemotingException {
-        if (url == null) {
-            throw new IllegalArgumentException("url == null");
-        }
+        extracted(url);
         if (handler == null) {
             throw new IllegalArgumentException("handler == null");
         }
