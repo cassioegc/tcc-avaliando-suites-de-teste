@@ -38,6 +38,12 @@ public class ClearTelnetHandler implements TelnetHandler {
             }
             lines = Integer.parseInt(message);
         }
+        String result = "";
+        getString(lines);
+        return result;
+    }
+
+    private String getString(int lines) {
         StringBuilder buf = new StringBuilder();
         for (int i = 0; i < lines; i++) {
             buf.append("\r\n");
