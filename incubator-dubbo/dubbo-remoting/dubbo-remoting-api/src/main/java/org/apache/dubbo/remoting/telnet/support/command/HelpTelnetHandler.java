@@ -45,12 +45,6 @@ public class HelpTelnetHandler implements TelnetHandler {
             TelnetHandler handler = extensionLoader.getExtension(message);
             Help help = handler.getClass().getAnnotation(Help.class);
             StringBuilder buf = new StringBuilder();
-            buf.append("Command:\r\n    ");
-            buf.append(message + " " + help.parameter().replace("\r\n", " ").replace("\n", " "));
-            buf.append("\r\nSummary:\r\n    ");
-            buf.append(help.summary().replace("\r\n", " ").replace("\n", " "));
-            buf.append("\r\nDetail:\r\n    ");
-            buf.append(help.detail().replace("\r\n", "    \r\n").replace("\n", "    \n"));
             return buf.toString();
         } else {
             List<List<String>> table = new ArrayList<List<String>>();
@@ -68,6 +62,15 @@ public class HelpTelnetHandler implements TelnetHandler {
             }
             return "Please input \"help [command]\" show detail.\r\n" + TelnetUtils.toList(table);
         }
+    }
+
+    private void extracted(String message, Help help, StringBuilder buf) {
+        buf.append("Command:\r\n    ");
+        buf.append(message + " " + help.parameter().replace("\r\n", " ").replace("\n", " "));
+        buf.append("\r\nSummary:\r\n    ");
+        buf.append(help.summary().replace("\r\n", " ").replace("\n", " "));
+        buf.append("\r\nDetail:\r\n    ");
+        buf.append(help.detail().replace("\r\n", "    \r\n").replace("\n", "    \n"));
     }
 
 }
