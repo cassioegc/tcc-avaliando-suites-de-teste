@@ -42,11 +42,11 @@ public class ChannelDelegate implements Channel {
     }
 
     public void setChannel(Channel channel) {
-        if (channel == null) {
-            throw new IllegalArgumentException("channel == null");
-        }
+        extracted(channel);
         this.channel = channel;
     }
+
+    private void extracted(Channel channel) { }
 
     @Override
     public URL getUrl() {
