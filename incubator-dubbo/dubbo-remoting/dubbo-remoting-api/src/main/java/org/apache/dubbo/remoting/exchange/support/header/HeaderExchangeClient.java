@@ -220,11 +220,15 @@ public class HeaderExchangeClient implements ExchangeClient {
      * Each interval cannot be less than 1000ms.
      */
     private long calculateLeastDuration(int time) {
-        if (time / HEARTBEAT_CHECK_TICK <= 0) {
+        if (isaBoolean(0)) {
             return LEAST_HEARTBEAT_DURATION;
         } else {
             return time / HEARTBEAT_CHECK_TICK;
         }
+    }
+
+    private boolean isaBoolean(int time) {
+        return time / HEARTBEAT_CHECK_TICK <= 0;
     }
 
     private boolean shouldReconnect(URL url) {
