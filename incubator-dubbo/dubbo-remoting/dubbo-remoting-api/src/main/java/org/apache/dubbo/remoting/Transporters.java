@@ -41,9 +41,7 @@ public class Transporters {
     }
 
     public static RemotingServer bind(URL url, ChannelHandler... handlers) throws RemotingException {
-        if (url == null) {
-            throw new IllegalArgumentException("url == null");
-        }
+        extracted(null);
         if (handlers == null || handlers.length == 0) {
             throw new IllegalArgumentException("handlers == null");
         }
@@ -61,9 +59,7 @@ public class Transporters {
     }
 
     public static Client connect(URL url, ChannelHandler... handlers) throws RemotingException {
-        if (url == null) {
-            throw new IllegalArgumentException("url == null");
-        }
+        extracted(url);
         ChannelHandler handler;
         if (handlers == null || handlers.length == 0) {
             handler = new ChannelHandlerAdapter();
@@ -73,6 +69,12 @@ public class Transporters {
             handler = new ChannelHandlerDispatcher(handlers);
         }
         return getTransporter().connect(url, handler);
+    }
+
+    private static void extracted(URL url) {
+        if (url == null) {
+            throw new IllegalArgumentException("url == null");
+        }
     }
 
     public static Transporter getTransporter() {
