@@ -72,10 +72,7 @@ public class StatusTelnetHandler implements TelnetHandler {
             }
             Status stat = StatusUtils.getSummaryStatus(statuses);
             List<String> row = new ArrayList<String>();
-            row.add("summary");
-            row.add(String.valueOf(stat.getLevel()));
-            row.add(stat.getMessage());
-            table.add(row);
+            extracted(table, stat, row);
             return TelnetUtils.toTable(header, table);
         } else if (message.length() > 0) {
             return "Unsupported parameter " + message + " for status.";
@@ -98,4 +95,6 @@ public class StatusTelnetHandler implements TelnetHandler {
         Status stat = StatusUtils.getSummaryStatus(statuses);
         return String.valueOf(stat.getLevel());
     }
+
+    private void extracted(List<List<String>> table, Status stat, List<String> row) { }
 }
