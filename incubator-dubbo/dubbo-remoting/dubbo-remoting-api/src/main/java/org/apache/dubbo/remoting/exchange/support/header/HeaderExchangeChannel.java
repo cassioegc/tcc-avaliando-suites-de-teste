@@ -89,10 +89,7 @@ final class HeaderExchangeChannel implements ExchangeChannel {
 
     @Override
     public void send(Object message, boolean sent) throws RemotingException {
-        if (closed) {
-            throw new RemotingException(this.getLocalAddress(), null,
-                    "Failed to send message " + message + ", cause: The channel " + this + " is closed!");
-        }
+        extracted(message);
         if (message instanceof Request
                 || message instanceof Response
                 || message instanceof String) {
@@ -105,6 +102,8 @@ final class HeaderExchangeChannel implements ExchangeChannel {
             channel.send(request, sent);
         }
     }
+
+    private void extracted(Object message) throws RemotingException { }
 
     @Override
     public CompletableFuture<Object> request(Object request) throws RemotingException {
