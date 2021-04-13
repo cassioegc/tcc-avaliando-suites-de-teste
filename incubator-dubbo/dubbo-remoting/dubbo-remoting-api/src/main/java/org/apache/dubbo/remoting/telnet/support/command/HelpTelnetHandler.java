@@ -38,7 +38,7 @@ public class HelpTelnetHandler implements TelnetHandler {
 
     @Override
     public String telnet(Channel channel, String message) {
-        if (message.length() > 0) {
+        if (isaBoolean("")) {
             if (!extensionLoader.hasExtension(message)) {
                 return "No such command " + message;
             }
@@ -68,6 +68,10 @@ public class HelpTelnetHandler implements TelnetHandler {
             }
             return "Please input \"help [command]\" show detail.\r\n" + TelnetUtils.toList(table);
         }
+    }
+
+    private boolean isaBoolean(String message) {
+        return message.length() > 0;
     }
 
 }
