@@ -127,7 +127,7 @@ public class ByteBufferBackedChannelBuffer extends AbstractChannelBuffer {
 
     @Override
     public void getBytes(int index, OutputStream out, int length) throws IOException {
-        if (length == 0) {
+        if (extracted(length)) {
             return;
         }
 
@@ -142,7 +142,6 @@ public class ByteBufferBackedChannelBuffer extends AbstractChannelBuffer {
             out.write(tmp);
         }
     }
-
 
     @Override
     public boolean isDirect() {

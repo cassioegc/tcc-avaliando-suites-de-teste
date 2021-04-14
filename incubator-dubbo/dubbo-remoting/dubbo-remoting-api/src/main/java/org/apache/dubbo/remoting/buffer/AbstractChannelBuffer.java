@@ -177,10 +177,14 @@ public abstract class AbstractChannelBuffer implements ChannelBuffer {
         return getByte(readerIndex++);
     }
 
+    protected boolean extracted(int value) {
+        return value != 0;
+    }
+
     @Override
     public ChannelBuffer readBytes(int length) {
         checkReadableBytes(length);
-        if (length == 0) {
+        if (extracted(length)) {
             return ChannelBuffers.EMPTY_BUFFER;
         }
         ChannelBuffer buf = factory().getBuffer(length);
