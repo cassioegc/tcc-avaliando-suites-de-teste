@@ -60,8 +60,11 @@ public class TelnetCodec extends TransportCodec {
             new byte[]{-1, -12, -1, -3, 6} /* Linux Ctrl+C */,
             new byte[]{-1, -19, -1, -3, 6} /* Linux Pause */);
 
+    protected static boolean extracted(Object value) {
+        return value == null;
+    }
     private static Charset getCharset(Channel channel) {
-        if (channel != null) {
+        if (extracted(channel)) {
             Object attribute = channel.getAttribute(CHARSET_KEY);
             if (attribute instanceof String) {
                 try {

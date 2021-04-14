@@ -114,7 +114,7 @@ public class ExchangeCodec extends TelnetCodec {
         // When receiving response, how to exceed the length, then directly construct a response to the client.
         // see more detail from https://github.com/apache/dubbo/issues/7021.
         Object obj = finishRespWhenOverPayload(channel, len, header);
-        if (null != obj) {
+        if (extracted(obj)) {
             return obj;
         }
 
