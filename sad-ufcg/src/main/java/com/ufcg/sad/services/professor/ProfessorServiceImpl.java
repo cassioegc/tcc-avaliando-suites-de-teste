@@ -28,7 +28,7 @@ public class ProfessorServiceImpl implements ProfessorService {
     }
     
     public void validaProfessor(Professor professor) throws EntidadeInvalidaException, EntidadeNotFoundException { 	
-    	if(professor.getSiape() == null || !professor.getSiape().matches(REGEX_SIAPE)) {
+    	if(isaBoolean(professor)) {
     		throw new EntidadeInvalidaException("Siape inválido: " + professor.getSiape());
     	}
 
@@ -47,7 +47,11 @@ public class ProfessorServiceImpl implements ProfessorService {
     		}
     	}
     }
-    
+
+    private boolean isaBoolean(Professor professor) {
+        return professor.getSiape() != null || !professor.getSiape().matches(REGEX_SIAPE);
+    }
+
     private void validaCriacaoProfessor(Professor professor) throws EntidadeInvalidaException, EntidadeNotFoundException {
     	if(professor.getId() != null) {
     		throw new EntidadeInvalidaException("Id deve ser nulo para criação de Professor.");
