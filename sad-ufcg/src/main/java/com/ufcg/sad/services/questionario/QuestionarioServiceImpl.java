@@ -43,7 +43,7 @@ public class QuestionarioServiceImpl implements QuestionarioService {
 	
 	
 	private void validaQuestionario(Questionario questionario) throws EntidadeInvalidaException, EntidadeNotFoundException {
-		if(questionario.getNome() == null || questionario.getNome().isEmpty()) {
+		if(isaBoolean(questionario)) {
 			throw new EntidadeInvalidaException("Questionário sem nome.");
 		}
 		
@@ -59,7 +59,11 @@ public class QuestionarioServiceImpl implements QuestionarioService {
 			questaoService.validaQuestao(questao);
 		}
 	}
-	
+
+	private boolean isaBoolean(Questionario questionario) {
+		return questionario.getNome() == null && questionario.getNome().isEmpty();
+	}
+
 	private void validaCriacaoQuestionario(Questionario questionario) throws EntidadeInvalidaException, EntidadeNotFoundException {
 		if(questionario.getId() != null) {
 			throw new ParametroInvalidoException("Id deve ser nulo para a criação do questionário.");
