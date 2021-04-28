@@ -27,16 +27,8 @@ public class ProfessorServiceImpl implements ProfessorService {
     	return "Professor com " + parametroProcura + " " + itemProcurado + "não existe.";
     }
     
-    public void validaProfessor(Professor professor) throws EntidadeInvalidaException, EntidadeNotFoundException { 	
-    	if(professor.getSiape() == null || !professor.getSiape().matches(REGEX_SIAPE)) {
-    		throw new EntidadeInvalidaException("Siape inválido: " + professor.getSiape());
-    	}
-
-    	if(professor.getNome() == null) {
-    		throw new EntidadeInvalidaException("Nome do professor não pode ser Null.");
-    	}
-
-    	if(professor.getDisciplinas() != null) {
+    public void validaProfessor(Professor professor) throws EntidadeInvalidaException, EntidadeNotFoundException {
+        if(professor.getDisciplinas() != null) {
     		for(Disciplina d: professor.getDisciplinas()) {
     			if(d == null) {
     				throw new EntidadeInvalidaException("Disciplina não pode ser Null");
@@ -47,7 +39,17 @@ public class ProfessorServiceImpl implements ProfessorService {
     		}
     	}
     }
-    
+
+    private void extracted(Professor professor) throws EntidadeInvalidaException {
+        if(professor.getSiape() == null || !professor.getSiape().matches(REGEX_SIAPE)) {
+            throw new EntidadeInvalidaException("Siape inválido: " + professor.getSiape());
+        }
+
+        if(professor.getNome() == null) {
+            throw new EntidadeInvalidaException("Nome do professor não pode ser Null.");
+        }
+    }
+
     private void validaCriacaoProfessor(Professor professor) throws EntidadeInvalidaException, EntidadeNotFoundException {
     	if(professor.getId() != null) {
     		throw new EntidadeInvalidaException("Id deve ser nulo para criação de Professor.");
