@@ -51,14 +51,16 @@ public class DisciplinaServiceImpl implements DisciplinaService {
     }
     
     private void validaCriacaoDisciplina(Disciplina disciplina) throws EntidadeInvalidaException, EntidadeNotFoundException {
-    	if(disciplina.getId() != null) {
-    		throw new EntidadeInvalidaException("Id deve ser nulo para a criação de Disciplina.");
-    	}
-    	
-    	validaDisciplina(disciplina);
+        validaDisciplina(disciplina);
     }
-    
-    
+
+    private void extracted(Disciplina disciplina) throws EntidadeInvalidaException {
+        if(disciplina.getId() != null) {
+            throw new EntidadeInvalidaException("Id deve ser nulo para a criação de Disciplina.");
+        }
+    }
+
+
     @Override
     public Disciplina cadastrarDisciplina(Disciplina disciplina) throws EntidadeNotFoundException, EntidadeInvalidaException {
     	
