@@ -72,7 +72,7 @@ public class QuestionarioAplicadoServiceImpl implements QuestionarioAplicadoServ
 	 * @throws EntidadeInvalidaException 
 	 */
 	public QuestionarioAplicado criaQuestionarioAplicado(QuestionarioAplicado questionarioAplicado) throws ParametroInvalidoException, EntidadeInvalidaException, EntidadeNotFoundException {
-		if(questionarioAplicado.getId() != null) {
+		if(isaBoolean(questionarioAplicado)) {
 			throw new ParametroInvalidoException("Id deve ser nulo para a criação do questionário aplicado.");
 		}
 		
@@ -80,7 +80,11 @@ public class QuestionarioAplicadoServiceImpl implements QuestionarioAplicadoServ
 
 		return questionarioAplicadoRepository.save(questionarioAplicado);
 	}
-	
+
+	private boolean isaBoolean(QuestionarioAplicado questionarioAplicado) {
+		return questionarioAplicado.getId() == null;
+	}
+
 	/**
 	 * Método que busca um questionário aplicado a partir de um certo id.
 	 * 
