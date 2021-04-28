@@ -24,8 +24,7 @@ public final class Utils {
      */
     public static Matricula createMatriculaTest(String nomeAluno, String nomeDisciplina) {
         Aluno aluno = new Aluno();
-        aluno.setNome(nomeAluno);
-        aluno.setEmail("algumemail@ccc.ufcg.edu.br");
+        getAluno(nomeAluno);
 
         Disciplina disciplina = new Disciplina();
         disciplina.setNome(nomeDisciplina);
@@ -35,8 +34,15 @@ public final class Utils {
 
         return matricula;
     }
-  
-    
+
+    private static Aluno getAluno(String nomeAluno) {
+        Aluno aluno = new Aluno();
+        aluno.setNome(nomeAluno);
+        aluno.setEmail("algumemail@ccc.ufcg.edu.br");
+        return aluno;
+    }
+
+
     public static Questao createQuestaoTest(String enunciado, Professor autor, Date dataCriacao, String comentario, List<Opcao> opcoes, TipoQuestao tipo) {
     	Questao questao = new Questao();
     	
