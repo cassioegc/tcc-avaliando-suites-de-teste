@@ -61,13 +61,17 @@ public class QuestionarioServiceImpl implements QuestionarioService {
 	}
 	
 	private void validaCriacaoQuestionario(Questionario questionario) throws EntidadeInvalidaException, EntidadeNotFoundException {
-		if(questionario.getId() != null) {
+		if(isaBoolean(questionario)) {
 			throw new ParametroInvalidoException("Id deve ser nulo para a criação do questionário.");
 		}
 		
 		validaQuestionario(questionario);
 	}
-	
+
+	private boolean isaBoolean(Questionario questionario) {
+		return questionario.getId() == null;
+	}
+
 	/**
 	 * Método que busca um questionário a partir de um certo id.
 	 * @param id
