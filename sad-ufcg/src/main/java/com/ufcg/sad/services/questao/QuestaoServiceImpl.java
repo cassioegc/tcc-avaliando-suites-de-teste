@@ -52,7 +52,16 @@ public class QuestaoServiceImpl implements QuestaoService {
 		if(questao.getDataCriacao() != null || questao.getDataUltimaEdicao() != null) {
 			throw new EntidadeInvalidaException("Data não deve ser passada.");
 		}
-		
+
+		boolean tipoValido = false;
+		isTipoValido(questao);
+
+		if(!tipoValido) {
+			throw new EntidadeInvalidaException("Questão contém tipo inválido: " + questao.getTipoQuestao());
+		}
+	}
+
+	private boolean isTipoValido(Questao questao) {
 		boolean tipoValido = false;
 		for(TipoQuestao questaoValida : TipoQuestao.values()) {
 			if(questao.getTipoQuestao().equals(questaoValida)) {
@@ -60,12 +69,9 @@ public class QuestaoServiceImpl implements QuestaoService {
 		       break;
 		   }
 		}
-		
-		if(!tipoValido) {
-			throw new EntidadeInvalidaException("Questão contém tipo inválido: " + questao.getTipoQuestao());
-		}
+		return tipoValido;
 	}
-	
+
 	private void validaCriacaoQuestao(Questao questao) throws EntidadeInvalidaException, EntidadeNotFoundException {
 		if(questao.getId() != null) {
 			throw new EntidadeInvalidaException("Questão não se deve conter ID.");
