@@ -41,7 +41,7 @@ public class RespostaServiceImpl implements RespostaService {
 
 	
 	public void validaResposta(Resposta resposta) throws EntidadeInvalidaException, EntidadeNotFoundException {
-		if(resposta.getDataResposta() != null) {
+		if(isaBoolean(resposta)) {
 			throw new ParametroInvalidoException("Data não deve ser passada para criar Resposta.");
 		}
 		
@@ -69,7 +69,11 @@ public class RespostaServiceImpl implements RespostaService {
 			validaSelecao((RespostaSelecao) resposta);
 		}
 	}
-	
+
+	private boolean isaBoolean(Resposta resposta) {
+		return resposta.getDataResposta() == null;
+	}
+
 	private void validaSelecao(RespostaSelecao resposta) throws EntidadeInvalidaException, EntidadeNotFoundException {
 		List<Opcao> opcoes = resposta.getOpcoesSelecionadas();
 		if(opcoes == null) {
