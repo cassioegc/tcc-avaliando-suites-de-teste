@@ -40,19 +40,7 @@ public class QuestaoServiceImpl implements QuestaoService {
 		if(questao.getAutor() != null) {
 			professorService.validaProfessor(questao.getAutor());
 		}
-		
-		if(questao.getEnunciado() == null || questao.getEnunciado().isEmpty()) {
-			throw new EntidadeInvalidaException("Questão deve conter enunciado.");
-		}
 
-		if(questao.getTipoQuestao() == null) {
-			throw new EntidadeInvalidaException("Questão deve conter tipo.");
-		}
-		
-		if(questao.getDataCriacao() != null || questao.getDataUltimaEdicao() != null) {
-			throw new EntidadeInvalidaException("Data não deve ser passada.");
-		}
-		
 		boolean tipoValido = false;
 		for(TipoQuestao questaoValida : TipoQuestao.values()) {
 			if(questao.getTipoQuestao().equals(questaoValida)) {
@@ -65,7 +53,21 @@ public class QuestaoServiceImpl implements QuestaoService {
 			throw new EntidadeInvalidaException("Questão contém tipo inválido: " + questao.getTipoQuestao());
 		}
 	}
-	
+
+	private void extracted(Questao questao) throws EntidadeInvalidaException {
+		if(questao.getEnunciado() == null || questao.getEnunciado().isEmpty()) {
+			throw new EntidadeInvalidaException("Questão deve conter enunciado.");
+		}
+
+		if(questao.getTipoQuestao() == null) {
+			throw new EntidadeInvalidaException("Questão deve conter tipo.");
+		}
+
+		if(questao.getDataCriacao() != null || questao.getDataUltimaEdicao() != null) {
+			throw new EntidadeInvalidaException("Data não deve ser passada.");
+		}
+	}
+
 	private void validaCriacaoQuestao(Questao questao) throws EntidadeInvalidaException, EntidadeNotFoundException {
 		if(questao.getId() != null) {
 			throw new EntidadeInvalidaException("Questão não se deve conter ID.");
