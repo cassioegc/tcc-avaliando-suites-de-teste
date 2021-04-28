@@ -41,10 +41,7 @@ public class RespostaServiceImpl implements RespostaService {
 
 	
 	public void validaResposta(Resposta resposta) throws EntidadeInvalidaException, EntidadeNotFoundException {
-		if(resposta.getDataResposta() != null) {
-			throw new ParametroInvalidoException("Data não deve ser passada para criar Resposta.");
-		}
-		
+
 		Long idQuestao = resposta.getIdQuestao();
 		if(idQuestao == null) {
 			throw new EntidadeInvalidaException("idQuestão não pode ser nulo.");
@@ -69,7 +66,13 @@ public class RespostaServiceImpl implements RespostaService {
 			validaSelecao((RespostaSelecao) resposta);
 		}
 	}
-	
+
+	private void extracted(Resposta resposta) {
+		if(resposta.getDataResposta() != null) {
+			throw new ParametroInvalidoException("Data não deve ser passada para criar Resposta.");
+		}
+	}
+
 	private void validaSelecao(RespostaSelecao resposta) throws EntidadeInvalidaException, EntidadeNotFoundException {
 		List<Opcao> opcoes = resposta.getOpcoesSelecionadas();
 		if(opcoes == null) {
