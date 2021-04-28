@@ -46,17 +46,22 @@ public class TokenAuthenticationService {
 
         if (token != null) {
             // faz parse do token
-            String user = Jwts.parser()
-                    .setSigningKey(SECRET)
-                    .parseClaimsJws(token.replace(TOKEN_PREFIX, ""))
-                    .getBody()
-                    .getSubject();
+            String user = null;
+            getSubject(token);
 
             if (user != null) {
                 return new UsernamePasswordAuthenticationToken(user, null, Collections.emptyList());
             }
         }
         return null;
+    }
+
+    private static String getSubject(String token) {
+        return Jwts.parser()
+                .setSigningKey(SECRET)
+                .parseClaimsJws(token.replace(TOKEN_PREFIX, ""))
+                .getBody()
+                .getSubject();
     }
 
 }
