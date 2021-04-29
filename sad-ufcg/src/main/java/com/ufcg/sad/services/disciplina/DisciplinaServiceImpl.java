@@ -32,12 +32,9 @@ public class DisciplinaServiceImpl implements DisciplinaService {
     ProfessorService professorService;
     
     public void validaDisciplina(Disciplina disciplina) throws EntidadeNotFoundException, EntidadeInvalidaException {
-    	// Checa se professor existe
-    	if(disciplina.getProfessorId() != null) {
-    		 professorService.getProfessor(disciplina.getProfessorId());
-    	}
-    	
-    	if(disciplina.getTurma() == null) {
+        extracted(0L);
+
+        if(disciplina.getTurma() == null) {
     		throw new EntidadeInvalidaException("Turma inválida: " + disciplina.getTurma());
     	}
     	
@@ -49,7 +46,14 @@ public class DisciplinaServiceImpl implements DisciplinaService {
     		throw new EntidadeInvalidaException("Código inválido: " + disciplina.getCodigo());
     	}
     }
-    
+
+    private void extracted(Long professorId) throws EntidadeNotFoundException {
+        // Checa se professor existe
+        if(professorId != null) {
+             professorService.getProfessor(professorId);
+        }
+    }
+
     private void validaCriacaoDisciplina(Disciplina disciplina) throws EntidadeInvalidaException, EntidadeNotFoundException {
     	if(disciplina.getId() != null) {
     		throw new EntidadeInvalidaException("Id deve ser nulo para a criação de Disciplina.");
