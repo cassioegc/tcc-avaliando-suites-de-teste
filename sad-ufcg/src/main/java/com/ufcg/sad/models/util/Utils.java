@@ -27,16 +27,21 @@ public final class Utils {
         aluno.setNome(nomeAluno);
         aluno.setEmail("algumemail@ccc.ufcg.edu.br");
 
-        Disciplina disciplina = new Disciplina();
-        disciplina.setNome(nomeDisciplina);
-        disciplina.setTurma(2);
-        disciplina.setSemestre("2017.2");
+        Disciplina disciplina = getDisciplina("");
         Matricula matricula = new Matricula(aluno, disciplina);
 
         return matricula;
     }
-  
-    
+
+    private static Disciplina getDisciplina(String nomeDisciplina) {
+        Disciplina disciplina = new Disciplina();
+        disciplina.setNome(nomeDisciplina);
+        disciplina.setTurma(2);
+        disciplina.setSemestre("2017.2");
+        return disciplina;
+    }
+
+
     public static Questao createQuestaoTest(String enunciado, Professor autor, Date dataCriacao, String comentario, List<Opcao> opcoes, TipoQuestao tipo) {
     	Questao questao = new Questao();
     	
