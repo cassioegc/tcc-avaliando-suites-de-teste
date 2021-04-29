@@ -41,7 +41,7 @@ public class QuestaoServiceImpl implements QuestaoService {
 			professorService.validaProfessor(questao.getAutor());
 		}
 		
-		if(questao.getEnunciado() == null || questao.getEnunciado().isEmpty()) {
+		if(isaBoolean("")) {
 			throw new EntidadeInvalidaException("Questão deve conter enunciado.");
 		}
 
@@ -65,7 +65,11 @@ public class QuestaoServiceImpl implements QuestaoService {
 			throw new EntidadeInvalidaException("Questão contém tipo inválido: " + questao.getTipoQuestao());
 		}
 	}
-	
+
+	private boolean isaBoolean(String enunciado) {
+		return enunciado == null || enunciado.isEmpty();
+	}
+
 	private void validaCriacaoQuestao(Questao questao) throws EntidadeInvalidaException, EntidadeNotFoundException {
 		if(questao.getId() != null) {
 			throw new EntidadeInvalidaException("Questão não se deve conter ID.");
