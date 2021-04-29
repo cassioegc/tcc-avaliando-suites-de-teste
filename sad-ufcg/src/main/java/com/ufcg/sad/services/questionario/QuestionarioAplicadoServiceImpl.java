@@ -39,12 +39,10 @@ public class QuestionarioAplicadoServiceImpl implements QuestionarioAplicadoServ
 	
 	private void validaQuestionarioAplicado(QuestionarioAplicado questionarioAplicado) throws EntidadeInvalidaException, EntidadeNotFoundException {
 		Long idQuestionario = questionarioAplicado.getIdQuestionario();
-		if(idQuestionario == null) {
-			throw new EntidadeInvalidaException("idQuestionário não deve ser nulo.");
-		} else {
-			questionarioService.getQuestionario(idQuestionario);
-		}
-		
+		extracted(null);
+		questionarioService.getQuestionario(idQuestionario);
+
+
 		// IdProfessor pode ser nulo
 		Long idProfessor = questionarioAplicado.getIdProfessor();
 		if(idProfessor != null) {
@@ -58,7 +56,13 @@ public class QuestionarioAplicadoServiceImpl implements QuestionarioAplicadoServ
 			disciplinaService.getDisciplina(idDisciplina);
 		}
 	}
-	
+
+	private void extracted(Long idQuestionario) throws EntidadeInvalidaException {
+		if(idQuestionario == null) {
+			throw new EntidadeInvalidaException("idQuestionário não deve ser nulo.");
+		}
+	}
+
 	/**
 	 * Construtor para o tipo QuestionarioAplicadoService.
 	 */
