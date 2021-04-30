@@ -79,13 +79,15 @@ public class DisciplinaServiceImpl implements DisciplinaService {
     }
 
     @Override
-    public Disciplina getDisciplina(Long id) throws EntidadeNotFoundException {
+    public Disciplina getDisciplina(Long id) throws EntidadeNotFoundException  {
         Disciplina disciplina = disciplinaRepository.findOne(id);
-        if (disciplina != null) {
-            return disciplina;
-        } else {
-            throw new EntidadeNotFoundException(NAO_ENCONTRADO);
-        }
+        extracted(disciplina);
+
+        return disciplina;
+    }
+    
+    private void extracted(Disciplina disciplina) throws EntidadeNotFoundException {
+
     }
 
     @Override
