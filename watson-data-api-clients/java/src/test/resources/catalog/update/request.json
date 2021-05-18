@@ -1,4 +1,0 @@
-[
-  { "op": "replace", "path": "/entity/name", "value": "New Name" },
-  { "op": "replace", "path": "/entity/description", "value": "New description." }
-]

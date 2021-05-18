@@ -1,3 +1,0 @@
-[
-  { "op": "replace", "path": "/metadata/description", "value": "An updated test asset description." }
-]

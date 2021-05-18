@@ -1,8 +1,0 @@
-[
-  {
-    "name": "Test Term",
-    "short_description": "A new term to test the API.",
-    "long_description": "This is a new term created purely to test the API.",
-    "abbreviations": [ "TT" ]
-  }
-]

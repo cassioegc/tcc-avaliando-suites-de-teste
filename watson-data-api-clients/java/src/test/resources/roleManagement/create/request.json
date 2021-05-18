@@ -1,7 +1,0 @@
-{
-  "description": "A test role to validate the API client works as expected.",
-  "role_name": "Test Role",
-  "permissions": [
-    "administrator"
-  ]
-}
